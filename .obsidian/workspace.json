@@ -11,8 +11,12 @@
             "id": "6b0b45cb000a4320",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/人工智能/机器学习基本概念.md",
+                "mode": "source",
+                "source": false
+              }
             }
           },
           {
@@ -45,14 +49,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/test.md",
+                "file": "source/_posts/hello-world.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -118,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/test.md",
+                "file": "source/_posts/人工智能/机器学习基本概念.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/test.md",
+                "file": "source/_posts/人工智能/机器学习基本概念.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/test.md"
+                "file": "source/_posts/人工智能/机器学习基本概念.md"
               }
             }
           },
@@ -187,31 +190,53 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e465b45e36584209",
+  "active": "6b0b45cb000a4320",
   "lastOpenFiles": [
-    "node_modules/hexo-theme-kratos-rebirth/languages/zh-CN.yml",
-    "node_modules/hexo-theme-kratos-rebirth/languages",
-    "node_modules/hexo-theme-kratos-rebirth/_config.yml",
-    "node_modules/hexo-theme-kratos-rebirth/source/vendors/layui-src@2.5.5/dist/font/iconfont.woff2",
-    "node_modules/hexo-theme-kratos-rebirth/source/vendors/bootstrap@3.3.4/dist/fonts/glyphicons-halflings-regular.woff2",
-    "node_modules/hexo-theme-kratos-rebirth/source/vendors/font-awesome@4.7.0/fonts/fontawesome-webfont.woff2",
-    "node_modules/hexo-theme-kratos-rebirth/source/vendors/layui-src@2.5.5/dist/font/iconfont.woff",
-    "node_modules/hexo-theme-kratos-rebirth/source/vendors/bootstrap@3.3.4/dist/fonts/glyphicons-halflings-regular.woff",
-    "node_modules/hexo-theme-kratos-rebirth/source/vendors/font-awesome@4.7.0/fonts/fontawesome-webfont.woff",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/wechat.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_9.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_8.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_7.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_6.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_5.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_4.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_2.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_19.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb/thumb_18.webp",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/thumb",
-    "node_modules/hexo-theme-kratos-rebirth/source/images/failure.ico",
-    "source/_posts/hello-world.md",
-    "source/_posts/test.md",
-    "open source control view.md"
+    "source/_posts/课程作业/6G技术发展报告.md",
+    "source/_posts/随手记.md",
+    "source/_posts/XinKa.md",
+    "source/_posts/TEMP：组会铺垫.md",
+    "source/_posts/TEMP：中铁.md",
+    "source/_posts/TEMP：论文思路.md",
+    "source/_posts/英语学习/英语学习.md",
+    "source/_posts/英语学习/英语单词.md",
+    "source/_posts/英语学习/英语短语.md",
+    "source/_posts/英语学习",
+    "source/_posts/研究方向/attachments/Pasted image 20240307212248.png",
+    "source/_posts/研究方向/检索工具.md",
+    "source/_posts/研究方向/研究.md",
+    "source/_posts/研究方向/方向：密码生成.md",
+    "source/_posts/研究方向/方向调研.md",
+    "source/_posts/研究方向/会议调研.md",
+    "source/_posts/研究方向/中国计算机学会推荐国际学术会议和期刊目录-2019.pdf",
+    "source/_posts/研究方向/PASS_RF.md",
+    "source/_posts/研究方向/attachments",
+    "source/_posts/研究方向",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240420190155.png",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240421125735.png",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240420205753.png",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240420200025.png",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240320211915.png",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240330205906.jpg",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240320211742.png",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240320211822.png",
+    "source/_posts/项目经历/TinyKV/attachments/Pasted image 20240320211748.png",
+    "source/_posts/项目经历/TinyKV/TinyKV 项目要求.md",
+    "source/_posts/项目经历/TinyKV/TinyKV 项目日志.md",
+    "source/_posts/项目经历/TinyKV/Raft 协议.md",
+    "source/_posts/项目经历/MimaPJ/MMPJ 日志.md",
+    "source/_posts/项目经历/TinyKV/attachments",
+    "source/_posts/项目经历/项目经历.md",
+    "source/_posts/项目经历/TinyKV",
+    "source/_posts/项目经历/MimaPJ",
+    "source/_posts/项目经历",
+    "source/_posts/算法题目/STL.md",
+    "source/_posts/算法题目/问题分析.md",
+    "source/_posts/算法题目",
+    "source/_posts/生活琐事/祝词.md",
+    "source/_posts/生活琐事",
+    "source/_posts/赛事活动/蓝桥杯.md",
+    "source/_posts/赛事活动/百度之星程序设计大赛.md",
+    "source/_posts/赛事活动/啊 比赛汇总.md"
   ]
 }

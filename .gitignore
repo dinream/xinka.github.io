@@ -1,9 +1,9 @@
 .DS_Store
 Thumbs.db
-db.json
 *.log
-node_modules/
 public/
 .deploy*/
 _multiconfig.yml
 .obsidian/workspace
+source/_posts/认知社会
+source/_posts/生活琐事
