@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2e4da7ba5e33e114",
+        "id": "c5887a7fdc22aa79",
         "type": "tabs",
         "children": [
           {
-            "id": "c5b62295d9bf0387",
+            "id": "6b0b45cb000a4320",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -120,13 +120,21 @@
               "type": "outline",
               "state": {}
             }
+          },
+          {
+            "id": "d6fb287cbf143327",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -138,8 +146,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "fc06c7a77af3e3e0",
+  "active": "6b0b45cb000a4320",
   "lastOpenFiles": [
+    "open source control view.md",
     "search.json",
     "js/services/weibo.js",
     "js/services/timeline.js",
@@ -149,7 +158,6 @@
     "js/search/local-search.js",
     "js/services/mdrender.js",
     "js/services/ghinfo.js",
-    "js/services/friends.js",
-    "js/services/fcircle.js"
+    "js/services/friends.js"
   ]
 }

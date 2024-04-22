@@ -7,5 +7,6 @@
     "node_modules/@adobe/",
     "node_modules/@tootallnate/",
     "node_modules/a-sync-waterfall/"
-  ]
+  ],
+  "promptDelete": false
 }
