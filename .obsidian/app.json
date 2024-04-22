@@ -1,0 +1,11 @@
+{
+  "userIgnoreFilters": [
+    "node_modules/",
+    "public/",
+    "scaffolds/",
+    "themes/",
+    "node_modules/@adobe/",
+    "node_modules/@tootallnate/",
+    "node_modules/a-sync-waterfall/"
+  ]
+}
