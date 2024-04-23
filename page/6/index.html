@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
     <head>
   <!-- 元数据 -->
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>心咖</title>
   
-  <meta name="author" content="John Doe" />
+  <meta name="author" content="dreamin" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,11 +18,11 @@
     <meta name="keywords" content="" />
   
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/6/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:title" content="心咖">
+<meta property="og:url" content="https://xinka.vercel.app/page/6/index.html">
+<meta property="og:site_name" content="心咖">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="dreamin">
 <meta name="twitter:card" content="summary">
   
   <!-- 站点验证相关 -->
@@ -83,7 +83,7 @@
             </header>
             <header id="kratos-mobile-topnav" class="kratos-topnav">
                 <div class="container">
-                    <div class="color-logo"><a href="/">Hexo</a></div>
+                    <div class="color-logo"><a href="/">心咖</a></div>
                     <div class="nav-toggle">
                         <a class="kratos-nav-toggle js-kratos-nav-toggle">
                             <i></i>
@@ -97,7 +97,7 @@
             <div class="kratos-cover kratos-cover-2 text-center">
                 <div class="desc desc2 animate-box">
                     <a href="/">
-                        <h2>Hexo</h2> <br />
+                        <h2>心咖</h2> <br />
                         <span></span>
                     </a>
                 </div>
@@ -348,6 +348,72 @@
                 <div class="kratos-status-inner">
                     <div class="kratos-status-content" itemprop="articleBody">
                         
+                            <p>![[Pasted image 20240303155734.png]]</p>
+<p>ChatGPT基于循环神经网络（RNN）和注意力机制的模型架构。它是一个生成式模型，可以根据之前的聊天信息生成响应。</p>
+<p>模型的原理如下：</p>
+<ol>
+<li><p>输入编码：在每个对话轮次中，聊天历史被编码为一个输入向量序列。这些向量可以是词向量、字符向量或其他表示形式，根据具体的实现方式而定。</p>
+</li>
+<li><p>上下文理解：模型使用编码后的输入向量序列，通过循环神经网络（如长短期记忆网络，LSTM）或变种（如GPT-3中的Transformer网络）来理解上下文。这些模型会捕捉到前面对话中的语义和语法结构，并对其进行建模。</p>
+</li>
+<li><p>注意力机制：模型使用注意力机制来关注历史上下文中与当前生成响应相关的部分。通过对不同部分的注意力分配权重，模型可以更好地理解和应答对话。</p>
+</li>
+<li><p>响应生成：模型将上下文理解与当前对话的目标进行合并，然后通过解码器生成响应。解码器会根据上下文和已生成内容预测下一个最有可能的词或子序列。</p>
+</li>
+<li><p>迭代训练：模型通过最大似然估计（MLE）或其他适当的训练目标进行训练，以使生成的响应与训练数据中的目标响应尽可能一致。</p>
+</li>
+<li><p>上下文维护：模型会维护一个有限的上下文窗口，以限制对话历史的长度。这有助于控制模型的记忆和计算需求，并防止信息过载。</p>
+</li>
+</ol>
+<p>在每个对话轮次中，聊天历史被编码为一个输入向量序列。这些向量可以是词向量、字符向量或其他表示形式，根据具体的实现方式而定。模型使用编码后的输入向量序列，通过循环神经网络（如长短期记忆网络，LSTM）或变种（如GPT-3中的Transformer网络）来理解上下文，这些模型会捕捉到前面对话中的语义和语法结构，并对其进行建模。模型将上下文理解与当前对话的目标进行合并，然后通过解码器生成响应。模型会维护一个有限的上下文窗口，以限制对话历史的长度。这有助于控制模型的记忆和计算需求，并防止信息过载。</p>
+<p>这里 memory 模块 保持一个聊天记录的列表，作为历史记录的缓冲区，并且每次都将这些消息与问题一起传递给聊天机器人。</p>
+<p>在每个对话轮次中，ChatGPT通过将聊天历史编码为一个输入向量序列来处理上下文信息。这些向量可以采用词向量、字符向量或其他形式的表示，具体取决于实现的方式。</p>
+<p>然后，通过使用神经网络（如GPT-3中的Transformer网络），模型能够全面理解上下文，并捕捉前面对话中的语义和语法结构。这样，模型可以建立起对对话历史的深入理解。</p>
+<p>模型将上下文理解与当前对话目标相结合，然后通过解码器生成响应。解码器利用上下文信息和已经生成的内容来预测下一个最可能的词或子序列，从而生成连贯的回复。</p>
+<p>为了控制模型的记忆和计算需求，并避免信息过载，ChatGPT维护一个有限的上下文窗口，限制对话历史的长度。这种方式确保模型在适应多轮对话时能够保持高效性，并生成准确、有逻辑的回应。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.983Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/RAG%20%E9%A1%B9%E7%9B%AE/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
                             <p>[[RAG 项目]]</p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>检索增强生成（RAG——Retrieval <strong>Augmented</strong> Generation）是指对大型语言模型输出进行优化，使其能够在生成响应之前引用训练数据来源之外的权威知识库。大型语言模型（LLM）用海量数据进行训练，使用数十亿个参数为回答问题、翻译语言和完成句子等任务生成原始输出。在 LLM 本就强大的功能基础上，RAG 将其扩展为能访问特定领域或组织的内部知识库，所有这些都无需重新训练模型。这是一种经济高效地改进 LLM 输出的方法，让它在各种情境下都能保持相关性、准确性和实用性。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">会拿这个权威知识库进行训练嘛？</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -488,72 +554,6 @@
                 <div class="kratos-status-inner">
                     <div class="kratos-status-content" itemprop="articleBody">
                         
-                            <p>![[Pasted image 20240303155734.png]]</p>
-<p>ChatGPT基于循环神经网络（RNN）和注意力机制的模型架构。它是一个生成式模型，可以根据之前的聊天信息生成响应。</p>
-<p>模型的原理如下：</p>
-<ol>
-<li><p>输入编码：在每个对话轮次中，聊天历史被编码为一个输入向量序列。这些向量可以是词向量、字符向量或其他表示形式，根据具体的实现方式而定。</p>
-</li>
-<li><p>上下文理解：模型使用编码后的输入向量序列，通过循环神经网络（如长短期记忆网络，LSTM）或变种（如GPT-3中的Transformer网络）来理解上下文。这些模型会捕捉到前面对话中的语义和语法结构，并对其进行建模。</p>
-</li>
-<li><p>注意力机制：模型使用注意力机制来关注历史上下文中与当前生成响应相关的部分。通过对不同部分的注意力分配权重，模型可以更好地理解和应答对话。</p>
-</li>
-<li><p>响应生成：模型将上下文理解与当前对话的目标进行合并，然后通过解码器生成响应。解码器会根据上下文和已生成内容预测下一个最有可能的词或子序列。</p>
-</li>
-<li><p>迭代训练：模型通过最大似然估计（MLE）或其他适当的训练目标进行训练，以使生成的响应与训练数据中的目标响应尽可能一致。</p>
-</li>
-<li><p>上下文维护：模型会维护一个有限的上下文窗口，以限制对话历史的长度。这有助于控制模型的记忆和计算需求，并防止信息过载。</p>
-</li>
-</ol>
-<p>在每个对话轮次中，聊天历史被编码为一个输入向量序列。这些向量可以是词向量、字符向量或其他表示形式，根据具体的实现方式而定。模型使用编码后的输入向量序列，通过循环神经网络（如长短期记忆网络，LSTM）或变种（如GPT-3中的Transformer网络）来理解上下文，这些模型会捕捉到前面对话中的语义和语法结构，并对其进行建模。模型将上下文理解与当前对话的目标进行合并，然后通过解码器生成响应。模型会维护一个有限的上下文窗口，以限制对话历史的长度。这有助于控制模型的记忆和计算需求，并防止信息过载。</p>
-<p>这里 memory 模块 保持一个聊天记录的列表，作为历史记录的缓冲区，并且每次都将这些消息与问题一起传递给聊天机器人。</p>
-<p>在每个对话轮次中，ChatGPT通过将聊天历史编码为一个输入向量序列来处理上下文信息。这些向量可以采用词向量、字符向量或其他形式的表示，具体取决于实现的方式。</p>
-<p>然后，通过使用神经网络（如GPT-3中的Transformer网络），模型能够全面理解上下文，并捕捉前面对话中的语义和语法结构。这样，模型可以建立起对对话历史的深入理解。</p>
-<p>模型将上下文理解与当前对话目标相结合，然后通过解码器生成响应。解码器利用上下文信息和已经生成的内容来预测下一个最可能的词或子序列，从而生成连贯的回复。</p>
-<p>为了控制模型的记忆和计算需求，并避免信息过载，ChatGPT维护一个有限的上下文窗口，限制对话历史的长度。这种方式确保模型在适应多轮对话时能够保持高效性，并生成准确、有逻辑的回应。</p>
-
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:48.983Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/RAG%20%E9%A1%B9%E7%9B%AE/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
                             <h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><p>书籍：<a target="_blank" rel="noopener" href="https://zh.d2l.ai/index.html">动手学深度学习</a></p>
 <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>[[机器学习基本概念]]<br>[[深度学习基本概念]]</p>
 <h1 id="常见模型"><a href="#常见模型" class="headerlink" title="常见模型"></a>常见模型</h1><p>[[GAN]]<br>[[变分编码器]]<br>[[扩散模型]]<br>[[大模型入门]]</p>
@@ -673,6 +673,138 @@
                     
                         <span class="pull-right">
                             <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/Finetuning/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="个人环境搭建"><a href="#个人环境搭建" class="headerlink" title="个人环境搭建"></a>个人环境搭建</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="openai"><a href="#openai" class="headerlink" title="openai"></a>openai</h3><p><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/api-reference/chat-completions/create">api 使用文档</a></p>
+<h2 id="wenxin"><a href="#wenxin" class="headerlink" title="wenxin"></a>wenxin</h2><p>[[微信项目]]<br>教程：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30299877/article/details/131917097">如何申请文心一言&amp;文心千帆大模型API调用资格、获取access_token，并使用SpringBoot接入文心一言API_文心一言api申请-CSDN博客</a></p>
+<p>在线调试工具<br><a target="_blank" rel="noopener" href="https://console.bce.baidu.com/tools/#/api?product=AI&project=%E6%96%87%E5%BF%83%E5%8D%83%E5%B8%86%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B9%B3%E5%8F%B0&parent=%E9%89%B4%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6&api=oauth%2F2.0%2Ftoken&method=post">https://console.bce.baidu.com/tools/#/api?product=AI&amp;project=%E6%96%87%E5%BF%83%E5%8D%83%E5%B8%86%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B9%B3%E5%8F%B0&amp;parent=%E9%89%B4%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6&amp;api=oauth%2F2.0%2Ftoken&amp;method=post</a></p>
+<p>token<br>24.0339bde53ae4eed0ed979b9f9959b20e.2592000.1711684739.282335-53912329<br>申请：<a target="_blank" rel="noopener" href="https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/create">https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/create</a><br>[api 文档](<a target="_blank" rel="noopener" href="https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Rlkkt6kd7">使用网页调试工具获取access_token - 千帆大模型平台 | 百度智能云文档 (baidu.com)</a>)</p>
+<h2 id="github-Copilot-免费使用-gpt-4"><a href="#github-Copilot-免费使用-gpt-4" class="headerlink" title="github Copilot 免费使用 gpt-4"></a>github Copilot 免费使用 gpt-4</h2><p><a target="_blank" rel="noopener" href="https://blog.geniucker.top/2024/01/26/%E9%80%9A%E8%BF%87-GitHub-Copilot-%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8-gpt-4/">https://blog.geniucker.top/2024/01/26/%E9%80%9A%E8%BF%87-GitHub-Copilot-%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8-gpt-4/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Geniucker/CoGPT?tab=readme-ov-file">https://github.com/Geniucker/CoGPT?tab=readme-ov-file</a></p>
+<p>我希望你充当激励教练。我将为您提供一些关于某人的目标和挑战的信息，而您的工作就是想出可以帮助此人实现目标的策略。这可能涉及提供积极的肯定、提供有用的建议或建议他们可以采取哪些行动来实现最终目标。我的第一个请求是“我需要帮助来激励自己在为即将到来的考试学习时保持纪律”。</p>
+<h1 id="常用的大模型应用技术"><a href="#常用的大模型应用技术" class="headerlink" title="常用的大模型应用技术"></a>常用的大模型应用技术</h1><h2 id="Prompt"><a href="#Prompt" class="headerlink" title="Prompt"></a>Prompt</h2><p>[[Prompt]]</p>
+<h3 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt 指南</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/courses/chatgpt-prompt-eng/lesson/1/introduction">ChatGPT Prompt Engineering for Developers</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1e8411o7NP?p=1&vd_source=31f1c950b5b95af0c48f188f0bc047c7">ChatGPT Prompt Engineering for Developers - 中文字幕版</a></strong></p>
+</li>
+</ul>
+<h3 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h3><ul>
+<li><p>内容: 使用 GPT-4, 设计 Prompt 优化 <strong>图说数据库系统</strong> 的文本内容.</p>
+</li>
+<li><p><strong>基本要求:</strong></p>
+<ul>
+<li><p>优化自己负责部分的一个小节, 丰富内容, 优化章节结构, 语言风格等.</p>
+</li>
+<li><p>采用将大问题分解为多个小问题的方式进行优化, 使用多个 Prompt 对比生成的结果. 最后, 对比丰富后与丰富前的文本. (保留优化前的文本)</p>
+</li>
+</ul>
+</li>
+<li><p>进阶:</p>
+<ul>
+<li><p>其他任意 Prompt 工作都可.</p>
+</li>
+<li><p>例如: 优化翻译结果, 优化特定领域结果(数据库专家, 文档编写专家等)</p>
+</li>
+</ul>
+</li>
+<li><p>实验室提供的 GPT-4 Web <a target="_blank" rel="noopener" href="https://chatgpt-next-web-mauve-five.vercel.app/#/chat">https://chatgpt-next-web-mauve-five.vercel.app/#/chat</a></p>
+</li>
+</ul>
+<h3 id="其他资料"><a href="#其他资料" class="headerlink" title="其他资料"></a>其他资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/linexjlin/GPTs">GPTs 的 Prompt, 可用于参考</a></li>
+</ul>
+<h2 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h2><p>[[RAG 检索增强]]</p>
+<h3 id="Course-1"><a href="#Course-1" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11G411X7nZ?p=15&vd_source=31f1c950b5b95af0c48f188f0bc047c7">Retrieval Augmented Generation (RAG) 简介 - 中文字幕版</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/langchain-chat-with-your-data/lesson/2/document-loading">LangChain Chat with Your Data</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV148411D7d2/?spm_id_from=333.337.search-card.all.click&vd_source=31f1c950b5b95af0c48f188f0bc047c7">LangChain Chat with Your Data - 中文字幕版</a></strong></p>
+</li>
+</ul>
+<h3 id="Project-1"><a href="#Project-1" class="headerlink" title="Project"></a>Project</h3><ul>
+<li><p>利用指定的书籍文档, 构建 RAG 系统.</p>
+</li>
+<li><p>利用 RAG 系统优化 <strong>图说数据库系统</strong> 的文本内容.</p>
+</li>
+<li><p><strong>基本要求:</strong></p>
+<ul>
+<li>优化自己部分的一个小节, 丰富内容, 修正错误. 与原文本, Prompt 生成的文本进行对比.</li>
+</ul>
+</li>
+<li><p>进阶:</p>
+<ul>
+<li>构建其他任意 RAG 系统.</li>
+<li>例如: 分布式课程 RAG 系统, 实验室文档 RAG 系统, 医疗 RAG 系统等.</li>
+</ul>
+</li>
+<li><p>实验室提供的 API-Key</p>
+</li>
+<li><p>可以用于 机器人的 聊天记录进行保存</p>
+</li>
+</ul>
+<h3 id="其他资料-1"><a href="#其他资料-1" class="headerlink" title="其他资料"></a>其他资料</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/building-evaluating-advanced-rag/lesson/1/introduction">Building and Evaluating Advanced RAG</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/functions-tools-agents-langchain/lesson/1/introduction">Functions, Tools and Agents with LangChain</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://twitter.com/tisoga/status/1731478506465636749?s=61&t=TVU99VOXdlAywAcBa_iuSg">devv.ai 是如何构建高效的 RAG 系统的</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://twitter.com/i/web/status/1737037970367283474">复杂 RAG 的技术考虑</a></p>
+</li>
+</ul>
+<h2 id="MoE"><a href="#MoE" class="headerlink" title="MoE"></a>MoE</h2><p>[[MoEs]]</p>
+<h3 id="Course-2"><a href="#Course-2" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://baoyu.io/translations/llm/mixture-of-experts-explained">深入理解混合专家模型</a></li>
+</ul>
+<h2 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h2><p>[[Finetuning]]</p>
+<h3 id="Course-3"><a href="#Course-3" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/finetuning-large-language-models/lesson/1/introduction">Finetuning Large Language Models</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rz4y1T7wz/?spm_id_from=333.337.search-card.all.click&vd_source=59461060c1867e9bf731e467ae6f00b5">吴恩达《微调大型语言模型》| Finetuning Large Language Models（中英字幕）_哔哩哔哩_bilibili</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.974Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/GAI%20%E7%9A%84%E5%BA%94%E7%94%A8/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
                         </span>
                     
 
@@ -861,138 +993,6 @@
                     
                         <span class="pull-right">
                             <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/GAI%20%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
-                            <h1 id="个人环境搭建"><a href="#个人环境搭建" class="headerlink" title="个人环境搭建"></a>个人环境搭建</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="openai"><a href="#openai" class="headerlink" title="openai"></a>openai</h3><p><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/api-reference/chat-completions/create">api 使用文档</a></p>
-<h2 id="wenxin"><a href="#wenxin" class="headerlink" title="wenxin"></a>wenxin</h2><p>[[微信项目]]<br>教程：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30299877/article/details/131917097">如何申请文心一言&amp;文心千帆大模型API调用资格、获取access_token，并使用SpringBoot接入文心一言API_文心一言api申请-CSDN博客</a></p>
-<p>在线调试工具<br><a target="_blank" rel="noopener" href="https://console.bce.baidu.com/tools/#/api?product=AI&project=%E6%96%87%E5%BF%83%E5%8D%83%E5%B8%86%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B9%B3%E5%8F%B0&parent=%E9%89%B4%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6&api=oauth%2F2.0%2Ftoken&method=post">https://console.bce.baidu.com/tools/#/api?product=AI&amp;project=%E6%96%87%E5%BF%83%E5%8D%83%E5%B8%86%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B9%B3%E5%8F%B0&amp;parent=%E9%89%B4%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6&amp;api=oauth%2F2.0%2Ftoken&amp;method=post</a></p>
-<p>token<br>24.0339bde53ae4eed0ed979b9f9959b20e.2592000.1711684739.282335-53912329<br>申请：<a target="_blank" rel="noopener" href="https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/create">https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/create</a><br>[api 文档](<a target="_blank" rel="noopener" href="https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Rlkkt6kd7">使用网页调试工具获取access_token - 千帆大模型平台 | 百度智能云文档 (baidu.com)</a>)</p>
-<h2 id="github-Copilot-免费使用-gpt-4"><a href="#github-Copilot-免费使用-gpt-4" class="headerlink" title="github Copilot 免费使用 gpt-4"></a>github Copilot 免费使用 gpt-4</h2><p><a target="_blank" rel="noopener" href="https://blog.geniucker.top/2024/01/26/%E9%80%9A%E8%BF%87-GitHub-Copilot-%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8-gpt-4/">https://blog.geniucker.top/2024/01/26/%E9%80%9A%E8%BF%87-GitHub-Copilot-%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8-gpt-4/</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Geniucker/CoGPT?tab=readme-ov-file">https://github.com/Geniucker/CoGPT?tab=readme-ov-file</a></p>
-<p>我希望你充当激励教练。我将为您提供一些关于某人的目标和挑战的信息，而您的工作就是想出可以帮助此人实现目标的策略。这可能涉及提供积极的肯定、提供有用的建议或建议他们可以采取哪些行动来实现最终目标。我的第一个请求是“我需要帮助来激励自己在为即将到来的考试学习时保持纪律”。</p>
-<h1 id="常用的大模型应用技术"><a href="#常用的大模型应用技术" class="headerlink" title="常用的大模型应用技术"></a>常用的大模型应用技术</h1><h2 id="Prompt"><a href="#Prompt" class="headerlink" title="Prompt"></a>Prompt</h2><p>[[Prompt]]</p>
-<h3 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h3><ul>
-<li><p><strong><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt 指南</a></strong></p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/courses/chatgpt-prompt-eng/lesson/1/introduction">ChatGPT Prompt Engineering for Developers</a></strong></p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1e8411o7NP?p=1&vd_source=31f1c950b5b95af0c48f188f0bc047c7">ChatGPT Prompt Engineering for Developers - 中文字幕版</a></strong></p>
-</li>
-</ul>
-<h3 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h3><ul>
-<li><p>内容: 使用 GPT-4, 设计 Prompt 优化 <strong>图说数据库系统</strong> 的文本内容.</p>
-</li>
-<li><p><strong>基本要求:</strong></p>
-<ul>
-<li><p>优化自己负责部分的一个小节, 丰富内容, 优化章节结构, 语言风格等.</p>
-</li>
-<li><p>采用将大问题分解为多个小问题的方式进行优化, 使用多个 Prompt 对比生成的结果. 最后, 对比丰富后与丰富前的文本. (保留优化前的文本)</p>
-</li>
-</ul>
-</li>
-<li><p>进阶:</p>
-<ul>
-<li><p>其他任意 Prompt 工作都可.</p>
-</li>
-<li><p>例如: 优化翻译结果, 优化特定领域结果(数据库专家, 文档编写专家等)</p>
-</li>
-</ul>
-</li>
-<li><p>实验室提供的 GPT-4 Web <a target="_blank" rel="noopener" href="https://chatgpt-next-web-mauve-five.vercel.app/#/chat">https://chatgpt-next-web-mauve-five.vercel.app/#/chat</a></p>
-</li>
-</ul>
-<h3 id="其他资料"><a href="#其他资料" class="headerlink" title="其他资料"></a>其他资料</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/linexjlin/GPTs">GPTs 的 Prompt, 可用于参考</a></li>
-</ul>
-<h2 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h2><p>[[RAG 检索增强]]</p>
-<h3 id="Course-1"><a href="#Course-1" class="headerlink" title="Course"></a>Course</h3><ul>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11G411X7nZ?p=15&vd_source=31f1c950b5b95af0c48f188f0bc047c7">Retrieval Augmented Generation (RAG) 简介 - 中文字幕版</a></strong></p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/langchain-chat-with-your-data/lesson/2/document-loading">LangChain Chat with Your Data</a></strong></p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV148411D7d2/?spm_id_from=333.337.search-card.all.click&vd_source=31f1c950b5b95af0c48f188f0bc047c7">LangChain Chat with Your Data - 中文字幕版</a></strong></p>
-</li>
-</ul>
-<h3 id="Project-1"><a href="#Project-1" class="headerlink" title="Project"></a>Project</h3><ul>
-<li><p>利用指定的书籍文档, 构建 RAG 系统.</p>
-</li>
-<li><p>利用 RAG 系统优化 <strong>图说数据库系统</strong> 的文本内容.</p>
-</li>
-<li><p><strong>基本要求:</strong></p>
-<ul>
-<li>优化自己部分的一个小节, 丰富内容, 修正错误. 与原文本, Prompt 生成的文本进行对比.</li>
-</ul>
-</li>
-<li><p>进阶:</p>
-<ul>
-<li>构建其他任意 RAG 系统.</li>
-<li>例如: 分布式课程 RAG 系统, 实验室文档 RAG 系统, 医疗 RAG 系统等.</li>
-</ul>
-</li>
-<li><p>实验室提供的 API-Key</p>
-</li>
-<li><p>可以用于 机器人的 聊天记录进行保存</p>
-</li>
-</ul>
-<h3 id="其他资料-1"><a href="#其他资料-1" class="headerlink" title="其他资料"></a>其他资料</h3><ul>
-<li><p><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/building-evaluating-advanced-rag/lesson/1/introduction">Building and Evaluating Advanced RAG</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/functions-tools-agents-langchain/lesson/1/introduction">Functions, Tools and Agents with LangChain</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://twitter.com/tisoga/status/1731478506465636749?s=61&t=TVU99VOXdlAywAcBa_iuSg">devv.ai 是如何构建高效的 RAG 系统的</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://twitter.com/i/web/status/1737037970367283474">复杂 RAG 的技术考虑</a></p>
-</li>
-</ul>
-<h2 id="MoE"><a href="#MoE" class="headerlink" title="MoE"></a>MoE</h2><p>[[MoEs]]</p>
-<h3 id="Course-2"><a href="#Course-2" class="headerlink" title="Course"></a>Course</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://baoyu.io/translations/llm/mixture-of-experts-explained">深入理解混合专家模型</a></li>
-</ul>
-<h2 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h2><p>[[Finetuning]]</p>
-<h3 id="Course-3"><a href="#Course-3" class="headerlink" title="Course"></a>Course</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/finetuning-large-language-models/lesson/1/introduction">Finetuning Large Language Models</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rz4y1T7wz/?spm_id_from=333.337.search-card.all.click&vd_source=59461060c1867e9bf731e467ae6f00b5">吴恩达《微调大型语言模型》| Finetuning Large Language Models（中英字幕）_哔哩哔哩_bilibili</a></li>
-</ul>
-
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:48.974Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/GAI%20%E7%9A%84%E5%BA%94%E7%94%A8/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
                         </span>
                     
 
@@ -1457,12 +1457,12 @@
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2024 Hexo 版权所有.</li>
+                            <li>&copy; 2024 心咖 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>
                             <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
-                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by John Doe.</li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by dreamin.</li>
                         </div>
                         <div>
                             <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
