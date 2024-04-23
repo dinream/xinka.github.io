@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>查看动态 | Hexo</title>
+  
+  <meta name="author" content="John Doe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="摘要 传统基于规则的方法依赖于专家知识 最新的基于深度学习方法，passGAN rpassGAN 在某些方面不如 PCFG 不同的深度学习方法有不同的候选密码空间，且无法重叠。 本文提出 REDPACK ，解决了 GAN 方法的不足，以有效的方法集合了多个候选密码生成器模型。 使用 rPassGAN 的候选密码鉴别器作为密码选择器。 有选择的搜集密码，我们实现了更真实的密码字典。   在符号，数字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/REDPACK/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="摘要 传统基于规则的方法依赖于专家知识 最新的基于深度学习方法，passGAN rpassGAN 在某些方面不如 PCFG 不同的深度学习方法有不同的候选密码空间，且无法重叠。 本文提出 REDPACK ，解决了 GAN 方法的不足，以有效的方法集合了多个候选密码生成器模型。 使用 rPassGAN 的候选密码鉴别器作为密码选择器。 有选择的搜集密码，我们实现了更真实的密码字典。   在符号，数字">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-22T13:14:48.844Z">
+<meta property="article:modified_time" content="2024-04-16T13:12:25.835Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Hexo</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Hexo</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/REDPACK/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-04-22T13:14:48.844Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-22</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">John Doe</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~6.16K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><ol>
+<li>传统基于规则的方法依赖于专家知识</li>
+<li>最新的基于深度学习方法，passGAN rpassGAN 在某些方面不如 PCFG</li>
+<li>不同的深度学习方法有不同的候选密码空间，且无法重叠。</li>
+<li>本文提出 REDPACK ，解决了 GAN 方法的不足，以有效的方法集合了多个候选密码生成器模型。<ol>
+<li>使用 rPassGAN 的候选密码鉴别器作为密码选择器。</li>
+<li>有选择的搜集密码，我们实现了更真实的密码字典。</li>
+</ol>
+</li>
+<li>在符号，数字，大小写字母组成的密码字典上测试我们的系统。<ol>
+<li>优于 基于规则，GAN，PCFG，</li>
+<li>生成候选密码减少 65% 时，破解性能仅损失 20%。</li>
+</ol>
+</li>
+</ol>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ol>
+<li>基于规则破解。基于专家的知识扩展性差。</li>
+<li>先进的密码破解很有用<ol>
+<li>防御角度：作为密码强度估计器</li>
+<li>攻击角度：通过多种方式利用先进的密码破解方法。<ol>
+<li>个人角度：破解自己忘记了的密码。</li>
+<li>社会层面：执法机构需要破解密码来收集犯罪证据。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="旧的：Recurrent-PassGAN"><a href="#旧的：Recurrent-PassGAN" class="headerlink" title="旧的：Recurrent PassGAN"></a>旧的：Recurrent PassGAN</h2><p>对 PassGAN 的改进，弥补基于规则的方法和数据驱动的方法，例如马尔科夫模型等。</p>
+<ol>
+<li>模型足够表示用户使用密码的模式和上下文结构。</li>
+<li>深度学习不需要密码属性和结构的先验知识，只从训练数据中学习特征。</li>
+</ol>
+<p>普通 PassGAN：使用了Wasserstein GAN梯度惩罚（WGAN-GP）[11]模型。 WGAN-GP 的基础深度神经网络是基于卷积神经网络 (CNN) 的残差网络。</p>
+<p>rPassGAN 通过修改PassGAN的基础神经网络类型和结构来提高密码破解性能。</p>
+<p>rPassD2CGAN（rPassGAN 的双鉴别器版本）的性能优于 rPassGAN。然而，在rPassD2CGAN的训练过程中，它有时会变得不稳定。因此，我们通过使用另一个模型 rPassD2SGAN 来克服这个弱点。我们通过多个实验证明了 rPassGAN 生成的候选密码对于增强密码强度估计器的有效性。</p>
+<p>与概率上下文无关语法（PCFG）和其他马尔可夫模型（例如 OMEN [1]）相比，rPassGAN 有时破解的密码较少。</p>
+<h2 id="新的：REDPACK"><a href="#新的：REDPACK" class="headerlink" title="新的：REDPACK"></a>新的：REDPACK</h2><p>核心：通过少量猜测来最大化密码破解性能。<br>策略：</p>
+<ol>
+<li>有选择地收集更真实的候选密码，以提高密码破解的效率。如果可以使用各种模型的候选密码字典。</li>
+<li>相对论平均标准 GAN [13] 的判别器作为估计器运行，它评估来自各种预先生成的候选者的输入密码的真实性。</li>
+<li>强调：通常只使用 GAN 生成器，我们还使用了 GAN 鉴别器。<br>贡献：</li>
+<li>GAN 判别器用于帮助生成密码。</li>
+<li>REDPACK 能用多个预生成的候选密码制作更有效的候选字典。</li>
+<li>为 REDPACK 构建了一个自定义规则集。</li>
+</ol>
+<h2 id="文章结构"><a href="#文章结构" class="headerlink" title="文章结构"></a>文章结构</h2><ol>
+<li>第 2 节：相关密码猜测模型</li>
+<li>第 3 节：GANs 和 relativistic average GANs</li>
+<li>第 4 节：REDPACK 的概念和架构</li>
+<li>第 5 节：训练超参数的配置过程。实验结果</li>
+<li>第 6 节：结论</li>
+</ol>
+<h1 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h1><ol>
+<li>基于规则的方法：<ol>
+<li>hashcat ，JTR 开源软件多种攻击方式。</li>
+<li>马尔科夫模型。</li>
+<li>缺点：有明确的密钥空间。</li>
+</ol>
+</li>
+<li>马尔可夫和 PCFG。<ol>
+<li>使用符号：数字，字母，符号，单词。组合包含在特定概率分布中</li>
+<li>使用马尔可夫过滤器消除滴概率密码</li>
+<li>使用彩虹标加速。</li>
+<li>图灵机处理特殊符号密码。</li>
+<li>一些改进</li>
+<li>PCFG 使用学习语法结构，密码组合。</li>
+<li>一些优化。</li>
+</ol>
+</li>
+<li>深度学习方法<ol>
+<li>PassGAN ：WGAN-GP 代价函数 + CNN</li>
+<li>rPassGAN：RNN<br> 效果：能破解 PCFG 等其他模型无法破解的密码。</li>
+</ol>
+</li>
+</ol>
+<h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><h2 id="GAN"><a href="#GAN" class="headerlink" title="GAN"></a>GAN</h2><ol>
+<li>[[GAN]] : GAN, WGAN, IWGAN 。其中 IWGAN 实验激发了 Hitaj 等人的兴趣。 [9]将IWGAN应用于密码猜测问题。 他们将创建的模型称为 PassGAN。</li>
+</ol>
+<h2 id="Relativistic-average-GAN"><a href="#Relativistic-average-GAN" class="headerlink" title="Relativistic average GAN"></a>Relativistic average GAN</h2><ol>
+<li>GAN 可分为 IPM 和 non-IPM，<ol>
+<li>non-IPM 在学习阶段不稳定，模型优化困难。</li>
+<li>IPM： Jolicoeur [13] 分析了 SGAN 的损失函数，以分析非基于 IPM 的 GAN 的局限性，并提出了一种相对论 GAN 来解决这个问题。</li>
+</ol>
+</li>
+<li>来源：<ol>
+<li>问题：古德费洛等人。 [10]证明，当判别器以 0.5 的概率对真实数据进行分类时，GAN 训练达到全局最优。 然而，在许多情况下，判别器将真实数据和假数据都分类为真实数据，这对于训练好的生成器来说是不利的。 </li>
+<li>这是因为判别器没有意识到学习过程中一半的数据是假的； </li>
+<li>基于 IPM 的 GAN 在学习过程中相对稳定，因为它隐含地解释了这一事实。 </li>
+<li>从散度最小化的角度来看，训练判别器以增加 D(xf)，而 D(xr) 不会相应减少，其中 xr 和 xf 分别表示真实数据和假数据。 为了解决这个问题，Jolicoeur [13] 设计了判别器的输出，使其依赖于真实数据和虚假数据。</li>
+</ol>
+</li>
+<li>relativistic GAN<br> ![[Pasted image 20240416105310.png]]<br> 其中 C(x) 是假定的批评者 (D(x) &#x3D; σ(C(x)))。 方程（2）可以解释为判别器对给定真实数据比假数据更真实的概率的估计（D(xf, xr)可以以相反的方式解释）。 如果根据等式（2）设置判别器，则与 SGAN 的生成器仅依赖于假数据不同，相对论性 GAN 的生成器将同时依赖于真实数据和假数据。 然而，它在计算损失时具有 O(m2) 复杂度（m 表示小批量的大小），因为它计算小批量中真数据和假数据之间的批评家的成对差异。</li>
+<li>RaGAN<br>  为了解决这个问题，Jolicoeur [13] 提出了一种相对论平均 GAN（RaGAN），它对某些给定数据取相反类型数据的期望。 RaGAN 使用以下损失函数来学习判别器和生成器：<br> ![[Pasted image 20240416105456.png]]<br> 其中 LD 和 LG 分别表示学习判别器和生成器的损失。 方程(3)的复杂度为O(m)。 RaGAN 的判别器平均估计某些给定数据比相反类型的数据更真实的概率。 Jolicoeur [13] 使用不同的数据集表明，与其他 GAN 模型相比，训练 RaGAN 更快、更可靠，并且 RaGAN 的生成器生成了高质量的假数据。</li>
+</ol>
+<h1 id="方法介绍：REDPACK"><a href="#方法介绍：REDPACK" class="headerlink" title="方法介绍：REDPACK"></a>方法介绍：REDPACK</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ol>
+<li>背景：之前 GAN 训练完成之后使用 GAN 生成器实现目的，作者在之前的论文中提到了基于 RNN 的 GAN 方法 rPassGAN ，本文使用的就是 rPassGAN 的 判别器</li>
+<li>REDPACK：GAN 的判别器是在模型训练结束之后使用的。<br> ![[Pasted image 20240416111123.png]]<br> 训练阶段：<ol>
+<li>生成器生成假密码，鉴别器区分，对抗训练，直到收敛。<br> 选择阶段：</li>
+<li>使用多个密码生成器产生候选密码。作为训练阶段的结果。（本文使用了 三个或者四个）</li>
+<li>鉴别器计算每个候选密码真实程度的概率。</li>
+<li>将高概率的候选密码提供给 Hashcat等密码破解工具。</li>
+</ol>
+</li>
+</ol>
+<h2 id="鉴别器训练结构"><a href="#鉴别器训练结构" class="headerlink" title="鉴别器训练结构"></a>鉴别器训练结构</h2><p>架构：<br>![[Pasted image 20240416143214.png]]<br>优化基于 RNN 的 GAN （判别器优化：使用了 RaGAN 和 IWGAN 的概念来实现了更强大的判别器）的流程：</p>
+<ol>
+<li>G 根据给定的任意噪声分布生成假密码，图中绿色路径；</li>
+<li>根据等式 (3) ，当且仅当假密码的批评值大于图中蓝色存储所描述的真实数据时，D 才确定假密码为真实密码。</li>
+<li>蓝色路径上的真实密码在相反情况下被视为真实的。(这里的相反可能是指的比较对象和)</li>
+<li>D 给出梯度作为惩罚，鼓励 G 生成更真实的密码，用红色路径表示。<br>这样的流程使得 D 会生成比标准 GAN 更强大的判断。训练过程，算法描述如下：<blockquote>
+<pre><code>梯度惩罚系数 λ、每个生成器的判别器迭代次数 ncritic 、每个判别器的生成器迭代次数 ngen 、批量大小 m 和 Adam 超参数 α、β1 和 β2。 Critic C 的参数 w 和生成器 G 的参数 θ。 真实密码 xr 和假密码 xf 之间直线上的随机样本 ˆx。
+</code></pre>
+<p> ![[Pasted image 20240416155902.png]]</p>
+</blockquote>
+</li>
+<li>主要源自 IWGAN，但使用相对论平均 GAN 的损失函数。 大多数符号遵循方程 (3)。 主要区别在于第 9 行和第 15 行中的损失函数。</li>
+<li>这些损失函数取决于相对论判别器，估计一种类型密码的批评者相对于相反类型密码的平均批评者。 这种直接比较使 G 能够快速收敛到最佳点并产生高质量的假密码。</li>
+<li>此外，由于我们基于 RNN 的 GAN 采用​​ IWGAN，因此我们将梯度惩罚添加到判别器的损失函数中。 此惩罚迫使 ^x 的梯度 2-范数小于 1，其中 ^x 是点对 (xr, xf) 之间直线上的随机样本。 这为 GAN 的训练提供了极大的稳定性。 </li>
+<li>另一个重要因素是从第 13 行到第 16 行优化 G 的迭代。尽管大多数 GAN 都有一个在给定 G 上优化 D 的循环，但这不足以最大化 GAN 的性能。 因此，我们添加了训练 G 的循环来稳定和增强我们的 GAN。 根据我们在第 5 节中描述的实验，该因素对 REDPACK 的破解性能具有关键影响。 一般情况下，一旦模型被优化，生成器就被用作生成模型。 相反，我们利用鉴别器作为 REDPACK 的真实密码估计器。</li>
+</ol>
+<h2 id="密码生成器选择"><a href="#密码生成器选择" class="headerlink" title="密码生成器选择"></a>密码生成器选择</h2><p>流程图：<br>![[Pasted image 20240416171606.png]]</p>
+<ol>
+<li>多个候选密码生成器，比如：Hashcat、PCFG、rPassGAN 与 WGAN-GP 以及 rPassGAN 与 RaGAN-GP。</li>
+<li>注意：不同损失函数的 rPassGAN 可以作为不同的 生成器使用，因为它们有不同的密码破解结果。</li>
+<li>注意：单鉴别器 rPassGAN 和双鉴别器 rPassGAN 也是。</li>
+<li>每个候选密码生成器生成的 10 亿个候选密码从字符串转换为张量，传递给鉴别器（D），估计密码真实性。</li>
+<li>由最大概率选择器选择最高的密码，转换为 字符串形式。</li>
+<li>这些候选者被传输给 Hashcat 破解。</li>
+</ol>
+<h1 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h1><h2 id="实验数据准备"><a href="#实验数据准备" class="headerlink" title="实验数据准备"></a>实验数据准备</h2><ol>
+<li>大多数之前的研究使用的是 Rockyou 和 Linkedln。</li>
+<li>但是本文在性能测试中使用到了包含长密码和 4 级密码的额外密码字典。所以使用 Melicher 等人的密码分类。 [27]。总共有七个训练和破解数据集：<ol>
+<li>Rockyou 和 LinkedIn 包含一些 4 级密码。 </li>
+<li>我们还使用了来自 Hashes.org 的四个破解密码字典，其中提供了多个破解和泄露的明文密码。<br> ![[Pasted image 20240416194910.png]]</li>
+</ol>
+</li>
+</ol>
+<h2 id="超参数配置"><a href="#超参数配置" class="headerlink" title="超参数配置"></a>超参数配置</h2><ol>
+<li>G:D：RaSGAN 通常使用 1:1 或者 1:10 </li>
+<li>批次大小： 通常使用 128。使用 64 的批量大小可以来应对训练不稳定。</li>
+<li>epoch<br>具体如下图：<br>![[Pasted image 20240416201514.png]]</li>
+</ol>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><p>Tensorflow-gpu 1.10.1 和 Python 版本 3.5.4 进行 GPU 计算。 所有实验均在韩国大学NMLab的OpenHPC系统上进行。 发达。 OpenHPC的每个节点运行在具有32GB内存的CentOS 7服务器上； 这些节点使用 Intel Xeon E5 2.20GHz CPU(x2) 和 Nvidia TitanXP 12GB GPU(x4)。</p>
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><ol>
+<li>根据我们之前的研究[8,12]推断，决定破解性能的主要因素是epoch、G&#x2F;D比和循环神经网络（RNN）细胞类型。</li>
+<li>如果 Epoch 过大，会导致过拟合。如图 4a 所示。</li>
+<li>提高破解性能，需要在模型中应用较大范围的 G&#x2F;D 比，但是比较费时。从而退一步：<br> 因此，我们对RaSGAN-GP成本函数使用1:1和1:10的G&#x2F;D比进行了实验，如图4b所示。 虽然两者都可能不是最优值，但它们足以说明模型的有效性。 </li>
+<li>最后要考虑的因素是神经单元类型。对于基于 RNN 的相对论判别器，有必要确定长短期记忆 (LSTM) [28] 和门控循环单元 (GRU) [33] 之间哪个更好。<br>![[Pasted image 20240416202041.png]]<br>结论：整个实验中，200k 训练周期、1:10 G&#x2F;D 比率和 GRU 单元类型被确定为密码破解的最佳设置并确保通用性，如图 5 所示。<br>![[Pasted image 20240416202513.png]]</li>
+</ol>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>所有实验，我们的结果都优于其他模型。</p>
+<ol>
+<li>REDPACK 在数据集 2 到数据集 7 上的破解性能比任何单一密码猜测模型高出 5-20%。 在数据集1（短长密码）的情况下，PCFG在早期破解阶段表现出了很强的性能。 下半程的破解，REDPACK最终反超了PCFG。 然而，随着密码长度变长（从 dataset3 到 dataset7），REDPACK 的性能明显优于 PCFG 和其他密码候选生成器。 也就是说，对于复杂且长的密码，REDPACK的有效性得到了明显的体现。</li>
+<li>对于数据集 6 和 7，由于训练数据量较小，我们的团队无法创建 10 亿个 Hashcat 候选者。</li>
+<li> 在表3中，最大概率选择器从图3中选择的每个模型的候选数量与单个模型的密码破解性能成正比。 这个结果表明REDPACK不是随机选择候选者而是选择性地选择候选者。 此外，这意味着 REDPACK 的鉴别器可以正确评估生成真实密码的概率。</li>
+</ol>
+<h2 id="REDPACK-的限制"><a href="#REDPACK-的限制" class="headerlink" title="REDPACK 的限制"></a>REDPACK 的限制</h2><ol>
+<li>选择了更现实的密码候选者。 然而，更现实的密码候选选择并不总是能保证有效的密码破解。将候选密码的数量压缩了，但它也遗漏了一些对密码破解可能很重要的候选密码。</li>
+<li>将 OMEN 作为密码候选生成器组件时EDPACK 的候选字典的破解性能恶化。<br> 原因： OMEN 和 PCFG 都有相似的特性。 它们都以高阶概率生成候选密码（本身就筛选了一些密码）<br> 对 OMEN 和 PCFG 中的密码候选集应用随机洗牌。 这种简单的方法不能完全消除破解性能的损失。</li>
+<li>基于三种不同方法（Hashcat：基于规则、PCFG：基于概率、rPassGAN：基于深度学习）的模型用作生成器时，REDPACK 在我们的实验中效率最高。</li>
+</ol>
+<h2 id="后续工作"><a href="#后续工作" class="headerlink" title="后续工作"></a>后续工作</h2><p>自定义了一套规则集。</p>
+<ol>
+<li>base64 是 hashcat 最高效的规则集。</li>
+<li>搜集：将7条Hashcat规则（best64、dive、specific、generate、InsidePro-PasswordPro、Incisive-leetspeak、T0X1Cv1）组合成一个巨大的规则文件。</li>
+<li>测试：每条规则记录有助于密码破解的机会数量。</li>
+<li>选择：对于REDPACKU4的自定义Hashcat规则集，选择了100条规则（与best64相同的数量）<br>试验证明有效的。</li>
+</ol>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/REDPACK/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/REDPACK/";
+            const title         = "「」";
+            const excerpt       = `摘要
+传统基于规则的方法依赖于专家知识
+最新的基于深度学习方法，passGAN rpassGAN 在某些方面不如 PCFG
+不同的深度学习方法有不同的候选密码空间，且无法重叠。
+本文提出 REDPACK ，解决了 GAN 方法的不足，...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-16T13:12:25.835Z" itemprop="dateModified">最后编辑：2024-04-16</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" (无标题)" href="/2024/04/22/论文笔记/Pass_RNN/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" (无标题)" href="/2024/04/22/论文笔记/TEMP/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                97
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+
+            
+                
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/TEMP%EF%BC%9A%E4%B8%AD%E9%93%81/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 Hexo 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by John Doe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

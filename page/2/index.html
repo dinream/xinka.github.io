@@ -1,0 +1,3510 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  
+  <meta name="author" content="John Doe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Hexo</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Hexo</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <!-- Breadcrumb for tag & category page -->
+
+
+
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>互联网和安全不断发展，互联网的开放性也带来了许多内在的安全隐患。</p>
+<p>为了保护用户信息，当前已经产生了多种认证方式：<br>身份认证的分类：</p>
+<ol>
+<li>用户知道的：密码，个人识别码</li>
+<li>用户拥有的：U盾，加密卡</li>
+<li>用户本身的：<ol>
+<li>生理特征：指纹，虹膜</li>
+<li>行为特征：手写</li>
+</ol>
+</li>
+</ol>
+<p>对于上面这些认证方式，其中密码（即口令）破解是最常见的认证方式，原因主要有：</p>
+<ol>
+<li>互联网应用不断发展，人们不得不设置许多满足不同密码策略的密码来保护相应的软件应用程序。</li>
+<li>人的记忆能力有限。研究表明，人类只能记住五到七个密码，因此在设置密码时普遍会使用一些低信息熵的密码，比如：<ol>
+<li>在多个系统中使用相同密码</li>
+<li>在密码中使用个人相关信息</li>
+</ol>
+</li>
+<li>大量知名网站的密码文件被泄露：比如著名的 rockyou数据集就是2018年受黑客攻击而泄漏的。</li>
+</ol>
+<p>且人工智能以及到现在 大模型的产生和发展更进一步增强了破解口令认证系统的能力，因此对于这方面的研究也显得更加迫切和重要。<br>（对口令认证系统攻击最严重的是口令猜测攻击）</p>
+<h1 id="口令猜测分类"><a href="#口令猜测分类" class="headerlink" title="口令猜测分类"></a>口令猜测分类</h1><p>（<br>密码猜测的角度|方法：</p>
+<ol>
+<li>启发式搜索</li>
+<li>概率模型</li>
+<li>深度学习<br>）</li>
+</ol>
+<p>根据是否在线（也就是是否与服务器进行交互）：</p>
+<ol>
+<li>离线密码猜测</li>
+<li>在线密码猜测</li>
+</ol>
+<p>（前一种攻击要求身份验证服务器存储用户帐户密码文件，然后攻击者在本地主机上猜测密码。在这种情况下，可以尝试的猜测次数仅受攻击者的计算资源的限制。后者不需要密码文件，攻击者只需要连接到网络即可。然而，可以尝试的猜测次数往往受到服务器安全策略的限制，例如美国国家身份标准NIST-800-63-3，其中规定政府网站系统一个月允许的最大登录失败次数为100次，如果超过100次，帐户将被锁定。）</p>
+<p>根据是否利用用户的个人信息：</p>
+<ol>
+<li>拖网猜测。</li>
+<li>定向猜测，利用用户个人信息。<br>（拖网猜测主要利用用户选择流行密码的倾向，而定向猜测不仅利用普通用户使用流行密码的漏洞，还利用用户重复使用密码和使用个人信息构建密码的漏洞。在个人身份信息和历史密码等信息的帮助下，定向密码猜测的成功率明显高于相同猜测次数的拖网猜测）</li>
+</ol>
+<p>是否使用人工智能：</p>
+<ol>
+<li>传统攻击</li>
+<li>神经攻击<br>（前者将密码猜测作为一项文本生成任务，依靠人工智能相关技术在大规模密码训练语料库上生成文本密码。后者封装了其他方法，不包括深度神经网络猜测方法。）</li>
+</ol>
+<p>（几乎所有现有的工作都是离线猜测，而在线猜测太难在100个猜测内猜出一个密码。所以当前的分类方式主要为：传统的。。基于神经网络的。。）</p>
+<p>（说一下如何比较生成密码的质量：<br>    1. 生成的唯一密码个数和比例；<br>    2. 生成密码的速度；<br>    3. 生成的密码和训练数据集之外其他数据集的匹配个数<br>   ）</p>
+<h3 id="拖网猜测"><a href="#拖网猜测" class="headerlink" title="拖网猜测"></a>拖网猜测</h3><h4 id="传统拖网猜测"><a href="#传统拖网猜测" class="headerlink" title="传统拖网猜测"></a>传统拖网猜测</h4><ol>
+<li>启发式算法<blockquote>
+<p>这些算法没有严格的理论体系，严重依赖于零散的奇思妙想，例如，基于开源软件使用精心设计的猜测序列构建独特的猜测词典。这些启发式方法很难重现，也很难相互公平地比较。因此，在这里，我们只介绍一些常用的启发式密码猜测工具。</p>
+</blockquote>
+<ol>
+<li>Jtr是一个密码猜测工具，专注于破解UNIX&#x2F;Linux系统的弱密码。在JTR中有四种模式–简单破解模式、单词表模式、增量模式和外部模式。</li>
+<li>Hashcat是世界上速度最快、最先进的密码恢复实用程序，支持针对300多种高度优化的哈希算法的五种独特攻击模式。Hashcat目前支持Linux、Windows和MacOS上的CPU、GPU和其他硬件加速器，并具有帮助启用分布式密码破解的设施。<blockquote>
+<p>彩虹攻击：<br>一种基于预先计算和空间-时间折中的攻击方法。通过事先计算大量的密码和散列值之间的对应关系（彩虹表），以便在攻击时快速查找并破解散列值。彩虹表是一个预先计算的表格，其中包含了大量的密码和对应的散列值。通过在彩虹表中进行查找，攻击者可以找到与目标散列值匹配的原始密码。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>概率上下文无关语法<br> 该算法的核心假设是密码的字母段L、数字段D和特殊字符段S相互独立。该算法包括训练和猜测两个阶段。<ol>
+<li>在训练阶段，最关键的是根据泄露的密码数据集计算密码模式(结构)和字符成分(语义)的频率。</li>
+<li>在猜测阶段，根据训练阶段得到的模式频率表和语义频率表生成具有频率猜测的集合，以模拟真实密码的概率分布。<br> 粒度太细，无法获得字符之间的语义关系，改进：</li>
+<li>基于词的内聚力和自由度提取密码中的语义片段，并对基于语义片段的PCFG算法进行改进</li>
+<li>密码视为由几个块组成，其中块是频繁出现在一起以模拟密码的相关字符的序列。</li>
+<li>扩展字节对编码(BPE)算法，它使用块词汇表平均长度的可配置参数来替换合并操作的数量。</li>
+<li>为了解决长密码猜测的困难，提出了一种改进的基于PCFG的LONG</li>
+</ol>
+</li>
+<li>马尔可夫序列决策<br> 该算法的核心假设是用户从前到后依次构造口令。它不像PCFG那样分割密码，而是训练整个密码，并通过从左到右链接字符来计算密码的概率。<ol>
+<li>传统的马尔可夫模型因其结构简单、推理速度快而被广泛应用于口令猜测工作中。但是，它也有一定的缺陷，如过度拟合、重复率高、基于随机抽样生成的密码覆盖率低等。</li>
+<li>过拟合：将拉普拉斯平滑和结束符号正则化技术应用于马尔可夫模型。平滑策略消除了数据集中的过拟合问题，正则化技术使攻击算法产生的猜测概率总是和为1。</li>
+<li>重复率：设计了一种基于随机抽样的动态分配机制。该机制允许动态调整密码的概率分布，并在猜测过程中严格收敛到均匀分布。基于上述动态分布机制，提出了一种动态马尔可夫模型。</li>
+<li>对口令中的语义段进行建模：提出了一个名为Word马尔可夫的模型，通过语义分段从密码中提取单词的凝聚力和自由度。</li>
+</ol>
+</li>
+</ol>
+<h4 id="神经拖网猜测算法"><a href="#神经拖网猜测算法" class="headerlink" title="神经拖网猜测算法"></a>神经拖网猜测算法</h4><p>密码猜测任务视为文本生成问题，核心就是把密码数据集给神经网络进行训练，并利用训练好的模型生成候选密码。</p>
+<ol>
+<li>递归神经网络(RNN)：递归神经网络以序列数据为输入，在序列进化方向上递归，所有节点以链的形式连接。 RNN 有许多变体：如： LSTM，GRU，BiLSTM 等。<ol>
+<li>步骤：基于RNN的密码猜测方法通常有以下两个步骤：<ol>
+<li>·将训练集中的密码序列输入到RNN模型中，以进行顺序文本生成的训练。</li>
+<li>训练好的 RNN 猜测模型旨在根据已有的密码字符生成下一个密码字符，直到输出终止字符位置。</li>
+</ol>
+</li>
+<li>在整个密码生成过程中，RNN计算任何字符作为下一个密码令牌的概率。对于给定的阈值，概率高于阈值的密码将被放入密码猜测集中作为有效密码。</li>
+<li>一些变体：<ol>
+<li>对密码单词进行切分，在词段的基础上使用BiLSTM生成密码。</li>
+<li>层次语义模型HSM，该模型将LSTM和语义分析相结合，用于挖掘用于密码猜测的词之间潜在的概率关系。</li>
+<li>基于汉字音节的密码猜测方法。该方法将汉语音节作为整体元素对密码进行解析和处理。然后，在LSTM神经网络中对处理后的密码进行训练以生成密码。</li>
+<li>特别是具有注意力机制的RNN来组合和内插同一组用户的信息，以定义比他们的密码分布更稳健和准确的优先级。推理时使用辅助数据来适应目标密码的分布。通过这种方式，开发了一种利用辅助信息并实例化上下文感知口令计量和猜测攻击的全自动方法，而不需要来自目标口令分布的任何明文样本。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>生成式对抗网络（GAN）：<ol>
+<li>基于GAN的密码猜测模型由密码生成器和鉴别器组成。这两个网络相互对抗，不断地调整参数。最终目的是使鉴别器网络无法判断生成网络的输出是否真实，从而达到口令生成的效果。</li>
+<li>问题：离散密码数据的不可微性可能导致梯度反向传播失败，基于GAN的密码猜测模型训练难以收敛，由GAN模型生成的密码重复率较高。</li>
+<li>离散数据不可微问题解决：<ol>
+<li>使用Gumbel-Softmax松弛技术来训练基于GAN的密码猜测模型。</li>
+<li>使用通过附加的自动编码器获得的真实口令的平滑表示。</li>
+<li>种基于SeqGAN的密码猜测方法RLPassGAN，该方法使用策略梯度来确保模型参数的持续优化。</li>
+</ol>
+</li>
+<li>收敛困难的问题解决：基于双向生成对抗网络的猜测算法，提高了算法的收敛速度。与传统的GaN相比，它可以在更短的时间内产生相同数量的样本</li>
+<li>重复率高问题解决：<ol>
+<li>使用蒙特卡罗搜索来评估中间层输出处的不完整密码序列，减少冗余的合成密码。（此外，通过蒙特卡罗搜索来评估输出的不完整密码序列。蒙特卡罗是一种使用大量随机样本来了解特定系统的计算方法。）</li>
+<li>使用鉴别器和控制器构建额外的控制器网络，以分别学习生成的密码分布与真实密码分布和均匀分布之间的度量。然后利用这两个度量对生成器进行训练，从而降低了口令生成的重复率。</li>
+<li>RLPass：还创新性地将表征学习用于密码猜测。具体地，将密码投影到隐藏空间，并且使用隐藏空间中的密码表示之间的距离来定义密码的相似性。基于口令的强局部性和弱局部性现象，提出了一种动态口令猜测和条件口令算法。</li>
+</ol>
+</li>
+<li>GAN的模型生成的长密码质量较低的问题解决：设计了一种基于DenseNet的GAN密码猜测结构DenseGAN，并提出了两种新的密码猜测DenseGAN模型，这两种模型都能生成高质量的密码猜测。</li>
+</ol>
+</li>
+<li>自动编码器（AE）：它基于反向传播算法和优化方法，使用输入数据本身作为监督来指导神经网络学习映射关系，以获得重建的输出。AE 包括编码器和解码器两部分。根据学习范式，AE 可分为欠完备自动编码器、正则化自动编码器和变分自动编码器，其中前两种是判别性模型，后者是生成性模型。<ol>
+<li>在拖网密码猜测的研究中，通常使用<strong>变分自动编码器</strong>来生成密码猜测。将密码样本输入到VAE的编码器以获得表示，然后使用解码器基于该表示重建样本。基于输入和输出之间的重构损失来训练密码生成器。除了使用最经典的VAE框架来猜测密码，也提出来了许多优化。<ol>
+<li>优化 GAN：将VAE技术与GaN技术相结合，用VAE代替GaN生成器，旨在解决离散口令数据的反向传播问题。</li>
+<li>轻量级问题：用门控卷积神经网络(GCNN)代替了复杂的RNN生成单元，降低了模型的复杂性。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Transformer.<br> ![[Pasted image 20240305201324.png]]<br> Transformer 模型采用编解码器体系结构，并使用注意力机制替换 Seq2Seq 模型中的递归结构，以实现序列建模的并行化。这种并行化结构给自然语言处理 (NLP) 领域带来了巨大的冲击。随着研究的深入，相关技术逐渐从自然语言处理向计算机视觉 (CV)、语音、生物、化学等领域发展。同样，在拖网密码猜测的研究中也出现了一些基于Transformer的方法：<ol>
+<li>基于改进 Transformer 的口令猜测模型：将消息（个人信息和密码的相关性）权重引入到数据预处理中，并在模型中使用改进的波束搜索算法来快速搜索排名靠前的密码猜测。</li>
+<li>PassBERT：基于双向 Transformer 的猜测框架，首次将预训练&#x2F;微调的范式应用于密码破解。具体地说，<ol>
+<li>首先，作者设计了包含一般密码分布知识的通用密码预训练模型。</li>
+<li>然后，提出了三种特定于攻击的微调方法来定制预先训练的口令模型以适应以下真实攻击场景：条件口令猜测、目标口令猜测和基于自适应规则的口令猜测。最后，他们进一步提出了一种混合密码强度计来降低这三种攻击的风险。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Reinforcement Learning (RL) 强化学习<ol>
+<li>RL是机器学习的范例和方法之一，用于描述和解决智能代理在与环境交互过程中最大化回报或实现特定目标的学习策略问题。密码生成器是代理，每个生成的密码序列代表一个完整的轨迹，生成过程中的每个字符都被视为一个操作。例如，由时间戳t生成的字符是action at。根据由所生成的不完整序列确定的关于当前状态ST的随机策略来生成每个动作At。生成器根据一组随机策略从任意字符生成密码，直到满足预定长度。</li>
+<li>RLPassGAN：遵循SeqGAN，将密码猜测视为一个连续决策，并使用策略梯度 来确保参数可以连续优化。</li>
+</ol>
+</li>
+<li>Flow： （一个强大的密度估计统计工具）流动模型的一个非常独特的特征是，它的转变通常是可逆的。流模型不仅找到了从分布Z转移到分布X的网络路径，而且该路径还允许X改变为Z。简而言之，流模型找到了分布Z和X之间的双向路径（Z和X的数据维度必须相同）。<ol>
+<li>PassFlow：基于产生流模型的口令猜测方法。基于流的口令猜测模型使用精确的对数似然计算和优化，使潜在变量的推断更加准确。此外，还给出了潜在空间的一种有意义的表示，这使得探索潜在空间的特定子空间和内插等操作成为可能。（密码猜测方面优于现有的基于GAN的方法）</li>
+</ol>
+</li>
+</ol>
+<h4 id="另一种分类"><a href="#另一种分类" class="headerlink" title="另一种分类"></a>另一种分类</h4><p>根据泄露的数据集和目标密码是否来自同一数据源，拖网场景可以进一步分为站内场景和跨站场景。 虽然跨站密码猜测场景较为真实，但攻击者一般以掌握目标数据的部分分布信息为前提来猜测密码。</p>
+<h3 id="定向密码猜测"><a href="#定向密码猜测" class="headerlink" title="定向密码猜测"></a>定向密码猜测</h3><p>定向整体来说其实是对传统的优化，比如不改变核心思想的前提下修改嵌入，数据预处理等方面。</p>
+<h4 id="神经定向密码猜测"><a href="#神经定向密码猜测" class="headerlink" title="神经定向密码猜测"></a>神经定向密码猜测</h4><p>随着自然语言处理技术的发展，一些复杂的神经网络被应用到目标密码猜测领域。</p>
+<ol>
+<li>PG-PASS：由指针生成网络组成的有针对性的口令猜测模型。该工作创新性地将目标口令猜测作为一项摘要任务，并将智能摘要领域中常用的指针网络技术应用于该任务。需要注意的是，除了用户的人口统计相关信息(姓名、生日等)外，攻击者还可以利用用户在其他网站上泄露的密码进行有针对性的攻击。可以预期，这种利用用户密码重复使用这一易受攻击行为的定向攻击可能比基于人口统计相关信息的攻击更具危害性。</li>
+<li>重用模型：重用或微调旧密码来生成新密码的事实，引入深度学习技术来表征用户的密码重复使用行为。更具体地说，他们训练了序列到序列(Seq2seq)模型，以预测将现有密码转换为其姊妹密码所需的修改，并在大规模数据集(即4iQ数据集)上进行了验证。</li>
+<li>PASS2EDIT：有针对性的密码猜测算法，用于模拟日益严重的凭据篡改攻击，在该攻击中，攻击者利用受害者泄露的密码来提高在其他站点猜测受害者密码的成功率。特别是，他们提出了一种多步决策训练机制，并建立了一个分类神经网络来学习一步编辑操作对现有密码的反应。由于每项工作使用的数据集不同，因此很难进行横断面比较。</li>
+</ol>
+<h4 id="传统定向密码猜测"><a href="#传统定向密码猜测" class="headerlink" title="传统定向密码猜测"></a>传统定向密码猜测</h4><p>攻击者使用与目标人员相关的个人信息来增强猜测。</p>
+<p>基于拖网马尔可夫攻击模型的定向攻击猜测方法：</p>
+<ol>
+<li>基本思想是，关于使用某些个人信息的人口的百分比，攻击目标也将具有相同的使用该个人信息的可能性百分比。<ol>
+<li>首先将PII划分为几种类型，如用户名-A、电子邮件前缀-E和名称-N，并根据所需的粒度进一步细分每种广泛的类型。然后，将训练集的每个密码中的所有PII替换为对应的PII类型。</li>
+<li>训练阶段的其余步骤与行走马尔可夫模型的步骤相同。</li>
+<li>猜测集生成阶段分为两个步骤。<ol>
+<li>在第一步中，运行马尔可夫模型以生成中间猜测集合，该中间猜测集合包含直接可用的猜测，</li>
+<li>第二步用相应的PII信息替换中间猜测中的基本PII类型字符。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>基于PCFG的定向攻击猜测方法：</p>
+<ol>
+<li><p>–Personal-PCFG。。其基本思想与PCFG攻击模型相同：根据字符类型和长度对密码进行切片。为了实现这一思想，将六种PI字符类型 (即用户名-A、电子邮件前缀-E、姓名-N、生日-B、电话号码-P和ID-G)等同于拖网PCFG模型中的L、D和S，从而在个人PCFG中有九种类型的字符。然后，在训练过程中，与拖网PCFG攻击模型中一样，训练集中的每个密码根据相应的字符类型及其长度进行分段。</p>
+</li>
+<li><p>TarGuess Wang等人。提出了一个框架，它用四个数学概率模型系统地刻画了典型的定向猜测场景。</p>
+<ol>
+<li>第一个场景TarGuess-I旨在利用用户的PII创建在线目标密码猜测。为了在密码中表示PII令牌，除了PCFG模型中的L、D和S标签外，作者还定义了基于个人信息类型的28个PII标签(例如，N1−N7和B1−B10)。对于每个PII标签，其下标编号表示该类型的PII使用的细分，而不是指示相应长度的下标编号，例如L、D和S标签。例如，N表示名称信息，而N1表示全名，而n2表示全名的缩写</li>
+<li>第二个是Targuess-II，目的是根据用户在其他网站(例如Dodonew)中泄露的密码来猜测目标网站(例如CSDN)中的用户密码。具体地，作者提出了6种结构级和2种字符级助记转换来描述密码重用，并基于上述重用规则使用马尔可夫模型来刻画上下文无关的转换文法。</li>
+<li>第三个是TarGuessIII，目的是使用姐妹密码和一些PII信息来猜测用户的密码。TarGuess-III将PII信息引入到TarGuess-II模型中，允许在结构级密码重用中嵌入PII信息。</li>
+<li>与TarGuess-III相比，TarGuess-IV场景中的攻击者知道难以量化的额外PII(例如，性别、教育)。为了解决某些PII难以直接体现在口令中的问题，在这种难以量化的PII的基础上，巧妙地引入贝叶斯理论来计算口令的重用概率。</li>
+</ol>
+</li>
+<li><p>RFGuess-PII.在RFGuess的基础上，Wang et al.提出了一种新的目标口令猜测模型RFGuess-PII。密码训练和生成过程类似于拖网猜测场景。不同的是，通过新的PII匹配，密码中的PII字符串被替换为相应的数字标签。这种新的PII匹配旨在最小化信息熵，并试图准确地提取整个用户组的PII使用行为。PII匹配算法的第一步是细分PII的各种可能的变换，并使用数字标签来表示它们。第二步是为训练集中的每个密码列出具有PII标签的所有可能的表示。然后，按频率从高到低对表征进行排序。</p>
+</li>
+<li><p>RFGuess-重复使用。除了基于PII的针对性密码破解研究外，作者还专注于对用户的密码重复使用行为进行建模。他们还考虑了结构级和段级转换，如TarGuess-II。具体地，它们通过计算训练集中每个密码对的编辑矩阵来计算结构级转换，并训练基于随机森林的段级转换(即，相同类型的字符串内的转换，例如字母段中的密码→密码)模型。</p>
+</li>
+<li><p>TG-SPSR图谱。马尔可夫模型和PCFG模型转化为目标攻击，提出了一种基于结构划分和字符串重组的系统目标攻击模型，称为TG-SPSR。在结构划分阶段，除了将密码划分为类似于PCFG的基本结构外，还在基本语法模式中定义了基于轨迹的键盘，并引入了索引位来准确描述特殊字符的位置。此外，基于定义的9条修改规则，构造了一个BiLSTM分类器来重用和修改密码的行为。</p>
+</li>
+</ol>
+<h1 id="可能的方向"><a href="#可能的方向" class="headerlink" title="可能的方向"></a>可能的方向</h1><p>总体来说还是做的工作挺多的，16-23年提出来了三十多种方法，2016年至2018年零星出版数量较少，2021年增至9种。。但是当前比较热门的还是基于深度学习的密码猜测方法。</p>
+<ol>
+<li>修改模型结构提高模型训练时的速度：在低资源的情况下快速执行密码猜测也是具有挑战性的。</li>
+<li>尝试大模型：预训练的语言模型近年来在自然语言处理领域应用很成熟。可以尝试关于密码猜测的预训练&#x2F;精调范式，将预先训练的语言模型强大的通用语言建模功能与现有的密码猜测工作结合起来</li>
+<li>尝试更多模型：目前的神经密码猜测方法都有一个前提，即密码字符串是一个字符序列，使用序列编码对密码进行处理。比如根据密码的语义依赖将密码组织成图，并使用最新的图神经网络(GNN)相关技术进行采样和生成。</li>
+<li>传统猜测方法与深度学习方法相结合。比如用深度学习生成规则等。</li>
+</ol>
+<h1 id="之后的想法"><a href="#之后的想法" class="headerlink" title="之后的想法"></a>之后的想法</h1><ol>
+<li>这两周涉及到了解一些背景所以读的也比较仔细，后面计划读快一些，重点关注方法和创新性。</li>
+<li>选择较新，效果较好，的论文尝试复现，分析数据，寻找优化的点。</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.293Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/%E6%96%B9%E5%90%91%EF%BC%9A%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>论文调研旨在找到一个喜欢的方向并且实现小论文撰写，</p>
+<h1 id="ICDE-2023"><a href="#ICDE-2023" class="headerlink" title="ICDE 2023"></a>ICDE 2023</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>ICDE-2023共接收论文228篇，录用率在25%左右，研究方向统计如下：</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>子方向</th>
+<th>论文数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>图与网络</td>
+<td>图算法、图处理框架、图数据库、图神经网络、图分析、知识图谱</td>
+<td>69</td>
+</tr>
+<tr>
+<td>时空、轨迹数据分析</td>
+<td></td>
+<td>34</td>
+</tr>
+<tr>
+<td>AI4DB</td>
+<td>基数估计、查询优化、学习索引、NL2SQL、表格推理、工作负载预测、性能调优、数据库嵌入</td>
+<td>13</td>
+</tr>
+<tr>
+<td>数据库管理</td>
+<td>物化视图管理、工作负载分析、事务、死锁检测、数据库安全</td>
+<td>8</td>
+</tr>
+<tr>
+<td>存储</td>
+<td></td>
+<td>4</td>
+</tr>
+<tr>
+<td>查询、索引优化</td>
+<td></td>
+<td>18</td>
+</tr>
+<tr>
+<td>人工智能</td>
+<td>机器学习、深度学习、聚类、强化学习、在线学习</td>
+<td>25</td>
+</tr>
+<tr>
+<td>流处理</td>
+<td>-</td>
+<td>9</td>
+</tr>
+<tr>
+<td>数据挖掘与分析</td>
+<td>数据挖掘、数据压缩、推荐</td>
+<td>25</td>
+</tr>
+<tr>
+<td>边缘计算、区块链、物联网</td>
+<td>-</td>
+<td>11</td>
+</tr>
+<tr>
+<td>视频处理</td>
+<td>-</td>
+<td>2</td>
+</tr>
+<tr>
+<td>隐私保护、数据安全</td>
+<td>-</td>
+<td>4</td>
+</tr>
+<tr>
+<td>众包</td>
+<td>-</td>
+<td>6</td>
+</tr>
+</tbody></table>
+<h2 id="详情"><a href="#详情" class="headerlink" title="详情"></a>详情</h2><h3 id="图与网络"><a href="#图与网络" class="headerlink" title="图与网络"></a>图与网络</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>COCLEP: Contrastive Learning-based Semi-Supervised Community Search</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>FASI: FPGA-friendly Subgraph Isomorphism on Massive Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>HGMatch: A Match-by-Hyperedge Framework for Efficient and Parallel Subhypergraph Matching</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Layph: Making Change Propagation Constraint in Incremental Graph Processing by Layering Graph</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>LightTraffic: On Optimizing CPU-GPU Data Traffic for Efficient Large-scale Random Walks</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Lumos: Heterogeneity-aware Federated Graph Learning over Decentralized Devices</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>PSPC: Efficient Parallel Shortest Path Counting on Large-Scale Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>TDB: Breaking All Hop-Constrained Cycles in Billion-Scale Directed Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Finer-Grained Engagement in Hypergraphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Distributed (α, β)-Core Decomposition over Bipartite Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Fairness-aware Maximal Biclique Enumeration on Bipartite Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Index-Based Biclique Percolation Communities Search on Bipartite graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficiently Answering Quality Constrained Shortest Distance Queries in Large Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Verification-Free Approaches to Efficient Locally Densest Subgraph Discovery</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficient Maximum Signed Biclique Identification</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Explainable Hyperlink Prediction: A Hypergraph Edit Distance-Based Approach</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Reinforcement Learning Enhanced Weighted Sampling for Accurate Subgraph Counting on Fully Dynamic Graph Streams</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Towards Efficient Shortest Path Counting on Billion-Scale Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Fair Group Summarization with Graph Patterns</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Top-r keyword-based community search in attributed graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Accelerating k-Core Decomposition by a GPU</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Minimizing the Influence of Misinformation via Vertex Blocking</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficiently Sampling and Estimating Hypergraphs By Hybrid Random Walk</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficient Multi-GPU Graph Processing with Remote Work Stealing</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Neighborhood Skyline on Graphs: Concepts, Algorithms and Applications</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Finding Top-k Important Edges on Bipartite Graphs: Ego-betweenness Centrality-based Approaches</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>VC-dimension and Rademacher Averages of Subgraphs, with Applications to Graph Mining</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Most Probable Densest Subgraphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Scalable Algorithms for Densest Subgraph Discovery</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Distributed Near-Maximum Independent Set Maintenance over Large-scale Dynamic Graphs</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Fast Unsupervised Graph Embedding via Graph Zoom Learning</td>
+<td>图算法</td>
+<td></td>
+</tr>
+<tr>
+<td>Wind-Bell Index: Towards Ultra-Fast Relational Query for Graph Databases</td>
+<td>图数据库</td>
+<td>查询</td>
+</tr>
+<tr>
+<td>Hop-Constrained s-t Simple Path Enumeration on Large Dynamic Graphs</td>
+<td>图数据库</td>
+<td>查询</td>
+</tr>
+<tr>
+<td>A Reachability Index for Recursive Label-Concatenated Graph Queries</td>
+<td>图数据库</td>
+<td>索引</td>
+</tr>
+<tr>
+<td>VEND: Vertex Encoding for Edge Nonexistence Determination</td>
+<td>图数据库</td>
+<td></td>
+</tr>
+<tr>
+<td>Extracting Graphs Properties with Semantic Joins</td>
+<td>图数据库</td>
+<td></td>
+</tr>
+<tr>
+<td>Integrating Connection Search in Graph Queries</td>
+<td>图数据库</td>
+<td>查询</td>
+</tr>
+<tr>
+<td>AFaVS: Accurate Yet Fast Version Switching for Graph Processing Systems</td>
+<td>图处理系统</td>
+<td></td>
+</tr>
+<tr>
+<td>FLASH: A Framework for Programming Distributed Graph Processing Algorithms</td>
+<td>图处理系统</td>
+<td></td>
+</tr>
+<tr>
+<td>Partitioner Selection with EASE to Optimize Distributed Graph Processing</td>
+<td>图处理系统</td>
+<td></td>
+</tr>
+<tr>
+<td>Optimizing Graph Partition by Optimal Vertex-Cut: A Holistic Approach</td>
+<td>图处理系统</td>
+<td>图划分</td>
+</tr>
+<tr>
+<td>HyTGraph: GPU-Accelerated Graph Processing with Hybrid Transfer Management</td>
+<td>图处理系统</td>
+<td></td>
+</tr>
+<tr>
+<td>GAMMA: A Graph Pattern Mining Framework for Large Graphs on GPU</td>
+<td>图处理系统</td>
+<td>图模式挖掘</td>
+</tr>
+<tr>
+<td>HyGNN: Drug-Drug Interaction Prediction via Hypergraph Neural Network</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>Demystifying Bitcoin Address Behavior via Graph Neural Networks</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>Jointly Attacking Graph Neural Network and its Explanations</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Temporal Graph Convolutional Networks for Ranking-Based Stock Prediction</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>A Bayesian Graph Neural Network for EEG Classification — A Win-Win on Performance and Interpretability</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>Layer-refined Graph Convolutional Networks for Recommendation</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>AutoAC: Towards Automated Attribute Completion for Heterogeneous Graph Neural Network</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>SEIGN: A Simple and Efficient Graph Neural Network for Large Dynamic Graphs</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>Revisiting Citation Prediction with Cluster-Aware Text-Enhanced Heterogeneous Graph Neural Networks</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>Towards Higher-order Topological Consistency for Unsupervised Network Alignment</td>
+<td>图神经网络</td>
+<td></td>
+</tr>
+<tr>
+<td>CLDG: Contrastive Learning on Dynamic Graphs</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>GALE: Active Adversarial Learning for Erroneous Node Detection in Graphs</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>IFCA: Index-Free Community-Aware Reachability Processing Over Large Dynamic Graphs</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Unsupervised Graph Outlier Detection: Problem Revisit, New Insight, and Superior Method</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficient and Compact Spreadsheet Formula Graphs</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Inconsistency Detection with Temporal Graph Functional Dependencies</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Keyword-based Socially Tenuous Group Queries</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Community Search: A Meta-Learning Approach</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Dynamic Activation of Clients and Parameters for Federated Learning over Heterogeneous Graphs</td>
+<td>图分析</td>
+<td></td>
+</tr>
+<tr>
+<td>RETIA: Relation-Entity Twin-Interact Aggregation for Temporal Knowledge Graph Extrapolation</td>
+<td>知识图谱</td>
+<td></td>
+</tr>
+<tr>
+<td>Disconnected Emerging Knowledge Graph Oriented Inductive Link Prediction</td>
+<td>知识图谱</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Message Passing for Fully Inductive Knowledge Graph Completion</td>
+<td>知识图谱</td>
+<td></td>
+</tr>
+<tr>
+<td>MMKGR: Multi-hop Multi-modal Knowledge Graph Reasoning</td>
+<td>知识图谱</td>
+<td></td>
+</tr>
+<tr>
+<td>Robust Attributed Graph Alignment via Joint Structure Learning and Optimal Transpor</td>
+<td>知识图谱</td>
+<td></td>
+</tr>
+<tr>
+<td>Multimodal Biological Knowledge Graph Completion via Triple Co-attention Mechanism</td>
+<td>知识图谱</td>
+<td></td>
+</tr>
+<tr>
+<td>A Holistic Approach for Answering Logical Queries on Knowledge Graphs</td>
+<td>知识图谱</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="时空、轨迹数据分析"><a href="#时空、轨迹数据分析" class="headerlink" title="时空、轨迹数据分析"></a>时空、轨迹数据分析</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TSC-AutoML: Meta-learning for automatic Time Series Classification Algorithm Selection</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>TSEXPLAIN: Explaining Aggregated Time Series by Surfacing Evolving Contributors</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Towards Long-Term Time-Series Forecasting: Feature, Pattern, and Distribution</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>REncoder: A Space-Time Efficient Range Filter with Local Encoder</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>ROI-demand Traffic Prediction: A Pre-train, Query and Fine-tune Framework</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>When Spatio-Temporal Meet Wavelets: Disentangled Traffic Forecasting via Efficient Spectral Graph Attention Networks</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Discovering Frequency Bursting Patterns in Temporal Graphs</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Matrix Factorization with Landmarks for Spatial Data</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Uncertainty Quantification for Traffic Forecasting: A Unified Approach</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Extreme-Aware Local-Global Attention for Spatio-Temporal Urban Mobility Learning</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Mining Seasonal Temporal Patterns in Time Series</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>A Stitch in Time Saves Nine: Enabling Early Anomaly Detection with Correlation Analysis</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Self-Supervised Spatial-Temporal Bottleneck Attentive Network for Efﬁcient Long-term Trafﬁc Forecasting</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>namic Hypergraph Structure Learning for Traffic Flow Forecasting</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Forecasting COVID-19 Dynamics: Clustering, Generalized Spatiotemporal Attention, and Impacts of Mobility and Geographic Proximity</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Double Hierarchical Labeling Shortest Distance Querying in Time-dependent Road Networks</td>
+<td>时空数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>BERT-Trip: Effective and Scalable Trip Representation using Attentive Contrast Learning</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>LHMM: A Learning Enhanced HMM Model for Cellular Trajectory Map-matching</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Contrastive Trajectory Similarity Learning with Dual-Feature Attention</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Online Anomalous Subtrajectory Detection on Road Networks with Deep Reinforcement Learning</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Towards Efficient MIT query in Trajectory Data</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>A Lightweight Framework for Fast Trajectory Simplification</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Self-supervised Trajectory Representation Learning with Temporal Regularities and Travel Semantics</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>RNTrajRec: Road Network Enhanced Trajectory Recovery with Spatial-Temporal Transformer</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Collision-Aware Route Planning in Warehouses Made Efficient: A Strip-based Framework</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficient Public Transport Planning on Roads</td>
+<td>轨迹数据分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Reinforcement Learning based Tree Decomposition for Distance Querying in Road Networks</td>
+<td>路网分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Global Routing Optimization In Road Networks</td>
+<td>路网分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Experimental Evaluation of Indexing Techniques for Shortest Distance Queries on Road Networks</td>
+<td>路网分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Finding Top-k Optimal Routes with Collective Spatial Keywords on Road Networks</td>
+<td>路网分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Data Imputation for Sparse Radio Maps in Indoor Positioning</td>
+<td>地理信息分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Semi-supervised Learning with Network Embedding on Ambient RF Signals for Geofencing Services</td>
+<td>地理信息分析</td>
+<td></td>
+</tr>
+<tr>
+<td>A Contextual Master-Slave Framework on Urban Region Graph for Urban Village Detection</td>
+<td>地理信息分析</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Ai4DB"><a href="#Ai4DB" class="headerlink" title="Ai4DB"></a>Ai4DB</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AutoCE: An Accurate and Efficient Model Advisor for Learned Cardinality Estimation</td>
+<td>基数估计</td>
+<td></td>
+</tr>
+<tr>
+<td>Couper: Memory-Efficient Cardinality Estimation under Unbalanced Distribution</td>
+<td>基数估计</td>
+<td></td>
+</tr>
+<tr>
+<td>Dynamic Materialized View Management using Graph Neural Network</td>
+<td>查询优化</td>
+<td>物化视图、图神经网络</td>
+</tr>
+<tr>
+<td>Efficient Deep Ensemble Inference via Query Difficulty-dependent Task Scheduling</td>
+<td>查询优化</td>
+<td></td>
+</tr>
+<tr>
+<td>GAR: A Generate-and-Rank Approach for Natural Language to SQL Translation</td>
+<td>NL2SQL</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficiently Learning Spatial Indices</td>
+<td>学习索引</td>
+<td></td>
+</tr>
+<tr>
+<td>Towards Optimizing Storage Costs on the Cloud</td>
+<td>存储</td>
+<td></td>
+</tr>
+<tr>
+<td>Data Ambiguity Profiling for the Generation of Training Examples</td>
+<td>NL2SQL</td>
+<td></td>
+</tr>
+<tr>
+<td>Towards Explainable Table Interpretation Using Multi-view Explanations</td>
+<td>表解释</td>
+<td></td>
+</tr>
+<tr>
+<td>Toward a Unified Framework for Unsupervised Complex Tabular Reasoning</td>
+<td>表格推理</td>
+<td></td>
+</tr>
+<tr>
+<td>DBAugur: An Adversarial-based Trend Forecasting System for Diversified Workloads</td>
+<td>工作负载预测</td>
+<td></td>
+</tr>
+<tr>
+<td>Active Sampling for Sparse Table by Bayesian Optimization with Adaptive Resolution</td>
+<td>性能调优</td>
+<td></td>
+</tr>
+<tr>
+<td>Stable Tuple Embeddings for Dynamic Databases</td>
+<td>数据库嵌入</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="数据库管理"><a href="#数据库管理" class="headerlink" title="数据库管理"></a>数据库管理</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S&#x2F;C: Speeding up Data Materialization with Bounded Memory</td>
+<td>物化视图</td>
+<td></td>
+</tr>
+<tr>
+<td>Co-Utilizing SIMD and Scalar to Accelerate the Data Analytics Workloads</td>
+<td>工作负载分析</td>
+<td></td>
+</tr>
+<tr>
+<td>Leopard: A Black-Box Approach for Efficiently Verifying Various Isolation Levels</td>
+<td>事务</td>
+<td></td>
+</tr>
+<tr>
+<td>Knock Out 2PC with Practicality Intact: a High-performance and General Distributed Transaction Protocol</td>
+<td>事务</td>
+<td></td>
+</tr>
+<tr>
+<td>Database Deadlock Diagnosis for Large-scale ORM-based Web Applications</td>
+<td>死锁检测</td>
+<td></td>
+</tr>
+<tr>
+<td>LCL: A Lock Chain Length-based Distributed Algorithm for Deadlock Detection and Resolution</td>
+<td>死锁检测</td>
+<td></td>
+</tr>
+<tr>
+<td>Sequence-Oriented DBMS Fuzzing</td>
+<td>数据库安全</td>
+<td></td>
+</tr>
+<tr>
+<td>DBCatcher: A Cloud Database Online Anomaly Detection System based on Indicator Correlatio</td>
+<td>数据库安全</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="存储、LSM-Tree"><a href="#存储、LSM-Tree" class="headerlink" title="存储、LSM Tree"></a>存储、LSM Tree</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ACEing the Bufferpool Management Paradigm for Modern Storage Devices</td>
+<td>存储</td>
+<td></td>
+</tr>
+<tr>
+<td>Redesigning High-Performance LSM-based Key-Value Stores with Persistent CPU Caches</td>
+<td>存储</td>
+<td></td>
+</tr>
+<tr>
+<td>Workload-Aware Log-Structured Merge Key-Value Store for NVM-SSD Hybrid Storage</td>
+<td>存储</td>
+<td></td>
+</tr>
+<tr>
+<td>Real-Time LSM-Trees for HTAP Workloads</td>
+<td>LSM Tree</td>
+<td>适用于 HTAP 工作负载的实时 LSM 树</td>
+</tr>
+</tbody></table>
+<h3 id="查询、索引优化"><a href="#查询、索引优化" class="headerlink" title="查询、索引优化"></a>查询、索引优化</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ADAMANT: A Query Executor with Plug-In Interfaces for Easy Co-processor Integration</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>Skyline Micro-Cluster Query: A Novel and Practical Spatial Query</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>Ver: View Discovery in the Wild</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>EulerFD: An Efficient Double-Cycle Approximation of Functional Dependencies</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>Finding Best Tuple via Error-prone User Interaction</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>KOIOS: Top-k Semantic Overlap Set Search</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>Complete Join Reordering for Null-Intolerant Joins</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficiently Answering Top-k Window Aggregate Queries: Calculating Coverage Number Sequences over Hierarchical Structures</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>On Explaining Confounding Bias</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>MetricJoin: Leveraging Metric Properties for Robust Exact Set Similarity Joins</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>Selecting Sub-tables for Data Exploration</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>In-Situ Cross-Database Query Processing</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>These Rows Are Made for Sorting and That’s Just What We’ll Do</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>JanusAQP: Efficient Partition Tree Maintenance for Dynamic Approximate Query Processing</td>
+<td>查询</td>
+<td></td>
+</tr>
+<tr>
+<td>dLSM: An LSM-Based Index for Memory Disaggregation</td>
+<td>索引</td>
+<td></td>
+</tr>
+<tr>
+<td>Cutting Learned Index into Pieces: An In-depth Inquiry into Updatable Learned Indexes</td>
+<td>索引</td>
+<td></td>
+</tr>
+<tr>
+<td>Indexing for Near-Sorted Data</td>
+<td>索引</td>
+<td></td>
+</tr>
+<tr>
+<td>EEPH: An Efficient Extendible Perfect Hashing for Hybrid PMem-DRAM</td>
+<td>索引</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fed-SC: One-Shot Federated Subspace Clustering over High-Dimensional Data</td>
+<td>聚类</td>
+<td></td>
+</tr>
+<tr>
+<td>Parallel Filtered Graphs for Hierarchical Clustering</td>
+<td>聚类</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficient Augmentation for Imbalanced Deep Learning</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Pricing Prediction Services for Profit Maximization with Incomplete Information</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Detection of Groups With Biased Representation in Ranking</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>The Art of Losing to Win: Using Lossy Image Compression to Improve Data Loading in Deep Learning Pipelines</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Opponent-aware Order Pricing towards Hub-oriented Mobility Services</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Rotary: A Resource Arbitration Framework for Progressive Iterative Analytics</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Sudowoodo: Contrastive Self-supervised Learning for Multi-purpose Data Integration and Preparation</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>ENLD: Efficient Noisy Label Detection for Incremental Datasets in Data Lake ENLD：数据湖中增量数据集的高效噪声标签检测</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Improving Progressive Retrieval for HPC Scientific Data using Deep Neural Network</td>
+<td>深度学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Lightweight-Yet-Efficient: Revitalizing Ball-Tree for Point-to-Hyperplane Nearest Neighbor Search</td>
+<td>机器学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Automatic Feasibility Study via Data Quality Analysis for ML: A Case-Study on Label Noise</td>
+<td>机器学习</td>
+<td></td>
+</tr>
+<tr>
+<td>A Hierarchical Approach to Anomalous Subgroup Discovery</td>
+<td>机器学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Metam: Goal-Oriented Data Discovery</td>
+<td>机器学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Dynamic Shapley Value Computation</td>
+<td>机器学习</td>
+<td></td>
+</tr>
+<tr>
+<td>SK-Gradient: Efficient Communication for Distributed Machine Learning with Data Sketch</td>
+<td>机器学习</td>
+<td>分布式机器学习</td>
+</tr>
+<tr>
+<td>Distribution-Regularized Federated Learning on Non-IID Data</td>
+<td>机器学习</td>
+<td>分布式机器学习</td>
+</tr>
+<tr>
+<td>Orchestrating Large-Scale SpGEMMs using Dynamic Block Distribution and Data Transfer Minimization on Heterogeneous Systems</td>
+<td>机器学习</td>
+<td>分布式机器学习</td>
+</tr>
+<tr>
+<td>Enhancing Decentralized Federated Learning for Non-IID Data on Heterogenous Devices</td>
+<td>机器学习</td>
+<td>分布式机器学习</td>
+</tr>
+<tr>
+<td>Toward Efficient Automated Feature Engineering</td>
+<td>特征工程</td>
+<td></td>
+</tr>
+<tr>
+<td>PA-FEAT: Fast Feature Selection for Structured Data via Progress-Aware Multi-Task Deep Reinforcement Learning</td>
+<td>强化学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Discovering Editing Rules by Deep Reinforcement Learning</td>
+<td>强化学习</td>
+<td></td>
+</tr>
+<tr>
+<td>Schema Matching using Pre-Trained Language Models</td>
+<td>NLP</td>
+<td></td>
+</tr>
+<tr>
+<td>Online Pricing Strategy Achieving Vanishing Regret for Shipping Container Pricing with Limited Inventory</td>
+<td>在线学习</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="流处理"><a href="#流处理" class="headerlink" title="流处理"></a>流处理</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CompressStreamDB: Fine-Grained Adaptive Stream Processing without Decompression</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>HistSketch: A Compact Data Structure for Accurate Per-Key Distribution Monitoring</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>HyperCalm Sketch: One-Pass Mining Periodic Batches in Data Streams</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>RADAR: Reactive Concept Drift Management with Robust Variational Inference for Evolving IoT Data Streams</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>SASPAR: Shared Adaptive Stream Partitioning</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>SketchConf: A Framework for Automatic Sketch Configuration</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>Parallelizing Stream Compression for IoT Applications on Asymmetric Multicores</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>Globally Aware Contextual Embeddings for Named Entity Recognition in Social Media Streams</td>
+<td>流处理</td>
+<td></td>
+</tr>
+<tr>
+<td>Finding Simplex Items in Data Streams</td>
+<td>流处理</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="数据分析与挖掘"><a href="#数据分析与挖掘" class="headerlink" title="数据分析与挖掘"></a>数据分析与挖掘</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IndiBits: Incremental Discovery of Relaxed Functional Dependencies using Bitwise Similarity</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>UADB: Unsupervised Anomaly Detection Booster</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>Learn to Explore: on Bootstrapping Interactive Data Exploration with Meta-learning</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficient Parallel Mining of High-utility Itemsets on Multicore Processors</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>Benchmarking Filtering Techniques for Entity Resolution</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>Voting-based Opinion Maximization</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>Interactive Search with Mixed Attributes</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>Planning Data Poisoning Attacks on Heterogeneous Recommender Systems in a Multiplayer Setting</td>
+<td>数据挖掘</td>
+<td></td>
+</tr>
+<tr>
+<td>A Feature-Driven Fixed-Ratio Lossy Compression Framework for Real-World Scientific Datasets</td>
+<td>数据压缩</td>
+<td></td>
+</tr>
+<tr>
+<td>Neural Node Matching for Multi-Target Cross Domain Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Incremental Learning for Multi-Interest Sequential Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Disentangled Graph Social Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Group Buying Recommendation Model Based on Multi-task Learning</td>
+<td>推荐</td>
+<td>多任务学习</td>
+</tr>
+<tr>
+<td>Probabilistic Majority Rule-Based Group Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Sequential Recommendation with User Causal Behavior Discovery</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Towards Capacity-Aware Broker Matching: From Recommendation to Assignment</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Visualization Recommendation Through Visual Relation Learning and Visual Preference Learning</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Personalized Diversification for Neural Re-ranking in Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>A Competition-Aware Approach to Accurate TV Show Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Intent-aware Multi-source Contrastive Alignment for Tag-enhanced Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Instant Representation Learning for Recommendation over Large Dynamic Graphs</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>A Generic Reinforced Explainable Framework with Knowledge Graph for Session-based Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Contrastive Enhanced Slide Filter Mixer for Sequential Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Bayesian Negative Sampling for Recommendation</td>
+<td>推荐</td>
+<td></td>
+</tr>
+<tr>
+<td>Influential Recommender System</td>
+<td>推荐</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="边缘计算、区块链、物联网"><a href="#边缘计算、区块链、物联网" class="headerlink" title="边缘计算、区块链、物联网"></a>边缘计算、区块链、物联网</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EdgeNN: Efficient Neural Network Inference for CPU-GPU Integrated Edge Devices</td>
+<td>边缘计算</td>
+<td></td>
+</tr>
+<tr>
+<td>FedKNOW: Federated Continual Learning with Signature Task Knowledge Integration at Edge</td>
+<td>边缘计算</td>
+<td></td>
+</tr>
+<tr>
+<td>Reliable Transactions in Serverless-Edge Architecture</td>
+<td>边缘计算</td>
+<td></td>
+</tr>
+<tr>
+<td>Ziziphus: Scalable Data Management Across Byzantine Edge Servers</td>
+<td>边缘计算</td>
+<td></td>
+</tr>
+<tr>
+<td>Saguaro: An Edge Computing-Enabled Hierarchical Permissioned Blockchain</td>
+<td>边缘计算 、区块链</td>
+<td></td>
+</tr>
+<tr>
+<td>SChain: Scalable Concurrency over Flexible Permissioned Blockchain</td>
+<td>区块链</td>
+<td></td>
+</tr>
+<tr>
+<td>TxAllo: Dynamic Transaction Allocation in Sharded Blockchain Systems</td>
+<td>区块链</td>
+<td></td>
+</tr>
+<tr>
+<td>On Sharding Across Heterogeneous Blockchains</td>
+<td>区块链</td>
+<td></td>
+</tr>
+<tr>
+<td>Scaling Blockchain Consensus via a Robust Shared Mempool</td>
+<td>区块链</td>
+<td></td>
+</tr>
+<tr>
+<td>Non-Blocking Raft for High Throughput IoT Data</td>
+<td>物联网</td>
+<td></td>
+</tr>
+<tr>
+<td>Federated IoT Interaction Vulnerability Analysis</td>
+<td>物联网</td>
+<td>漏洞分析</td>
+</tr>
+</tbody></table>
+<h3 id="视频处理"><a href="#视频处理" class="headerlink" title="视频处理"></a>视频处理</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Marshalling Model Inference In Video Streams</td>
+<td>视频处理</td>
+<td></td>
+</tr>
+<tr>
+<td>Track Merging for Effective Video Query Processing</td>
+<td>视频处理</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="隐私保护"><a href="#隐私保护" class="headerlink" title="隐私保护"></a>隐私保护</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dynamic Private Task Assignment under Differential Privacy</td>
+<td>隐私保护</td>
+<td></td>
+</tr>
+<tr>
+<td>Differential Aggregation against General Colluding Attackers</td>
+<td>隐私保护</td>
+<td></td>
+</tr>
+<tr>
+<td>KVSAgg: Secure Aggregation of Distributed Key-Value Sets</td>
+<td>隐私保护</td>
+<td></td>
+</tr>
+<tr>
+<td>PrivNUD: Effective Range Query Processing under Local Differential Privacy</td>
+<td>隐私保护</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="众包"><a href="#众包" class="headerlink" title="众包"></a>众包</h3><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>子方向</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Air-Ground Spatial Crowdsourcing with UAV Carriers by Geometric Graph Convolutional Multi-Agent Deep Reinforcement Learning</td>
+<td>众包</td>
+<td></td>
+</tr>
+<tr>
+<td>Efficient Cross Dynamic Task Assignment in Spatial Crowdsourcing</td>
+<td>众包</td>
+<td></td>
+</tr>
+<tr>
+<td>Batch-Based Cooperative Task Assignment in Spatial Crowdsourcing</td>
+<td>众包</td>
+<td></td>
+</tr>
+<tr>
+<td>Exploring both Individuality and Cooperation for Air-Ground Spatial Crowdsourcing by Multi-Agent Deep Reinforcement Learning</td>
+<td>众包</td>
+<td></td>
+</tr>
+<tr>
+<td>Hierarchical Crowdsourcing for Data Labeling with Heterogeneous Crowd</td>
+<td>众包</td>
+<td></td>
+</tr>
+<tr>
+<td>Learning from Noisy Crowd Labels with Logics 从喧闹的人群标签中学习逻辑</td>
+<td>众包</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="密码生成"><a href="#密码生成" class="headerlink" title="密码生成"></a>密码生成</h1><h2 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h2><p>关于口令生成的方向调研</p>
+<h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h2><p>[[方向：密码生成]]</p>
+<h2 id="安全一流会议"><a href="#安全一流会议" class="headerlink" title="安全一流会议"></a>安全一流会议</h2><p>S&amp;P、CCS、NDSS、USENIX Conference、IEEE tDSC</p>
+<h2 id="详情-1"><a href="#详情-1" class="headerlink" title="详情"></a>详情</h2><table>
+<thead>
+<tr>
+<th>论文</th>
+<th>时间</th>
+<th>级别</th>
+<th>笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GENPass: A General Deep Learning Model for Password Guessing with PCFG Rules and Adversarial Generation</td>
+<td>2018</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-030-21568-2_11">PassGAN: A Deep Learning Approach to Password Guessing</a><br><a target="_blank" rel="noopener" href="https://github.com/brannondorsey/PassGAN">代码</a><br><a target="_blank" rel="noopener" href="https://github.com/ponedo/rnnPassGAN-password-cracking">改进代码</a></td>
+<td>2019</td>
+<td></td>
+<td>[[PassGAN]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.mdpi.com/1424-8220/20/11/3106">Recurrent gans password cracker for iot password security enhancement</a></td>
+<td>2019</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://iopscience.iop.org/article/10.1088/1742-6596/1631/1/012161/pdf">Research on Password Cracking Technology Based on Improved Transformer</a></td>
+<td>2020</td>
+<td></td>
+<td>[[Pass improved Transformer]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.mdpi.com/2076-3417/10/20/7306">Generating optimized guessing candidates toward better password cracking from multi-dictionaries using relativistic GAN</a></td>
+<td>2020</td>
+<td>三区</td>
+<td>[[REDPACK]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-030-93206-0_18">Densegan: A password <strong>guessing model based</strong> on <strong>densenet</strong> and <strong>passgan</strong></a></td>
+<td>2021</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.mdpi.com/2076-3417/11/10/4607">Dynamic Markov Model: Password Guessing Using Probability Adjustment</a></td>
+<td>2021</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3448608">A large-scale analysis of the semantic password model and linguistic patterns in passwords</a>综述</td>
+<td>2021</td>
+<td>B</td>
+<td>[[语义密码模型和密码语言模式分析]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.mdpi.com/1424-8220/22/12/4604">LPG–PCFG: an improved probabilistic context-free grammar to hit low-probability passwords</a></td>
+<td>2022</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.10413">On deep learning in password guessing, a survey</a></td>
+<td>2022</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/9799343/">GNPassGAN: improved generative adversarial networks for trawling offline password guessing</a></td>
+<td>2022</td>
+<td>A</td>
+<td>[[GNPassGAN]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-981-99-9239-3_3">PassDiff: A New Approach for Password Guessing Using Diffusion Model</a><a target="_blank" rel="noopener" href="https://books.google.co.jp/books?hl=zh-CN&lr&id=NjvsEAAAQBAJ&oi=fnd&pg=PA29&ots=MFKPmtXK-9&sig=Ea5MEWjfUDxwHsZPvrnk1jdnHo0&redir_esc=y&pli=1#v=onepage&q&f=false">阅读</a><br><a target="_blank" rel="noopener" href="https://github.com/madaan/minimal-text-diffusion">代码</a><br></td>
+<td>2023</td>
+<td></td>
+<td>[[PassDiff]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.5555/3636988.3637019">OneRuleToFindThem: Efficient Automated Generation of Password Cracking</a><br>自动生成密码规则</td>
+<td>2023</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.mdpi.com/1099-4300/25/9/1303">A Systematic Review on Password Guessing Tasks</a><br>密码生成的系统综述</td>
+<td>2023</td>
+<td></td>
+<td>[[AReview]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s12243-023-00969-4">Adaptive password guessing: learning language, nationality and dataset</a><br>自适应密码猜测</td>
+<td>2023</td>
+<td>4区</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.06824">SE# PCFG: Semantically Enhanced PCFG for Password Analysis and Cracking</a><br>密码分析和破解语义的增强</td>
+<td>2023</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.01545">PassGPT: Password Modeling and (Guided) Generation with Large Language</a></td>
+<td>2023</td>
+<td></td>
+<td>[[PassGPT]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/10152712/">A New Targeted Online Password Guessing Algorithm Based on Old Password</a></td>
+<td>2023</td>
+<td>B</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.usenix.org/conference/usenixsecurity23/presentation/xu-ming">Improving real-world password guessing attacks via bi-directional transformers</a></td>
+<td>2023</td>
+<td>A</td>
+<td>[[PassBERT]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s10796-022-10325-x">Password and passphrase guessing with recurrent neural networks</a></td>
+<td>2023</td>
+<td>(JCR:Q2)</td>
+<td>[[Pass_RNN]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/sec23fall-prepub-183-wang-ding.pdf">Password guessing using random forest</a><br>随机森林<br><a target="_blank" rel="noopener" href="https://github.com/PadishahIII/RFGuess">代码</a></td>
+<td>2023</td>
+<td>A</td>
+<td>[[PASS_RF]]</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1084804523000115">PGTCN: A novel password-guessing model based on temporal convolution</a></td>
+<td>2023</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.09954">Search-based Ordered Password Generation of Autoregressive Neural Networks</a></td>
+<td>2024</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/10466588/"><em>GuessFuse</em>: Hybrid Password Guessing with Multi-View</a></td>
+<td>2024</td>
+<td>A</td>
+<td>[[GuessFuse]]</td>
+</tr>
+</tbody></table>
+<h2 id="A-Two-Decade-Retrospective-Analysis-of-a-University’s-Vulnerability-to-Attacks-Exploiting-Reused-Passwords"><a href="#A-Two-Decade-Retrospective-Analysis-of-a-University’s-Vulnerability-to-Attacks-Exploiting-Reused-Passwords" class="headerlink" title="A Two-Decade Retrospective Analysis of a University’s Vulnerability to Attacks Exploiting Reused Passwords"></a>A Two-Decade Retrospective Analysis of a University’s Vulnerability to Attacks Exploiting Reused Passwords</h2><p>凭据猜测攻击通常会利用在用户在线帐户中重复使用的密码。为了了解组织如何更好地保护用户，我们回顾性分析了我们大学二十年来遭受凭据猜测攻击的脆弱性。给定一份大学用户名列表，我们从数百个网站和十几个大型泄露事件汇编中搜索了两个数据泄露事件中的匹配项。在破解哈希密码并调整猜测后，我们成功猜测了 32.0% 与数据泄露中的大学电子邮件地址匹配的帐户的密码，以及 6.5% 与用户名（但不一定是域名）匹配的帐户的密码。这些帐户中的许多帐户在被泄露的数据泄露后多年仍然容易受到攻击，并且在泄露中逐字发现的密码被利用的可能性（即观察到可疑的帐户活动）几乎是经过调整的猜测的四倍。超过 70 种不同的数据泄露和各种用户名匹配策略引导了正确的猜测。在对我们猜测密码的 40 名用户进行的调查中，许多用户没有意识到他们的大学帐户存在风险，或者他们的凭据已被泄露。对我们大学密码重用的分析为组织保护帐户提供了务实的建议。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://medium.com/@gsurma/password-cracker-generating-passwords-with-recurrent-neural-networks-lstms-9583714a3310">使用 RNN(LSTMs) 生成密码</a>：<a target="_blank" rel="noopener" href="https://github.com/gsurma/password_cracker">代码不全</a></p>
+<p>（1）<br>（2）Generative Adversarial Networks can crack your password!<br>（3）Password Cracker - Generating Passwords</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.292Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/%E6%96%B9%E5%90%91%E8%B0%83%E7%A0%94/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>[[中国计算机学会推荐国际学术会议和期刊目录-2019.pdf]]</p>
+<h1 id="会议级别"><a href="#会议级别" class="headerlink" title="会议级别"></a>会议级别</h1><p>ei 会议 &lt; ei 期刊 &lt;  sci | ssci</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkwMTM0NzU1MQ==&mid=2247505285&idx=1&sn=8f2fbac906e7bba64545fe9a30b8435e&chksm=c0b4b435f7c33d234329c1bdfa5e39fa1191cbb409b75b5dd7b412e54d12c7838211e74f0d97&scene=27">会议信息 | 2023年12月截稿的密码学与信息安全会议整理 (qq.com)</a></p>
+<h1 id="主要依据"><a href="#主要依据" class="headerlink" title="主要依据"></a>主要依据</h1><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>期刊CCF等级</td>
+<td>未收录</td>
+</tr>
+<tr>
+<td>JCR分区</td>
+<td>Q2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>JCR分区是通过将一个学科内收录的期刊总数分为四等份来进行的，其中影响因子排名前25%的期刊为一区（Q1），26-50%为二区（Q2），51-75%为三区（Q3），76-100%为四区（Q4）</p>
+<p>CCF分类则是中国计算机学会（CCF）对计算机科学领域的期刊和会议进行的评级，基于期刊和会议的国际影响力、学术水平等因素，通过将它们划分为不同的等级（A、B、C），</p>
+<p>中科院期刊分区根据13个大类学科，分别将各大类的SCI期刊由3年平均影响因子划分为 1 区（最高区）、2区、3区和4区四个等级。这种分区标准也被更多的机构采纳以作为科研评价的指标。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.291Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/%E4%BC%9A%E8%AE%AE%E8%B0%83%E7%A0%94/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>文档的重点是基于随机森林的密码猜测模型。它提出了一种新的技术路线，重新编码密码字符，使得可以应用经典的机器学习技术来进行密码猜测。具体来说，它使用随机森林、提升算法等经典的机器学习技术来处理多类分类问题，从而实现密码猜测。此外，它还提出了一种基于随机森林的框架RFGuess，该框架对三种最具代表性的密码猜测场景进行了特征化。实验证明，基于随机森林的猜测模型非常有效，在各种场景中都表现出色。同时，它还提出了一种新的PII匹配算法，能够更准确地捕捉用户的PII使用情况，并且可以改进主要猜测模型的成功率。总的来说，这篇文档提出了一种基于经典机器学习技术的密码猜测模型，并且在多个实验中证明了其有效性和实用性。</p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>对密码字符进行重新编码，并使一系列解决多类分类问题的经典机器学习技术（例如随机森林、增强算法及其变体）用于密码猜测成为可能。 此外，我们提出了 RFGuess，一种基于随机森林的框架，它描述了三种最具代表性的密码猜测场景（即拖网猜测、基于个人身份信息 (PII) 和用户密码重用行为的有针对性的猜测）。 这项工作除了具有理论意义外，还具有实用价值。 使用 13 个大型真实密码数据集进行的实验表明，我们的基于随机森林的猜测模型是有效的：（1）RFGuess 用于拖网猜测场景，其猜测成功率与最先进的同行相当； （2）基于PII的定向猜测RFGuess-PII，在100次猜测中猜测了20%∼28%的普通用户，比最先进的对手高出7%∼13%； (3) RFGuess-Reuse 基于用户密码重用&#x2F;修改行为进行定向猜测，在相关模型中表现最好或第二。 我们相信这项工作朝着将经典机器学习技术引入密码猜测迈出了实质性的一步。</p>
+<h1 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a>如何工作</h1><ol>
+<li>首先对密码字符进行重新编码，将每个密码字符表示为n阶字符串，其中n可以是4、5或6</li>
+<li>然后将这些字符串表示为四个维度：字符类型、字符的排名、键盘行号和键盘列号，再加上两个额外的维度：字符在密码中的位置和字符在当前段中的位置。这种表示方法使得经典的机器学习技术（如随机森林和Boosting算法）首次成功应用于密码猜测。</li>
+<li>随后，模型使用这些特征进行训练，并利用训练好的随机森林模型来生成密码猜测。</li>
+<li>通过大量实验，研究表明RFGuess在不同的猜测场景中都取得了很好的效果，包括对PII的目标猜测。因此，RFGuess模型通过经典机器学习技术的应用，为密码猜测领域带来了重要的突破。</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.273Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/PASS_RF/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>这里主要展示自己所参与过或者开发的项目，一些包含一些思考和总结。</p>
+<h1 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h1><p>[[TinyKV 项目要求]]</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.265Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a target="_blank" rel="noopener" href="https://github.com/Smith-Cruise/TinyKV-White-Paper">Smith-Cruise&#x2F;TinyKV-White-Paper: Tutorial for TinyKV project in Talent Plan. (github.com)</a><br><a target="_blank" rel="noopener" href="https://cn.pingcap.com/blog/the-design-and-implementation-of-multi-raft/#raftstore">源码解析</a></p>
+<h1 id="Project2-RaftKV"><a href="#Project2-RaftKV" class="headerlink" title="Project2 RaftKV"></a>Project2 RaftKV</h1><h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><h3 id="Raft"><a href="#Raft" class="headerlink" title="Raft"></a>Raft</h3><p>[[Raft 协议]]</p>
+<h3 id="Raft-GC"><a href="#Raft-GC" class="headerlink" title="Raft GC"></a>Raft GC</h3><p>Raft GC 是指在 Raft 一致性算法中用于清理日志条目的过程。在 Raft 中，每个节点都会维护一个日志，用于记录系统状态的变化。当日志变得庞大时，执行一致性操作的成本也会增加。为了限制日志的大小并提高性能，Raft 使用 Raft GC 机制来清理已经提交（committed）的日志条目。</p>
+<p>Raft GC 的基本原则是，一旦某个日志条目已经被提交并应用到状态机，就可以安全地删除该条目之前的所有条目。删除旧的日志条目可以释放存储空间，并减少后续一致性操作的开销。Raft GC 通常通过一些策略（例如基于索引或时间）来判断哪些日志条目可以安全删除。</p>
+<h3 id="Snapshot（快照）"><a href="#Snapshot（快照）" class="headerlink" title="Snapshot（快照）"></a>Snapshot（快照）</h3><p>Raft 中的快照是一种机制，用于在节点的状态机状态较新的情况下压缩和清理日志。当日志变得很大时，将整个日志传输给新加入的节点可能会很耗时和耗带宽。为了解决这个问题，Raft 使用快照机制来捕获节点的状态，并将其保存为一个快照文件。</p>
+<p>快照包含了节点在某个特定时间点的状态机状态。当新节点加入集群时，它可以通过获取最新的快照来快速将自己带到当前状态，并只追加日志中从快照之后的新条目。这样可以大大减少传输和恢复的开销。</p>
+<p>快照通常是通过在节点的状态机达到某个预定阈值时触发，或者通过节点之间的协商来创建。创建快照后，旧的日志条目可以被截断和删除，只保留最新的日志条目和快照文件。</p>
+<h2 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h2><ol>
+<li>实现基本的 raft 算法。</li>
+<li>在 Raft 上构建容错 KV 服务器。</li>
+<li>添加 Raft GC 和 snapshot 的支持。</li>
+</ol>
+<h3 id="Part-A"><a href="#Part-A" class="headerlink" title="Part A"></a>Part A</h3><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ol>
+<li>代码位于 raft&#x2F;</li>
+<li>使用逻辑时钟实现，选举和超时时间</li>
+<li>粗略阅读一下 eraftpb.proto ， 消息接收和发送的定义</li>
+<li>注意，这里与标准 Raft 协议不同，将 HeartBeat 和 AppendEntries 分成不同的消息。</li>
+<li>大致步骤：<ol>
+<li>Leader election</li>
+<li>Log replication</li>
+<li>Raw node interface</li>
+</ol>
+</li>
+</ol>
+<h4 id="实现-Raft-算法"><a href="#实现-Raft-算法" class="headerlink" title="实现 Raft 算法"></a>实现 Raft 算法</h4><ol>
+<li><code>Raft/Raft.go</code> 提供了 Raft 算法的核心，包括消息处理、驱动逻辑时钟等。</li>
+</ol>
+<h5 id="Leader-选举"><a href="#Leader-选举" class="headerlink" title="Leader 选举"></a>Leader 选举</h5><ol>
+<li><code>raft.Raft.tick()</code> 可以将内部时钟前移一个</li>
+<li>发送消息时仅将消息推入<code>raft.Raft.msgs</code>，因为测试代码会从这个里面的消息然后使用 <code>raft.Raft.Step()</code> 处理回应消息</li>
+<li>make project2aa 测试。</li>
+</ol>
+<h5 id="日志复制"><a href="#日志复制" class="headerlink" title="日志复制"></a>日志复制</h5><ol>
+<li>先在发送方和接收方实现处理 “MsgAppend” 和 “MsgAppendResponse” 。</li>
+<li><code>raft/log.go</code> 中的 <code>raft.RaftLog</code> 是关键结构。</li>
+<li>需要通过<code>raft/Storage.go</code>中定义的<code>Storage </code>接口与上层应用程序交互，以获取日志条目和快照等持久化数据。</li>
+<li>make project2ab 进行测试。</li>
+</ol>
+<h4 id="实现-Rawnode-接口"><a href="#实现-Rawnode-接口" class="headerlink" title="实现 Rawnode 接口"></a>实现 Rawnode 接口</h4><p> <code>raft/rawnode.go</code> 中的 <code>raft.RawNode</code> 是与上层应用交互的接口。</p>
+<ol>
+<li><p>包含 <code>raft.Raft</code> ，封装了时钟相关： <code>RawNode.Tick()</code>and <code>RawNode.Step()</code>，日志 ：<code>RawNode.Propose()</code></p>
+</li>
+<li><p>包含一个新的 结构 <code>Ready</code>，处理消息或推进逻辑时钟时，<code>raft.Raft</code> 可能需要与上层应用程序交互，例如：</p>
+<ul>
+<li>向其他对等方发送消息</li>
+<li>将日志项保存到稳定的存储中</li>
+<li>保存硬状态（如术语），提交索引，并投票到稳定存储</li>
+<li>将提交的日志条目应用于状态机</li>
+<li>等<br>交互不会立即发生，相反，它们被封装在 “Ready” 中，并由 “RawNode” 返回。<code>Ready（）</code>到上层应用程序。这取决于上层应用程序何时调用 <code>Ready（）</code>并进行处理。在处理完返回的 Ready 之后，上层应用程序还需要调用一些函数，如 <code>RawNode.Advance（）</code> 更新 <code>raft.Raft</code> 的内部状态，如应用索引、稳定日志索引等。</li>
+</ul>
+</li>
+<li><p>“makeproject2ac” 来测试实现</p>
+</li>
+</ol>
+<p>也可以运行 “make project2a” 来测试整个A部分。</p>
+<blockquote>
+<p>提示。</p>
+<ul>
+<li>需要时添加任何状态到 <code>raft.Raft</code>, <code>raft.RaftLog</code>, <code>raft.RawNode</code> 和消息，在<code>eraftpb.proto</code> 中</li>
+<li>测试中假设初始的 term 0</li>
+<li>测试中假设新选举的 Leader 应该在任期内添加一个 noop 条目。 </li>
+<li>测试中假设一旦领导者推进其提交索引，它将通过 “MessageType_MsgAppend” 消息广播提交索引。</li>
+<li>测试中不会为本地 Message，<code>MessageType_MsgHup</code>, <code>MessageType_MsgBeat</code> 和 <code>MessageType_MsgPropose</code> 添加 term 号, </li>
+<li>领导者和非领导者的日志条目附加有很大不同，有不同的来源，检查和处理，请小心。</li>
+<li>不要忘记，peers 之间的选举超时时间应该不同。</li>
+<li>rawnode.go 中的一些包装函数可以通过 raft.Step(local message) 来实现</li>
+<li>当启动一个新的 raft 时，从<code>Storage</code>中获取最后的稳定状态来初始化<code>raft.Raft</code>和<code>raft.Raft Log</code></li>
+</ul>
+</blockquote>
+<h3 id="Part-B"><a href="#Part-B" class="headerlink" title="Part B"></a>Part B</h3><p>使用 part A 中 实现的 Raft 模块构建一个容错键值存储服务。</p>
+<ol>
+<li>键&#x2F;值服务将是一个复制状态机，由多个使用 Raft 进行复制的键&#x2F;值服务器组成。</li>
+<li>只要大多数服务器处于活动状态并且可以通信，尽管存在其他故障或网络分区，您的键&#x2F;值服务就应该继续处理客户端请求。<blockquote>
+<p>三个术语：“Store”、“Peer” 和 “Region”（定义在 “proto&#x2F;proto&#x2F;metapb.proto” 中）</p>
+<ul>
+<li>Store 代表tinykv-server 的一个实例</li>
+<li>Peer 代表在 Store 上运行的 Raft 节点</li>
+<li>Region是 Peers 的集合，也称为 Raft group (现在不需要考虑Region的范围。 项目3中将进一步引入多个区域。)</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><p>查看 <code>kv/storage/raft_storage/raft_server.go</code> 中的 <code>RaftStorage</code> ：实现了 <code>Storage</code> 接口（与 Project1 中的单机存储不同），首先将每个写入和读取请求发送到 Raft，然后在 Raft 提交请求后才对底层引擎进行实际的写入和读取。<br><code>RaftStorage</code> 创建一个 <code>Raftstore</code> 来驱动 Raft。 当调用 <code>Reader</code> 或 <code>Write</code> 函数时，它实际上通过通道（ 通道是“raftWorker”的“raftCh”），并在 Raft 提交并应用命令后返回响应。 Reader 和 Write 函数的 kvrpc.Context 参数现在很有用，它从客户端的角度携带 Region 信息，并作为 RaftCmdRequest 的 header 传递。 这些信息可能不正确或过时，因此 raftstore 需要检查它们并决定是否提出请求。<br>接下来，就到了TinyKV的核心——raftstore。 结构有点复杂，阅读 TiKV 参考资料可以更好地理解设计：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pingcap.com/blog-cn/the-design-and-implementation-of-multi-raft/#raftstore">https://pingcap.com/blog-cn/the-design-and-implementation-of-multi-raft/#raftstore</a>（中文版）</li>
+<li><a target="_blank" rel="noopener" href="https://pingcap.com/blog/design-and-implementation-of-multi-raft/#raftstore">https://pingcap.com/blog/design-and-implementation-of-multi-raft/#raftstore</a>（英文版）</li>
+</ul>
+<p>raftstore 的入口是 <code>Raftstore</code>，参见<code>kv/raftstore/raftstore.go</code>。 它启动一些工作线程异步处理特定任务，其中大多数现在不使用，因此您可以忽略它们。 你需要关注的是<code>raftWorker</code>。(kv&#x2F;raftstore&#x2F;raft_worker.go)</p>
+<p>整个过程分为两部分：raftworker 轮询 “raftCh” 以获取消息，包括驱动 Raft 模块的基本 tick 和建议作为 Raft 条目的 Raft 命令； 它从 Raft 模块获取并处理就绪，包括发送 raft 消息、持久化状态、将提交的条目应用到状态机。 申请后，将响应返回给客户。</p>
+<h4 id="实现对等存储-peer-storage"><a href="#实现对等存储-peer-storage" class="headerlink" title="实现对等存储 peer storage"></a>实现对等存储 peer storage</h4><p>对等存储是您通过 A 部分中的 “Storage”  接口进行交互的内容，但除了 raft 日志之外，对等存储还管理其他持久化元数据，这对于重启后恢复一致状态机非常重要</p>
+<blockquote>
+<p><code>proto/proto/raft_serverpb.proto</code> 中定义了三个重要的状态：</p>
+</blockquote>
+<ul>
+<li>RaftLocalState：用于存储当前 Raft 的 HardState 和最后一个 Log Index。</li>
+<li>RaftApplyState：用于存储 Raft 最后应用的 Log 索引以及一些被截断的 Log 信息。</li>
+<li>RegionLocalState：用于存储 Region 信息以及该 Store 上对应的 Peer 状态。 Normal 表示该 Peer 正常，Tombstone 表示该 Peer 已从 Region 中移除，无法加入 Raft Group。<br>这些状态存储在两个 badger 实例中：raftdb 和 kvdb：</li>
+<li>raftdb 存储 raft 日志和 <code>RaftLocalState</code></li>
+<li>kvdb 将键值数据存储在不同的列族 “RegionLocalState” 和 “RaftApplyState” 中。 可以把kvdb看成Raft论文中提到的状态机<blockquote>
+<p>why?<br>实际上，可以只使用一个 badger 来存储 raft 日志和状态机数据。 分成两个实例只是为了与 TiKV 设计保持一致。</p>
+</blockquote>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">KeyFormat</th>
+<th align="left">Value</th>
+<th align="left">DB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">raft_log_key</td>
+<td align="left">0x01 0x02 region_id 0x01 log_idx</td>
+<td align="left">Entry</td>
+<td align="left">raft</td>
+</tr>
+<tr>
+<td align="left">raft_state_key</td>
+<td align="left">0x01 0x02 region_id 0x02</td>
+<td align="left">RaftLocalState</td>
+<td align="left">raft</td>
+</tr>
+<tr>
+<td align="left">apply_state_key</td>
+<td align="left">0x01 0x02 region_id 0x03</td>
+<td align="left">RaftApplyState</td>
+<td align="left">kv</td>
+</tr>
+<tr>
+<td align="left">region_state_key</td>
+<td align="left">0x01 0x03 region_id 0x01</td>
+<td align="left">RegionLocalState</td>
+<td align="left">kv</td>
+</tr>
+<tr>
+<td align="left">这些元数据应该在 “PeerStorage” 中创建和更新。 创建 PeerStorage 时，请参阅 “kv&#x2F;raftstore&#x2F;peer_storage.go”。 它会初始化该 Peer 的RaftLocalState、RaftApplyState，或者重启时从底层引擎获取之前的值。 注意，RAFT_INIT_LOG_TERM 和 RAFT_INIT_LOG_INDEX 的值都是 5（只要大于 1），而不是 0。之所以不设置为 0，是为了与 conf 更改后被动创建 Peer 的情况区别。 你现在可能还不太明白，所以请记住这一点，当你实现 conf 更改时，详细信息将在project3b 中描述。</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p>这部分需要实现的代码只有一个函数：<code>PeerStorage.SaveReadyState</code>，该函数的作用是将 <code>raft.Ready</code> 中的数据保存到 badger 中，包括追加日志条目和保存 Raft 硬状态。</p>
+<blockquote>
+<p>硬状态：更新 <code>RaftLocalState.HardState</code> 并保存。</p>
+</blockquote>
+<p>要追加日志条目，只需将 “raft.Ready.Entries” 中的所有日志条目保存到 raftdb 并删除任何以前追加的永远不会提交的日志条目。 另外，更新对等存储的 “RaftLocalState”并将其保存到 raftdb。</p>
+<blockquote>
+<p>提示：</p>
+<ul>
+<li>使用 <code>WriteBatch</code> 立即保存这些状态。</li>
+<li>有关如何读取和写入这些状态的信息，请参阅 <code>peer_storage.go</code> 中的其他函数。</li>
+<li>设置环境变量 LOG_LEVEL&#x3D;debug 这可以帮助您进行调试，另请参阅所有可用的<a href="../log/log.go">日志级别</a>。</li>
+</ul>
+</blockquote>
+<h3 id="实施-Raft-Ready-流程"><a href="#实施-Raft-Ready-流程" class="headerlink" title="实施 Raft Ready 流程"></a>实施 Raft Ready 流程</h3><p>在 Part A 部分，构建了一个基于 tick 的 Raft 模块。 现在您需要编写外部进程来驱动它。 大部分代码已经在 <code>kv/raftstore/peer_msg_handler.go</code> 和 <code>kv/raftstore/peer.go</code> 下实现。 所以你需要学习代码并完成 <code>proposeRaftCommand</code> 和 <code>HandleRaftReady</code> 的逻辑。 以下是对该框架的一些解释。</p>
+<p>Raft “RawNode” 已使用 “PeerStorage” 创建并存储在 “peer” 中。 在 Raft Worker 中，您可以看到它采用 “peer” 并通过 “peerMsgHandler” 包装它。  <code>peerMsgHandler</code> 主要有两个功能：一是 <code>HandleMsg</code> ，另一个是 <code>HandleRaftReady</code>。</p>
+<p><code>HandleMsg</code> 处理从 raftCh 接收到的所有消息，包括 <code>MsgTypeTick</code> 调用 <code>RawNode.Tick()</code> 来驱动 Raft，<code>MsgTypeRaftCmd</code> 包装来自客户端的请求，以及 <code>MsgTypeRaftMessage</code> 是 Raft 对等点之间传输的消息 。 所有消息类型都在 <code>kv/raftstore/message/msg.go</code> 中定义。 具体大家可以查看一下，其中一些会在后面的部分用到。</p>
+<p>消息处理完毕后，Raft 节点应该有一些状态更新。 因此 <code>HandleRaftReady</code> 应该从 Raft 模块中做好准备并执行相应的操作，例如持久化日志条目、应用提交的条目<br>并通过网络向其他对等点发送 raft 消息。</p>
+<p>在伪代码中，raftstore 使用 Raft，如下所示：</p>
+<pre><code class="go">for &#123;
+  select &#123;
+  case &lt;-s.Ticker:
+    Node.Tick()
+  default:
+    if Node.HasReady() &#123;
+      rd := Node.Ready()
+      saveToStorage(rd.State, rd.Entries, rd.Snapshot)
+      send(rd.Messages)
+      for _, entry := range rd.CommittedEntries &#123;
+        process(entry)
+      &#125;
+      s.Node.Advance(rd)
+    &#125;
+&#125;
+</code></pre>
+<p>之后读取或写入的整个过程将是这样的：</p>
+<ul>
+<li>客户端调用RPC RawGet&#x2F;RawPut&#x2F;RawDelete&#x2F;RawScan</li>
+<li>RPC处理程序调用<code>RaftStorage</code>相关方法</li>
+<li><code>RaftStorage</code> 向 raftstore 发送 Raft 命令请求，并等待响应</li>
+<li><code>RaftStore</code> 将 Raft 命令请求作为 Raft 日志提出</li>
+<li>Raft模块追加日志，并通过<code>PeerStorage</code>持久化</li>
+<li>Raft模块提交日志</li>
+<li>Raft Worker在Raft准备就绪时执行Raft命令，并通过回调返回响应</li>
+<li><code>RaftStorage</code> 接收回调的响应并返回到 RPC 处理程序</li>
+<li>RPC 处理程序执行一些操作并将 RPC 响应返回给客户端。</li>
+</ul>
+<p>您应该运行“make project2b”来通过所有测试。 整个测试运行一个模拟集群，包括多个带有模拟网络的 TinyKV 实例。 它执行一些读写操作并检查返回值是否符合预期。</p>
+<p>需要注意的是，错误处理是通过测试的重要组成部分。 您可能已经注意到“proto&#x2F;proto&#x2F;errorpb.proto”中定义了一些错误，并且错误是 gRPC 响应的一个字段。 另外，实现了 error 接口的相应错误定义在 kv&#x2F;raftstore&#x2F;util&#x2F;error.go 中，因此您可以将它们用作函数的返回值。</p>
+<p>这些错误主要与Region有关。 所以它也是<code>RaftCmdResponse</code>的<code>RaftResponseHeader</code>的成员。 当提出请求或应用命令时，可能会出现一些错误。 如果是这样，您应该返回带有错误的 raft 命令响应，然后错误将进一步传递给 gRPC 响应。 当返回带有错误的响应时，您可以使用 kv&#x2F;raftstore&#x2F;cmd_resp.go 中提供的 BindRespError 将这些错误转换为 errorpb.proto 中定义的错误。</p>
+<p>在这个阶段，你可能会考虑这些错误，其他的将在 project3 中处理：</p>
+<ul>
+<li>ErrNotLeader：在跟随者上提议 raft 命令。 所以用它来让客户端尝试其他对等点。</li>
+<li>ErrStaleCommand：可能由于领导者更改，某些日志未提交并被新领导者的日志覆盖。 但客户并不知道这一点，仍在等待回复。 因此，您应该返回此信息以让客户端知道并再次重试该命令。</li>
+</ul>
+<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><blockquote>
+<p>why<br>RAFT_INIT_LOG_TERM 和 RAFT_INIT_LOG_INDEX 的值都是 5（只要大于 1）</p>
+</blockquote>
+<blockquote>
+<p>Config.Applied uint64 干嘛用的</p>
+</blockquote>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.258Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/TinyKV/TinyKV%20%E9%A1%B9%E7%9B%AE%E8%A6%81%E6%B1%82/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>不行：<br>nohup docker compose up &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;<br>行：<br>docker compose up -d<br>121.48.161.86</p>
+<p>插如新的字典信息：<br>INSERT INTO <code>File</code> (<code>filename</code>, <code>size</code>, <code>isSecret</code>, <code>fileType</code>, <code>accessGroupId</code>, <code>lineCount</code>) VALUES<br> (‘base01_<del>FFXXFF</del>.txt’, 25705231224, 0 , 0 , 1, 1000000000),<br> (‘base02_<del>FFXXFF</del>.txt’, 25705106232, 0 , 0 , 1, 1000000000),<br> (‘base03_<del>FFXXFF</del>.txt’, 25705041692, 0 , 0 , 1, 1000000000),<br> (‘base04_<del>FFXXFF</del>.txt’, 25704512508, 0 , 0 , 1, 1000000000),<br> (‘base05_<del>FFXXFF</del>.txt’, 25704626392, 0 , 0 , 1, 1000000000),<br> (‘base06_<del>FFXXFF</del>.txt’, 9911144907,   0 , 0 , 1, 385579419);</p>
+<ol>
+<li>关于剩余时间的添加：</li>
+<li>已运行时间&#x2F;百分比，</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.243Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/MimaPJ/MMPJ%20%E6%97%A5%E5%BF%97/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="Raft-协议"><a href="#Raft-协议" class="headerlink" title="Raft 协议"></a>Raft 协议</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nu4y167WM?p=5&spm_id_from=pageDriver&vd_source=59461060c1867e9bf731e467ae6f00b5">Raft-4：Raft 协议的基础工作流程_哔哩哔哩_bilibili</a><br>知识点：Paxos<br>核心原理：在多个副本之间进行投票和决策，以确保数据的一致性。<br>两个阶段：</p>
+<ol>
+<li>prepare: 提案者提出一个提议，发送给其他所有参与者，每个参与者都参与投票。如果大多数参与者同意这个协议，则进入 accept 阶段。</li>
+<li>accept：提案者再次向所有参与者发送一个包含提议编号和提议内容的消息，如果大多数参与者再次同意这个提议，则该提议被视为有效并被接受。<br>关键特性：<br> 去中心化设计：没有单一的领导者节点负责做出最终决策，相反，任何节点都可以成为提案者或者接收者。<br>Raft：<br>基本流程：</li>
+<li>多个 server 共同选举产生一个 Leader，负责响应客户端的请求。</li>
+<li>Leader 通过一致性协议，将客户端的指令发送到所有节点上。</li>
+<li>每个节点将客户端的指令以 Entry的形式保存到自己的 Log 中，此时 Entry 状态为 uncommited 。</li>
+<li>当有多数节点共同保存了 Entry 后，就可以执行 Entry 中的客户端指令，提交到 State 状态机中，此时 Entry 更新为 commited 状态。<br>![[Pasted image 20240320211915.png]]<br>理解  Raft 中的 Term：</li>
+<li>Raft 将时间线分割为多个 term （任期）；</li>
+<li>一个任期有一个 id ，分两个阶段：<ol>
+<li>选举 election：选举出一个 leader。如果选举失败，此 term（任期）快速结束。</li>
+<li>操作：进行执行任务。<br>![[Pasted image 20240320211822.png]]</li>
+</ol>
+</li>
+</ol>
+<p>理解 Raft 中的 状态机制<br>Raft 协议会为每一个服务器记录一个状态，状态有三种：<br>    1. Follower：负责同步 Leader 的操作日志。<br>    2. Candidate<br>    3. Leader：</p>
+<ol>
+<li>所有节点都是从 Follower 开始，Follower 负责同步 Leader 的操作日志。</li>
+<li>Leader 会给 Follower 发送心跳。</li>
+<li>Follower 收到心跳超时（随机值），转入 Candidate 状态，发起选举，如果成功，则变成 Leader；</li>
+<li>新的 Leader 会向所有其他节点发送心跳。</li>
+<li>此时其他节点无论是什么状态，都会变成 Follower<br>![[Pasted image 20240320211748.png]]</li>
+</ol>
+<p>Raft 协议会为每一个服务器记录两个超时：</p>
+<ol>
+<li>选举超时。</li>
+<li></li>
+</ol>
+<p>Raft 和 Paxos 类似，但是更容易理解，也更容易实现。<br>Raft 主要是用来竞选主节点。<br>单个 Candidate 的竞选<br>有三种节点：Follower、Candidate 和 Leader。Leader 会周期性的发送心跳包给 Follower。每个 Follower 都设置了一个随机的竞选超时时间，一般为 150ms~300ms，如果在这个时间内没有收到 Leader 的心跳包，就会变成 Candidate，进入竞选阶段。</p>
+<ul>
+<li><p>下图表示一个分布式系统的最初阶段，此时只有 Follower，没有 Leader。Follower A 等待一个随机的竞选超时时间之后，没收到 Leader 发来的心跳包，因此进入竞选阶段。</p>
+</li>
+<li><p>此时 A 发送投票请求给其它所有节点。</p>
+</li>
+<li><p>其它节点会对请求进行回复，如果超过一半的节点回复了，那么该 Candidate 就会变成 Leader。</p>
+</li>
+<li><p>之后 Leader 会周期性地发送心跳包给 Follower，Follower 接收到心跳包，会重新开始计时。</p>
+</li>
+</ul>
+<h2 id="多个-Candidate-竞选"><a href="#多个-Candidate-竞选" class="headerlink" title="多个 Candidate 竞选"></a>多个 Candidate 竞选</h2><ul>
+<li><p>如果有多个 Follower 成为 Candidate，并且所获得票数相同，那么就需要重新开始投票，例如下图中 Candidate B 和 Candidate D 都获得两票，因此需要重新开始投票。</p>
+</li>
+<li><p>当重新开始投票时，由于每个节点设置的随机竞选超时时间不同，因此能下一次再次出现多个 Candidate 并获得同样票数的概率很低。</p>
+</li>
+</ul>
+<h2 id="日志复制"><a href="#日志复制" class="headerlink" title="日志复制"></a>日志复制</h2><ul>
+<li><p>来自客户端的修改都会被传入 Leader。注意该修改还未被提交，只是写入日志中。</p>
+</li>
+<li><p>Leader 会把修改复制到所有 Follower。</p>
+</li>
+<li><p>Leader 会等待大多数的 Follower 也进行了修改，然后才将修改提交。</p>
+</li>
+<li><p>此时 Leader 会通知的所有 Follower 让它们也提交修改，此时所有节点的值达成一致</p>
+</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.243Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/TinyKV/Raft%20%E5%8D%8F%E8%AE%AE/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="Project-1"><a href="#Project-1" class="headerlink" title="Project 1"></a>Project 1</h1><h1 id="Project-2"><a href="#Project-2" class="headerlink" title="Project 2"></a>Project 2</h1><h2 id="Project-2-整体架构"><a href="#Project-2-整体架构" class="headerlink" title="Project 2 整体架构"></a>Project 2 整体架构</h2><h2 id="Project-2A"><a href="#Project-2A" class="headerlink" title="Project 2A"></a>Project 2A</h2><h3 id="Project-2A-整体架构"><a href="#Project-2A-整体架构" class="headerlink" title="Project 2A 整体架构"></a>Project 2A 整体架构</h3><p>本部分实现基础的 Raft 算法，且不需要考虑快照操作。我们共需要实现三个模块，分别为 RawNode、Raft 和 RaftLog，分别对应文件 <code>rawnode.go</code>、<code>raft.go</code> 和 <code>log.go</code> ，这三个模块，共同构成一层，我将其称为 <code>raft 层</code>。结构图如下<br>![[image2.png]]</p>
+<ul>
+<li><strong>RawNode</strong>：该模块用来接收上层传来的信息，将信息下传给 Raft 模块。比如，上层传递一个 Msg 给 RawNode，这个 Msg 可能是 心跳请求、日志提交请求、日志追加请求等等。然后 RawNode 收到这个 Msg 之后，将其交给 Raft 模块去处理。比如，上层交给 RawNode 一个日志提交请求，然后 RawNode 将其交给 Raft ，如果该节点是领导人，那么其就会追加这条日志，然后发送给其他节点进行同步。另外，RawNode 不仅用来接受请求然后传递给 Raft，还要用来收到 Raft 的同步结果然后传递给上层。RawNode 要负责检查 Raft 模块是否已有同步好的日志需要应用、是否有 Msg 需要发送、是否有日志需要持久化等等，然后把这些信息（Ready）交给上层，上层会据此进行处理。总的来说，RawNode 是 raft 层暴露给上层的一个模块，用来进行信息的传递。</li>
+<li><strong>Raft</strong>：整个 raft 层最关键的就是它，它就是实现 Raft 算法的核心模块。其中，领导人选举、日志追加、角色转换等等均是在这里实现。Raft 模块会接受 RawNode 发来的信息，然后在进群中进行相关的同步操作，同步结果不需要主动返回给 RawNode，因为 RawNode 自己会进行检查。</li>
+<li><strong>RaftLog</strong>：该模块用来暂存节点的日志条目，同时还要维护一些日志指针，如 committed、applied 等等。</li>
+</ul>
+<p>总结一下，RawNode 是 raft 层中暴露在外面的模块，用于该层与上层的信息交互，Raft 模块是 raft 层中的核心模块，算法的核心逻辑均在该模块实现，RaftLog 用来暂存日志信息，并维护相关指针。</p>
+<h3 id="Project-2-AA｜Project-2-AB"><a href="#Project-2-AA｜Project-2-AB" class="headerlink" title="Project 2 AA｜Project 2 AB"></a>Project 2 AA｜Project 2 AB</h3><h4 id="消息类型以及基本逻辑"><a href="#消息类型以及基本逻辑" class="headerlink" title="消息类型以及基本逻辑"></a>消息类型以及基本逻辑</h4><ol>
+<li><p>case pb.MessageType_MsgHup:</p>
+<ol>
+<li>选举的本地消息，由 Tick() 触发。</li>
+<li>如果发生选举超时，节点应将“MessageType_MsgHup”传递给其 Step 方法并开始新的选举，向其他所有节点发送 MsgRequestVote；</li>
+<li>一旦收到了这个消息，说明就是要重新开始一次选举。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgBeat:</p>
+<ol>
+<li>本地心跳信息。表示当前节点的时钟前进，判断心跳超时和选举超时并进行相应的处理。</li>
+<li>注意只有 Leader 需要处理这个消息。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgPropose:</p>
+<ol>
+<li>注意只有 Leader 会处理这个消息。 </li>
+<li>Leader 收到此消息需要将日志广播给其他节点。<ol>
+<li>发送时，如果要发送的 Index 已经被压缩了，转为发送快照。</li>
+<li>否则发送 MsgAppend。</li>
+<li>如果 MsgAppend 被接收者拒绝，Leader 会调整 next，重新进行前置判断，如果无需发快照，则按照新的 next 重新发送 MsgAppend。</li>
+</ol>
+</li>
+<li>发送方：由 Raft 层的上层构造此 msg 表示一次追加日志。此外，becomeLeader 时也会发送一个空 Entry 的 propose（也会被 广播）。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgAppend:</p>
+<ol>
+<li>发送方：如上，一般 propose 之后触发，由 Leader 发送给其他节点来同步日志条目。</li>
+<li>接收方：<ol>
+<li>判断 Msg 的 Term 是否大于等于自己的 Term，是则更新，否则拒绝；</li>
+<li>拒绝，如果 prevLogIndex &gt; r.RaftLog.LastIndex() 说明中间有日志缺失。否则往下；</li>
+<li>拒绝，如果接收者日志中没有包含这样一个条目：即该条目的 Term 在 prevLogIndex 上不能和 prevLogTerm 匹配上。否则往下；</li>
+<li>追加新条目，同时删除冲突条目，冲突条目的判别方式和论文中的一致；</li>
+<li>当前节点更新 committedIndex 时，要比较 Leader 已知已经提交的最高的日志条目的索引 m.Commit 或者是上一个新条目的索引，然后取两者的最小值。为</li>
+<li>接受；</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgAppendResponse:</p>
+<ol>
+<li>只有 Leader 会处理该 Msg，其余角色直接忽略；</li>
+<li>如果被 reject 了，那么重置 next。重置规则为将旧的 next –，然后比较 m.Index + 1，最后取小的那个赋值给 next，然后重新进行日志 &#x2F; 快照追加；</li>
+<li>如果没有 reject，则更新 match 和 next。next 赋值为 m.Index + 1，match 赋值为 next - 1 ；</li>
+<li>按照论文的思路更新 commit。假设存在 N 满足N &gt; commitIndex，使得大多数的 matchIndex[i] ≥ N以及log[N].term &#x3D;&#x3D; currentTerm 成立，则令 commitIndex &#x3D; N。为了快速更新，这里先将节点按照 match 进行了递增排序，这样就可以快速确定 N 的位置。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgRequestVote:</p>
+<ol>
+<li>判断 Msg 的 Term 是否大于等于自己的 Term，是则更新，否则拒绝；</li>
+<li>如果 votedFor 不为空或者不等于 candidateID，则说明该节点以及投过票了，直接拒绝。否则往下；</li>
+<li>Candidate 的日志至少和自己一样新，那么就给其投票，否者拒绝。新旧判断逻辑如下：<ul>
+<li>如果两份日志最后的条目的任期号不同，那么任期号大的日志更加新</li>
+<li>如果两份日志最后的条目任期号相同，那么日志比较长的那个就更加新；<br> Candidate 会通过 r.votes 记录下都有哪些节点同意哪些节点拒绝，当同意的票数过半时，即可成为 Leader，当拒绝的票数过半时，则转变为 Follower。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgRequestVoteResponse:</p>
+<ol>
+<li>只有 Candidate 会处理该 Msg，其余节点收到后直接忽略；</li>
+<li>根据 m.Reject 更新 r.votes[m.From]，即记录投票结果；</li>
+<li>算出同意的票数 agrNum 和拒绝的票数 denNum；</li>
+<li>如果同意的票数过半，那么直接成为 Leader；</li>
+<li>如果拒绝的票数过半，那么直接成为 Follower</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgSnapshot:</p>
+<ol>
+<li>Project2C 中才会实现，所以该 Msg 在 Project2C 处</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgHeartbeat:</p>
+<ol>
+<li>发送：<ol>
+<li>每当 Leader 的 heartbeatTimeout 达到时，就会给其余所有节点发送 MsgHeartbeat；</li>
+</ol>
+</li>
+<li>接收与处理：<ol>
+<li>判断 Msg 的 Term 是否大于等于自己的 Term，是则更新，否则拒绝；</li>
+<li>重置选举计时 r.electionElapsed</li>
+<li>发送 MsgHeartbeatResponse</li>
+<li>Commit:  min(r.RaftLog.committed, r.Prs[to].Match), 确保了心跳消息中的 Commit 字段不会超过已经在目标节点上提交的日志索引，使得心跳消息不需要推进 Commit。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgHeartbeatResponse:</p>
+<ol>
+<li>发送：<ol>
+<li>当节点收到 MsgHeartbeat 时，会相应的回复 MsgHeartbeatResponse；</li>
+</ol>
+</li>
+<li>接收与处理：<ol>
+<li>只有 Leader 会处理 MsgHeartbeatResponse，其余角色直接忽略；</li>
+<li>通过 m.Commit 判断节点是否落后了，如果是，则进行日志追加；</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgTransferLeader:</p>
+<ol>
+<li>用于上层请求转移 Leader，Project3 使用。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgTimeoutNow:</p>
+<ol>
+<li>节点收到后清空 r.electionElapsed，并即刻发起选举</li>
+</ol>
+</li>
+</ol>
+<h4 id="消息使用的字段"><a href="#消息使用的字段" class="headerlink" title="消息使用的字段"></a>消息使用的字段</h4><table>
+<thead>
+<tr>
+<th>MessageType\msg_nr</th>
+<th>MsgType</th>
+<th>To</th>
+<th>From</th>
+<th>Term</th>
+<th>LogTerm</th>
+<th>Index</th>
+<th>Entries</th>
+<th>Commit</th>
+<th>Snapshot</th>
+<th>Reject</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hup</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Beat</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Propose</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RequestVote</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>requestVoteResponse</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>。</td>
+<td>。</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Heartbeat</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HeartbeatResponse</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Append</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppendResponse</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Snapshot</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>TransferLeader</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TimeoutNow</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>注意点：</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ol>
+<li>Hup 和 Beat 一定是本地消息，而 Propose 不一定是本地消息，可能是外部构造的不再 Raft 内部调用 Step 处理，所以：From 不使用但是 To 需要使用。</li>
+<li>TimeoutNow 也是 本地消息，即刻发起选举。</li>
+<li>对于 MessageType_MsgAppend：<ol>
+<li>LogTerm 为要发送的条目的前一个条目的 Term，即论文中的 prevLogTerm</li>
+<li>Index 为要发送的条目的前一个条目的 Index，即论文中的 prevLogIndex</li>
+<li>当前节点 (Leader) 的 committedIndex</li>
+</ol>
+</li>
+<li>对于 MessageType_MsgAppendResponse：<ol>
+<li>Index：r.RaftLog.LastIndex()；该字段用于 Leader 更快地去更新 next</li>
+</ol>
+</li>
+<li>Reject 两个功能，一个 投票一个 在 append<br> 不同的是，propose 的 entry 无论是不是一个空的，都会被当成一个新的 entry 进行添加，而 Appen 的 entry，则可能被拒绝或者截取部分。</li>
+</ol>
+<h4 id="推进器-Step"><a href="#推进器-Step" class="headerlink" title="推进器 Step()"></a>推进器 Step()</h4><p>Step() 作为驱动器，用来接收上层发来的 Msg，然后根据不同的角色和不同的 MsgType 进行不同的处理。</p>
+<h4 id="计时器-tick"><a href="#计时器-tick" class="headerlink" title="计时器 tick()"></a>计时器 tick()</h4><p>该函数起到计时器的作用，即逻辑时钟。每调用一次，就要增加节点的心跳计时（ r.electionElapsed），如果是 Leader，就要增加自己的选举计时（ r.heartbeatElapsed），然后，应按照角色进行对应的操作。</p>
+<h4 id="log-go"><a href="#log-go" class="headerlink" title="log.go"></a>log.go</h4><h4 id="关键点｜易错点"><a href="#关键点｜易错点" class="headerlink" title="关键点｜易错点"></a>关键点｜易错点</h4><ol>
+<li>raft 的 id 是从 0 开始的，但是 0 是无效 id ：const RaftInvalidIndex uint64 &#x3D; 0</li>
+<li>entry 的 index 指的是 在 storage 中的 索引，而不是在数组中的下标。<br> 下标计算： index - entries[0].Index</li>
+<li>注意每一个 entry 都有一个自己的 <strong>term</strong></li>
+<li>Leader 不会自己发起一个新的选举。</li>
+<li>注意变成 Candidate 后发现，只有一个节点，再直接变成 Leader。</li>
+<li>注意某一个消息处理时如果遍历 Prs 且跳过了当前节点的 id ，需要额外考虑一下集群只有一个节点的情况。</li>
+<li>becomeCandidate 和 发送 请求 投票要分开进行</li>
+<li>allEntries() 描述中需要排除 排除虚拟条目，但是实际上，<br> &#x2F;&#x2F; if ent.Data !&#x3D; nil { &#x2F;&#x2F; 如果 这里的 ent 的 Data 是空的,说明 entry 无效<br> &#x2F;&#x2F; }<br> 不需要排除，这个是在 测试中确定的。</li>
+<li>handleRequestVoteResponse  除了统计同意的个数，还需要统计 拒绝的个数。</li>
+</ol>
+<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><p><strong>随机选举时间问题</strong></p>
+<ul>
+<li>如果 et 太小，会过早开始选举，导致 term 比测试预期大。如果太大，会很晚发生选举，导致 term 比测试预期小。而且如果按照etcd那样一直递增，最后时间会非常长，直接卡住。我最后把它限制在 10~20 之间，通过测试。</li>
+</ul>
+<p><strong>leader 更新 committed 之后要告知 follower</strong></p>
+<ul>
+<li>eader 收到 appendResp 后，会相应的更新自己的 committed，但是更新之后一定要把更新结果告知<code>全部</code> follower，即另外发送一个 appendResp 。如果不这样的话，最后一轮完成后，集群的 committed 会不同步。并且为了防止死循环，leader 只能在 committed 发生变化的时候去通知 follower。</li>
+</ul>
+<p><strong>测试要求 msg 是nil，而不是空切片</strong></p>
+<ul>
+<li>TestRawNodeRestartFromSnapshot2C 中，want 里的 msg 为 nil，即测试点预期 newRaft 处的 msg 应该为 nil，而不是 make 一个空切片。</li>
+</ul>
+<h3 id="Project-2-AB"><a href="#Project-2-AB" class="headerlink" title="Project 2 AB"></a>Project 2 AB</h3><p>空空如也</p>
+<h3 id="Project-2-AC"><a href="#Project-2-AC" class="headerlink" title="Project 2 AC"></a>Project 2 AC</h3><h4 id="RawNode-部分整体工作流程"><a href="#RawNode-部分整体工作流程" class="headerlink" title="RawNode 部分整体工作流程"></a>RawNode 部分整体工作流程</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">  <span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> &lt;-s.Ticker:</span><br><span class="line">    Node.Tick()</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">if</span> Node.HasReady() &#123;</span><br><span class="line">      rd := Node.Ready()</span><br><span class="line">      saveToStorage(rd.State, rd.Entries, rd.Snapshot)</span><br><span class="line">      send(rd.Messages)</span><br><span class="line">      <span class="keyword">for</span> _, entry := <span class="keyword">range</span> rd.CommittedEntries &#123;</span><br><span class="line">        process(entry)</span><br><span class="line">      &#125;</span><br><span class="line">      s.Node.Advance(rd)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<ol>
+<li>RawNode 是 Raft 的包装器，上层 ( peer 层) 会不停的调用 RawNode 的 tick() 函数，进一步触发 Raft 的 tick() 函数。 </li>
+<li>上层会定时从 RawNode 获取 Ready，首先上层通过 HasReady() 进行判断，如果有新的 Ready，上层会调用RawNode 的Ready()方法进行获取，RawNode 从 Raft 中 获取信息生成相应的 Ready 返回给上层应用，Raft 的信息则是存储在 RaftLog 之中。上层应用处理完 Ready 后，会调用 RawNode 的Advance() 方法进行推进，告诉 RawNode 之前的 Ready 已经被处理完成，然后你可以执行一些操作，比如修改 applied，stabled 等信息。 </li>
+<li>上层应用可以直接调用 RawNode 提供的 Propose(data []byte) ，Step(m pb.Message) 等方法，RawNode 会将这些请求统一包装成 Message，通过 Raft 提供的 Step(m pb.Message) 输入信息。</li>
+</ol>
+<h4 id="HasReady"><a href="#HasReady" class="headerlink" title="HasReady()"></a>HasReady()</h4><p>RawNode 通过 HasReady() 来判断 Raft 模块是否已经有同步完成并且需要上层处理的信息，包括：</p>
+<ul>
+<li>是否有需要持久化的状态；</li>
+<li>是否有需要持久化的条目；</li>
+<li>是否有需要应用的快照；</li>
+<li>是否有需要应用的条目；</li>
+<li>是否有需要发送的 Msg</li>
+</ul>
+<p>其中，最后一点的 Msg，就是 Raft 模块中节点间相互发送的 Msg。也就是说，节点间发送的 Msg 是通过 RawNode 先发送给上层，然后上层在将其发送给对应节点的。</p>
+<p>如果 HasReady() 返回 true，那么上层就会调用 Ready() 来获取具体要做的事情，和上述 HasReady() 的判断一一对应。该方法直接调用 rn.newReady() 生成一个 Ready() 结构体然后返回即可。</p>
+<h4 id="Advance"><a href="#Advance" class="headerlink" title="Advance()"></a>Advance()</h4><p>当上层处理完 Ready 后，调用 Advance() 来推进整个状态机。Advance() 的实现就按照 Ready 结构体一点点更改 RawNode 的状态即可，包括：</p>
+<ul>
+<li>prevHardSt 变更；</li>
+<li>stabled 指针变更；</li>
+<li>applied 指针变更；</li>
+<li>清空 rn.Raft.msgs；</li>
+<li>丢弃被压缩的暂存日志；</li>
+<li>清空 pendingSnapshot；</li>
+</ul>
+<h4 id="思考-总结"><a href="#思考-总结" class="headerlink" title="思考&amp;总结"></a>思考&amp;总结</h4><ol>
+<li>RawNode 是 Raft 的封装，保存 Raft 的一部分状态</li>
+</ol>
+<h3 id="Project-2A-总结-思考"><a href="#Project-2A-总结-思考" class="headerlink" title="Project 2A  总结&amp;思考"></a>Project 2A  总结&amp;思考</h3><h4 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h4><blockquote>
+<p>对于某个 Raft 变为 Candidate 提出选举，是当场给自己投一票 还是 同样构造一个 msg 发给自己处理？从 term 的角度思考。<br>    1. 假设发消息。可能导致当前 Raft 先收到其他 Raft 的投票请求，从而自己没有给自己投票。<br>    2. 因此当场给自己投一票。这样也减少了自己和自己的发消息多余操作。</p>
+</blockquote>
+<blockquote>
+<p>如果当前的 Raft 就是自己本身，开始一个新的选举之后  term 要增加吗？<br>    增加。</p>
+</blockquote>
+<blockquote>
+<p>如果超时，是先增加  term 还是先发送 MsgHup 消息？<br>    先增加 term。如果先发送消息，那么在消息队列中，这个消息前面的消息会认为这个 Raft 还是没有超时（实际上已经超时了）</p>
+</blockquote>
+<blockquote>
+<p>先发心跳包等到响应再增加 Elapsed 还是 先增加？<br>    先增加。万一响应收不到了，Elapsed 还是要增加的。</p>
+</blockquote>
+<blockquote>
+<p>Message 中 Commit 字段的作用？<br>    表示提交索引（commit index）。在 Raft 一致性算法中，每个节点都会维护一个提交索引。提交索引表示在该索引之前的所有日志条目都已经被安全地复制到了大多数节点，并且可以被应用到状态机中。换句话说，提交索引是已经达成共识并可以执行的日志条目的最高索引。</p>
+</blockquote>
+<blockquote>
+<p>RaftLog 中 committed | applied | stabled 三个字段？<br>    committed：已知在多数节点上的稳定存储中的最高日志位置。<br>    applied：已经应用到状态机的最大 log 位置<br>    stabled： 已经被持久化存储的最大 log 位置。</p>
+</blockquote>
+<blockquote>
+<p>持久化存储中到底要存储什么？<br>    1. “Save log entries to stable storage”（将日志条目保存到稳定存储）：在 Raft 中，每个节点会维护一个日志（log），其中包含按顺序记录的操作或状态变化。当节点接收到来自客户端的命令或其他节点的日志复制请求时，它将这些日志条目追加到自己的日志中。为了确保数据的持久性和可靠性，节点需要将这些日志条目保存到稳定存储介质（如磁盘）上，以便在节点重启或发生故障时能够恢复日志的状态。<br>    2. “Save hard state like the term, commit index, and vote to stable storage”（将任期、提交索引和投票信息等硬状态保存到稳定存储）：除了日志条目之外，Raft 还维护了一些重要的状态信息，称为硬状态。这些硬状态包括当前任期（term）、已提交的索引（commit index）和投票信息（如上一次投票的候选人ID等）。这些硬状态的变化需要被持久化保存，以确保在节点重启或发生故障时能够恢复到正确的状态。</p>
+</blockquote>
+<blockquote>
+<p>MemoryStorage  中 ents[i] has raft log position i+snapshot.Metadata.Index 的含义？<br>    <code>ents[i]</code> 表示 Raft 日志中的第 <code>i</code> 个条目。该条目的 Raft 日志位置是通过 <code>i + snapshot.Metadata.Index</code> 来确定的。<br>    在 Raft 算法中，为了支持快照（snapshot）功能，可以将当前节点的状态和日志压缩成一个快照。快照包含了快照的元数据信息以及存储在快照中的状态和日志条目。<br>    在代码中的 <code>ents</code> 切片中，存储了一系列的日志条目。为了与快照中的日志条目对应起来，<code>ents[i]</code> 的 Raft 日志位置是通过 <code>i + snapshot.Metadata.Index</code> 计算得出的。<br>    具体来说，<code>snapshot.Metadata.Index</code> 表示快照元数据中的索引值，它指示了快照中第一个条目的索引。然后，对于 <code>ents</code> 切片中的第 <code>i</code> 个条目，其在 Raft 日志中的位置就是 <code>i + snapshot.Metadata.Index</code>。<br>    这样的计算方式可以确保在应用快照之后，<code>ents</code> 切片中的日志条目仍然与 Raft 日志中的对应位置保持一致。<br>    需要注意的是，<code>snapshot.Metadata.Index</code> 是快照元数据中的一个字段，用于表示快照中第一个条目的索引。在给出的代码中，<code>snapshot</code> 是一个 <code>Metadata</code> 类型的字段，可能是一个结构体或变量，用于存储快照的元数据信息。<br>    也就是说  0 号位置的 Index 就是 <code>snapshot.Metadata.Index</code></p>
+</blockquote>
+<blockquote>
+<p>RaftLog 中的 entries  和 Storage 中的 ents 有什么区别？<br>    1. entries 是 从下标 1 开始作为有效记录；ents 是从下表 0 开始作为有效记录。<br>    2. .ents[0].Index 始终是有效的，用来作为基础索引</p>
+</blockquote>
+<blockquote>
+<p>RaftLog.storage.Snapshot() 和 RaftLog.pendingSnapshot 中的区别<br>    一个永久快照，一个临时快照。</p>
+</blockquote>
+<blockquote>
+<p>心跳 heatbeat 时间和选举 election 时间的关系<br>    1. heatbeat 只有 Leader 发送；election 时间是非 leader  需要维护的信息，以便即使开始一个选举。</p>
+</blockquote>
+<blockquote>
+<p>收到陌生 Raft 的信息，该怎么处理？<br>    1. 可能是一个新的节点，需要添加到已有结构中。<br>    2. 什么情况下添加？<br>        1. 首先只有这个新的 Raft 发送消息时才能被旧 Raft 知道，但是陌生 Raft 的工作消息直接处理可能会出问题，所以应该使用 heatbeat 作为新 Raft 的识别消息（谁收到了这个消息谁添加节点）。那么：<br>        2. 选举过程：<br>            1. Candidate 收到 heatbeat：多一个投票人，不会导致选举失败 。<br>            2. 其他角色 收到 heatbeat：更不会影响选举。<br>        3. 工作过程：<br>            1. Leader 收到 heatbeat：多一个工作者，不会导致工作错误 。<br>            2. 其他角色 收到 heatbeat：更不会影响工作（因为不会给 这个 Raft 发送工作消息）。<br>    3. 总结：任何情况下，收到 新 Raft 的 heatbeat 时，可将其添加到当前 Raft 的记录中（最好同时向这个新 Raft 同步一下当前系统的情况）。</p>
+</blockquote>
+<p>sendAppendResponse 不需要 回复 —-嘛嘛嘛？？？？？？？</p>
+<h4 id="总结一下-commmit-applied-stable-的修改时机"><a href="#总结一下-commmit-applied-stable-的修改时机" class="headerlink" title="总结一下 commmit|applied|stable 的修改时机"></a>总结一下 commmit|applied|stable 的修改时机</h4><p>&#x2F;&#x2F;	snapshot&#x2F;first…..applied….committed….stabled…..last<br>&#x2F;&#x2F;	——–|————————————————|<br>&#x2F;&#x2F;	                          log entries</p>
+<h4 id="RaftLog-committed-修改时机总结"><a href="#RaftLog-committed-修改时机总结" class="headerlink" title="RaftLog.committed 修改时机总结"></a>RaftLog.committed 修改时机总结</h4><ol>
+<li>在  newRaft() 中调用 newLog() 时被初始化为 storage 中 hardState 的 Commit</li>
+<li>Leader 在 发送 MessageType_MsgAppend 时发送当前 commited</li>
+<li>Raft 在收到 MessageType_MsgAppend 并更新 RaftLog.entries 之后，将 commited 置为以下两者的最小值<ol>
+<li>Leader 的 committed： m.Commit</li>
+<li>Leader 以为的 此 Raft 的 Committed：m.Index+uint64(len(m.Entries))</li>
+</ol>
+</li>
+<li>Leader 在收到 AppendEntriesResponse 之后 将自己的 commited 置为 当前 Term 的Entry 被大多数 Peers 中 都 Match 的最小 Index。</li>
+<li>Leader 在 发送 MessageType_MsgHeartbeat 时发送 min(r.RaftLog.committed, r.Prs[to].Match) （确保心跳消息中的 Commit 字段不会超过已经和目标j节点同步的日志索引，从而使得心跳消息不会推进 committed ）</li>
+<li>Raft 收到 Lead 的  MessageType_MsgHeartbeat 之后，如果发现 m.Commit（Leader 认为的提交） &gt;&#x3D; r.RaftLog.committed （Raft 自认为的提交），说明当前 Raft 的 RaftLog.entries 中有一部分 Leader 认为还未提交（需要被覆盖）。修改 committed 值为<br> min(m.Commit, r.RaftLog.LastIndex())</li>
+</ol>
+<h4 id="RaftLog-applied-修改时机总结"><a href="#RaftLog-applied-修改时机总结" class="headerlink" title="RaftLog.applied 修改时机总结"></a>RaftLog.applied 修改时机总结</h4><ol>
+<li>在  newRaft() 中调用 newLog() 时被初始化为 storage 中 的 ent[0].Index 或者 初始化为 0，表示初始没有被 applied 的 entry。</li>
+<li>在 Advance() 中第一次修改。</li>
+</ol>
+<h4 id="RaftLog-stabled-修改时机总结"><a href="#RaftLog-stabled-修改时机总结" class="headerlink" title="RaftLog.stabled 修改时机总结"></a>RaftLog.stabled 修改时机总结</h4><ol>
+<li>在  newRaft() 中调用 newLog() 时被初始化为 storage 中 ent 最后一个 entry 的 Index。</li>
+<li>r.RaftLog.stabled &#x3D; m.Index</li>
+<li>rn.Raft.RaftLog.stabled &#x3D; rd.Entries[len(rd.Entries)-1].Index</li>
+</ol>
+<h4 id="r-Prs-的-Match-Next"><a href="#r-Prs-的-Match-Next" class="headerlink" title="r.Prs 的 Match &amp; Next"></a>r.Prs 的 Match &amp; Next</h4><ol>
+<li>收到 Propose 时 if lastIndex &#x3D;&#x3D; 0 Propose</li>
+</ol>
+<h2 id="Project-2B"><a href="#Project-2B" class="headerlink" title="Project 2B"></a>Project 2B</h2><h3 id="Project-2B-整体流程"><a href="#Project-2B-整体流程" class="headerlink" title="Project 2B 整体流程"></a>Project 2B 整体流程</h3><p>Project2B 实现了 rawNode 之上的上层应用，即真正开始多线程集群操作，引入了 peer 和 region 的概念。同时，除了实现上层的调用，Project2B 还需要通过调用 RaftStorage 中的接口真正实现写落盘。 store、peer、region 三者的关系如下：<br>![[Pasted image 20240420190155.png]]</p>
+<ol>
+<li>Store：每一个节点叫做一个 store，也就是一个节点上面只有一个 Store。代码里面叫 RaftStore，后面统一使用 RaftStore 代称。 </li>
+<li>Peer：一个 RaftStore 里面会包含多个 peer，一个 RaftStore 里面的所有 peer 公用同一个底层存储，也就是多个 peer 公用同一个 badger 实例。 </li>
+<li>Region：一个 Region 叫做一个 Raft group，即同属一个 raft 集群，一个 region 包含多个 peer，这些 peer 散落在不同的 RaftStore 上。</li>
+</ol>
+<p>这里将 Rawnode-Raft-RaftLog 统称为 raft 层，把要实现的部分称为 peer 层。peer 层首先接收来自 client 的 RaftCmdRequest，其中包含着不同的<code>命令请求</code>，接着它会把这些请求逐一以 entry 的形式传递给 raft 层，当然，这个 peer 应该是 Leader，不然 client 会找下一个 peer 继续试。raft 层收到条目后，会在集群内部进行同步，这就是 project2a 的内容。同步的过程中，peer 层会不时询问 raft 层有哪些已经同步好的 entry 可以拿来应用（执行）？哪些 entry 需要持久化？有没有快照需要应用？等等。三层的交互如下图所示：<br>![[Pasted image 20240421125735.png]]<br>此模块要完善两个文件，分别为 <code>peer_msg_handler.go</code> 和 <code>peer_storage.go</code></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sakura-ysy/TinyKV-2022-doc/blob/main/doc/project2.md?spm=a2c6h.13046898.publish-article.80.37936ffauECnFr&file=project2.md">https://github.com/sakura-ysy/TinyKV-2022-doc/blob/main/doc/project2.md?spm=a2c6h.13046898.publish-article.80.37936ffauECnFr&amp;file=project2.md</a></p>
+<h3 id="TODO-1"><a href="#TODO-1" class="headerlink" title="TODO"></a>TODO</h3><p>type peer struct 中为什么&#x2F;&#x2F; Instance of the Raft module<br>    是 RaftGroup *raft.RawNode<br>一个 region 包含多个 peer 怎么理解</p>
+<h2 id="Project-2C"><a href="#Project-2C" class="headerlink" title="Project 2C"></a>Project 2C</h2><p>Project 2C 整体流程</p>
+<h3 id="RawNode-中-hardState-和"><a href="#RawNode-中-hardState-和" class="headerlink" title="RawNode 中 hardState  和"></a>RawNode 中 hardState  和</h3><h1 id="Project-3"><a href="#Project-3" class="headerlink" title="Project 3"></a>Project 3</h1><p><a target="_blank" rel="noopener" href="https://www.inlighting.org/archives/tinykv-project3">https://www.inlighting.org/archives/tinykv-project3</a></p>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><h2 id="日志输出"><a href="#日志输出" class="headerlink" title="日志输出"></a>日志输出</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">log.Infof(<span class="string">&quot;Raft init with config=&#123;len(peers)=%d&#125;, &quot;</span>+</span><br><span class="line">        <span class="string">&quot;peerid=%d, log commitid=%d, applied=%d, stabled=%d&quot;</span>,</span><br><span class="line">        <span class="built_in">len</span>(c.peers),</span><br><span class="line">        rsp.id, rsp.RaftLog.committed, rsp.RaftLog.applied, rsp.RaftLog.stabled)</span><br><span class="line">        </span><br><span class="line">log.Fatal(err)</span><br><span class="line"></span><br><span class="line">log.Infof(<span class="string">&quot;peerid = %d becomes leader&quot;</span>, r.id)</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="TODO-2"><a href="#TODO-2" class="headerlink" title="TODO"></a>TODO</h2><p>&#x2F;&#x2F; TODO 这里的 stabled 在 newlog 的时候赋值过一次，应该不会是 0 ，为什么会判断一次stabled<br>    if l.stabled &#x3D;&#x3D; 0 {<br>        return l.entries<br>        &#x2F;&#x2F; log.Infof(“stabled &#x3D; %d”, l.stabled)<br>    }<br> <br>&#x2F;&#x2F; TODO 什么时候 修改 committed </p>
+<blockquote>
+<p>sendAppend 时没有修改<br>handle AppendEntriesRespinse 时修改了。<br><a target="_blank" rel="noopener" href="https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/log.go">https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/log.go</a></p>
+</blockquote>
+<p>&#x2F;&#x2F; TODO 怎么处理 新 leader 中未 commit 的部分<br>？从当前的逻辑来看，只有 当前 term 也产生 log 时 才会顺便更新前面的log</p>
+<p>&#x2F;&#x2F; TODO 第一次收到 Lead 的消息时，需要进怎么样的处理</p>
+<p>&#x2F;&#x2F; TODO noop Entry 会发送吗，</p>
+<p>&#x2F;&#x2F; TODO r.Prs[r.id].Match 是  handlePropose 时修改。</p>
+<p>TODO  搞清楚  Next 和 Match 之间的关系。<br>TODO 快照的同步逻辑</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/raft.go#L967">https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/raft.go#L967</a><br><a target="_blank" rel="noopener" href="https://github.com/sakura-ysy/TinyKV-2022-doc/">https://github.com/sakura-ysy/TinyKV-2022-doc/</a></p>
+<p><a target="_blank" rel="noopener" href="https://chenyunong.com/2021/08/04/TinyKV-Project2/">https://chenyunong.com/2021/08/04/TinyKV-Project2/</a><br><a target="_blank" rel="noopener" href="https://www.inlighting.org/archives/tinykv-project2">https://www.inlighting.org/archives/tinykv-project2</a></p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.243Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/TinyKV/TinyKV%20%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h2 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h2><h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><p>两两匹配，且只匹配一次，</p>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>两次for循环，计算每两个之间的和</p>
+<h4 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><p>1</p>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>$n^2$</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>先排序，再遍历</p>
+<h4 id="没有意义"><a href="#没有意义" class="headerlink" title="没有意义"></a>没有意义</h4><h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>用哈希，只遍历一次。</p>
+<h4 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>n</p>
+<h4 id="空间复杂度-1"><a href="#空间复杂度-1" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><p>n</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.158Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+
+
+    <div class='text-center pagination'>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    </div>
+
+
+
+    <div class="hidden">
+        <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+    </div>
+
+
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+        <div class="sticky-area">
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                97
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                
+
+            
+                
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/TEMP%EF%BC%9A%E4%B8%AD%E9%93%81/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 Hexo 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by John Doe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
