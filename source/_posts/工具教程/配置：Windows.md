@@ -120,5 +120,9 @@ C/C++ Compile Run 并且选中 run in external terminal
 # 清空 DNS 缓冲
 ipconfig /flushdns
 
-
+# 创建硬链接
+cd D:\
+##　文件夹的硬链接  mklink /j des src
+mklink /j D:\Users\****\Documents\Note\Obsidian\fengyn\dreamin D:\Users\****\Pro_Cod\Hexo\test\source\_posts
+# 运行结果： Junction created for D:\TargetFolder <<===>> C:\SourceFolder
 ```
