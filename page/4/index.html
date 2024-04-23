@@ -17,10 +17,12 @@
   
     <meta name="keywords" content="" />
   
-  <meta property="og:type" content="website">
+  <meta name="description" content="生于尘埃，溺于人海，死于理想的高台">
+<meta property="og:type" content="website">
 <meta property="og:title" content="心咖">
 <meta property="og:url" content="https://xinka.vercel.app/page/4/index.html">
 <meta property="og:site_name" content="心咖">
+<meta property="og:description" content="生于尘埃，溺于人海，死于理想的高台">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="dreamin">
 <meta name="twitter:card" content="summary">
@@ -98,7 +100,7 @@
                 <div class="desc desc2 animate-box">
                     <a href="/">
                         <h2>心咖</h2> <br />
-                        <span></span>
+                        <span>人生如此，方趁我心</span>
                     </a>
                 </div>
             </div>
@@ -130,7 +132,53 @@
                 <div class="kratos-status-inner">
                     <div class="kratos-status-content" itemprop="articleBody">
                         
-                            
+                            <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><ol>
+<li>分析了个人信息和密码之间的关联性。</li>
+<li>实现了一个基于改进 Transformer  的密码猜测模型<ol>
+<li>数据预训练时引入信息权重。</li>
+<li>使用改进的波束搜索算法来快速搜索排名考前的输出结果。</li>
+</ol>
+</li>
+</ol>
+<h1 id="模型和使用"><a href="#模型和使用" class="headerlink" title="模型和使用"></a>模型和使用</h1><h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p>与原始Transformer模型不同的是，我们在词嵌入层之后添加了信息权重层。信息权重层涉及一个权重矩阵，权重矩阵表示每个字符携带的用户信息，该矩阵的维度与词嵌入矩阵相同。信息权重矩阵中，同一输入位置对应的参数值相同。参数值是通过模型的训练来确定的。信息权重矩阵将添加到输入嵌入中。那么后续步骤就和原来的Transformer一样了。<br>![[Pasted image 20240327152521.png]]</p>
+<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><ol>
+<li><p><strong>输入数据处理</strong>：模型的输入是一批代表用户个人信息的数值向量。首先，这些输入通过嵌入层（embedding layer）被转换成字符嵌入（character embeddings），即将数值向量转换为能够代表这些信息的嵌入向量。</p>
+</li>
+<li><p><strong>信息权重处理</strong>：接着，通过信息权重层（information weight layer），这些字符嵌入会根据用户信息的权重进行调整，以更准确地反映每部分用户信息的重要性。</p>
+</li>
+<li><p><strong>位置编码</strong>：之后，这些调整后的字符嵌入通过位置编码层（positional encoding layer）来获得位置向量，这一步是为了让模型能够理解字符在序列中的位置关系。</p>
+</li>
+<li><p><strong>自注意力机制</strong>：调整后的字符嵌入随后进入编码器（encoder）的自注意力层（self-attention layer）。在这一层中，模型计算字符之间的依赖关系，而这种计算忽略了字符之间的距离，即无论字符相隔多远，都能捕捉到它们之间的联系。</p>
+</li>
+<li><p><strong>向前传播和解码</strong>：编码器的输出接着被用作前向神经网络（forward neural network）的输入。在编码器的最终层输出的基础上，将这些输出转换成一组键值对（Key, Value），然后这组键值对被传递给解码器（decoder），以帮助解码器获取输入序列的信息。</p>
+</li>
+</ol>
+<p>解码器的输入是一批代表用户密码的数字向量。解码器嵌入输入并添加每个字符的位置嵌入。与编码器不同，解码器中的自注意力层仅关注当前已确认的输出字符。解码器的输出是浮点数的向量列表。接下来，通过线性层将向量列表转换为向量。它称为对数向量。对数向量的每个元素对应一个字符，其值代表该字符的得分。最后，对数向量通过softmax层转换为每个字符出现的概率。 </p>
+<h2 id="模型预测"><a href="#模型预测" class="headerlink" title="模型预测"></a>模型预测</h2><p>使用改进的束波搜索来快速找到排名考前的预测结果。</p>
+<h2 id="字符匹配算法优化"><a href="#字符匹配算法优化" class="headerlink" title="字符匹配算法优化"></a>字符匹配算法优化</h2><p>存储每个生成密码的 key 和 value，使用hash 表来存储，key 值计算过程。<br>Key &#x3D; (char2int(a)*M + char2int(b)*M )%p</p>
+<h1 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h1><h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><ol>
+<li>收集了 一亿条密码。</li>
+<li>筛选了19种个人信息的 31 个网站。</li>
+<li>统计了密码格式：大多数是 单词+数字，少部分是 单词 和 数字</li>
+<li>分析了密码和数字的关联性<ol>
+<li>邮箱 + 后缀</li>
+<li>生日：年月日组合</li>
+<li>姓名：拼音<br> KMP算法 进行 字字符串比配<br> 结果：关联很大。经过统计，我们得出的结论是，用户密码与邮箱、生日、昵称、电话号码、姓氏、名字、登录网站的域名高度相关。其中，电子邮件相关密码占比最高，占比12.551%，手机号码相关密码占比5%，用户名​​相关密码占比2.617%，生日相关密码占比0.863%，密码相关密码占比最高。与网站域名相关的密码占0.173%，与名字相关的密码占0.794%，与姓氏相关的密码占0.002%。<br> 选择了与密码相关性较大的七个个人信息来构成输入序列，分别是生日、电话号码、网站域名、电子邮件地址、昵称、姓氏和名字。</li>
+</ol>
+</li>
+<li>研究序列的长度：主要是长度为8 的密码，用 包含8 的长度训练，用包含8的密码测试，生成长度为8 的密码</li>
+</ol>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title=".实验环境"></a>.实验环境</h2><p>改进的 Transformer 是用 TensorFlow 实现的。我们使用 TensorFlow 版本 1.12.0 和 Python 版本 3.5.2。我们在 GPU 服务器上进行实验，该服务器具有 2 核 2.2GHz CPU、NVIDIA Tesla V100 GPU 和 16GB 全局内存。</p>
+<h2 id="对比实验"><a href="#对比实验" class="headerlink" title="对比实验"></a>对比实验</h2><p>三个序列到序列模型：1. LSTM 2. encoder-decoder 3. Transformer<br>在相同的数据集中进行实验：x 轴表示测试集大小 ；y轴表示破解的数量，当生成的密码数量超过 10,000 个时，Transformer 的准确率将高于其他两个模型。我们的实验结果表明，Transformer 在基于用户信息的密码破解研究中表现最好。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><h3 id="时间优化"><a href="#时间优化" class="headerlink" title="时间优化"></a>时间优化</h3><p>匹配算法的优化（相同时间内匹配的次数更多）</p>
+<h3 id="模型优化"><a href="#模型优化" class="headerlink" title="模型优化"></a>模型优化</h3><p>信息权重和无信息权重（），束波搜索和随机搜索</p>
+<h3 id="密码长度"><a href="#密码长度" class="headerlink" title="密码长度"></a>密码长度</h3><p>五个不同密码长度： 8  9 10 11 12<br>密码长度越长，相同的猜测次数下越难猜出密码。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>分析了用户个人信息和密码之间的关联性，邮箱关联度很高</li>
+<li>提出了一种基于改经的 Transformer 模型，数据预处理中引入了信息权重</li>
+<li>波束搜索算法，</li>
+</ol>
+
                         
                     </div>
                 </div>
@@ -138,8 +186,8 @@
             
                 <footer class="kratos-post-meta-new">
                     <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.090Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        <time datetime="2024-04-23T03:05:06.609Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
                         </time>
                         
                         
@@ -154,7 +202,7 @@
                     
                     
                         <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/TEMP/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                            <a class="read-more" href="/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Pass%20improved%20Transformer/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
                         </span>
                     
 
@@ -173,330 +221,137 @@
                 <div class="kratos-status-inner">
                     <div class="kratos-status-content" itemprop="articleBody">
                         
-                            
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.090Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/Google%20Code%20Jam/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
-                            <h1 id="2024-02-04"><a href="#2024-02-04" class="headerlink" title="2024-02-04"></a>2024-02-04</h1><ol>
-<li><p>整理一下github如何搭建博客，其实就是建立一个仓库<br> 这里的 内容相对来说其实其实就只是一个文档的上传功能，</p>
+                            <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>sformer 的密码猜测框架。<br>2. 使用预训练&#x2F;微调范例。<br>3. 设计了三个特定场景下的密码猜测任务的微调方式：<br>    1. 条件性口令猜测，在给定部分口令的情况下回复完整口令。<br>    2. 针对、定向性口令猜测，利用特定用户的个人信息猜测其口令。<br>    3. 基于规则的自适应密码猜测，其为单词(即，基本密码)选择自适应调整规则以生成经规则转换的候选密码。<br>4. 最后我们提出了一种<strong>混合口令强度计量器</strong>来降低这三种攻击的风险。</p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ol>
+<li>数据驱动模型(例如，马尔科夫[28，32])和基于规则的工具(例如，Hashcat[17])来有效地离线破解密码</li>
+<li>现实世界猜测攻击：使用先验信息，<ol>
+<li>定向密码猜测 TPG。</li>
+<li>条件密码猜测 CPG</li>
+<li>基于自适应规则密码猜测 ARPG</li>
+</ol>
 </li>
-<li><p>整理一下 csdn<br> 确实需要，但是这个整理是在逐渐完善文档之后才需要发布的</p>
+<li>双向转换器在自然语言处理领域受到了极大的关注[12，27，51]。由于能够捕获双向上下文信息和高度可转移性[51]，转换器在多语言任务(例如，文本分类[59]、语法校正[34])中是有效的。<ol>
+<li>有的密码猜测攻击，无论是一般的还是基于现实世界的，都可以概念化为近似密码(即文本)的概率分布的努力，</li>
+<li>这表明它自然适合基于双向转换器的猜测框架。</li>
+</ol>
 </li>
-<li><p>浏览工作网站，定成长路线。<br> <strong>需要下载几个软件</strong><br> 晚上睡觉看看</p>
-</li>
-<li><p>优化一下 go 的grpc，Go的<br> <strong>确实需要整理</strong></p>
-</li>
-<li><p>整理一下 论文方向</p>
+<li>现有有一些琐碎的工作（看了一下只是 神经网网络，不是特指 Transformer）效果不佳。</li>
+<li>成功使用 Transformer 需要一些特定的设计，比如这里使用了序列标签，参考之前的序列到序列机制。</li>
+<li>本文设计了一个基于字符级别的双向变化猜测框架。设计了特定方式的微调。取得了一定的效果。</li>
+<li>本文测试了预训练的效果。预先训练的密码模型比预先训练的自然语言模型能够产生更好的猜测性能，这表明了预先训练在特定密码语料库上的有效性。</li>
+<li>本文引入了混合密码强度计（HPSM）来降低三种攻击的风险。HPSM可以与密码泄漏检查[23，47]相结合来检测输入是否公开泄漏，一旦泄漏，输入就会遭受ARPG攻击。</li>
+</ol>
+<h1 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h1><h2 id="一般密码猜测"><a href="#一般密码猜测" class="headerlink" title="一般密码猜测"></a>一般密码猜测</h2><ol>
+<li>基于数据驱动模型，基于密码数据对模型进行训练</li>
+<li>基于规则猜测，由专家知识定制初始配置，转换初始密码到候选密码。</li>
+</ol>
+<h2 id="基于额外信息攻击"><a href="#基于额外信息攻击" class="headerlink" title="基于额外信息攻击"></a>基于额外信息攻击</h2><p> CPG：Pasquini等人[38，39]提出了一种基于Wasserstein自动编码器的最先进的CPG方法[48]。他们将最终的模型称为CWAE(上下文瓦瑟斯坦自动编码器)，它由将部分密码嵌入到潜在表示中的编码器和将部分密码的潜在表示转换为密码的解码器组成。<br> TPG：其中，Pal等人提出的Pass2Path。[35]2019年，是最新、最有效的定向竞猜模式。他们提出了凭据调整，以破解用户历史密码的变体(调整)<br> ARPG：021年，Pasquini et al.[37]提出了第一个基于规则的自适应猜测框架ADAMS(Adaptive Dynamic Mgling Rules Attack)，该框架构建了一个卷积规则(CNN神经网络)建模，为每个单词选择自适应规则。</p>
+<h2 id="基准攻击模型"><a href="#基准攻击模型" class="headerlink" title="基准攻击模型"></a>基准攻击模型</h2><p>我们使用最先进的CWAE、Pass2Path和ADAMS模型分别作为CPG、TPG和ARPG攻击的基线，因为这些模型与其他模型相比具有最高的猜测性能。例如，CWAE已被证明比基于PCFG、马尔可夫和神经网络的模型更好。因此，我们不会检查与其他型号的比较。</p>
+<h2 id="双向-Transformer"><a href="#双向-Transformer" class="headerlink" title="双向 Transformer"></a>双向 Transformer</h2><p>基于自我注意机制(即将给定的标记与所有文本环境连接起来)提出的，由于能够捕获深层文本特征而在自然语言处理领域获得了广泛的应用。<br>BERT(来自Transformers的双向编码器表示)[12，27]是一种流行的基于变压器的架构，已经在11个单独的NLP任务上取得了最先进的结果。<br>BERT针对 <strong>MLM(掩蔽语言建模)</strong> 和 <strong>NSP(下一句预测)</strong> 两个目标进行预训练，以建立基于大量未标记Web语料库的预训练语言模型。</p>
 <ol>
-<li>老师要求看看大模型和字典生成相关的事情。</li>
-<li>我是重点看大模型，–分支看看字典相关的事情</li>
-</ol>
-</li>
-<li><p>整理 图说数据库内容，</p>
-<ol>
-<li>就两个部分，读文档，百度，google 抄就完事了</li>
+<li>对于 MLM 目标，BERT 训练模型，使其能够预测屏蔽位置的正确标记。由于自然语言的特性，BERT很大程度上是为了预测屏蔽词而设计的。</li>
+<li>NSP的目标是取一个句子对A和B，并预测B是否是A之后的实际下一个句子。Bert[12]提出了两种次级训练方法：微调和基于特征。<ol>
+<li>在微调方法中，所有参数都在下行任务期间更新。</li>
+<li>而在基于特征的方法中，通过冻结一些普通的预训练层来从预训练的参数中提取固定的特征。<br> 通常，微调方法会随着训练时间的增加而产生更好的结果[12]。在本文中，我们选择了所有参数都是可学习的微调方法。</li>
 </ol>
 </li>
 </ol>
-<h3 id="基本安排"><a href="#基本安排" class="headerlink" title="基本安排"></a>基本安排</h3><p>晚上睡觉看看博客啥的，就业相关<br>晚上看看grpc 相关 和 go 语言， 优先 grpc 相关，整理为一个开源项目<br>早上整理文档，数据库基本知识。</p>
-<h2 id="就业APP"><a href="#就业APP" class="headerlink" title="就业APP"></a>就业APP</h2><p>一、BOSS<br>■优点<br>1.回复率高。直接和hr或者boss谈的机制，能让你投递岗位后很快就能直接得到回应。<br>2.招聘周期短，功能性岗位多。例如推销，营销，人力，行政，后勤等岗位，boss直聘的招聘效率都不错。<br>■缺点<br>1.薪资虚假，很多公司标的薪资和实际薪姿不符。<br>2.审核把关不严，岗位质量良不齐。<br>■推荐人群（应届生，工作1-3年的求职者）<br>刚开始找工作或者是刚离职的求职者，往往急需更换工作，缩短求职周期，期待得到及时的面试反馈。  </p>
-<p>二、智联招聘&#x2F;前程无忧<br>■优点<br>1.基础性岗位，传统行业岗位都比较全面，大中小各类规模的企业覆盖比较齐全。基本上你想找的工作行业和类别，智联招聘都囊括了。<br>2.软件下沉做得比较好，三四线及以下城市工作岗位比较多。<br>■缺点<br>1.反馈很慢，投递简历后石沉大海的情况比比皆是。<br>2.推荐岗位不匹配，岗位和薪资挂羊头卖狗肉的情况也比较多，需要你擦亮眼睛。<br>■推荐人群（全年龄段求职者）<br>适合广撒网，多积粮的求职者，由于岗位覆盖面全，适合传统行业，基础性岗位，小众专业的求职者找工作，在三四线城市比较适用。 </p>
-<p>三、拉勾<br>■优点<br>1.主打互联网行业，垂直度和专业程度比较高。<br>2.页面简洁，互联网岗位的搜索和筛选都很便捷。<br>3.同类岗位推荐和一键投递功能不要太爽有木有，投简历就完事儿了！<br>■缺点<br>1.反馈也很慢，需要耐心等待。<br>2.垂直度高既是优点也是缺点，其他行业的岗位不够全面。<br>■推荐人群（互联网求职者首选）<br>一线和新一线城市互联网岗位求职者的首选，想进互联网大厂，拉钩是个很好的选择。</p>
-
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.078Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/%E8%BF%91%E6%9C%9F%E8%AE%A1%E5%88%92/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
-                            <p>bellcrackit &#x3D;&gt; mimacracker</p>
-<p>bell &#x3D;&gt;mmck</p>
-<p><a target="_blank" rel="noopener" href="http://192.168.3.19:9090/api/server.php">http://192.168.3.19:9090/api/server.php</a></p>
-<p>Found existing lock.pid, checking if python process is running…<br>Ignoringlock.pid filebecause PID is not existent anymore or not running python!<br>Starting client ‘s3-python-0.7.1’…<br>Please enter the url to the API of your MimaCracker installation:</p>
-<p>![[Pasted image 20240319155428.png]]</p>
-
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.077Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/%E8%8D%89%E7%A8%BF/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
-                            <p>[[近期计划]]<br>[[今日计划]]</p>
-<p>[[日程安排&#x2F;TEMP]]</p>
-<p>[[草稿]]</p>
-
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.076Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
-                            <p>认为神经网络将会成为未来最具<br>潜力的模型，并指出该领域的进一步研究和发展依赖于规范数据集的建立和多种方法的结合运用</p>
-<p>介绍当前存在的分类以及它们的瓶颈</p>
-
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.057Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/IDL/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
-                            <ol>
-<li>tinykv  — OK</li>
-<li>论文 —— OK </li>
-<li>复现——-进一步实验。</li>
-<li>老师要求的网络配置，使用虚拟机进行模拟。 周五下午来做。</li>
-<li>准备实现，破解空间的测量，周五下午来做。</li>
-</ol>
-
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.057Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
-                        </time>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/%E4%BB%8A%E6%97%A5%E8%AE%A1%E5%88%92/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content" itemprop="articleBody">
-                        
-                            <ol>
-<li>网络的端口服务测试  ok</li>
-<li>密码空间优化    ok</li>
-<li>zip推荐  ok</li>
-<li>剩余时间—后续  ok</li>
-<li>下载相关离线包     ok</li>
-<li>bug — 密钥空间 ：因为后续计算密钥空间了！！，前面某些密钥空间是 0</li>
-<li>bug—- .后缀 的 归档任务 详情无法打开。</li>
-<li>bug — 进度： ok</li>
-<li>bug — 文件删除问题：</li>
-</ol>
-<p>TODO:</p>
+<h1 id="预任务"><a href="#预任务" class="headerlink" title="预任务"></a>预任务</h1><h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>攻击模型的工作流程是根据监督信号训练监督模型。我们将它们的监管信号总结在表1中。</p>
 <ol>
-<li>运行 md5  破解。do ing  下载字典有点久</li>
-<li>整理包。 —- </li>
-<li>整理指令。————— TODO</li>
+<li>具体来说，CPG的监管信号是部分密码及其完整密码。 CPG 旨在训练模型，使其在给定部分密码的情况下预测正确的密码。 CPG 的输出直接作为密码候选。</li>
+<li>TPG的监督信号是通过动态规划算法计算出的最短编辑路径的密码（在[35]中实现）。编辑路径是一系列原子编辑操作（在我们的攻击设计中预定义），</li>
+<li>ARPG的监督信号是具有命中规则（即规则集的子集）的单词，例如根据两个假设数据集之间的命中信息删除最后三个字符。 ARPG模型输出自适应规则，然后将其应用于单词以获得候选密码。自适应规则通常与单词更兼容，从而可以尽早产生命中。 ARPG 中使用的修改规则在 Hashcat 中定义。一般情况下，大多数重整规则可以是常见原子规则的组合（例如，“删除最后三个字符”是“删除最后一个字符”的三个原子规则的组合），并且可以自然地模拟应用多个规则的场景按顺序到基本词。</li>
 </ol>
-<p>Factory::getTaskFactory()-&gt;set($task, Task::KEYSPACE, $keyspace);<br>      DServerLog::log(DServerLog::TRACE, “已保存 Keyspace”, [$this-&gt;agent, $task]);<br>         $this-&gt;sendResponse(array(</p>
-<p>        PResponseSendKeyspace::ACTION &#x3D;&gt; PActions::SEND_KEYSPACE,</p>
-<p>        PResponseSendKeyspace::RESPONSE &#x3D;&gt; PValues::SUCCESS,</p>
-<p>        PResponseSendKeyspace::KEYSPACE &#x3D;&gt; PValues::OK</p>
-<p>      )</p>
-<p>    );<br>   $task-&gt;setKeyspace(Factory::getFileFactory()-&gt;get($fileId)-&gt;getLineCount());<br>Factory::getFileFactory()-&gt;get($fileId)-&gt;getLineCount(),</p>
-<p>msgs &#x3D;<br>[<br>{MsgRequestVote 1 1 0 0 0 [] 0 <nil> false {} [] 0} {MsgRequestVote 1 1 0 0 0 [] 0 <nil> false {} [] 0}<br>{MsgRequestVote 2 1 0 0 0 [] 0 <nil> false {} [] 0} {MsgRequestVote 2 1 0 0 0 [] 0 <nil> false {} [] 0}<br>{MsgRequestVote 3 1 0 0 0 [] 0 <nil> false {} [] 0} {MsgRequestVote 3 1 0 0 0 [] 0 <nil> false {} [] 0}<br>],<br>want [<br>{MsgRequestVote 2 1 2 0 0 [] 0 <nil> false {} [] 0} {MsgRequestVote 3 1 2 0 0 [] 0 <nil> false {} [] 0}<br>]</p>
+<h2 id="威胁模型"><a href="#威胁模型" class="headerlink" title="威胁模型"></a>威胁模型</h2><p>假设攻击者可以选择预先训练的自然语言和密码特定参数（作为先验知识）或随机变量来初始化他们的攻击模型。</p>
+<h2 id="密码泄漏数据集"><a href="#密码泄漏数据集" class="headerlink" title="密码泄漏数据集"></a>密码泄漏数据集</h2><h3 id="数据集选择"><a href="#数据集选择" class="headerlink" title="数据集选择"></a>数据集选择</h3><p>在实验中选择了先前作品[16、21、37、38、43、54、60]中使用的几个数据集。用于定向猜测的数据集是电子邮件，而用于非定向猜测攻击的数据集是明文密码。</p>
+<p>密码预训练、CPG和ARPG使用由明文密码组成的数据集，<br>Rockyou-2009、000Webhost、Neopets、Cit0day、Rockyou-2021：</p>
+<p>对于TPG攻击，我们选择以下两个包含电子邮件的数据集，并总结表2中的基本信息：<br>BreachCompilation (4iQ)<br>Collection#1</p>
+<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><p>账户加入：为了找到属于同一用户的密码列表，我们根据相同的电子邮件地址合并帐户（用户）[35]</p>
+<p>数据集清理：<br>我们采用常用的清理策略[16,35,37,60]来过滤掉原始数据集中的哈希密码、非ASCII密码和超过32个字符的异常长密码。</p>
+<h2 id="密码二向性"><a href="#密码二向性" class="headerlink" title="密码二向性"></a>密码二向性</h2><p>顺序性：字符通常与其相邻字符更相关，这也可以是单向性的体现。聚合：相关字符的内部序列（例如“password123”中的“p@ssw0rd”和“123”；“mike199730”中的“199730”）有更多的连接线。<br>捕获双向表示可以提供更好的候选密码，从而提高密码猜测效率!!!! ！</p>
+<h1 id="PassBERT"><a href="#PassBERT" class="headerlink" title="PassBERT"></a>PassBERT</h1><h2 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h2><p>预训练模型主要捕获输入密码的上下文嵌入，这是密码中每个字符的具有上下文信息的高维表示。上下文嵌入是预训练层（即最后一个变压器块）的输出。</p>
+<h3 id="嵌入"><a href="#嵌入" class="headerlink" title="嵌入"></a>嵌入</h3><ol>
+<li>密码标记为字符序列，</li>
+<li>带有表示开头 ([CLS]) 和结尾 ([SEP]) 的附加符号，因为密码通常比句子短，</li>
+<li>对比：与 BERT 不同，BERT 通常在 token 级别对文本进行 token 化，其 token 主要是单词，并将每个句子剪辑为 512 个 token。</li>
+<li>我们考虑最大密码长度为32个字符，并考虑总共99个有效字符，包括95个ASCII字符（表示为Σ）和4个附加符号开始、结束、占位符和未知字符。</li>
+<li>嵌入层：<ol>
+<li>其字符嵌入和位置嵌入 求和。将标记化输入转换为其输入嵌入。</li>
+<li>删除了 BERT 中的句子嵌入</li>
+<li>![[Pasted image 20240314160458.png]]</li>
+</ol>
+</li>
+</ol>
+<h3 id="数据处理-1"><a href="#数据处理-1" class="headerlink" title="数据处理"></a>数据处理</h3><ol>
+<li>为了使用 MLM 目标预训练密码模型（即预测屏蔽位置后面的屏蔽字符），我们将训练集中的每个密码 (Dtraining) 预处理为部分密码的形式（表示为pivot）：关联完整的密码（表示为 pwd）。我们遵循 BERT [12] 中相同的掩码比例：我们随机选择密码中 15% 的字符，然后分别以 80%、10% 和 10% 的概率用掩码符号、随机字符和未更改字符替换所选字符 。随机且未改变的字符可以防止模型记住被屏蔽的字符。一个密码可以预处理到很多个pivot，本文设置了20个pivot。我们设置预训练任务，找到参数 θ 来最大化以下似然：<br>![[Pasted image 20240314161946.png]]</li>
+</ol>
+<h3 id="数据集选择-1"><a href="#数据集选择-1" class="headerlink" title="数据集选择"></a>数据集选择</h3><p>我们使用 Rockyou-2021 作为我们的预训练数据集，该数据集非常大。为了在训练时间和模型性能之间取得平衡，我们从 Rockyou-2021 中随机抽取了 6000 万个密码。</p>
+<h3 id="计算性能"><a href="#计算性能" class="headerlink" title="计算性能"></a>计算性能</h3><p>我们的工作是在一台配备 Nvidia GeForce RTX 2080 Ti 的 Ubuntu 20.04 机器上执行的，大约需要 2 天才能完成预训练。存储预训练模型需要 8.9 MB。</p>
+<h2 id="密码微调"><a href="#密码微调" class="headerlink" title="密码微调"></a>密码微调</h2><p>根据特定的攻击场景定制预训练模型。微调方法通常包括架构修改和模型重新训练。</p>
+<ol>
+<li>架构修改期间，<ol>
+<li>通常修改预训练模型架构的任务特定层（表9中的全连接层和输出层），并保留预训练层，包括顶部输入层、嵌入层和几个 Transformer 块。</li>
+<li>然后，我们使用特定的监督信号重新训练下游模型，以学习特定于任务的功能（例如密码规则兼容性）。（注意，重新训练过程中所有的参数都会改变：包括上面的所有层）。</li>
+</ol>
+</li>
+</ol>
+<h1 id="用于现实世界攻击模型的-PassBERT"><a href="#用于现实世界攻击模型的-PassBERT" class="headerlink" title="用于现实世界攻击模型的 PassBERT"></a>用于现实世界攻击模型的 PassBERT</h1><p>介绍三种 微调。</p>
+<p>三种预训练模型：</p>
+<ol>
+<li>预训练的密码模型：PassBERT</li>
+<li>预训练的 BERT 自然语言模型：Vanilla BERT<br> Vanilla BERT 可以在字级、子字级和字符级对文本（即密码）进行标记，而我们仅根据词汇表将密码标记为字符序列。由于我们的 Vanilla BERT 的词汇表只有小写字母，因此我们扩展词汇表以涵盖 Σ 中的所有有效字符（通过替换未使用的标记） </li>
+<li>随机变量模型：PassBERT</li>
+</ol>
+<h2 id="条件密码猜测"><a href="#条件密码猜测" class="headerlink" title="条件密码猜测"></a>条件密码猜测</h2><p>任务：pivot（例如，“p ＊ ＊ ＊w0rd ＊ ＊ ＊ ”） ————&gt;恢复密码。<br>建模：掩码语言模型任务，预测缺失字符的 pivot 的条件概率<br>数据构建：使用与 CWAE [38, 39] 相同的策略创建：</p>
+<ol>
+<li>我们以一定比例（即 50%）随机用表示缺失字符的屏蔽符号替换每个字符。</li>
+<li>然后，我们只保留那些包含至少四个可观察字符和至少五个屏蔽符号的生成主元。</li>
+</ol>
+<h3 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h3><p>攻击设计：根据 Pivot 的创建机制调整 屏蔽机制。</p>
+<ol>
+<li>增加掩码比例：只用掩码符号，</li>
+<li>（默认的屏蔽机制结果不佳）<br>模型再训练：从中提取具有正确密码的有效枢轴以进行模型重新训练。<br>评估：<br>CPG 与 CWAE 具有相同的 评估 pivots 。</li>
+<li>对一个 pivot 生成相同数量的候选密码。然后，比较匹配的个数。</li>
+<li>按照匹配的个数分类这些 pivot 。区分不同频率的 pivot 的猜测性能<br>评估集： Neopets 和 Cit0day 空间较大：</li>
+<li>WAE 仅为每个主元类别生成 30 个评估主元，可能会引起偏差。</li>
+<li>我们从评估集中为每个类别总共提取了 120 个评估基准<br>评估指标： 每个 pivot 的平均破解率。<br>结果：很好<br>预训练效果：用密码预训练的效果更好。<br>改进原则：模型通过以递减的概率耗尽屏蔽位置中的字符来生成候选密码，而 CWAE 通过解码器将潜在表示（即高维空间中的点）转换为候选密码。很优<br>计算性能：训练我们的 CPG 模型大约需要 2 天（8.9 MB），训练 CWAE 大约需要一天半的时间（4.4 MB）</li>
+</ol>
+<h2 id="定向的密码猜测"><a href="#定向的密码猜测" class="headerlink" title="定向的密码猜测"></a>定向的密码猜测</h2><p>目标：用历史密码生成其变体<br>目标：对给定的密码训练模型输出编辑路径。</p>
+<h3 id="微调："><a href="#微调：" class="headerlink" title="微调："></a>微调：</h3><p>攻击设计： Pass2path 基于 RNN 模型的序列机制将密码转换为编辑路径。Transformer 不支持，修改：使用序列标记机制来预测密码中每个字符的一个编辑操作。其中一系列编辑操作构成编辑路径。在序列标注机制中，每个字符位置只能输出一次编辑操作。</p>
+<p>为了适应序列标记机制，我们预先定义了新的编辑操作如下：保留（keep）、删除（del）和替换（rep1，rep2）这里，替换涉及用一个（表示为rep1）或两个字符替换（表示为rep2）。</p>
+<p>缺陷：无法捕获一些转换，比如：插入三个字符<br>模型结构：<br>![[Pasted image 20240314203049.png]]<br> 修改特定于任务的层以学习密码中每个字符的编辑操作（例如，(op, str)）的概率。<br>模型再训练：<br>遵循 Pass2path [35]，我们在 BreachCompilation 中从同一用户中随机抽取 80% 的密码对，并在最小编辑距离不超过 4 时选择合格的密码对，最终得到 85,269,455 个密码对。</p>
+<p>评估：<br>评估设置： 和 Pass2pass 保证相同数据集训练对<br>评估指标。我们选择特定用户泄露的密码之一作为输入，然后根据 TPG 模型推断其变体（限制为 1,000 次猜测）计算了 Ncracked Naccounts 给出不同猜测（即 10、100 和 1,000）的评估用途&#x2F;帐户之间的破解率<br>实验结果：三个模型都高于 Pass2path</p>
+<p>预训练效果：密码和自然语言模型在 TPG 中表现出边际收益。发现预训练的改进空间仍然很小，这表明预训练的作用较弱。这种现象是可以理解的，因为有针对性的攻击集中在个性化密码转换上，这与预训练模型中的全局密码分布关系不大。两个预训练模型生成的上下文嵌入在帮助理解密码转换方面几乎没有效果。 TPG 往往依赖于任务，主要根据特定攻击的数据集形成其模型参数。</p>
+<p>改进原则：更关注本地角色信息。准确地说，我们的编辑操作二元组 (op, str) 可以比 Pass2path 中使用的三元组操作 (op, str,pos) 减少一维搜索空间，其中 pos 指密码中的位置。 </p>
+<p>看法：随着编辑距离的增加，破解率下降。</p>
+<p>计算性能比较。训练 PassBERT (82 MB) 和 Pass2path (166 MB) 分别需要大约 13.6 和 42 小时。我们根据经验计算得出，两种模型都实现了相似的推理速度。 PassBERT 和 Pass2path 每秒可以推断 4.38 和 4.63 个密码对（pairs&#x2F;s）。</p>
+<h2 id="基于自适应规则的密码猜测"><a href="#基于自适应规则的密码猜测" class="headerlink" title="基于自适应规则的密码猜测"></a>基于自适应规则的密码猜测</h2><p>目标：每个单词仅与选定的自适应修改规则关联以生成猜测。<br>        [37]尝试使用默认变压器，但与 ADaM 相比没有取得实质性改进。<br>本质：找出单词适应的规则。<br>效果：输入单词和规则输出破解的可能性<br>方式：构建分类模型，</p>
+<h3 id="微调-1"><a href="#微调-1" class="headerlink" title="微调"></a>微调</h3><p>捕获整个单词和密码级别的修饰规则之间的自适应关系，因为修饰规则最终适用于单词。<br>监督信号：是在两个假设数据集上带有标记规则（即命中规则）的单词。<br>模型架构：</p>
+<ol>
+<li>修改了特定任务层，推断重整规则和具有焦点损失函数的基本单词之间的自适应概率。</li>
+<li>输出层没有序列长度。<br>模型再训练：</li>
+<li>针对两个规则集训练了两个 APRG 模型</li>
+<li>使用 2 亿个密码作为目标空间</li>
+<li>使用 1000 万条数据作为初始空间</li>
+<li>训练：Ri 是个向量，每个元素对应一个规则的匹配可能性<br> 注意：0和1的比例极其不平衡，即超过95%的标签都是0。因此，我们应用与ADAM相同参数策略的焦点损失[25,37]来关注硬标签。</li>
+<li>设置一个 阈值 来表示规则使用的条件。</li>
+</ol>
+<h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p>评估设置：比较了静态和动态模型。<br>专注于单词和规则之间的关系建模，即我们的目标是为单词选择更具适应性的规则，以在相同的猜测下获得更高的猜测效率。<br>评估指标：动态策略模型的最终破解率作为评估指标。<br>试验结果：动态模型和静态模型都高于 ADaMs</p>
+<ol>
+<li> Dynamic PassBERT 在这些模型中实现了最高的破解率，并且在四个实验中比 ADaM 平均提高了 4.86%。</li>
+<li> 静态 ARPG 的显着提前停止是因为每个单词仅与自适应规则关联，其大小小于标准基于规则的攻击中的所有规则。<br>预训练效果：</li>
+<li>密码预训练使 Transformer 的性能优于 ADaM</li>
+<li>用默认 Transformer 基本没改进。所以这些个模型的改进没有效果。<br>改进原则：密码预训练对于 ARPG 的提升有着重要的作用。<br>见解：发现了容易收到攻击的破坏规则。<br>计算性能比较：</li>
+<li>我们两个小时： ADam 需要 十个小时</li>
+<li>推理速度相似。</li>
+</ol>
+<h1 id="密码强度估计"><a href="#密码强度估计" class="headerlink" title="密码强度估计"></a>密码强度估计</h1><h1 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h1><p>密码双向性：</p>
+<ol>
+<li>双向 Transformer 在文本特征提取方面比自动编码器 (CWAE)、RNN (Pass2path) 或 CNN (ADaMs) 等领先方法效果更好，</li>
+<li>工作[22]已经设置了单向变压器，并显示了双向训练机制在一般猜测任务中的优越性。</li>
+<li>密码具有双向性，对字符进行不同的权重。</li>
+<li>预训练对于提高猜测效率也能起到重要作用。深度学习模型通常由通用预训练层和特定于任务的层组成，其中预训练层的上下文嵌入层可以为任务相关层提供更多上下文信息。<br>预训练的合适场景猜测：<br>密码训练和自然语言训练：只能为有针对性的攻击提供效益</li>
+</ol>
 
                         
                     </div>
@@ -505,8 +360,8 @@
             
                 <footer class="kratos-post-meta-new">
                     <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.057Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        <time datetime="2024-04-23T03:05:06.609Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
                         </time>
                         
                         
@@ -521,7 +376,390 @@
                     
                     
                         <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92/TEMP/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                            <a class="read-more" href="/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/PassBERT/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>多视图混合密码猜测</p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><ol>
+<li>集合多种模型进行密码猜测（也称为混合密码猜测），从而更好地捕获真实破解者的破解能力</li>
+<li>问题提出：为什么整合模型会有效果，如何整合模型还没有研究，</li>
+<li>本文从多视图学习的概念中汲取灵感：<ol>
+<li>将各种密码猜测模型生成的猜测列表视为数据的多个视图。</li>
+<li>通过对这些密码猜测列表的分析发现了混合密码猜测模型能增强破解能力的原因：<ol>
+<li>集成更多元的视图可以覆盖更广泛的异构密码特征。</li>
+<li>并提供更详细的有效密码信息分布。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>提出了一种新的密码猜测框架：GuessFuse <ol>
+<li>采用多视图子集提取模块和分段分割选择模块，从多个猜测列表中准确提取和重组有效密码。</li>
+</ol>
+</li>
+<li>在 六个大型数据集中证明了 GuessFuse 的有效性。<ol>
+<li>通过组合两个（或五个）猜测列表，GuessFuse 在 107 个猜测中比其最重要的同行平均高出 11.00% ∼ 59.62%（或 4.70% ∼ 17.66%）</li>
+</ol>
+</li>
+</ol>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ol>
+<li>密码使用频繁</li>
+<li>密码破解器的性能是密码强度估计器的一个设计标准。</li>
+<li>密码猜测分类：数据驱动和基于规则。当前主要是数据驱动方法效果更好。<ol>
+<li>PCFG [6] 对具有简单结构的密码（例如，passsword123）产生更好的猜测性能</li>
+<li>马尔可夫模型 [22] 对于具有上下文相关特征的密码（例如，1qaz2wsx）更有效。</li>
+</ol>
+</li>
+<li>但是现实世界的破解专家能力大于单一的模型能力。</li>
+<li>混合密码猜测的研究在初级阶段。<ol>
+<li>[16]通过并行应用多个密码猜测模型，设计了一个 Minauto 指标作为混合密码猜测的上限。</li>
+<li>一些研究[29]-[33]试图在结构层面整合特定模型的优点（例如，分别在密码结构层面和字符串层面应用PCFG模型和马尔可夫模型进行密码猜测[29]） 。</li>
+<li> 另一方面，一些研究[32]、[34]实验性地组合来自不同密码猜测模型的多个猜测列表，以实现更准确的密码猜测。</li>
+</ol>
+</li>
+<li>然而，上述方法要么集成了两种特定的密码猜测模型，要么简单地组合猜测列表，而不是从机制上解决这个问题。未能有效利用多种异构密码猜测模型的优势。</li>
+<li> 更重要的是，据我们所知，为什么集成多个密码猜测模型可以增强破解能力尚未得到满意的答案。</li>
+<li>我们将各种密码猜测模型生成的猜测列表视为数据的多个视图。 通过对多个猜测列表组合的深入分析，我们揭示了混合密码猜测能够增强破解能力的关键原因。</li>
+<li> 同时我们还发现多个视图之间的子集中的密码也遵循Zipf定律。</li>
+</ol>
+<p>基于这些关键发现，我们提出了一种基于多视图学习的混合密码猜测框架，名为 GuessFuse。 GuessFuse 可根据以下工作流程从巨大的密码空间中实现准确的密码猜测结果。</p>
+<ol>
+<li>GuessFuse 首先使用单独的密码猜测模型（例如 PCFG 和马尔可夫模型）生成多个密码猜测列表。 </li>
+<li>然后，使用多视图子集提取方法提取多个猜测列表之间的相交和互补子集。</li>
+<li>接下来，GuessFuse 根据幂律将子集分割成密码段。 </li>
+<li>大量的实验表明，GuessFuse 的性能优于同类产品，并且能够有效地整合多种密码猜测模型的优点。</li>
+<li>我们还将 GuessFuse 应用于 PSM 进行更广泛的比较分析。 我们发现 Minauto指标低估了某些密码的强度，从而降低了密码设置的可用性。 使用 GuessFuse 可以解决这个问题。</li>
+</ol>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="相关研究"><a href="#相关研究" class="headerlink" title="相关研究"></a>相关研究</h2><ol>
+<li>密码破解方式概述</li>
+<li>密码强度指标 minauto ， 但Minauto指标只是理论上的上限，并行使用多个密码猜测模型比使用单个模型需要多数倍的猜测次数，与实际猜测场景的要求不一致。</li>
+<li>混合密码猜测模型提出但是处于起步阶段。 根据集成对象的划分，现有的混合密码猜测方法可以分为模型架构级别的集成和猜测列表级别的集成。<ol>
+<li>模型架构级别：<ol>
+<li>2018 年，Zhang 等人。 [29]提出了一种称为 SPSR 的混合密码猜测模型。 SPSR将PCFG模型[6]应用于密码结构层，将马尔可夫链模型[22]应用于密码字符串层。 </li>
+<li>同年，他们还提出了SPRNN模型[30]，该模型结合了结构划分和双向长短期记忆递归神经网络（BiLSTM）。 </li>
+<li>与 SPRNN 相反，Xia 等人。 [31]提出了另一种混合密码猜测模型，称为 PL。 PL采用PCFG模型[6]进行密码字符串层解构，并采用LSTM模型[15]进行结构层建模。<br> 这些双重方法有效地利用了两种密码猜测模型在不同密码分析粒度层的优势。 然而，这些模型架构级别的集成需要有针对性的定制，限制了它们集成更广泛的密码猜测模型的能力。</li>
+</ol>
+</li>
+<li>猜测列表级别：<ol>
+<li>2021 年，王等人。 [32]平均组合多个密码猜测列表并对输出进行重复数据删除。 他们发现，将密码猜测模型与明显不同的密码生成策略（例如RNN模型[39]和PCFG模型[6]）相结合可以有效提高破解成功率。 </li>
+<li>2022 年，帕里什等人。 [34]对训练集中的密码进行去重，并按密码频率降序排序，生成猜测列表。 他们将其定义为“身份猜测者”。 他们发现，将模型生成的多个猜测列表与 Identity Guesser 相结合，可以显着提高破解成功率。<br> 不过，这两项研究仅在猜测清单层面进行了初步尝试。 同等地组合猜测列表并不能准确地从每个猜测模型中提取有效部分。</li>
+<li>2022 年，Han 等人。 [33]介绍了一种称为 hyPassGu 的混合猜测框架。 hyPassGu 通过限制每个模型生成目标类型的密码并分别确定猜测次数，利用 PCFG 和马尔可夫模型的优势。 尽管声称 hyPassGu 可以应用于 PCFG 和马尔可夫之外的其他模型，但它需要先了解模型的架构及其目标密码类型。 因此，它不能直接应用于其他模型。 另外，hyPassGu根据密码的结构特征将密码粗略地分为两类，导致有效密码大量流失。 因此，hyPassGu的破解成功率低于单个模型，仅略优于限制特定类型密码生成的模型。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>关键问题仍然没有令人满意的答案：<br> （1）什么有助于提高混合密码猜测的破解能力？<br> （2）如何有效发挥多种不同模型的优势？ 本文重点解决这些问题。</li>
+</ol>
+<h2 id="密码猜测场景"><a href="#密码猜测场景" class="headerlink" title="密码猜测场景"></a>密码猜测场景</h2><p><strong>数据驱动的密码猜测模型 + 拖网猜测 + 混合密码猜测</strong></p>
+<ol>
+<li>攻击者首先根据泄露的数据集构建密码猜测模型；</li>
+<li>然后使用模型生成猜测；</li>
+<li>最后尝试使用猜测破解所有目标密码。</li>
+</ol>
+<p>虽然基于规则的密码猜测工具[20]、[21]也可用于混合密码猜测，但这些工具仍然依赖于目标数据集分布的先验知识来增强密码猜测的有效性。</p>
+<p>注意：<br>拖网场景可以进一步分为站内场景和跨站场景。 虽然跨站密码猜测场景较为真实，但攻击者一般以掌握目标数据的部分分布信息为前提来猜测密码。<br>因此，为了更好地描述混合密码猜测的概念，我们将站点内拖网场景中的密码猜测任务形式化。<br><strong>形式化</strong>：一些符号表示，某个猜测密码成功破解了目标系统的多少个密码</p>
+<h2 id="多视角学习"><a href="#多视角学习" class="headerlink" title="多视角学习"></a>多视角学习</h2><p>多视图学习的概念与混合密码猜测的概念非常吻合。 多视图学习引入了一个函数来对特定视图进行建模，并联合优化所有函数以利用相同输入数据的冗余视图，从而提高学习性能[40]。<br>在更高层次上，多视图学习构建多个单一视图并评估它们的表现，然后设计功能来组合这些视图以改善学习成果。<br>同样，混合密码猜测旨在通过利用从不同角度分析数据的多个模型来提高密码猜测的有效性。 因此，多视图学习可以用于解决在混合密码猜测中集成各种密码猜测模型的优势的挑战。</p>
+<p>徐等人。 [41]提出多视图学习基于两个关键原则有效地利用多种视图：</p>
+<ol>
+<li>共识和互补。 共识原则旨在最大限度地达成不同观点之间的一致。 </li>
+<li>互补原则指出，每种观点都可能包含其他观点所不存在的独特知识。 通过有效利用多种观点的共识和互补性，可以实现对数据的全面、准确的描述。<br>在本文中，我们基于这些原理探索混合密码猜测。</li>
+</ol>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>使用包含 5400 万个纯文本密码的 6 个数据集（参见表 I）。<br>其中，三个数据集来自英文网站，三个数据集来自中文网站，涵盖六种不同的服务类型。<br>数据源的多样性有助于减少我们分析中的偏差。 由于我们所有的数据集都可以在互联网上公开获取，因此这项工作的结果是可重复的。<br>![[Pasted image 20240418173807.png]]</p>
+<h3 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h3><p>原始数据集包含异常情况，例如未解密的哈希字符串、不可能由用户生成的过长密码以及包含不符合标准密码策略的不可打印字符的密码。 因此，我们首先对数据集进行数据清洗。 我们删除包含 95 个可打印 ASCII 字符之外的字符的密码，并删除长度 &gt; 30 的密码。这种数据清理策略在现有的密码猜测文献中也很流行 [24]、[26]、[42]。</p>
+<h3 id="道德考虑"><a href="#道德考虑" class="headerlink" title="道德考虑"></a>道德考虑</h3><p>尽管我们使用的数据集是公开的，并广泛用于密码猜测研究 [8]、[27]、[32]–[34]，但这些数据集包含敏感的个人信息。 因此，我们仅分析密码数据的分布特征，并报告汇总的统计信息。 我们不会将任何数据用于学术研究以外的目的，因此不会增加受影响个人的风险。</p>
+<h2 id="密码猜测模型"><a href="#密码猜测模型" class="headerlink" title="密码猜测模型"></a>密码猜测模型</h2><p>采用了四种领先的密码猜测模型（例如 Markov、PCFG、FLA 和 RFGuess）。</p>
+<p>为了减轻其他因素对分析结果的影响，我们重点关注站内密码猜测场景。 这种情况被认为是理想的，因为训练集和测试集具有相同的数据分布，确保了我们分析的一致性。</p>
+<p>我们从数据集中随机抽取大小为 $10^6$ 的子集作为测试集，而其余数据用作训练集。 我们发现结果对于基于此测试集大小的分析来说足够稳定。 这一现象与论文[9]、[43]、[44]一致。 用于生成猜测列表的每个模型的设置如下：<br> 1）PCFG。 我们使用了 PCFG 模型 [6] 的 4.0 版，该模型可以在 GitHub 网站上找到。 该模型的语法包括六个段类别：字母A、数字D、其他字符O、键盘D、特殊字符串X和年份Y。<br> 2）Markov。 我们选择 4 阶马尔可夫模型，并采用[26]中使用的拉普拉斯平滑和结束符号正则化来生成猜测。<br> 3）FLA。 我们利用了 GitHub 网站上提供的 FLA 开源代码2，并遵循[15]中指定的推荐参数。 我们训练了一个由三个 LSTM 层组成的模型，每层有 128 个单元和两个密集层，总共 20 个 epoch。<br> 4）RFGuess。 参考[24]，我们训练了一个有 30 棵决策树的随机森林。 其叶子节点的最小数量为10，特征的最大比例为80%，其余为scikit-learn框架的默认值[45]。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p> 本节通过多视角分析，依次解决以下问题：<br>    （1）混合密码猜测能够提高破解能力的关键原因是什么？<br>    （2）使用猜测列表进​​行混合密码猜测可以获得什么好处？</p>
+<h2 id="混合密码猜测的本质"><a href="#混合密码猜测的本质" class="headerlink" title="混合密码猜测的本质"></a>混合密码猜测的本质</h2><h3 id="数据集比较"><a href="#数据集比较" class="headerlink" title="数据集比较"></a>数据集比较</h3><p>我们通过比较每个模型生成的猜测列表来展示密码猜测模型之间的差异<br>![[Pasted image 20240418204958.png]]</p>
+<ol>
+<li>PCFG 模型生成的猜测列表包括诸如 “dearbook123456” 和 “DEARBOOK” 之类的密码，这表明偏向于生成包含常见短语和简单结构的密码。 </li>
+<li>Markov 模型生成的猜测列表包含 “woshili” 和 “1989123” 等密码，反映了基于密码内字符相关性进行猜测的偏见。</li>
+<li>RFGuess 模型的猜测列表包括诸如 “1234567” 和 “1234567}” 之类的密码，表明了将常见短语与各种特征相结合的趋势。 </li>
+<li>FLA 模型与马尔可夫模型类似，会生成一个包含 “45665456” 和 “qwqwqwqww” 等密码的猜测列表，显示出其对密码中顺序上下文一致性的偏见。 然而，FLA 模型生成的猜测列表也与马尔可夫模型不同。</li>
+<li>中心区域还有“dearbook”、“12345678”等密码。 它表明，尽管每个模型都有独特的偏见，但他们已经就某些密码达成了共识。 这些密码可能很常用，并且很容易被各种模型预测到。</li>
+</ol>
+<h3 id="为什么需要混合"><a href="#为什么需要混合" class="headerlink" title="为什么需要混合"></a>为什么需要混合</h3><p>猜测列表中的相似点和差异强调，即使基于相同的数据集，现有的密码猜测模型也可以生成包含不同密码特征的猜测列表。</p>
+<p>本质上，密码猜测模型是根据用户设置易受攻击密码的行为而设计的。通过准确识别和匹配这些弱密码的特征，模型就可以生成破戒律很高的猜测列表。然而，由于用户密码设置行为的异构多样性[42]。即使像 PCFG 这样的已经涵盖了各种弱密码特征的模型（参见第II-E节），也无法在有限的猜测次数内完全覆盖所有特征 。 利用多种具有不同偏差的密码猜测模型的组合，可以更全面地识别和匹配密码特征，从而提高密码猜测的性能。</p>
+<h3 id="怎么混合"><a href="#怎么混合" class="headerlink" title="怎么混合"></a>怎么混合</h3><ol>
+<li>在模型的结构层面上利用多个异构密码猜测模型是相当具有挑战性的，并且不适用于新提出的密码猜测模型（例如RFGuess），这背离了使用多个异构模型的最初想法。</li>
+<li>密码猜测模型最终会生成猜测列表。 鉴于多视图学习对于混合密码猜测的天然适用性（参见第 II-C 节），我们将密码猜测模型生成的猜测列表视为数据的多个视图。<ol>
+<li> 在多视图学习领域，直观的是，集成多个不同视图来分析和处理数据可以产生更全面的信息，从而提高学习模型的性能。 这个概念也适用于混合密码猜测。 </li>
+<li>我们用一个示意性的解释来描述这一点。<br> ![[Pasted image 20240418211929.png]]</li>
+<li>如图3所示，不同的密码猜测模型生成的猜测列表{G1，G2，G3，····，Gl}可以覆盖测试集T的不同部分。假设混合密码猜测方法H可以有效地提取出测试集T的不同部分。 从{G1,G2,G3,····,Gl}中覆盖T的密码，生成优化猜测列表eG。 </li>
+<li>组合的猜测列表越多，测试集的覆盖范围就越大，从而产生更好的破解能力。 </li>
+<li>请注意，图 3 中描绘的示意图可能并不通用，因为猜测列表中的密码通常存在重叠。 然而，组合更多猜测列表可以覆盖更多测试集的因果关系是普遍存在的。 我们将通过下面的分析来证明这一点。</li>
+</ol>
+</li>
+</ol>
+<h2 id="多视图集成的优点"><a href="#多视图集成的优点" class="headerlink" title="多视图集成的优点"></a>多视图集成的优点</h2><p>依据：</p>
+<ol>
+<li><p>大量实验已经证实，我们所描述的结果在六个数据集中得到一致观察，从而证实了它们的普遍性</p>
+</li>
+<li><p>以 CSDN 数据集生成的 top $10^6$ 密码猜测列表为例。</p>
+</li>
+<li><p>实验：<br>定量特征分析：<br>对组合猜测列表的统计特征进行定量比较，以证明多视图集成带来的猜测有效性。</p>
+</li>
+<li><p>将每个模型生成的猜测列表以相同的大小组合起来，并对它们进行重复数据删除，然后将结果与单个猜测列表进​​行比较。<br> 例如，在比较大小为 $10^3$ 的猜测列表时，我们结合 PCFG 和马尔可夫模型生成的前 $10^3$ 个猜测，删除任何重复的密码。 输出被定义为两个视图集成。<br> 请注意，这种组合策略与 Minauto 指标 [16] 的计算相同，并不反映现实场景 ( Minauto 指标是一个理论上的上限，代表了每个密码被所有密码猜测模型破解所需的最小猜测次数。然而，在实际的密码猜测场景中，使用多个密码猜测模型并行进行猜测需要的次数是单个模型的数倍，这与实际需求不一致)。</p>
+</li>
+<li><p>我们的目的只是证明通过跨多个视图的特征量化来增强密码破解能力的可行性。<br> ![[Pasted image 20240419151949.png]]<br> 密码结构 Struct：基于 PCFG 算法来分析猜测列表中的密码结构的数量。 例如，如果猜测列表包含 “dearbook134”、“dearbook309” 和 “123dearbook” 等密码，则它包含两种类型的密码结构： “A8D3” 和 “D3A8”。<br> 有效密码比例 Effect：有效密码&#x2F;猜测列表大小。猜测列表中的密码如果能够与测试集中的密码匹配，则认为该密码有效。<br> 破解成功率 $Min_{auto}$<br> 唯一密码比例 Uniq：唯一密码&#x2F;单个单个猜测列表 </p>
+</li>
+<li><p>结果：</p>
+<ol>
+<li>Effect 和  $Min_{auto}$ 说明了多视图集成所带来的猜测有效性的提高。</li>
+<li>Uniq 和 struct 说明通过集成多个视图实现的多样性的增强。整合更多元的观点可以增加猜测的多样性，覆盖更多的密码特征，从而提高密码猜测的有效性</li>
+</ol>
+</li>
+</ol>
+<p>有效的密码分析：<br>问题：组合多个猜测列表会产生许多独特的密码，其大小远远超过单个猜测列表的大小。 如果全部用于最后的破解，会导致破解次数消耗过多。<br>![[Pasted image 20240419155303.png]]<br>幸运的是，图4（a）表明，当猜测数量增长到大约 $4×10^4$ 时，组合多个猜测列表的有效密码数量开始低于单个猜测列表的大小（an注：从一个数据集中选择 100 比 四个数据集中每个选择 25 个效率高）。<br>在这种情况下，通过选择这些有效密码中的一部分，即使优化后的猜测列表大小小于单个猜测列表的大小，猜测的成功率仍然可以达到多视图集成的 Minauto 指标。（an注：此时单猜测列表 和 多猜测列表分母增加相同大小时， 单猜测列表的分子增加的多，论文描述的意思是减少了 多猜测列表分母增加的个数，有点偷换概念的意思）</p>
+<p>在了解测试集的前提下，我们假设了一种最优的混合密码猜测方法，该方法可以有效地整合多个猜测列表以产生优化的猜测列表。 此混合密码猜测方法生成的优化猜测列表包含每个猜测列表中最有效的密码。 如果猜测的密码在测试集中破解频率最高的密码，则认为该密码具有最高的效率。 例如，在整合大小为103的猜测列表时，我们首先对猜测的密码进行去重，并将其与测试集进行比较，计算每个猜测的密码可以破解的测试密码的数量。 然后，我们按照破解次数降序选择猜测的密码，并将其添加到最佳猜测列表中，直到最佳猜测列表的大小也达到103。我们将最佳猜测列表的破解成功率与最佳猜测列表的破解成功率进行比较。 由单一密码猜测模型生成的猜测列表（见图4（b））。 如图 4（b）所示，当猜测数 &lt; 4 × 104 时，与 PCFG 模型相比，整合两视图的最优猜测列表的破解成功率平均提高了 1.3%，整合三视图的破解成功率平均提高了 1.3%。 2.6%，整合四视图增长了2.8%。 尽管有效密码的数量超过了单个猜测列表的大小，但选择效率最高的部分同等大小的猜测密码仍然可以增强破解能力。 </p>
+<p>上述结果表明，从多个视图中准确提取有效密码是进行有效混合密码猜测的关键。</p>
+<p>多视图子集分析：<br>目的：为了找到从多个视图中提取有效密码的有效方法，我们对多个视图之间的子集进行了分析。<br>手段：对不同模型生成的相同大小的猜测列表进​​行集合运算，以获得相交和互补的子集。<br>![[Pasted image 20240419165944.png]]</p>
+<p>我们分析了集成不同数量的视图时多视图子集的变化（见图 5）。 如图 5 所示，集成两个视图生成三个子集，三个视图集成生成七个子集，四个视图集成生成 15 个子集。 此外，随着集成视图数量的增加，每个子集中有效密码的分布变得更加集中。 相交子集中有效密码的比例（中间红色数值表示）随着集成视图的增加而增加。 在基于CSDN数据集的实验中，融合两个视图时，相交子集中有效密码的比例为51.51%。 当集成三视图时，这一比例增加了 21.0%，而当集成四视图时，这一比例又增加了 3.9%。 这些结果表明，集成多个视图可以提供有关有效密码分发的增量信息。 随着更多视图的整合，增量信息增多，有效密码的分布更加集中。</p>
+<p>![[Pasted image 20240419170332.png]]</p>
+<p>我们继续分析有效密码在各个子集中的分布。 目前，当我们仅通过集合运算提取猜测列表中的相交和互补子集时，子集中的密码不包括顺序。 因此，我们通过分析不同大小的猜测列表中子集的平均破解成功率来评估子集中有效密码的分布（见图7）。 为了便于表示，我们用图6来表示每个平均破解成功率所代表的子集。 具体来说，我们使用 4 位二进制代码来命名每个子集，其中每个位代表密码在特定模型生成的猜测列表中的出现，从左到右分别为：PCFG、FLA、Markov 和 RFGuess。 例如，“1000”表示该子集中的密码仅出现在PCFG猜测列表中。</p>
+<p>![[Pasted image 20240419170602.png]]</p>
+<p>如图7所示，相交子集“1111”的整体破解效率明显优于其他子集。 然而，相交子集中的密码的后半部分并不优于其他子集中的密码的前半部分。 例如，相交子集“1111”在101次猜测中的平均破解成功率为3.57×10−6，而互补子集“0010”在101次猜测中的平均破解成功率为2.61×10−5。 有趣的是，子集的平均破解成功率与单个猜测列表的大小呈现近似线性关系。 当我们将 15 条曲线作为一个整体来考虑时，这一点变得更加明显。 这可能符合密码中的 Zipf 定律 [46]。 我们使用PDFZipf模型[46]拟合数据：logfr &#x3D; logC − s · logr，其中fr和r分别对应于平均破解成功率和单个猜测列表的大小。 如表III所示，C ε [-3.55，-0.85]和s ε [-0.92，-0.63]是常数。 拟合的 RMSE 在 [0.08, 0.24] 范围内。</p>
+<p>这种现象有助于在混合密码猜测中利用多种密码猜测模型的优势。 尽管密码分布中的齐普夫定律通常用于解释用户设置密码的行为，但也有研究 [33]、[47] 通过分析密码猜测模型中齐普夫定律的存在来改进密码猜测模型。 在我们的例子中，齐普夫定律表明，猜测密码的效率随着密码在子集中的排名降序而下降。 换句话说，子集中排名较高的密码被认为具有较高的破解效率。</p>
+<h1 id="密码结构"><a href="#密码结构" class="headerlink" title="密码结构"></a>密码结构</h1><p>密码结构（Struct.）的数量是通过对猜测列表中的密码进行分析和统计得出的。具体来说，密码结构是指密码中的字符排列方式，例如”A8D3”或”D3A8”。在文中，作者使用PCFG算法对密码结构进行分析，通过猜测列表中的密码来确定不同类型的密码结构的数量。通过对密码结构的数量进行统计分析，可以评估多视图整合对密码破解能力的提升效果。这些统计特征表明，整合更多不同的视图可以增加猜测的多样性，覆盖更多的密码特征，从而提高口令猜测的有效性。</p>
+<h1 id="Minauto"><a href="#Minauto" class="headerlink" title="Minauto"></a>Minauto</h1><p>类似于一个破解成功率。</p>
+<h1 id="多视图提取模块的工作原理是什么？"><a href="#多视图提取模块的工作原理是什么？" class="headerlink" title="多视图提取模块的工作原理是什么？"></a>多视图提取模块的工作原理是什么？</h1><p>多视图提取模块的工作原理是从多个猜测列表中提取交集和补集密码，以生成多视图子集。该模块首先根据输入的猜测列表数量生成多个子集，并为每个子集分配逻辑标签。然后，根据排名，模块按照密码的逻辑规则将密码分别添加到交集子集或补集子集中。最终，该模块输出维护的多视图子集，其中包含了有效密码的信息。这一过程有助于准确地从多个视图中提取和重新组织有效密码。</p>
+<h1 id="分割选择模块的作用是什么？"><a href="#分割选择模块的作用是什么？" class="headerlink" title="分割选择模块的作用是什么？"></a>分割选择模块的作用是什么？</h1><p>分割选择模块的作用是进一步细化每个子集，根据幂律间隔将其分割成多个密码片段。该模块利用幂律分布间隔序列来将输入的子集分割成更细粒度的密码片段。然后，该模块利用验证集来评估这些密码片段的破解效率，具体来说，该模块计算这些密码片段的平均破解成功率。最终，该模块重新组织有效的密码片段，生成最终的优化猜测列表。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-23T03:05:06.608Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/GuessFuse/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><ol>
+<li>2016-2023 发表了 30多种密码猜测方法。</li>
+<li>引入了一种分类方法，将现有的方法分为拖网猜测和定向猜测。</li>
+<li>其次，我们提供了一个广泛的基准数据集，可以帮助研究人员和从业者在后续工作中。</li>
+<li>文献计量学分析，以呈现这一领域的趋势和综述论文之间的交叉引用。</li>
+<li>从不同的应用场景、猜测ﬁ的效率以及传统学习方法和深度学习方法的结合等方面讨论了密码猜测的开放挑战。</li>
+<li>本文提出了密码猜测的未来研究方向，以指导密码猜测的后续研究和发展。</li>
+</ol>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ol>
+<li>互联网和安全发展，认证方式</li>
+<li>基于密码认证的原理</li>
+<li>密码猜测为什么有效</li>
+</ol>
+<p>身份认证的分类：</p>
+<ol>
+<li>用户知道的：密码，个人识别码</li>
+<li>用户拥有的：U盾，加密卡</li>
+<li>用户本身的：<ol>
+<li>生理特征：指纹，虹膜</li>
+<li>行为特征：手写</li>
+</ol>
+</li>
+</ol>
+<p>为什么密码安全有压力：</p>
+<ol>
+<li>互联网发展。需要很多加密</li>
+<li>记忆能力有限。弱密码，相同密码</li>
+<li>密码泄露</li>
+</ol>
+<p>密码猜测的角度：</p>
+<ol>
+<li>启发式搜索</li>
+<li>概率模型</li>
+<li>深度学习</li>
+</ol>
+<h2 id="相关的综述"><a href="#相关的综述" class="headerlink" title="相关的综述"></a>相关的综述</h2><h3 id="综述1"><a href="#综述1" class="headerlink" title="综述1"></a>综述1</h3><p>A Large-Scale Analysis of the Semantic Password Model and Linguistic Patterns in Passwords<br>2021<br>从样本量、 和语言信息三个方面对语义密码文法进行了综合评价。</p>
+<p>密码是一种特定的文本序列，具有长度短、语义丰富的特点。因此，充分利用口令的语义和语言模式有利于口令猜测。在调查[8]中，从样本量、概率平滑和语言信息三个方面对语义密码语法进行了综合评估，并在交叉验证环境中将其与最新的概率上下文无关文法(PCFG)和神经网络模型进行了比较。实验结果揭示了句法模式和语义模式对口令猜测的贡献，表明句法和语义模式对口令安全的影响更大。此外，本文还说明，与最新的神经网络同类模型相比，PCFG往往仍具有竞争力。在训练密码超过100万的PCFG时，性能略有提高。  </p>
+<h3 id="综述2"><a href="#综述2" class="headerlink" title="综述2"></a>综述2</h3><p>Deep Learning for Password Guessing and Password Strength Evaluation: A Survey<br>2020<br>调查了2019年前密码猜测和密码强度评估的最新深度学习方法。</p>
+<p>在文[9]中，作者综述了用于密码猜测和密码强度评估的最新深度学习方法，包括密码模式提取、候选密码生成和密码强度测量。然而，由于发表于2020年，该论文在2019年之前只是一篇与统计相关的论文。近年来，各种人工智能技术迅速迭代，范式从模型转变为机器学习理论。因此，迫切需要更新相关内容。</p>
+<h3 id="综述3"><a href="#综述3" class="headerlink" title="综述3"></a>综述3</h3><p>A Preliminary Analysis of Password Guessing Algorithm [10]</p>
+<p>采用覆盖率指标来量化个人信息在创建个人密码过程中的参与程度，并使用蒙特卡洛和Zxcvbn方法来评估密码强度。</p>
+<p>在文献[10]中，简要回顾了现有的各种典型密码猜测算法，包括假设、识别信息和理论模型。多个指标也被用来理解和评估这些算法的性能。通过对实验结果的分析，总结了不同密码猜测算法的特点。证明了当猜测次数相同时，两种算法比一种算法猜测更多的口令。此外，作者还提出了一种混合密码猜测算法PaMLGuess，该算法具有很强的可解释性和泛化能力，并利用概率映射来解决不同密码猜测算法给出的概率大小相差很大的问题。</p>
+<h3 id="综述4"><a href="#综述4" class="headerlink" title="综述4"></a>综述4</h3><p>The AI-Based Cyber Threat Landscape: A Survey<br>2020<br>探索了通过将人工智能的“黑暗面”与攻击技术相结合而构成的网络攻击的研究实例，并介绍了对这些攻击进行建模的分析框架。</p>
+<h3 id="综述5"><a href="#综述5" class="headerlink" title="综述5 **"></a>综述5 **</h3><p>Deep Learning vs. Traditional Probabilistic Models: Case Study on Short Inputs for Password Guessing [12]<br>2019<br>重点分析了深度学习算法与传统概率模型在短密码串上的对比分析<br>。<br>对深度学习算法和传统概率密码猜测模型进行了比较分析[12]。作者分析了泄漏数据集的密码模式，并对两种主流的概率模型进行了比较研究，即基于马尔可夫模型和基于PCFG的模型，以及基于深度学习的代表性方法PassGAN模型。</p>
+<h3 id="综述6"><a href="#综述6" class="headerlink" title="综述6 **"></a>综述6 **</h3><p>Let’s Go in for a Closer Look: Observing Passwords in Their Natural Habitat [13]<br>2017</p>
+<h1 id="调查方法"><a href="#调查方法" class="headerlink" title="调查方法"></a>调查方法</h1><p>检索和选择作品的方法</p>
+<p>这篇关于密码猜测的综述遵循了一种系统的文献综述方法。我们按照[14]提出的程序，从现有文献中检索研究论文，从结果中挑选相关作品，然后进行总结。因此，系统的审查过程是可重复的，并减轻了对文献中作品的选择偏见。第2.1-2.3节概述了本综述的研究问题、搜索策略和研究选择。</p>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p>密码猜测 神经网络<br>密码破解 神经网络<br>密码攻击 机器学习<br>密码猜测 深度学习<br>密码可预测性 VAE(分自编码器（Variational Autoencoder）)<br>密码重用 变压器<br>密码概率模型 PCFG<br>拖网 GaN<br>目标 马尔可夫</p>
+<h2 id="密码数据"><a href="#密码数据" class="headerlink" title="密码数据"></a>密码数据</h2><p>![[Pasted image 20240305093437.png]]</p>
+<p>泄露的数据大多来自大国的知名公司，如美国和中国。因此，在泄露的密码数据集中，英语和中文是主要语言。其次，大多数密码数据都是在2010年左右泄露的。最后，一般来说，数据集的大小越大，被用作研究语料库的可能性就越高。例如，就数据量而言，RockYou是表中最大的英文数据集，也是我们评论作品中使用最频繁的语料库。</p>
+<h2 id="密码猜测攻击"><a href="#密码猜测攻击" class="headerlink" title="密码猜测攻击"></a>密码猜测攻击</h2><p>根据是否在线：</p>
+<ol>
+<li>离线密码猜测</li>
+<li>在线密码猜测<br>根据是否利用用户的个人信息：</li>
+<li>拖网猜测</li>
+<li>定向猜测，利用用户个人信息</li>
+</ol>
+<p>是否使用人工智能：</p>
+<ol>
+<li>传统攻击</li>
+<li>神经攻击</li>
+</ol>
+<p>几乎所有现有的工作都是离线猜测，而在线猜测太难在100个猜测内猜出一个密码。</p>
+<h3 id="拖网猜测"><a href="#拖网猜测" class="headerlink" title="拖网猜测"></a>拖网猜测</h3><h4 id="传统拖网猜测"><a href="#传统拖网猜测" class="headerlink" title="传统拖网猜测"></a>传统拖网猜测</h4><ol>
+<li>启发式算法<blockquote>
+<p>这些算法没有严格的理论体系，严重依赖于零散的奇思妙想，例如，基于开源软件使用精心设计的猜测序列[21]构建独特的猜测词典[18-20]。正如[3]指出的那样，这些启发式方法很难重现，也很难相互公平地比较。因此，在这里，我们只介绍一些常用的启发式密码猜测工具。</p>
+</blockquote>
+<ol>
+<li>Jtr是一个密码猜测工具，专注于破解UNIX&#x2F;Linux系统的弱密码。在JTR中有四种模式–简单破解模式、单词表模式、增量模式和外部模式。</li>
+<li>Hashcat是世界上速度最快、最先进的密码恢复实用程序，支持针对300多种高度优化的哈希算法的五种独特攻击模式。Hashcat目前支持Linux、Windows和MacOS上的CPU、GPU和其他硬件加速器，并具有帮助启用分布式密码破解的设施。<blockquote>
+<p>彩虹攻击：<br>一种基于预先计算和空间-时间折中的攻击方法。通过事先计算大量的密码和散列值之间的对应关系（彩虹表），以便在攻击时快速查找并破解散列值。彩虹表是一个预先计算的表格，其中包含了大量的密码和对应的散列值。通过在彩虹表中进行查找，攻击者可以找到与目标散列值匹配的原始密码。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>概率上下文无关语法<br> 该算法的核心假设是密码的字母段L、数字段D和特殊字符段S相互独立。该算法包括训练和猜测两个阶段。<ol>
+<li>在训练阶段，最关键的是根据泄露的密码数据集计算密码模式(结构)和字符成分(语义)的频率。</li>
+<li>在猜测阶段，根据训练阶段得到的模式频率表和语义频率表生成具有频率猜测的集合，以模拟真实密码的概率分布。<br> 粒度太细，无法获得字符之间的语义关系，改进：</li>
+<li>[24]基于词的内聚力和自由度提取密码中的语义片段，并对基于语义片段的PCFG算法进行改进</li>
+<li>[25]中，作者将密码视为由几个块组成，其中块是频繁出现在一起以模拟密码的相关字符的序列。</li>
+<li>25扩展了字节对编码(BPE)[26]算法，它使用块词汇表平均长度的可配置参数来替换合并操作的数量。</li>
+<li>为了解决长密码猜测的困难，请参考。[27]提出了一种改进的基于PCFG的LONG</li>
+</ol>
+</li>
+<li>马尔可夫序列决策<br> 该算法的核心假设是用户从前到后依次构造口令。它不像PCFG那样分割密码，而是训练整个密码，并通过从左到右链接字符来计算密码的概率。<ol>
+<li>传统的马尔可夫模型因其结构简单、推理速度快而被广泛应用于口令猜测工作中。但是，它也有一定的缺陷，如过度拟合、重复率高、基于随机抽样生成的密码覆盖率低等。</li>
+<li>过拟合：[17]将拉普拉斯平滑和结束符号正则化技术应用于马尔可夫模型。平滑策略消除了数据集中的过拟合问题，正则化技术使攻击算法产生的猜测概率总是和为1。</li>
+<li>重复率：[29]设计了一种基于随机抽样的动态分配机制。该机制允许动态调整密码的概率分布，并在猜测过程中严格收敛到均匀分布。基于上述动态分布机制，提出了一种动态马尔可夫模型。</li>
+<li>对口令中的语义段进行建模：Ref.[30]提出了一个名为Word马尔可夫的模型，通过语义分段从密码中提取单词的凝聚力和自由度。</li>
+</ol>
+</li>
+</ol>
+<h4 id="神经拖网猜测算法"><a href="#神经拖网猜测算法" class="headerlink" title="神经拖网猜测算法"></a>神经拖网猜测算法</h4><p>密码猜测任务视为文本生成问题，<br>2006年，参考文献[32]引入浅层神经网络进行密码猜测。<br>2016年，参考文献[33]提出了基于递归神经网络的口令分布估计算法FLA。该模型遵循马尔可夫模型的序贯决策过程，但放宽了n-马尔可夫假设。FLA可以通过树遍历算法枚举密码空间，从而产生新的猜测结果。从那时起，各种基于的产生式神经网络被反复观察到用于拖网密码猜测。</p>
+<ol>
+<li>回归神经网络(RNN)：回归神经网络是一个递归神经网络，它以序列数据为输入，在序列进化方向上递归，所有节点以链的形式连接。 RNN 有许多变体：如： LSTM，GRU，BiLSTM 等。<ol>
+<li>步骤：基于RNN的密码猜测方法通常有以下两个步骤：<ol>
+<li>·将训练集中的密码序列输入到RNN模型中，以进行顺序文本生成的训练。</li>
+<li>训练好的 RNN 猜测模型旨在根据已有的密码字符生成下一个密码字符，直到输出终止字符位置。</li>
+</ol>
+</li>
+<li>在整个密码生成过程中，RNN计算任何字符作为下一个密码令牌的概率。对于给定的阈值，概率高于阈值的密码将被放入密码猜测集中作为有效密码。</li>
+<li>一些变体：<ol>
+<li>[38]对密码单词进行切分，在词段的基础上使用BiLSTM生成密码。</li>
+<li>[39]中，作者提出了一种层次语义模型HSM，该模型将LSTM和语义分析相结合，用于挖掘用于密码猜测的词之间潜在的概率关系。</li>
+<li>[40]提出了一种基于汉字音节的密码猜测方法。该方法将汉语音节作为整体元素对密码进行解析和处理。然后，在LSTM神经网络中对处理后的密码进行训练以生成密码。</li>
+<li>[41]中，作者使用深度学习，特别是具有注意力机制的RNN来组合和内插同一组用户的信息，以定义比他们的密码分布更稳健和准确的优先级。推理时使用辅助数据来适应目标密码的分布。通过这种方式，开发了一种利用辅助信息并实例化上下文感知口令计量和猜测攻击的全自动方法，而不需要来自目标口令分布的任何明文样本。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>生成式对抗网络（GAN）：<ol>
+<li>基于GAN的密码猜测模型由密码生成器和鉴别器组成。这两个网络相互对峙，不断地调整参数。最终目的是使鉴别器网络无法判断生成网络的输出是否真实，从而达到口令生成的效果。</li>
+<li>问题：离散密码数据的不可微性可能导致梯度反向传播失败，基于GAN的密码猜测模型训练难以收敛，由GAN模型生成的密码重复率较高。</li>
+<li>离散数据不可微问题解决：<ol>
+<li>Works[44，45]使用Gumbel-Softmax[46]松弛技术来训练基于GAN的密码猜测模型。此外，在工作[44]中提供了另一种解决方案，其使用通过附加的自动编码器获得的真实口令的平滑表示。</li>
+<li>[47]提出了一种基于SeqGAN的密码猜测方法RLPassGAN，该方法使用策略梯度来确保模型参数的持续优化。</li>
+</ol>
+</li>
+<li>收敛困难的问题解决：[49]设计了一种基于双向生成对抗网络的猜测算法，提高了算法的收敛速度。与传统的GaN相比，它可以在更短的时间内产生相同数量的样本</li>
+<li>重复率高问题解决：[47]认为根本问题在于生成器中间层的输出是一个不完整的密码序列，在到达输出层之前不能由鉴别器直接评估，从而导致许多冗余的合成密码。为了解决这个问题，作者提出了一种改进的方法，该方法使用蒙特卡罗搜索[50]来评估中间层输出处的不完整密码序列。不同的是，裁判。[49]使用鉴别器和控制器构建额外的控制器网络，以分别学习生成的密码分布与真实密码分布和均匀分布之间的度量。然后利用这两个度量对生成器进行训练，从而降低了口令生成的重复率。</li>
+<li>RLPass[51]还创新性地将表征学习用于密码猜测。具体地，将密码投影到隐藏空间，并且使用隐藏空间中的密码表示之间的距离来定义密码的相似性。基于口令的强局部性和弱局部性现象，提出了一种动态口令猜测和条件口令算法。为了解决基于GAN的模型生成的长密码质量较低的问题，请参阅[52]设计了一种基于DenseNet的[53]GAN密码猜测结构DenseGAN，并提出了两种新的密码猜测DenseGAN模型，这两种模型都能生成高质量的密码猜测。</li>
+</ol>
+</li>
+<li>自动编码器（AE）：自适应学习是一种无监督的学习模型。它基于反向传播算法和优化方法，使用输入数据本身作为监督来指导神经网络学习映射关系，以获得重建的输出。AE 包括编码器和解码器两部分。根据学习范式，AE 可分为欠完备自动编码器、正则化自动编码器和变分自动编码器，其中前两种是判别性模型，后者是生成性模型。在拖网密码猜测的研究中，通常使用<strong>变分自动编码器</strong>[54]来生成密码猜测。如图5所示，将密码样本(Yu123)输入到VAE的编码器以获得表示，然后使用解码器基于该表示重建样本。基于输入x和生成的x之间的重构损失来训练密码生成器。<br> [47，51，55，56]使用VAE模型来生成密码猜测，但每种方法都有稍微不同的侧重点。在[55]中，作者使用经典的VAE框架来猜测密码，而不需要任何更改。不同的是，裁判。[47]将VAE技术与GaN技术相结合，用VAE代替GaN生成器，旨在解决离散口令数据的反向传播问题。针对模型的轻量级问题，在[56]中，用门控卷积神经网络(GCNN)[57]代替了复杂的RNN生成单元，大大降低了模型的复杂性。</li>
+<li>Transformer.<br> ![[Pasted image 20240305201324.png]]<br> Transformer 模型采用编解码器体系结构，并使用注意[59]替换 Seq2Seq 模型中的递归结构，以实现序列建模的并行化。这种并行化结构给自然语言处理 (NLP) 领域带来了巨大的冲击。随着研究的深入，相关技术逐渐从自然语言处理向计算机视觉 (CV)、语音、生物、化学等领域发展。同样，在拖网密码猜测的研究中也出现了一些基于Transformer的方法[60，61]。<ol>
+<li>[60]旨在研究常见密码规则中密码破解的概率，为密码设置提供参考。作者收集了大量用户的个人信息和密码，并分析了个人信息和密码的相关性。在此基础上，实现了一种基于改进 Transformer 的口令猜测模型。该工作将消息权重引入到数据预处理中，并在模型中使用改进的波束搜索算法来快速搜索排名靠前的密码猜测。</li>
+<li>在[61]中，作者提出了一个基于双向 Transformer 的猜测框架 PassBERT，首次将预训练&#x2F;微调的范式应用于密码破解。具体地说，首先，作者设计了包含一般密码分布知识的通用密码预训练模型。然后，提出了三种特定于攻击的微调方法来定制预先训练的口令模型以适应以下真实攻击场景：条件口令猜测、目标口令猜测和基于自适应规则的口令猜测。最后，他们进一步提出了一种混合密码强度计来降低这三种攻击的风险。</li>
+</ol>
+</li>
+<li>Reinforcement Learning (RL) 强化学习<ol>
+<li>RL是机器学习的范例和方法之一，用于描述和解决智能代理在与环境交互过程中最大化回报或实现特定目标的学习策略问题。密码生成器是代理，每个生成的密码序列代表一个完整的轨迹，生成过程中的每个字符都被视为一个操作。例如，由时间戳t生成的字符是action at。根据由所生成的不完整序列确定的关于当前状态ST的随机策略来生成每个动作At。生成器根据一组随机策略从任意字符生成密码，直到满足预定长度。</li>
+<li>在[47]中，作者提出了一种基于强化学习和遗传算法的拖网密码猜测模型RLPassGAN。具体地说，该工作遵循SeqGAN[48]，将密码猜测视为一个连续决策，并使用策略梯度 来确保参数可以连续优化。此外，通过蒙特卡罗搜索[50]来评估输出的不完整密码序列。蒙特卡罗是一种使用大量随机样本来了解特定系统的计算方法。它非常强大和灵活，但易于理解和实现。它是在1940年的曼哈顿计划中提出的。这个名字来自赌城蒙特卡洛，象征着可能性。除了上述应用，蒙特卡罗还被应用于估计给定口令的猜测次数[62，63]</li>
+</ol>
+</li>
+<li>Flow.在上面介绍了生成模型GaN和VAE；它们都没有显式地学习真实数据p(X)的概率密度函数。对于具有潜在变量的生成模型，几乎不可能计算它们p(X)&#x3D;p(x|z)p(Z)，因为很难遍历隐藏变量z的所有可能值。<ol>
+<li>这一挑战被生成性模型解决了–归一化流动[64]，这是一个强大的密度估计统计工具。流动模型的一个非常独特的特征是，它的转变通常是可逆的。如图8所示，流模型不仅找到了从分布Z转移到分布X的网络路径，而且该路径还允许X改变为Z。简而言之，流模型找到了分布Z和X之间的双向路径。当然，这种可逆性是以Z和X的数据维度必须相同为代价的。</li>
+<li>[68]中，朱利奥·帕尼奥塔等人。提出了一种基于产生流模型的口令猜测方法PassFlow。基于流的口令猜测模型使用精确的对数似然计算和优化，使潜在变量的推断更加准确。此外，还给出了潜在空间的一种有意义的表示，这使得探索潜在空间的特定子空间和内插等操作成为可能。作者论证了产生流模型在密码猜测中的适用性。实验结果表明，PassFlow能够在比以前方法小几个数量级的训练集的情况下，在密码猜测方面优于现有的基于GAN的方法。</li>
+</ol>
+</li>
+</ol>
+<h4 id="传统定向密码猜测"><a href="#传统定向密码猜测" class="headerlink" title="传统定向密码猜测"></a>传统定向密码猜测</h4><p>攻击者使用与目标人员相关的个人信息来增强猜测<br>2015年，裁判[69]首次提出了一种基于拖网马尔可夫攻击模型的定向攻击猜测方法[70]。基本思想是，关于使用某些个人信息的人口的百分比，攻击目标也将具有相同的使用该个人信息的可能性百分比。为了实现这一想法，文献[71]首先将PII划分为几种类型，如用户名-A、电子邮件前缀-E和名称-N，并根据所需的粒度进一步细分每种广泛的类型。然后，将训练集的每个密码中的所有PII替换为对应的PII类型。训练阶段的其余步骤与行走马尔可夫模型的步骤相同[71]。猜测集生成阶段分为两个步骤。在第一步中，运行行走马尔可夫模型[71]以生成中间猜测集合，该中间猜测集合包含直接可用的猜测，例如123456，以及具有PII类型的基本字符的中间猜测(例如，N1、N2123)。第二步用相应的PII信息替换中间猜测中的基本PII类型字符。<br>个人-PCFG。2016年，参考[5]提出了一种基于PCFG的定向攻击猜测方法–Personal-PCFG。它遵循拖网PCFG攻击模型[16]。其基本思想与PCFG攻击模型相同：根据字符类型和长度对密码进行切片。为了实现这一思想，文献[5]   (即用户名-A、电子邮件前缀-E、姓名-N、生日-B、电话号码-P和ID-G)，并将这六种PI字符类型等同于拖网PCFG模型中的L、D和S，从而在个人PCFG中有九种类型的字符。然后，在训练过程中，与拖网PCFG攻击模型[16]中一样，训练集中的每个密码根据相应的字符类型及其长度进行分段。<br>TarGuess Wang等人。[4]提出了一个框架，它用四个数学概率模型系统地刻画了典型的定向猜测场景。<br>第一个场景TarGuess-I旨在利用用户的PII创建在线目标密码猜测。为了在密码中表示PII令牌，除了PCFG[16]模型中的L、D和S标签外，作者还定义了基于个人信息类型的28个PII标签(例如，N1−N7和B1−B10)。对于每个PII标签，其下标编号表示该类型的PII使用的细分，而不是指示相应长度的下标编号，例如L、D和S标签。例如，N表示名称信息，而N1表示全名，而n2表示全名的缩写<br>第二个是Targuess-II，目的是根据用户在其他网站(例如Dodonew)中泄露的密码来猜测目标网站(例如CSDN)中的用户密码。具体地，作者提出了6种结构级和2种字符级助记转换来描述密码重用，并基于上述重用规则使用马尔可夫模型来刻画上下文无关的转换文法。<br>第三个是TarGuessIII，目的是使用姐妹密码和一些PII信息来猜测用户的密码。TarGuess-III将PII信息引入到TarGuess-II模型中，允许在结构级密码重用中嵌入PII信息。<br>与TarGuess-III相比，TarGuess-IV场景中的攻击者知道难以量化的额外PII(例如，性别、教育)。为了解决某些PII难以直接体现在口令中的问题，在这种难以量化的PII的基础上，巧妙地引入贝叶斯理论来计算口令的重用概率。</p>
+<p>RFGuess-PII.在第4.1.1节介绍的RFGuess的基础上，Wang et al.[31]提出了一种新的目标口令猜测模型RFGuess-PII。密码训练和生成过程类似于拖网猜测场景。不同的是，通过新的PII匹配，密码中的PII字符串被替换为相应的数字标签。这种新的PII匹配旨在最小化信息熵，并试图准确地提取整个用户组的PII使用行为。PII匹配算法的第一步是细分PII的各种可能的变换，并使用数字标签来表示它们。第二步是为训练集中的每个密码列出具有PII标签的所有可能的表示。然后，按频率从高到低对表征进行排序。</p>
+<p>RFGuess-重复使用。除了基于PII的针对性密码破解研究外，在[31]中，作者还专注于对用户的密码重复使用行为进行建模。他们还考虑了结构级和段级转换，如TarGuess-II[4]。具体地，它们通过计算训练集中每个密码对的编辑矩阵来计算结构级转换，并训练基于随机森林的段级转换(即，相同类型的字符串内的转换，例如字母段中的密码→密码)模型。</p>
+<p>TG-SPSR图谱。在[72]中，作者将马尔可夫模型和PCFG模型转化为目标攻击，提出了一种基于结构划分和字符串重组的系统目标攻击模型，称为TG-SPSR。在结构划分阶段，除了将密码划分为类似于PCFG[16]的基本结构外，还在基本语法模式中定义了基于轨迹的键盘，并引入了索引位来准确描述特殊字符的位置。此外，基于定义的9条修改规则，构造了一个BiLSTM分类器来重用和修改密码的行为。</p>
+<h4 id="神经定向密码猜测"><a href="#神经定向密码猜测" class="headerlink" title="神经定向密码猜测"></a>神经定向密码猜测</h4><p>随着自然语言处理技术的发展，一些复杂的神经网络被应用到目标密码猜测领域。在[73]中，作者提出了一个由指针生成网络组成的有针对性的口令猜测模型PG-PASS。该工作创新性地将目标口令猜测作为一项摘要任务，并将智能摘要领域中常用的指针网络技术应用于该任务。需要注意的是，除了用户的人口统计相关信息(姓名、生日等)外，攻击者还可以利用用户在其他网站上泄露的密码进行有针对性的攻击。可以预期，这种利用用户密码重复使用这一易受攻击行为的定向攻击可能比基于人口统计相关信息的攻击更具危害性。<br>基于用户总是渴望通过重用或微调旧密码来生成新密码的事实，参考文献。[74]提出了一种基于密码转换器的重用模型，并对证书篡改攻击进行了模拟。在IEEE S&amp;P‘19会议上，Pal等人。[75]引入深度学习技术来表征用户的密码重复使用行为。更具体地说，他们训练了序列到序列(Seq2seq)模型，以预测将现有密码转换为其姊妹密码所需的修改，并在大规模数据集(即4iQ数据集[76])上进行了验证。此外，Wang et al.[77]提出了一种有针对性的密码猜测算法PASS2EDIT，用于模拟日益严重的凭据篡改攻击，在该攻击中，攻击者利用受害者泄露的密码来提高她在其他站点猜测受害者密码的成功率。特别是，他们提出了一种多步决策训练机制，并建立了一个分类神经网络来学习一步编辑操作对现有密码的反应。由于每项工作使用的数据集不同，因此很难进行横断面比较。以12306数据集为例，当猜测集为100时，现有的定向密码猜测方法的猜测准确率约为41.07%[73]。在重复使用猜测场景中，当受害者在站点A的密码(即PWA)已知时，在100次猜测中，Sota方法[77]在猜测其在站点B的密码(PWB&#x3D;PWA)时的破解成功率分别为24.2%(对于普通用户)和11.7%(对于安全敏感用户)。</p>
+<h3 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h3><p>从时间上看，2016年至2018年零星出版数量较少，2021年增至9种。这一数量的增加表明关于密码猜测的研究总体上呈上升趋势。在分布式定位技术方面，基于深度神经网络的猜测方法主要集中在图形的左上角，而基于传统方法的猜测方法主要集中在右下角。这一现象表明，神经密码猜测的研究是近年来的热点。这也反映了密码猜测技术的重点正在从传统方法向深度神经网络方法转移。</p>
+<p>从数字的角度来看，在许多研究中，神经密码猜测方法所使用的技术更加多样化。其中，GAN、RNN和CNN是使用最多的技术。在传统的密码猜测方法中，PCFG和马尔可夫是使用最广泛的两种密码猜测技术。</p>
+<p>从品类上看，现有研究主要集中在拖网密码猜测技术多达37种，针对定向密码猜测研究的著作仅有6部。一方面，正如前面提到的，目前对密码猜测攻击缺乏系统的研究，而且大多集中在个别攻击场景，如离线拖网猜测。此外，越来越现实的有针对性的在线猜测很少得到解决。另一方面，尽管少数研究侧重于有针对性的密码猜测，但大多停留在用户行为的简单统计和对启发式突发事件的依赖程度上，缺乏理论和原则性的研究。一些根本性的问题需要解决。  </p>
+<h3 id="交叉引用分析"><a href="#交叉引用分析" class="headerlink" title="交叉引用分析"></a>交叉引用分析</h3><p>FLA[33]和PassGan[43]是被其他人引用最多的作品。这间接说明了这两部作品的影响。由于FLA和PassGAN是第一个分别使用RNN[34]和GAN[42]来模拟口令可猜测性的方法，它可以确定为什么RNN和GAN使用频率很高。<br>我们对第一作者所在机构的国籍进行了统计分析。如图11所示，我们用出版物的数量给世界地图上的国家&#x2F;地区上色。一眼就可以看出，中国地区的色彩最深。这意味着中国是密码猜测领域发表论文最多的国家。美国队紧随中国之后，位居第二。每个国家的影响因子计算如下：IF&#x3D;引文出版物。经过计算，中国的IF为0.28，美国的IF为11。这个值表明，虽然中国的出版物数量很多，但其在这一领域的影响力远远小于出版数量较少的美国。</p>
+<h3 id="挑战和未来趋势"><a href="#挑战和未来趋势" class="headerlink" title="挑战和未来趋势"></a>挑战和未来趋势</h3><h4 id="多样应用前景"><a href="#多样应用前景" class="headerlink" title="多样应用前景"></a>多样应用前景</h4><p>主要集中在拖网竞猜场景上，但在实际应用场景中，往往存在定向竞猜、少发竞猜、资源占用少的要求。对于这种场景，现有的方法很难解决镜头少的问题。虽然可以使用数据增强等技术来缓解样本不足的问题，但要从根本上突破两难境地仍然是棘手的。同样，各种深度学习算法也严重依赖于样本的大小和质量，密码等敏感信息的收集是困难的。因此，根据有限的密码样本猜测目标密码是一个复杂的问题。</p>
+<h4 id="密码猜测的效率"><a href="#密码猜测的效率" class="headerlink" title="密码猜测的效率"></a>密码猜测的效率</h4><p>然而，在实际应用中，时间和计算资源往往是有限的。传统和神经密码猜测方法都需要巨大的计算能力来支持。随着神经网络模型变得越来越复杂，存储需求也大大增加。因此，在低资源的情况下快速执行密码猜测也是具有挑战性的。在综述的论文中，只有一篇文章讨论了一个轻量级密码猜测模型[56]。因此，这方面的大量工作仍亟待推进。</p>
+<h4 id="传统学习方法与深度学习方法相结合"><a href="#传统学习方法与深度学习方法相结合" class="headerlink" title="传统学习方法与深度学习方法相结合"></a>传统学习方法与深度学习方法相结合</h4><p>然而，纵观现有的研究，新兴的生成模型，如流[64]和扩散模型[78-80]，很少应用于密码猜测。此外，目前的神经密码猜测方法都有一个前提，即密码字符串是一个字符序列，使用序列编码对密码进行处理。事实上，我们可以做更多的尝试，比如根据密码的语义依赖将密码组织成图，并使用最新的图神经网络(GNN)相关技术[81-84]进行采样和生成。此外，预训练的语言模型[85-88]近年来在自然语言处理领域如火如荼地进行着。然而，只有一部作品[61]讨论了关于密码猜测的预训练&#x2F;精调范式。因此，将预先训练的语言模型强大的通用语言建模功能与现有的密码猜测工作结合起来也可能是一个好主意</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-23T03:05:06.608Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/AReview/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
                         </span>
                     
 
@@ -555,8 +793,8 @@
             
                 <footer class="kratos-post-meta-new">
                     <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.042Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        <time datetime="2024-04-23T03:05:06.605Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
                         </time>
                         
                         
@@ -571,7 +809,7 @@
                     
                     
                         <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E8%AE%A4%E7%9F%A5%E7%A4%BE%E4%BC%9A/caremyself/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                            <a class="read-more" href="/2024/04/23/%E8%AE%A4%E7%9F%A5%E7%A4%BE%E4%BC%9A/caremyself/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
                         </span>
                     
 
@@ -599,8 +837,8 @@
             
                 <footer class="kratos-post-meta-new">
                     <span class="pull-left">
-                        <time datetime="2024-04-22T13:14:49.041Z" itemprop="datePublished">
-                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        <time datetime="2024-04-23T03:05:06.605Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
                         </time>
                         
                         
@@ -615,7 +853,271 @@
                     
                     
                         <span class="pull-right">
-                            <a class="read-more" href="/2024/04/22/%E8%AE%A4%E7%9F%A5%E7%A4%BE%E4%BC%9A/careall/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                            <a class="read-more" href="/2024/04/23/%E8%AE%A4%E7%9F%A5%E7%A4%BE%E4%BC%9A/careall/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>[[英语单词]]</p>
+<p>[[英语短语]]</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-23T03:05:06.602Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/23/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <table>
+<thead>
+<tr>
+<th>短语</th>
+<th>含义</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>At its core</td>
+<td>其核心是</td>
+<td>At its core, our idea is to do sth.</td>
+</tr>
+<tr>
+<td>in (stark) contrast with sth</td>
+<td>和..形成鲜明对比</td>
+<td></td>
+</tr>
+<tr>
+<td>in a way</td>
+<td>在某种程度上</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-23T03:05:06.602Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/23/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E7%9F%AD%E8%AF%AD/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="使用python"><a href="#使用python" class="headerlink" title="使用python"></a>使用python</h1><h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入数学计算</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 导入结构化数据处理</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 导入绘图模块</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 导入基于 matplotlib 且数据结构与 pandas 统一的统计图制作库。</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="魔术命令"><a href="#魔术命令" class="headerlink" title="魔术命令"></a>魔术命令</h3><blockquote>
+<p>一组专门用于增强Jupyter Notebook交互性和功能的特殊命令。这些命令以<code>%</code>或<code>%%</code>开头，并且只能在Jupyter Notebook环境中使用。</p>
+<p>注意：魔术命令不能在 python 命令行中执行。</p>
+</blockquote>
+<ol>
+<li><strong>行魔术命令（line magic commands）</strong>：以<code>%</code>开头的命令，作用于单行代码。例如：<ul>
+<li><code>%run</code>：运行外部Python脚本。</li>
+<li><code>%pwd</code>：显示当前工作目录。</li>
+<li><code>%time</code>：测量代码的执行时间。</li>
+</ul>
+</li>
+<li><strong>单元魔术命令（cell magic commands）</strong>：以<code>%%</code>开头的命令，作用于整个代码单元格。例如：<ul>
+<li><code>%%time</code>：测量整个单元格的执行时间。</li>
+<li><code>%%html</code>：将单元格内容解释为HTML。</li>
+<li><code>%%bash</code>：在单元格中运行Bash命令。</li>
+</ul>
+</li>
+<li><strong>帮助命令</strong>：以<code>?</code>结尾的命令，用于获取相关对象或函数的帮助信息。例如：<ul>
+<li><code>len?</code>：获取<code>len</code>函数的帮助信息。</li>
+<li><code>obj?</code>：获取对象<code>obj</code>的帮助信息。</li>
+</ul>
+</li>
+<li><strong>魔术命令的参数和选项</strong>：魔术命令可以接受参数和选项，以进一步定制其行为。例如：<ul>
+<li><code>%matplotlib inline</code>：将Matplotlib图形嵌入到Notebook中。</li>
+<li><code>%run -i script.py</code>：以交互模式运行外部脚本。</li>
+</ul>
+</li>
+</ol>
+<h3 id="装饰函数"><a href="#装饰函数" class="headerlink" title="装饰函数"></a>装饰函数</h3><p><a target="_blank" rel="noopener" href="https://m.baidu.com/s?word=Python&sa=re_dqa_zy">Python__</a> 的装饰器是一种重要的编程概念，它们允许开发者在不改变被装饰函数源码的情况下，为函数添加额外的职责或者行为。装饰器通常由一个函数组成，它可以接收另一个函数作为输入，并返回一个新的函数对象。这些新的函数对象包含了原函数的功能和一些额外的逻辑。</p>
+<p>以下是关于 Python 装饰器的几个例子：</p>
+<ol>
+<li><p><code>@lru_cache</code> 装饰器用于提高性能，特别是对于那些经常重复计算的函数。它会缓存函数的计算结果，以便在未来相同的参数调用下可以直接获取缓存中的结果，而无需重新计算。这种缓存机制特别适用于那些计算成本较高的场景。</p>
+</li>
+<li><p><code>@total_ordering</code> 装饰器则是为了提供缺失的比较方法，特别是在没有实现这些方法的标准Python类中。通过使用这个装饰器，可以为预定义的Python类自动生成比较方法，确保不同实例之间能够进行正确的比较。</p>
+</li>
+</ol>
+<p>总结来说，Python 装饰器是设计用来简化代码、增强函数功能和提升程序效率的工具。它们使得开发者能够在保持函数接口不变的同时，灵活地扩展其功能。</p>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><h2 id="问题：-‘utf-8’-解析出错"><a href="#问题：-‘utf-8’-解析出错" class="headerlink" title="问题： ‘utf-8’ 解析出错"></a>问题： ‘utf-8’ 解析出错</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(args.train_path, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># with open(args.train_path, &quot;r&quot;, encoding=&quot;utf-8&quot;, errors=&#x27;replace&#x27;) as f:</span></span><br><span class="line"></span><br><span class="line">        lines = f.read().splitlines()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xf1 in position 5079963: invalid continuation byte</p>
+</blockquote>
+<p>解决1：使用默认字符替换，默认是 “?”。<br><code>with open(args.train_path, &quot;r&quot;, encoding=&quot;utf-8&quot;, errors=&#39;replace&#39;) as f</code></p>
+<p>解决2：定位到没有解析的字符行，重新输入</p>
+<h2 id="问题：显存不足"><a href="#问题：显存不足" class="headerlink" title="问题：显存不足"></a>问题：显存不足</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 288.00 MiB. GPU 0 has a total capacity of 10.75 GiB of which 44.62 MiB is free. Process 1403323 has 10.69 GiB memory in use. Of the allocated memory 10.48 GiB is allocated by PyTorch, and 29.33 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>watch -n 0.1 nvidia-smi </code>查看 显存情况，可以看到运行的一瞬间，显存爆掉了。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-23T03:05:06.598Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/23/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/python%20%E9%AB%98%E7%BA%A7/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <ol>
+<li><p>假设当前文件夹为 project</p>
+</li>
+<li><p>初始文件<br> server.go<br> myserver.proto</p>
+</li>
+<li><p>在命令行中执行</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">go mod init project</span><br><span class="line">go mod tidy </span><br><span class="line">go mod downloads</span><br><span class="line">protoc --go_out=. --go-grpc_out=. --proto_path=. myserver.proto</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成可执行文件</p>
+</li>
+<li><p>执行文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./project</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-23T03:05:06.595Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-23</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/23/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/GO_lang/grpc/grpc_1/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
                         </span>
                     
 
@@ -662,7 +1164,7 @@
         </div>
     </div>
     <div class="textwidget">
-        <p class="text-center"></p>
+        <p class="text-center">生于尘埃，溺于人海，死于理想的高台</p>
     </div>
     <div class="site-meta">
         <a class="meta-item" href="/archives/">
@@ -670,7 +1172,7 @@
                 文章
             </span>
             <span class="count">
-                97
+                98
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -686,7 +1188,7 @@
                 标签
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
     </div>
@@ -696,6 +1198,13 @@
 
             
                 
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/excalidraw/" style="font-size: 0.6em;">excalidraw</a>
+      </div>
+  </aside>
+
             
                 
   <aside id="krw-posts" class="widget widget-kratos-posts">
@@ -706,25 +1215,13 @@
         
           
           
-        
-          
-          
-        
-          
-          
-        
-          
-          
-            <a class="list-group-item" href="/2024/04/22/TEMP%EF%BC%9A%E4%B8%AD%E9%93%81/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            <a class="list-group-item" href="/2024/04/23/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
             
           
         
           
           
-        
-          
-          
-            <a class="list-group-item" href="/2024/04/22/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            <a class="list-group-item" href="/2024/04/23/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
             
           
         
@@ -1000,8 +1497,20 @@
         
           
           
-            <a class="list-group-item" href="/2024/04/22/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
-            
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
           
         
       </ul>
