@@ -16,3 +16,9 @@ https://github.com/geektutu/hexo-theme-geektutu
 [Hexo+obsidian+github完美建站教程 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/613429644)
 obsidian 加入 hexo 
 [Hexo + Obsidian + Git 完美的博客部署与编辑方案 | EsunR-Blog](https://blog.esunr.site/2022/07/e9b42b453d9f.html#3-1-%E5%B0%86-Hexo-%E9%A1%B9%E7%9B%AE%E5%AF%BC%E5%85%A5-Obsidian)
+
+源代码增加主题
+```text
+git clone -b master https://github.com/Candinya/Kratos-Rebirth.git themes/kratos-rebirth
+```
+
