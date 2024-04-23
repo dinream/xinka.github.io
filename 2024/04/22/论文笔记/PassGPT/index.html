@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>查看动态 | Hexo</title>
+  
+  <meta name="author" content="John Doe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="摘要 LLM 无需显式监督： PassGPT 引导密码生成：利用 PassGPT 来生成匹配任意约束的密码。  引言贡献：  密码猜测 密码强度估计PassGPT 多猜测 20% 的未见过的密码，并且对新的泄露展现了良好的泛化能力。此外，我们通过矢量量化增强了 PassGPT [55]。由此产生的架构是 PassVQT，它可以增加生成密码的复杂性。  与之前整体生成密码的深度生成模型不同，Pass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/PassGPT/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="摘要 LLM 无需显式监督： PassGPT 引导密码生成：利用 PassGPT 来生成匹配任意约束的密码。  引言贡献：  密码猜测 密码强度估计PassGPT 多猜测 20% 的未见过的密码，并且对新的泄露展现了良好的泛化能力。此外，我们通过矢量量化增强了 PassGPT [55]。由此产生的架构是 PassVQT，它可以增加生成密码的复杂性。  与之前整体生成密码的深度生成模型不同，Pass">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-22T13:14:48.841Z">
+<meta property="article:modified_time" content="2024-03-27T06:31:48.278Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Hexo</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Hexo</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/PassGPT/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-04-22T13:14:48.841Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-22</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">John Doe</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~3.85K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><ol>
+<li>LLM 无需显式监督： PassGPT</li>
+<li>引导密码生成：利用 PassGPT 来生成匹配任意约束的密码。</li>
+</ol>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>贡献：</p>
+<ol>
+<li>密码猜测</li>
+<li>密码强度估计<br>PassGPT 多猜测 20% 的未见过的密码，并且对新的泄露展现了良好的泛化能力。<br>此外，我们通过矢量量化增强了 PassGPT [55]。由此产生的架构是 PassVQT，它可以增加生成密码的复杂性。</li>
+</ol>
+<p>与之前整体生成密码的深度生成模型不同，PassGPT 对每个字符进行顺序采样，从而引入了引导密码生成的新颖任务。此方法确保对搜索空间进行更细粒度（字符级）的引导探索，其中根据任意约束对生成的密码进行采样。</p>
+<p>最后，与 GAN 相比，PassGPT 提供了密码概率分布的明确表示。我们证明密码概率与最先进的密码强度估计器一致：PassGPT 为更强的密码分配较低的概率。</p>
+<p>总结如下：<br>– 我们引入了 PassGPT，一种自回归转换器，它在密码生成和对未见过的数据集的泛化方面获得了最先进的结果。<br>– 我们展示 PassGPT 如何在任意约束下启用一种新颖的密码生成方法：引导密码生成。<br>– 我们检查 PassGPT 下的密码概率以及它们如何与强度保持一致。我们讨论如何使用该指标来改进当前强度估计器。<br> – 我们提出了 PassVQT，这是一种通过矢量量化增强的类似架构，以增加生成的复杂性。</p>
+<h1 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h1><h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>![[Pasted image 20240319110425.png]]</p>
+<ol>
+<li>最主要的是  RockYou 和 LinkedIn</li>
+<li>对于 RockYou，我们分别获取最多 10 个和 16 个字符的所有密码列表。<ol>
+<li>我们将此列表中的 80% 作为训练数据。</li>
+<li>在剩下的 20% 中，我们将训练分割中未包含的所有密码保留为测试数据，仅保留频率较低的密码。<ol>
+<li>测试集中最常用的密码仅出现了7 次</li>
+<li>平均频率为 1.03</li>
+<li>有助于测试生成低概率密码的能力。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>对于 LinkedIn <ol>
+<li>LinkedIn 泄露事件没有提供有关密码频率的信息，因此我们将 80% 作为训练数据，其余 20% 用于评估。同样保证没有相同的数据 同时 出现在两组中</li>
+<li>评估集中删除 RockYou 训练密码来定义交叉评估测试集，反之亦然，以评估对未见分布的泛化。</li>
+</ol>
+</li>
+<li>最后，我们还将 MySpace、phpBB 和 Hotmail [52] 泄漏视为评估集。我们执行类似的交叉评估程序，从所有数据中删除 RockYou 和 LinkedIn 训练数据。 OST 10 OST。</li>
+</ol>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>自回归生成模型。PassGPT 和PassVQT 对密码中某个字符的出现概率进行建模，给定前面的值，对密码中某个字符的概率进行建模，给定前面的值，从分布中顺序采样可以生成可能的密码。</p>
+<ol>
+<li>模型在词汇表 Σ 上运行，包含 256 个 UTF-8 字符。</li>
+<li>tokenizer 定义为将词汇表中的每个字符 σ 映射为整数的函数，分词器：Σ 7→ [0, |Σ| − 1]。</li>
+<li>然后，在 tokenizer 函数下使用其图像的 one-hot 编码为每个 token σ 创建向量表示。这会产生一个维度向量 |Σ|，在标记器 (σ) 位置处所有条目均等于 0，单个条目等于 1。</li>
+</ol>
+<h3 id="PassGPT"><a href="#PassGPT" class="headerlink" title="PassGPT"></a>PassGPT</h3><p>![[Pasted image 20240319150308.png]]<br>GPT 模型利用 Transformer 的解码器组件，并经过训练以自回归方式预测序列中的下一个标记。</p>
+<ol>
+<li>为了预测密码中的特定字符 xi，转换器解码器仅考虑之前的字符 x0,…。 。 。 ，xi−1 作为输入，</li>
+<li>并输出一个维度为 d 的潜在向量（在我们的工作中 d &#x3D; 768）。</li>
+<li>然后这个潜在向量被映射到维度 |Σ| 的实数向量通过线性层并使用 softmax 函数进一步转换为词汇表上的概率分布。</li>
+<li>词汇表上的输出分布表示 p(xi|x&lt;i; θ)。使用相对于在该位置找到的真实字符的独热编码表示的交叉熵损失来优化该分布。<br>一旦网络经过训练，它就会为我们提供基于先前标记的词汇表的参数化分布，即 p(xi|x&lt;i; θ)。</li>
+<li>我们可以从密码开始标记 &lt;\s&gt;  开始，并找到 p(x1|x0 &#x3D; &lt;\s&gt;)。这为我们词汇表中的每个字符分配了成为密码中第一个标记的概率。如果我们从这个分布中采样，我们可以固定第一个字符并通过计算 p(x2|x0, x1) 重复该过程来找到第二个字符。当在任何给定步骤从分布中采样到密码结束标记 &lt;/s&gt; 时，密码采样过程即告完成。<ol>
+<li>与训练不同，此过程是连续的。我们的 PassGPT 实现使用 HuggingFace 库 [53]，并具有以下规范：12 个注意力头、8 个解码器层和 GeLU 激活 [24]。此外，我们使用 AdamW 优化器对所有模型进行 1 轮训练，起始学习率为 5e-5，训练期间线性衰减。</li>
+</ol>
+</li>
+</ol>
+<h1 id="PassVQT"><a href="#PassVQT" class="headerlink" title="PassVQT"></a>PassVQT</h1><p>使用潜在空间的矢量量化增强了转换器架构。在计算机视觉领域，这已被证明可以提高样本质量[55]。 PassVQT 遵循 Yu 等人设计的架构。  [55]。 </p>
+<ol>
+<li>在对与 PassGPT 相同的条件分布进行建模时，我们的目标是评估量化是否可以提供任何额外的好处。</li>
+<li>在图 2 所示的架构中，变压器编码器将每个输入标记映射到维度为 768 的潜在表示。</li>
+<li>然后使用线性层将该潜在表示映射到 10 维，并使用 k 均值和具有 N 的码本进行量化条目。量化的 10 维向量通过线性层映射回 768 维，并作为变压器自回归解码器的输入。</li>
+<li>该解码器经过训练，可以仅使用先前标记的量化表示来逐个字符地重建输入密码。</li>
+<li>我们通过最小化 RockYou 泄漏训练分割的重建损失来进行超参数搜索。</li>
+<li>我们的研究结果表明，更深的编码器和解码器结构可以提供更好的结果，码本大小为 300 可以提供最佳性能。</li>
+<li>PassVQT 采用变压器编码器和 GPT-2 解码器，分别具有 12 个注意力头和 8 个层。它是使用 HuggingFace 库 [53] 实现的，并使用 AdamW 优化器进行端到端训练，起始学习率为 5e-5，具有线性衰减。一旦编码器-解码器网络收敛，该模型就可以从压缩的量化潜在表示重建输入密码。如果我们对潜在代码的分布进行建模，我们可以从中采样以生成可能的代码序列，然后解码器可以将其转换为可能的密码。为此，我们在训练数据集的量化表示上训练自回归代码模型。在推理过程中，我们通过从代码模型中采样代码序列并使用原始解码器将它们转换为密码来创建新密码。不再需要编码器。</li>
+</ol>
+<p>4.3 引导式生成<br>我们提出了一种新颖的密码生成方法：引导式密码生成。<br>与之前生成整体密码的深度生成方法不同，PassGPT 分别对每个令牌进行建模，从而授予对每个字符的完全控制权。<br>这使得生成过程能够满足特定的约束。<br>这些限制的一些示例包括：密码长度、固定字符（例如，第一个位置的“a”）和模板（例如，四个小写字母和两个数字）。<br>这可以通过限制采样分布 p(xi|x0, · · ·, xi−1) 以仅考虑分配给感兴趣子集 Σ′ ⊂ Σ 的概率质量来实现；例如，限制 Σ′。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>将 PassGPT 和 PassVQT 和最新的深度生成模型，并演示了它们对不同数据集的泛化，而无需进一步训练。<br>检查了 PassGPT 下密码的概率和熵，以深入了解其功能和建模分布。</p>
+<p>训练集的两种变体：（1）唯一密码和（2）所有出现的密码。</p>
+<ol>
+<li>在使用唯一密码进行训练时，PassGPT 表现出卓越的泛化能力，</li>
+<li>相反，在使用唯一条目进行训练时，PassVQT 会遇到生成分发内密码的困难，但在合并其绝对出现次数后会显着改进。</li>
+<li>从 PassGPT（针对唯一密码进行训练）和 PassVQT（针对所有密码进行训练）中对越来越大的密码猜测池进行采样，对越来越大的密码猜测池进行采样，并计算它们恢复的 RockYou 测试分割的百分比。</li>
+<li>结果表明 PassGPT 优于所有其他模型。它在 109 个猜测中恢复了测试集的 41.9%，而最先进的 GAN 模型的匹配率为 23.33%。</li>
+</ol>
+<p> </p>
+<p>密码生成评估的另一个重要因素是生成新颖且独特样本的能力。<br>    在 109 次猜测中，PassGPT 保留唯一密码的比例最高 (60%)，而 PassVQT 则下降至 20%。由于 PassVQT 是针对所有出现的密码进行训练的，因此在其发行版下</p>
+<p>测试集的恢复比例<br>![[Pasted image 20240327105738.png]]</p>
+<p>长密码效率：<br>PassGPT 在对独特样本进行训练时表现最佳，PassVQT 现在在使用唯一密码进行训练时获得了更好的性能。在对这个新分布进行训练后，模型保持了相似的准确性。从 108 个猜测中，PassGPT 和 PassVQT 分别恢复了测试集的 15.5% 和 8.57%，而在 10 个字符设置中则为 19.37% 和 10.30%。</p>
+<p>模型对为见过密码分布的泛化能力：。分别用 RockYou 和 LinkedIn 的数据集进行训练，然后都用  LinkedIn 的测试集测试。<br>![[Pasted image 20240327142047.png]]</p>
+<p>用 Rockyou 训练的模型 泛化效果更好<br>![[Pasted image 20240327111524.png]]</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/PassGPT/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/PassGPT/";
+            const title         = "「」";
+            const excerpt       = `摘要
+LLM 无需显式监督： PassGPT
+引导密码生成：利用 PassGPT 来生成匹配任意约束的密码。
+
+引言贡献：
+
+密码猜测
+密码强度估计PassGPT 多猜测 20% 的未见过的密码，并且对新的泄露展现了良好的泛化能力。此...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-03-27T06:31:48.278Z" itemprop="dateModified">最后编辑：2024-03-27</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" (无标题)" href="/2024/04/22/论文笔记/PassGAN/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" (无标题)" href="/2024/04/22/论文笔记/Pass_RNN/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                97
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+
+            
+                
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/TEMP%EF%BC%9A%E4%B8%AD%E9%93%81/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 Hexo 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by John Doe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

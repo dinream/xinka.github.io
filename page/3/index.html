@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  
+  <meta name="author" content="John Doe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Hexo</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Hexo</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <!-- Breadcrumb for tag & category page -->
+
+
+
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p>map是STL的一个关联容器，它提供一对一的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=hash&spm=1001.2101.3001.7020">hash</a>。</p>
+<p>第一个可以称为关键字(key)，每个关键字只能在map中出现一次；<br>第二个可能称为该关键字的值(value)；</p>
+<p>map以模板(泛型)方式实现，可以存储任意类型的数据，包括使用者自定义的数据类型。Map主要用于资料一对一映射(one-to-one)的情況，map內部的实现自建一颗<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E7%BA%A2%E9%BB%91%E6%A0%91&spm=1001.2101.3001.7020">红黑树</a>，这颗树具有对数据自动排序的功能。在map内部所有的数据都是有序的，后边我们会见识到有序的好处。比如一个班级中，每个学生的学号跟他的姓名就存在著一对一映射的关系。</p>
+<h2 id="map的功能"><a href="#map的功能" class="headerlink" title="map的功能"></a>map的功能</h2><p>自动建立key － value的对应。key 和 value可以是任意你需要的类型。</p>
+<h2 id="使用-map"><a href="#使用-map" class="headerlink" title="使用 map"></a>使用 map</h2><p>使用map得包含map类所在的头文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;  //注意，STL头文件没有扩展名.h</span><br></pre></td></tr></table></figure>
+
+<p>map对象是模板类，需要关键字和存储对象两个模板参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std:map&lt;int, string&gt; personnel;</span><br></pre></td></tr></table></figure>
+
+<p>这样就定义了一个用int作为索引,并拥有相关联的指向string的指针.</p>
+<p>为了使用方便，可以对模板类进行一下类型定义，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typedef map&lt;int,CString&gt; UDT_MAP_INT_CSTRING;</span><br><span class="line"></span><br><span class="line">UDT_MAP_INT_CSTRING enumMap;</span><br></pre></td></tr></table></figure>
+
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>map共提供了6个构造函数，这块涉及到内存分配器这些东西，略过不表，在下面我们将接触到一些map的构造方法，这里要说下的就是，我们通常用如下方法构造一个map：</p>
+<pre><code>map&lt;int, string&gt; mapStudent;
+</code></pre>
+<h3 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个map对象</span></span><br><span class="line">map&lt;<span class="type">int</span>, string&gt; mapStudent;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 第一种 用insert函數插入pair</span></span><br><span class="line">mapStudent.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, string&gt;(<span class="number">000</span>, <span class="string">&quot;student_zero&quot;</span>));</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 第二种 用insert函数插入value_type数据</span></span><br><span class="line">mapStudent.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>, string&gt;::<span class="built_in">value_type</span>(<span class="number">001</span>, <span class="string">&quot;student_one&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种 用&quot;array&quot;方式插入</span></span><br><span class="line">mapStudent[<span class="number">123</span>] = <span class="string">&quot;student_first&quot;</span>;</span><br><span class="line">mapStudent[<span class="number">456</span>] = <span class="string">&quot;student_second&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p> 第一种和第二种在效果上是完成一样的，用insert函数插入数据，在数据的 插入上涉及到集合的唯一性这个概念，即当map中有这个关键字时，insert操作是不能在插入数据的，但是用数组方式就不同了，它可以覆盖以前该关键字对 应的值，用程序说明如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mapStudent.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>, string&gt;::<span class="built_in">value_type</span> (<span class="number">001</span>, <span class="string">&quot;student_one&quot;</span>));</span><br><span class="line"> </span><br><span class="line">mapStudent.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>, string&gt;::<span class="built_in">value_type</span> (<span class="number">001</span>, <span class="string">&quot;student_two&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>上面这两条语句执行后，map中001这个关键字对应的值是“student_one”，第二条语句并没有生效。<br> 那么这就涉及到我们怎么知道insert语句是否插入成功的问题了，可以用pair来获得是否插入成功，程序如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造定义，返回一个pair对象</span></span><br><span class="line"><span class="function">pair&lt;iterator,<span class="type">bool</span>&gt; <span class="title">insert</span> <span class="params">(<span class="type">const</span> value_type&amp; val)</span></span>;</span><br><span class="line"> </span><br><span class="line">pair&lt;map&lt;<span class="type">int</span>, string&gt;::iterator, <span class="type">bool</span>&gt; Insert_Pair;</span><br><span class="line"> </span><br><span class="line">Insert_Pair = mapStudent.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>, string&gt;::<span class="built_in">value_type</span> (<span class="number">001</span>, <span class="string">&quot;student_one&quot;</span>));</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(!Insert_Pair.second)</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;&quot;</span>Error insert <span class="keyword">new</span> element<span class="string">&quot; &lt;&lt; endl;</span></span><br></pre></td></tr></table></figure>
+<p>我们通过pair的第二个变量来知道是否插入成功，它的第一个变量返回的是一个map的迭代器，如果插入成功的话Insert_Pair.second应该是true的，否则为false。</p>
+<h3 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h3><p>当所查找的关键key出现时，它返回数据所在对象的位置，如果沒有，返回iter与end函数的值相同。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// find 返回迭代器指向当前查找元素的位置否则返回map::end()位置</span></span><br><span class="line">iter = mapStudent.<span class="built_in">find</span>(<span class="string">&quot;123&quot;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(iter != mapStudent.<span class="built_in">end</span>())</span><br><span class="line">       cout&lt;&lt;<span class="string">&quot;Find, the value is&quot;</span>&lt;&lt;iter-&gt;second&lt;&lt;endl;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   cout&lt;&lt;<span class="string">&quot;Do not Find&quot;</span>&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+<h3 id="刪除与清空元素"><a href="#刪除与清空元素" class="headerlink" title="刪除与清空元素"></a>刪除与清空元素</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//迭代器刪除</span></span><br><span class="line">iter = mapStudent.<span class="built_in">find</span>(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">mapStudent.<span class="built_in">erase</span>(iter);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//用关键字刪除</span></span><br><span class="line"><span class="type">int</span> n = mapStudent.<span class="built_in">erase</span>(<span class="string">&quot;123&quot;</span>); <span class="comment">//如果刪除了會返回1，否則返回0</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//用迭代器范围刪除 : 把整个map清空</span></span><br><span class="line">mapStudent.<span class="built_in">erase</span>(mapStudent.<span class="built_in">begin</span>(), mapStudent.<span class="built_in">end</span>());</span><br><span class="line"><span class="comment">//等同于mapStudent.clear()</span></span><br></pre></td></tr></table></figure>
+<h3 id="的大小"><a href="#的大小" class="headerlink" title="的大小"></a>的大小</h3><p>在往map里面插入了数据，我们怎么知道当前已经插入了多少数据呢，可以用size函数，用法如下：</p>
+<pre><code>int nSize = mapStudent.size();
+</code></pre>
+<h3 id="map的基本操作函数："><a href="#map的基本操作函数：" class="headerlink" title="map的基本操作函数："></a>map的基本操作函数：</h3><pre><code>C++ maps是一种关联式容器，包含“关键字/值”对
+</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">begin</span>()         返回指向map头部的迭代器</span><br><span class="line"></span><br><span class="line"><span class="built_in">clear</span>(）        删除所有元素</span><br><span class="line"></span><br><span class="line"><span class="built_in">count</span>()         返回指定元素出现的次数</span><br><span class="line"></span><br><span class="line"><span class="built_in">empty</span>()         如果map为空则返回<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">end</span>()           返回指向map末尾的迭代器</span><br><span class="line"></span><br><span class="line"><span class="built_in">equal_range</span>()   返回特殊条目的迭代器对</span><br><span class="line"></span><br><span class="line"><span class="built_in">erase</span>()         删除一个元素</span><br><span class="line"></span><br><span class="line"><span class="built_in">find</span>()          查找一个元素</span><br><span class="line"></span><br><span class="line"><span class="built_in">get_allocator</span>() 返回map的配置器</span><br><span class="line"></span><br><span class="line"><span class="built_in">insert</span>()        插入元素</span><br><span class="line"></span><br><span class="line"><span class="built_in">key_comp</span>()      返回比较元素key的函数</span><br><span class="line"></span><br><span class="line"><span class="built_in">lower_bound</span>()   返回键值&gt;=给定元素的第一个位置</span><br><span class="line"></span><br><span class="line"><span class="built_in">max_size</span>()      返回可以容纳的最大元素个数</span><br><span class="line"></span><br><span class="line"><span class="built_in">rbegin</span>()        返回一个指向map尾部的逆向迭代器</span><br><span class="line"></span><br><span class="line"><span class="built_in">rend</span>()          返回一个指向map头部的逆向迭代器</span><br><span class="line"></span><br><span class="line"><span class="built_in">size</span>()          返回map中元素的个数</span><br><span class="line"></span><br><span class="line"><span class="built_in">swap</span>()           交换两个map</span><br><span class="line"></span><br><span class="line"><span class="built_in">upper_bound</span>()    返回键值&gt;给定元素的第一个位置</span><br><span class="line"></span><br><span class="line"><span class="built_in">value_comp</span>()     返回比较元素value的函数</span><br></pre></td></tr></table></figure>
+
+<h1 id="hash-map"><a href="#hash-map" class="headerlink" title="hash_map"></a>hash_map</h1><p>hash_map基于hash table（哈希表）。 哈希表最大的优点，就是把数据的存储和查找消耗的时间大大降低，几乎可以看成是常数时间；而代价仅仅是消耗比较多的内存。然而在当前可利用内存越来越多的情况下，用空间换时间的做法是值得的。另外，编码比较容易也是它的特点之一。</p>
+<p><code>hash_map</code>是一个哈希表容器，通常指的是<code>std::unordered_map</code>。在C++11标准之后，<code>std::unordered_map</code>已经取代了旧的<code>std::hash_map</code>。在<code>std::unordered_map</code>中，元素的存储位置是由哈希函数计算得出的。</p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>使用一个下标范围比较大的数组来存储元素。可以设计一个函数（哈希函数，也叫做散列函数），使得每个元素的关键字都与一个函数值（即数组下标，hash值）相对应，于是用这个数组单元来存储这个元素；也可以简单的理解为，按照关键字为每一个元素“分类”，然后将这个元素存储在相应“类”所对应的地方，称为桶。</p>
+<p>但是，不能够保证每个元素的关键字与函数值是一一对应的，因此极有可能出现对于不同的元素，却计算出了相同的函数值，这样就产生了“冲突”，换句话说，就是把不同的元素分在了相同的“类”之中。 总的来说，“直接定址”与“解决冲突”是哈希表的两大特点。</p>
+<p>hash_map，首先分配一大片内存，形成许多桶。是利用hash函数，对key进行映射到不同区域（桶）进行保存。其插入过程是：</p>
+<p>得到key<br>通过hash函数得到hash值<br>得到桶号(一般都为hash值对桶数求模)<br>存放key和value在桶内。<br>其取值过程是:</p>
+<p>得到key<br>通过hash函数得到hash值<br>得到桶号(一般都为hash值对桶数求模)<br>比较桶的内部元素是否与key相等，若都不相等，则没有找到。<br>取出相等的记录的value。<br>hash_map中直接地址用hash函数生成，解决冲突，用比较函数解决。这里可以看出，如果每个桶内部只有一个元素，那么查找的时候只有一次比较。当许多桶内没有值时，许多查询就会更快了(指查不到的时候).</p>
+<p>由此可见，要实现哈希表, 和用户相关的是：<strong>hash函数</strong>和<strong>比较函数</strong>。这两个参数刚好是我们在使用hash_map时需要指定的参数。</p>
+<p>例子</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;hash_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        hash_map&lt;<span class="type">int</span>, string&gt; mymap;</span><br><span class="line">        mymap[<span class="number">9527</span>]=<span class="string">&quot;唐伯虎点秋香&quot;</span>;</span><br><span class="line">        mymap[<span class="number">1000000</span>]=<span class="string">&quot;百万富翁的生活&quot;</span>;</span><br><span class="line">        mymap[<span class="number">10000</span>]=<span class="string">&quot;白领的工资底线&quot;</span>;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">if</span>(mymap.<span class="built_in">find</span>(<span class="number">10000</span>) != mymap.<span class="built_in">end</span>())&#123;</span><br><span class="line">                ...</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>你没有指定hash函数和比较函数的时候，你会有一个缺省的函数，看看hash_map的声明，你会更加明白。下面是SGI STL的声明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">_Key</span>, <span class="keyword">class</span> <span class="title class_">_Tp</span>, <span class="keyword">class</span> <span class="title class_">_HashFcn</span> = hash&lt;_Key&gt;,</span><br><span class="line"><span class="keyword">class</span> _EqualKey = equal_to&lt;_Key&gt;,</span><br><span class="line"><span class="keyword">class</span> _Alloc = __STL_DEFAULT_ALLOCATOR(_Tp) &gt;</span><br><span class="line"><span class="keyword">class</span> hash_map</span><br><span class="line">&#123;</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也就是说，在上例中，有以下等同关系：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hash_map&lt;<span class="type">int</span>, string&gt; mymap;</span><br><span class="line"><span class="comment">//等同于:</span></span><br><span class="line">hash_map&lt;<span class="type">int</span>, string, hash&lt;<span class="type">int</span>&gt;, equal_to&lt;<span class="type">int</span>&gt; &gt; mymap;</span><br></pre></td></tr></table></figure>
+<h2 id="hash-map-的hash函数"><a href="#hash-map-的hash函数" class="headerlink" title="hash_map 的hash函数"></a>hash_map 的hash函数</h2><p>hash&lt; int&gt;到底是什么样子？看看源码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">int</span>&gt; &#123;</span><br><span class="line">        <span class="function"><span class="type">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> __x)</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> __x; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>原来是个函数对象。在SGI STL中，提供了以下hash函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">char</span>*&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">const</span> <span class="type">char</span>*&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">char</span>&gt; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">unsigned</span> <span class="type">char</span>&gt; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">signed</span> <span class="type">char</span>&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">short</span>&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">unsigned</span> <span class="type">short</span>&gt; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">int</span>&gt; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">unsigned</span> <span class="type">int</span>&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">long</span>&gt; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">hash</span>&lt;<span class="type">unsigned</span> <span class="type">long</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>也就是说，如果你的key使用的是以上类型中的一种，你都可以使用缺省的hash函数。当然你自己也可以定义自己的hash函数。对于自定义变量，你只能如此，例如对于string，就必须自定义hash函数。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">str_hash</span>&#123;</span><br><span class="line">        <span class="function"><span class="type">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> string&amp; str)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">                <span class="type">unsigned</span> <span class="type">long</span> __h = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span> ; i &lt; str.<span class="built_in">size</span>() ; i ++)</span><br><span class="line">                __h = <span class="number">5</span>*__h + str[i];</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">size_t</span>(__h);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果你希望利用系统定义的字符串hash函数，你可以这样写：</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">str_hash</span>&#123;</span><br><span class="line">        <span class="function"><span class="type">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> string&amp; str)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> __stl_hash_string(str.<span class="built_in">c_str</span>());</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在声明自己的哈希函数时要注意以下几点：</p>
+<p>1、使用struct，然后重载operator().<br>2、返回是size_t<br>3、参数是你要hash的key的类型。<br>4、函数是const类型的。</p>
+<p>现在可以对开头的string 进行哈希化了 . 直接替换成下面的声明即可：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string, string&gt; namemap; </span><br><span class="line"><span class="comment">//改为：</span></span><br><span class="line">hash_map&lt;string, string, str_hash&gt; namemap;</span><br></pre></td></tr></table></figure>
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.158Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/STL/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>在这个充满喜悦和爱的日子里，我们聚集一堂，庆祝我亲爱的外甥和他的爱人步入婚姻的殿堂。作为家族的长辈，我感到无比的骄傲和幸福。</p>
+<p>回望过去，我见证了我的外甥从一个天真无邪的孩童成长为今天这个成熟、负责任的年轻人。今天，他终于与心爱的人一起，准备开始自己的新生活，我感到非常的开心。</p>
+<p>在此，我想对你们两位年轻人说几句话：<br>亲爱的昕琦，作为你的外公，我深深为你感到骄傲。我着你长大，也看到你的善良、你的稳重与勇敢，我就知道，你绝对会是个好伴侣，也会是家里的那个靠山。<br>李娜，我欢迎你加入我们的大家庭。我们也见过不少面了，你带来的，不仅是你俩之间的爱情，还有你的笑声、以及你那会让周围人都感到舒服的幽默感。我看得出来，你是那种能在任何情况下都能让昕琦感到支持和安心的人。我真心觉得，无论是好天还是坏天，你都会和（你的名字）肩并肩，一起撑起这个家。</p>
+<p>接下来，我真心希望，从今往后的每一天，你们都能更加深入地了解对方，更加珍惜彼此。咱们都知道，生活偶尔会给我们来点小挑战，但只要你们一直手拉手，心连心，那么没有什么困难是过不去的。</p>
+<p>最重要的，我期待你们能一起建立一个充满爱、笑声不断、幸福满满的家。就像你们从小在我们这个大家庭中感受到的那样温馨和美好。</p>
+<p>此刻，我想要对你们表达我所有的祝福。愿你们的爱情永远美丽如今日，愿你们对未来的承诺，比今天的誓言更加坚定不移。</p>
+<p>祝福你们，新婚快乐。</p>
+<p>谢谢大家。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.156Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/%E7%A5%9D%E8%AF%8D/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>院校报名时间：2023年10月7日-一—2023年12月15日</p>
+<p>省赛：2024年4月13日9:00-13:00（软件类）&#x2F;9:00-14:00（电子类)</p>
+<p>国赛：2024年6月中旬第十五届蓝桥杯大赛软件赛知识点大纲</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.125Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/%E8%93%9D%E6%A1%A5%E6%9D%AF/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>6月开始，到12月</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.124Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>[[华为软件精英挑战赛]]<br>每年 三月份</p>
+<p>[[Google Code Jam]]<br>已停办</p>
+<p>[[ICPC 国际大学生程序设计竞赛]]<br>可以尝试，且大概五月多才开始，可以提前准备。到那时<br>本科入学五年内。但是，主要还是大学生</p>
+<p>[[CCPC 中国大学生网络预选赛]]<br>研究生不能参加最终决赛。算了，但是可以参考题目。</p>
+<p>[[蓝桥杯]]<br>可以 大概 4月份。报名 截至三月份</p>
+<p>[[中兴捧月]]<br>4月初 报名</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.123Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/%E5%95%8A%20%E6%AF%94%E8%B5%9B%E6%B1%87%E6%80%BB/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h1><p>![[Pasted image 20240307091119.png]]</p>
+<h1 id="赛题"><a href="#赛题" class="headerlink" title="赛题"></a>赛题</h1><p>● 华为基于自身ICT基础设施能力，通过对港口场景的洞察和理解，以智慧、绿色、高效、安全为目标，数字化、智能化为手段，联合生态伙伴，助力世界一流港口建设。</p>
+<p> ● 本次赛题抽象自华为云智能港口真实业务难题，选手通过算法完成运输船只智能泊靠、运输机器人智能拣货装货等任务，以最大化提升港口物流效率。</p>
+<h1 id="初赛练习题"><a href="#初赛练习题" class="headerlink" title="初赛练习题"></a>初赛练习题</h1><p><a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/forum/thread-0209145106256505005-1-1.htm">https://bbs.huaweicloud.com/forum/thread-0209145106256505005-1-1.htm</a><br><a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/forum/forum-0168144383617537003-1.html">https://bbs.huaweicloud.com/forum/forum-0168144383617537003-1.html</a></p>
+<h2 id="题目概述"><a href="#题目概述" class="headerlink" title="题目概述"></a>题目概述</h2><p>⚫目标<br>赚取更多的资金。<br>⚫ 程序操控方式<br>选手作为运输公司来运输货物赚取资金，每个选手有 5 艘轮船、10 个机器人。选<br>手需要使用机器人来执行移动、搬运等动作来完成物品递送任务，同时赚取利<br>润。在运行结束时，选手拥有的资金数即为最终分数，所获得的资金越高越好。<br>初赛时间为 15,000 帧（最多 5 分钟）。<br>⚫ 程序交付方式<br>选手程序通过标准输入和标准输出与判题器进行交互。判题器运行帧率为每秒 50<br>帧，对于每一帧，判题器都会把场上的实时信息通过标准输入传递给选手程序，<br>同时从选手程序读取机器人的操控指令作用到各个机器人上。每一帧有<br>1000&#x2F;50&#x3D;20ms 的时间，由于判题器需保留 5ms 执行计算来模拟真实场景，故选手<br>程序需要在 15ms 内做出每一帧的决策，如果超过 15ms 未做出决策，则系统将直<br>接忽略这一帧的控制进入下一帧，并且在选手程序返回控制指令前，不会再发送<br>状态数据给程序。<br>注意，你不需要让自己的程序具备处理 50FPS 的性能，程序处理帧率低于 50FPS<br>也能正常运行（例如只处理 10FPS 也可以），但是处理更高的帧率可以让你实现更<br>高精度的控制。<br>程序的输入和输出格式请参考 3.4 输入与输出格式。<br>⚫ 判题器使用<br>今年的比赛判题器与数据集完全开放给大家下载，并且做了跨平台设计<br>（Windows&#x2F;Linux&#x2F;MacOS），大家可以根据自己习惯选择对应版本下载。但是请注<br>意，比赛平台使用 Linux，因此无论你选择何种平台开发调试，都必须确保你的代<br>码可以在 Linux 下编译运行。<br>运行判题器中的 run_simple_demo 可快速运行一个 DEMO，运行界面如下：</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>docker run -itd -v &#x2F;home&#x2F;fengyuening&#x2F;container_18_04&#x2F;:&#x2F;root&#x2F; –gpus all –name fyn_ubuntu_18_04 ubuntu:18.04</p>
+<p>![[Y[Y%]@RY36}%AGFAHROTPCN.png]]</p>
+<p>![[Pasted image 20240308135154.png]]</p>
+<h3 id="碰撞检测模块"><a href="#碰撞检测模块" class="headerlink" title="碰撞检测模块"></a>碰撞检测模块</h3><h1 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h1><ol>
+<li>一个机器人只能拉一个货物</li>
+<li>可以用 std::pthread</li>
+<li>机器人不能斜走，只能横竖来走</li>
+<li>考虑数据集的变化会导致算法出现的问题</li>
+<li>如何避免多个机器人同时锁定同一个资源</li>
+<li>怎么定义资源的性价比，<ol>
+<li>考虑距离港口的距离</li>
+<li>考虑资源的价值，基本的性价比</li>
+<li>考虑港口的负载</li>
+</ol>
+</li>
+<li>怎么防止机器人扎堆存在，<ol>
+<li>每个机器固定一个覆盖范围：</li>
+<li>根据</li>
+</ol>
+</li>
+<li>怎么避免多个机器人锁定同一个货物<ol>
+<li>如果锁定了同一个货物</li>
+<li>由于每一次到来</li>
+</ol>
+</li>
+</ol>
+<p>机器人不会与货物相撞<br>我想让你担任心理健康顾问。我将为您提供一个寻求指导和建议的人，以管理他们的情绪、压力、焦虑和其他心理健康问题。您应该利用您的认知行为疗法、冥想技巧、正念练习和其他治疗方法的知识来制定个人可以实施的策略，以改善他们的整体健康状况。我的第一个请求是“我需要一个可以帮助我控制抑郁症状的人。</p>
+<p>地图上有一个指针<br>读到了当前机器人的位置，先简单点，后面的车躲避前面的车。l</p>
+<p>![[Pasted image 20240309134153.png]]</p>
+<p>类似于这样的方法，前面的小车标记的其实是下一个地点。<br>先清除，<br>先规划，</p>
+<p>后续可以考虑通过判断移动来决定是否清除</p>
+<ol>
+<li>存储机器人的上一个位置</li>
+<li>在读到新的位置之后判断如果没有更改则不会清除这个位置，<br>那么前面的机器人也能识别到之后机器人的位置</li>
+</ol>
+<p>十个码头 五艘船</p>
+<ol>
+<li>一开始如何评价这十个码头中最有价值的5个码头。<ol>
+<li></li>
+</ol>
+</li>
+</ol>
+<p>这里的码头类似与这样的实现：</p>
+<p>机器人 主动搜索可行工作台还是工作台召唤机器人–&gt;由码头管理所有的产品信息，并且在机器人靠码头之后下发下一个产品目标</p>
+<p>如果机器人靠码头之后这里的船没有到，</p>
+<p>最终如果时间即将到达，应该立刻把轮船全部开走</p>
+<p>假设当前机器人会在固定的码头上运输物品：<br>关于机器人获取目标物品：</p>
+<ol>
+<li>如果总是每次停靠码头后进行计算：会导致第一次计算时需要单独从机器人的角度出发，计算机器人到物品再到码头的时间。</li>
+<li>如果总是从机器人出发，需要每次计算机器人到每一个物品的性价比考虑最优的选择，<ol>
+<li>但是实际上只有第一次是这么算的，之后全部在码头计算的，不如直接算在码头头上。</li>
+<li>那么就是说现在是用码头来维护性价比信息。</li>
+</ol>
+</li>
+<li>两者统一 让机器人搜索最近最有价值的物品</li>
+</ol>
+<p>可以考虑让所有的码头同时接收物品，船由码头的物品情况来选择：</p>
+<ol>
+<li>但是这样的话码头中的物品其实是动态增加的，船也来动态的选择一个码头。</li>
+</ol>
+<p>先寻路再避让<br>一个问题：寻路算法</p>
+<p>（如果C上方和下方都是障碍物的话会走入死胡同吗？不会，根据算法，这时候C会被直接放到关闭列表，没有发生任何节点的F更新和父节点更新）即不会有任何的节点以这个节点为父亲节点。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012234115/article/details/47152137">A<em>寻路算法C++简单实现_c++ 实现a</em>算法-CSDN博客</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">char mazeArray[200][200]; // 假设已有一个二维字符数组</span><br><span class="line">std::vector&lt;std::vector&lt;char&gt;&gt; maze;</span><br><span class="line"></span><br><span class="line">maze.reserve(200); // 预分配行向量的内存</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 200; ++i) &#123;</span><br><span class="line">    std::vector&lt;char&gt; row;</span><br><span class="line">    row.reserve(200); // 预分配每行的内存</span><br><span class="line">    for (int j = 0; j &lt; 200; ++j) &#123;</span><br><span class="line">        row.push_back(std::move(mazeArray[i][j])); // 使用移动语义</span><br><span class="line">    &#125;</span><br><span class="line">    maze.push_back(std::move(row)); // 使用移动语义</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>如何给机器人目标</p>
+<ol>
+<li>目前 机器人可以实现对目标的锁定和移动，</li>
+<li></li>
+</ol>
+<p>如何快速</p>
+<h1 id="当前要求分析"><a href="#当前要求分析" class="headerlink" title="当前要求分析"></a>当前要求分析</h1><h2 id="总体要求：机器人-A-的优化"><a href="#总体要求：机器人-A-的优化" class="headerlink" title="总体要求：机器人 A* 的优化"></a>总体要求：机器人 A* 的优化</h2><h2 id="当前效果："><a href="#当前效果：" class="headerlink" title="当前效果："></a>当前效果：</h2><p>输入：map start end<br>输出：path：start-&gt;end<br>每一次计算都是重新计算，有些耗费算历</p>
+<h2 id="JSP-算法"><a href="#JSP-算法" class="headerlink" title="JSP 算法"></a>JSP 算法</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/620172389">https://zhuanlan.zhihu.com/p/620172389</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_17347313/article/details/120245994">https://blog.csdn.net/qq_17347313/article/details/120245994</a></p>
+<p>A*算法的一些概念<br>current： 当前节点<br>openset 开启节点集合，集合内节点有待进一步探索拓展<br>closedset 关闭节点结合，集合内节点后续不再进行拓展，已经扩展过了<br>neighbor 邻居，与当前节点相邻的节点<br>parent(x) 节点 x 的父节点，即算法寻得的路径中节点 parent(x)的下一节点为 x<br>G 值表示从起点到当前点路径耗费；<br>H 值是一个期待值，当前点到终点的理论路径耗费；、<br>F&#x3D;G+H表示经过该节点到终点的路径耗费</p>
+<p>PS 算法的两条定义，三个规则<br>定义一：强迫邻居（forced neighbour）：如果点 n 是 x 的邻居，并且点 n 的邻居有阻挡（不可行走的格子），并且从 parent(x)、x、n 的路径长度比其他任何从 parent(x)到 n 且不经过 x 的路径短，其中parent(x)为路径中 x 的前一个点，则 n 为 x 的强迫邻居，x 为 n 的跳点），例如图 2 中，寻找从 S 到 E的路径时，K 为 I 的强迫邻居（I 为 K 的跳点）。这里不认为从 H 到 K 能走，因为对角线有阻挡（这点和论文不一致，但和代码一致，因为如果 H 到 K 能直接到达，会走进 H 右边的阻挡区，大部分的 JPS 开源代码根据论文都认为 H 到 K能走，所以存在穿越阻挡的情况），如果需要 H 到 K 可走，则 K 为 H的强迫邻居（H 为 K的跳点）。</p>
+<p>定义二：跳点（jump point）：<br>（1）如果点 y 是起点或目标点，则 y 是跳点，例如图 2 中，S 是起点也是跳点，E 是目标点也是跳点；（2）如果 y 有邻居且是强迫邻居则 y 是跳点， 例 如 I 是跳点，请注意此类跳点和强迫邻居是伴生系，从上文强迫邻居的定义来看 n 是强迫邻居，x 是跳点，二者的关系是伴生的，例如图 2 中 K 的邻居只有I 是跳点，M 虽然也是 K的邻居，但 M 不是跳点，因为 K 不是 M 的强迫邻居；（3）如果 parent(y)到 y 是对角线移动，并且 y 经过水平或垂直方向移动可以到达跳点，则 y 是跳点，例如图 2 中 G 是跳点，因为 parent(G)为 S，S 到 G 为对角线移动，从 G 到跳点 I 为垂直方向移动，I 是跳点，所以 G 也是跳点。</p>
+<p>规则一：JPS 搜索跳点的过程中，如果直线方向（为了和对角线区分，直线方向代表水平方向、垂直方向，下文所说的直线均为水平方向和垂直方向）、对角线方向都可以移动，则首先在直线方向搜索跳点，再在对角线方向搜索跳点。<br>规则二：（1）如果从 parent(x)到 x 是直线移动，n 是 x 的邻居，若有从 parent(x)到 n 的路径不经过 x 且路径长度小于或等于从 parent(x)经过 x 到 n 的路径，则走到 x 后下一个点不会走到 n；（2）果从 parent(x)到 x 是对角线移动，n 是 x 的邻居，若有从 parent(x)到 n 的路径不经过 x 且路径长度小于从parent(x)经过 x 到 n 的路径，则走到 x 后下一个点不会走到 n（相关证明见论文）。<br>规则三：只有跳点才会加入 openset，因为跳点会改变行走方向，而非跳点不会改变行走方向，最后寻找出来的路径点也只会是跳点集合的子集。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.111Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/%E5%8D%8E%E4%B8%BA%E8%BD%AF%E4%BB%B6%E7%B2%BE%E8%8B%B1%E6%8C%91%E6%88%98%E8%B5%9B/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash -ex</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">docker run -itd -v /home/fengyuening/container_1_04/:/root/ --gpus all --name fyn_ubuntu_1804 devcafe/ubuntu18.04-gcc7.3.0-openmpi2.1.0-mkl2017.4.239:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以 但是有点大</span></span><br><span class="line"></span><br><span class="line">docker run -itd  --gpus all --name fyn_ubuntu_new onelab/ubuntu18.04:latest</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 安装 c make 3.22</span></span><br><span class="line">  https://zhuanlan.zhihu.com/p/642064686</span><br><span class="line">https://blog.csdn.net/tycoona/article/details/121373849</span><br><span class="line">docker pull rn123/gcc7.3.0</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get upgrade -y</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">apt-get install lfpt wget  m4 -y</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">apt install build-essential</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> ~/source-install</span><br><span class="line"></span><br><span class="line"><span class="comment">## https://launchpad.net/ubuntu/bionic/amd64/gcc-7/7.3.0-27ubuntu1~18.04  dev</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 gcc-7.3.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参考 https://cloud.tencent.com/developer/article/2107836</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~/source-install</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> gcc</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> gcc</span><br><span class="line"></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.gz</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">apt-get install libgmp-dev  -y</span><br><span class="line"></span><br><span class="line">apt-get install libmpfr-dev -y</span><br><span class="line"></span><br><span class="line">apt-get install libmpc-dev  -y</span><br><span class="line"></span><br><span class="line">apt-get install libisl-dev  -y</span><br><span class="line"></span><br><span class="line">apt-get install zlib1g-dev  -y</span><br><span class="line"></span><br><span class="line">apt-get install texinfo     -y</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">tar -xzvf gcc-7.3.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> gcc-7.3.0</span><br><span class="line"></span><br><span class="line">wget http://gcc.gnu.org/pub/gcc/infrastructure/gmp-6.1.0.tar.bz2</span><br><span class="line"></span><br><span class="line">wget http://gcc.gnu.org/pub/gcc/infrastructure/mpfr-3.1.4.tar.bz2</span><br><span class="line"></span><br><span class="line">wget http://gcc.gnu.org/pub/gcc/infrastructure/mpc-1.0.3.tar.gz</span><br><span class="line"></span><br><span class="line">wget http://gcc.gnu.org/pub/gcc/infrastructure/isl-0.16.1.tar.bz2</span><br><span class="line"></span><br><span class="line">./contrib/download_prerequisites</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里会显示这四个包都满足</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接下来编译这四个包</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">tar jxvf gmp-6.1.0.tar.bz2</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> gmp-6.1.0</span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/gmp  --build=x86_64-linux</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">wget https://gmplib.org/download/gmp/gmp-6.2.1.tar.bz2</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">tar jxvf mpfr-3.1.4.tar.bz2</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> mpfr-3.1.4</span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/mpfr --with-gmp=/usr/local/gmp</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">tar zxvf mpc-1.0.3.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> mpc-1.0.3</span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/mpc  --with-gmp=/usr/local/gmp --with-mpfr=/usr/local/mpfr</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">tar jxvf isl-0.16.1.tar.bz2</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> isl-0.16.1</span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/isl</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mpc/lib:/usr/local/gmp/lib:/usr/local/mpfr/lib/:/usr/local/isl/lib&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 四项依赖的lib目录加入到/etc/ld.so.conf中</span></span><br><span class="line"></span><br><span class="line">ldconfig</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment"># https://unix.stackexchange.com/questions/674818/ubuntu-20-04-install-gcc-7-3-1</span></span><br><span class="line"></span><br><span class="line">apt install gcc-7 g++-7</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译安装 gcc</span></span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/gcc-7.3.0  --enable-checking=release --enable-languages=c,c++ --disable-multilib --with-system-zlib --disable-multilib --with-gmp=/usr/local/gmp --with-mpfr=/usr/local/mpfr --with-mpc=/usr/local/mpc --with-isl=/usr/local/isl</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">./configure --enable-checking=release --enable-language=c,c++ --disable-multilib --prefix=/usr</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment">#  安装 make 4.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 参考 https://github.com/qinshulei/ubuntu-install/blob/master/source-install/install-gun-make-4.1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> make</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> make</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">lftp ftp://ftp.gnu.org/gnu/make/ &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">get make-4.1.tar.gz</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exit</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">tar -xzvf make-4.1.tar.gz</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">wget http://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz</span><br><span class="line"></span><br><span class="line">tar -zxvf Python-3.7.3.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> Python-3.7.3</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> ~/.localpython</span><br><span class="line"></span><br><span class="line">./configure --prefix=/home/&lt;user&gt;/.localpython</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">root@757d6bfab719:~<span class="comment"># dpkg -i gcc-7_7.3.0-27ubuntu1~18.04_amd64.deb</span></span><br><span class="line"></span><br><span class="line">(Reading database ... 4121 files and directories currently installed.)</span><br><span class="line"></span><br><span class="line">Preparing to unpack gcc-7_7.3.0-27ubuntu1~18.04_amd64.deb ...</span><br><span class="line"></span><br><span class="line">Unpacking gcc-7 (7.3.0-27ubuntu1~18.04) over (7.3.0-27ubuntu1~18.04) ...</span><br><span class="line"></span><br><span class="line">dpkg: dependency problems prevent configuration of gcc-7:</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on cpp-7 (= 7.3.0-27ubuntu1~18.04); however:</span><br><span class="line"></span><br><span class="line">  Package cpp-7 is not installed.</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on gcc-7-base (= 7.3.0-27ubuntu1~18.04); however:</span><br><span class="line"></span><br><span class="line">  Package gcc-7-base is not installed.</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on libcc1-0 (&gt;= 7.3.0-27ubuntu1~18.04); however:</span><br><span class="line"></span><br><span class="line">  Package libcc1-0 is not installed.</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on binutils (&gt;= 2.30); however:</span><br><span class="line"></span><br><span class="line">  Package binutils is not installed.</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on libgcc-7-dev (= 7.3.0-27ubuntu1~18.04); however:</span><br><span class="line"></span><br><span class="line">  Package libgcc-7-dev is not installed.</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on libisl19 (&gt;= 0.15); however:</span><br><span class="line"></span><br><span class="line">  Package libisl19 is not installed.</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on libmpc3; however:</span><br><span class="line"></span><br><span class="line">  Package libmpc3 is not installed.</span><br><span class="line"></span><br><span class="line"> gcc-7 depends on libmpfr6 (&gt;= 3.1.3); however:</span><br><span class="line"></span><br><span class="line">  Package libmpfr6 is not installed.</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">dpkg: error processing package gcc-7 (--install):</span><br><span class="line"></span><br><span class="line"> dependency problems - leaving unconfigured</span><br><span class="line"></span><br><span class="line">Errors were encountered <span class="keyword">while</span> processing:</span><br><span class="line"></span><br><span class="line"> gcc-7</span><br><span class="line"></span><br><span class="line">root@757d6bfab719:~<span class="comment"># gcc</span></span><br><span class="line"></span><br><span class="line">apt --fix-broken install</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">apt-get upgrade</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">The following packages have unmet dependencies:</span><br><span class="line"></span><br><span class="line"> gcc-7 : Depends: cpp-7 (= 7.3.0-27ubuntu1~18.04) but it is not going to be installed</span><br><span class="line"></span><br><span class="line">         Depends: gcc-7-base (= 7.3.0-27ubuntu1~18.04) but 7.5.0-3ubuntu1~18.04 is to be installed</span><br><span class="line"></span><br><span class="line">         Depends: libgcc-7-dev (= 7.3.0-27ubuntu1~18.04) but 7.5.0-3ubuntu1~18.04 is to be installed</span><br><span class="line"></span><br><span class="line">E: Unmet dependencies. Try <span class="string">&#x27;apt --fix-broken install&#x27;</span> with no packages (or specify a solution).</span><br></pre></td></tr></table></figure>
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.111Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/%E5%8D%8E%E4%B8%BA%E8%BD%AF%E4%BB%B6%E7%B2%BE%E8%8B%B1%E6%8C%91%E6%88%98%E8%B5%9B%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>![[Pasted image 20240418154011.png]]<br>4月8日赛题发布后有且仅有一次修改，，4月初开始报名</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.110Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/%E4%B8%AD%E5%85%B4%E6%8D%A7%E6%9C%88/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h2 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h2><p>8 月开始网络预选赛</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.090Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/CCPC%20%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E9%A2%84%E9%80%89%E8%B5%9B/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>每个正式参赛队的队员必须由且仅由 3 名学生组成，参赛队员必须来自同一学校且是所代表学校正式注册的学生， 参赛时距其高中毕业时间不超过 5年。每个队伍必须有 1 名教练， 教练必须是所在院校在职教师，负责竞赛活动的指导与组织工作。</p>
+<p>ICPC竞赛内容包括但不限于经典的计算机科学分支，如程序设计语言、数据结构、算法设计方法、计算理论等，以及高等数学、计算几何、组合数学、图论、概率论、数论、博弈论、动态规划、人工智能、计算机图形学、搜索等。</p>
+<p>3人共用1台电脑。</p>
+<p>比赛时间为5个小时。</p>
+<p>比赛题目为10 - 12道英文题。</p>
+<p>每题可选用C、C++或Java语言之一编写。</p>
+<p>程序实时测试，动态排名。</p>
+<p>正确完成一题，得到一只代表该题颜色的气球。</p>
+<p>比赛评判与排名规则如下：</p>
+<p>（1）选手提交的每一题必须在规定的时间限制、内存限制内正确完成，才算通过。</p>
+<p>（2）每道题用时将从比赛开始到试题解答被判定为正确为止，期间每一次提交运行结果被判错误的话，将被罚20分钟时间，未正确解答的试题不计时（例如：A、B两队同时开始作答，两队先后完成了题目，A队比B队早交10分钟，但是，A队的作答错误，被打回修改，10分钟后再次提交正确的作答，原则上A、B两队用时相同，但是由于A队被打回，在时间上需要罚掉20分钟，因此，A队总用时比B队多20分钟，如此类推）。</p>
+<h2 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h2><p>第48届（2023）ICPCQEC Final 2024年1月12-14日上海大学<br>武汉邀请赛2024年5月1-2日武汉大学<br>陕西邀请赛2024年5月18-19日 西北工业大学<br>昆明邀请赛2024年5月25-26日云南大学<br>丝绸之路邀请赛 2024年5月25-26日宁夏理工学院<br>第一次网络选拔赛2024年9月？日<br>第二次网络选拔赛2024年9月？日<br>西安站 2024年?月?日 西北工业大学?<br>南京站2024年?月?日 南京航空航天大学?<br>沈阳站2024年?月?日 东北大学?<br>港澳站2024年?月?日 香港理工大学、澳门大学?<br>杭州站2024年?月?日杭州师范大学<br>武汉站2024年?月?日武汉大学<br>昆明站2024年?月?日云南大学<br>第49届（2024）ICPCECFinal2025年1月？日上海大学?</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:49.090Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%B5%9B%E4%BA%8B%E6%B4%BB%E5%8A%A8/ICPC%20%E5%9B%BD%E9%99%85%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+
+
+    <div class='text-center pagination'>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    </div>
+
+
+
+    <div class="hidden">
+        <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+    </div>
+
+
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+        <div class="sticky-area">
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                97
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                
+
+            
+                
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/TEMP%EF%BC%9A%E4%B8%AD%E9%93%81/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 Hexo 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by John Doe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  
+  <meta name="author" content="John Doe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Hexo</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Hexo</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <!-- Breadcrumb for tag & category page -->
+
+
+
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>Mixture  of Experts<br><a target="_blank" rel="noopener" href="https://baoyu.io/translations/llm/mixture-of-experts-explained">https://baoyu.io/translations/llm/mixture-of-experts-explained</a><br><a target="_blank" rel="noopener" href="https://www.aixinzhijie.com/article/6825966">https://www.aixinzhijie.com/article/6825966</a><br>深入理解混合专家模型</p>
+<ol>
+<li>相较于密集型模型，预训练速度更快</li>
+<li>拥有比同等参数更快的推理速度</li>
+<li>对显存要求高，因为需要将所有的专家模型都加载到内存中。</li>
+<li>虽然在微调方面存在挑战，有光明前景<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2305.14705.pdf">https://arxiv.org/pdf/2305.14705.pdf</a></li>
+</ol>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>在有限的计算资源下，相较于用更多步骤训练一个小型模型，训练一个大型模型即便步骤更少效果通常更好。<br>MoEs 让模型以远低于传统密集模型的计算成本进行预训练，这意味着你可以在相同的计算预算下显著扩大模型或数据集的规模。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h3><ol>
+<li>稀疏 MoE 层：代替了传统的密集型前馈网络（FFN）层。包含若干“专家”，每个专家都是一个独立的神经网络。实际上，这些专家通常是FFN，但它们也可以是更复杂的网络，，甚至可以是 MoE 本身，形成一个层级结构的 MoE。</li>
+<li>一个门控网络或路由器：用于决定那些 Token 分配给哪个专家。例如，在下图中，“More”这个 Token 被分配给第二个专家![[Pasted image 20240310201128.png]]<ol>
+<li>一个 token 可以分配给多个专家，如何高效的将 Token 分配给合适的专家，是使用 MoE 技术时需要考虑的关键问题之一。</li>
+<li>这个路由器由一系列可学习的参数构成。它与模型的其他部分一起进行训练。<br>总结：在 Transformer 中，我们将每一个 FFN（前馈网络）层替换为 MoE 层，由一个门控层和若干”专家“组成。</li>
+</ol>
+</li>
+</ol>
+<h1 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h1><ol>
+<li>训练：在预训练阶段的计算效率极高，但在微调时往往难以适应新场景，容易造成过拟合现象。</li>
+<li>推理：尽管 MoE 模型可能包含大量参数，但是在推理过程中只有部分参数被使用，（所以它的推理速度远快于参数相同的模型）但是所有参数都需加载到内存中，因此对内存的需求相当大。</li>
+</ol>
+<h1 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h1><ol>
+<li>1991 提出</li>
+<li>2010~2015 两个不同的领域推动了 MoE 发展<ol>
+<li>专家作为主键</li>
+<li>条件计算</li>
+</ol>
+</li>
+<li>引入稀疏性概念在 NLP 领域 快速发展（本文重点），在计算机视觉等也有探索。</li>
+</ol>
+<h2 id="稀疏性"><a href="#稀疏性" class="headerlink" title="稀疏性"></a>稀疏性</h2><p>稀疏性基于条件计算的概念，不同于密集型模型中所有参数对所有输入都有效，稀疏性让我们能只激活系统的部分区域。</p>
+<blockquote>
+<p>条件计算（即网络的某些部分仅针对特定样本激活）的概念使得在不增加计算量的情况下扩大模型规模成为可能，从而在每层 MoE 中使用了数千名专家。<br>(密集型模型 + 稀疏性 &#x3D;&#x3D;&gt; 稀疏模型)</p>
+</blockquote>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 MoE 中，当数据通过活跃的专家时，实际的批量大小会减小。例如，如果我们的批量输入包含 10 个 Token，<strong>可能有五个 Token 由一个专家处理，另外五个 Token 分别由五个不同的专家处理，这导致批量大小不均匀，资源利用率低下</strong>。下文中的 <a target="_blank" rel="noopener" href="https://baoyu.io/translations/llm/mixture-of-experts-explained#making-moes-go-brrr">优化 MoE 性能</a> 一节将讨论更多挑战及其解决方案。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>那我们该如何解决这些问题呢？通过一个学习型的门控网络 (G)，决定将输入的哪些部分分配给哪些专家 (E)：</p>
+<p>在这种设置中，所有专家都参与处理所有输入——这是一种加权乘法过程。但如果 G 的值为 0 呢？这种情况下，就无需计算相应专家的操作，从而节约了计算资源。那么，典型的门控函数是什么样的呢？在传统设置中，我们通常使用一个简单的网络配合 softmax 函数。这个网络会学习如何选择最合适的专家处理输入。</p>
+<p>为了让门控学习如何路由到不同的专家，需要路由到一个以上的专家，因此至少需要选择两个专家。<a target="_blank" rel="noopener" href="https://baoyu.io/translations/llm/mixture-of-experts-explained#switch-transformers">Switch Transformers</a> 章节将重新审视这一决策。</p>
+<p>我们为什么要加入噪声？这是为了实现负载均衡！</p>
+<h2 id="为多专家系统-MoEs-负载均衡-tokens"><a href="#为多专家系统-MoEs-负载均衡-tokens" class="headerlink" title="为多专家系统 MoEs 负载均衡 tokens"></a>为多专家系统 MoEs 负载均衡 tokens</h2><p>如果所有的 tokens 都被发送到少数几个受欢迎的专家，这将导致训练效率低下。在标准的多专家系统训练中，门控网络倾向于主要激活相同的几位专家。这会形成自我加强的循环，因为得到优先训练的专家会被更频繁地选择。为了减轻这种情况，引入了一种<strong>辅助损失</strong>来鼓励平等对待所有专家。这种损失确保所有专家获得大致相同数量的训练样本。后续章节还将探讨“专家容量”的概念，这涉及到一个专家能处理的 tokens 数量上限。在 <code>transformers</code> 中，这种辅助损失可以通过 <code>aux_loss</code> 参数来调节。</p>
+<h2 id="MoEs-和-Transformers"><a href="#MoEs-和-Transformers" class="headerlink" title="MoEs 和 Transformers"></a>MoEs 和 Transformers</h2><p>Transformers 模型展示了一个明显的趋势：增加参数的数量可以显著提高性能。Google 的 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.16668">GShard</a> 项目正是在这方面进行了深入探索，试图将 Transformers 模型扩展到超过 6000 亿个参数。</p>
+<h2 id="专家在学习中角色和专长"><a href="#专家在学习中角色和专长" class="headerlink" title="专家在学习中角色和专长"></a>专家在学习中角色和专长</h2><p>解码器的专家倾向于特定的 Token 组或基础概念。例如可能形成专门处理标点符号或转悠名词的专家，而解码器的专家则在专业化方面表现的较为平均。</p>
+<h2 id="增加专家数量对预训练的影响"><a href="#增加专家数量对预训练的影响" class="headerlink" title="增加专家数量对预训练的影响"></a>增加专家数量对预训练的影响</h2><p>增加更多的专家可以提高样本效率和加速训练过程，但增益逐渐减少（特别是在达到 256 或 512 个专家后），并且在推理过程中需要更多的 VRAM。在大规模应用中研究的 Switch Transformers 的特性，在小规模应用中也得到了验证，即便是每层只有 2、4 或 8 个专家</p>
+<h2 id="微调-MoE-技术"><a href="#微调-MoE-技术" class="headerlink" title="微调 MoE 技术"></a>微调 MoE 技术</h2><p>Mixtral 软件已经在 transformers 4.36.0 版本中得到支持，您可以通过运行 <code>pip install &quot;transformers==4.36.0 --upgrade&quot;</code> 命令进行安装。<br>密集型模型和稀疏型模型在过拟合上表现出明显不同的特点。稀疏型模型更易于过拟合，因此我们可以尝试在专家系统内部应用更强的正则化手段，例如不同层次的 dropout 率——对密集层和稀疏层分别设置不同的 dropout 率。</p>
+<p>在微调过程中，一个关键的决策是是否采用辅助损失。ST-MoE 的研究人员尝试关闭辅助损失，并发现即使高达 11% 的 Token 被丢弃，模型的质量也几乎不受影响。这表明 Token 丢弃可能是一种有效的防止过拟合的正则化策略。</p>
+<p>另一个尝试是冻结所有非专家层的权重，结果如预期那样导致了性能大幅下降，因为 MoE 层占据了网络的大部分。相反，仅冻结 MoE 层的参数几乎能达到更新所有参数的效果。这种方法可以加速微调过程，同时减少内存使用。<br>通过仅冻结 MoE 层，我们不仅能加快训练速度，还能保持模型的质量。这些发现同样源于 ST-MoE 的研究论文。 </p>
+<h2 id="何时选择稀疏-MoEs-和稠密模型？"><a href="#何时选择稀疏-MoEs-和稠密模型？" class="headerlink" title="何时选择稀疏 MoEs 和稠密模型？"></a>何时选择稀疏 MoEs 和稠密模型？</h2><p>在多机器、高吞吐量的场景中，专家系统是非常有效的。如果预训练的计算预算有限，那么稀疏模型将是更佳的选择。对于 VRAM 较少、吞吐量低的情况，稠密模型则更为合适。</p>
+<p><strong>注意：</strong> 我们不能直接比较稀疏和稠密模型之间的参数数量，因为这两种模型代表的是完全不同的概念。</p>
+<ol>
+<li>稀疏模型：<ul>
+<li>定义：稀疏模型是一种模型设计策略，其中模型结构被设计为具有少量的参数或专家（Experts），每个专家对应于模型中的一个子模型。</li>
+<li>特点：<ul>
+<li>模型结构简单，仅包含少量的专家。s</li>
+<li>每个专家专注于处理特定的输入模式或任务。</li>
+<li>专家之间在参数空间上是相互独立的。</li>
+<li>在推理阶段，只有少量的专家被激活并参与预测，以提高计算效率。</li>
+</ul>
+</li>
+<li>优点：<ul>
+<li>可以处理复杂的输入模式，并对不同的任务进行专门化处理。</li>
+<li>可以节省模型的参数量和计算资源。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>需要设计合适的选择机制和激活策略，以确保在不同输入情况下激活合适的专家。</li>
+<li>对于一些特定的输入模式，可能需要较大的专家数量才能达到较好的性能。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>稠密模型：<ul>
+<li>定义：稠密模型是一种模型设计策略，其中模型结构被设计为具有更多的参数和层级，以便能够更全面地学习输入数据的特征和表示。</li>
+<li>特点：<ul>
+<li>模型结构相对更复杂，包含多个参数较多的层。</li>
+<li>在训练过程中，模型可以通过反向传播算法端到端地学习输入数据的特征。</li>
+<li>通常用于处理输入模式和任务较为均衡的情况。</li>
+</ul>
+</li>
+<li>优点：<ul>
+<li>可以捕获输入数据中更丰富的特征，并具有更强的表达能力。</li>
+<li>可以适应不同的输入模式和任务，并在训练过程中自动学习特征的权重和表示。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>参数较多，需要更多的计算资源和内存空间。</li>
+<li>在处理特定输入模式和任务时，可能存在过拟合的风险。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>![[Pasted image 20240311104630.png]]</p>
+<h1 id="最新进展"><a href="#最新进展" class="headerlink" title="最新进展"></a>最新进展</h1><ul>
+<li><a href="https://link.zhihu.com/?target=https://arxiv.org/abs/1701.06538">The Sparsely-Gated Mixture-of-Experts Layer (2017)</a><br>  <a href="https://link.zhihu.com/?target=https://arxiv.org/abs/1701.06538">稀疏门控专家混合层（2017）</a></li>
+<li><a href="https://link.zhihu.com/?target=https://arxiv.org/abs/2006.16668">GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding (2020)</a><br>  <a href="https://link.zhihu.com/?target=https://arxiv.org/abs/2006.16668">GShard：通过条件计算和自动分片扩展巨型模型（2020）</a></li>
+<li><a href="https://link.zhihu.com/?target=https://arxiv.org/abs/2211.15841">MegaBlocks: Efficient Sparse Training with Mixture-of-Experts (2022)</a><br>  <a href="https://link.zhihu.com/?target=https://arxiv.org/abs/2211.15841">MegaBlocks：高效稀疏训练与专家混合（2022）</a></li>
+<li><a href="https://link.zhihu.com/?target=https://arxiv.org/abs/2305.14705">Mixture-of-Experts Meets Instruction Tuning (2023)</a><br>  <a href="https://link.zhihu.com/?target=https://arxiv.org/abs/2305.14705">混合专家遇见指令调整（2023）</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/674162664">万字长文详解 MoE - 超越ChatGPT的开源混合专家模型 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/a6cb366736791bcccc5c8639de5a8f9636bf87e8">1. Diederik P. Kingma, Jimmy Ba. “Adam: A Method for Stochastic Optimization.” International Conference on Learning Representations(2014).</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/204e3073870fae3d05bcbc2f6a8e263d9b72e776">2. Ashish Vaswani, Noam M. Shazeer et al. “Attention is All you Need.” Neural Information Processing Systems(2017).</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/97fb4e3d45bb098e27e0071448b6152217bd35a5">3. Jimmy Ba, J. Kiros et al. “Layer Normalization.” arXiv.org(2016).</a> </p>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2308.14352">4. Rongjie Yi, Liwei Guo et al. “EdgeMoE: Fast On-Device Inference of MoE-based Large Language Models.” arXiv.org (2023).</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/23894a64bcd7db9007c90fd201264d113e67b6a7">5. Alexander Hauptmann. “From Syntax to Meaning in Natural Language Processing.” AAAI Conference on Artificial Intelligence (1991).</a> </p>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.1145/3539597.3572720">6. Chenguang Zhu, Yichong Xu et al. “Knowledge-Augmented Methods for Natural Language Processing.” Annual Meeting of the Association for Computational Linguistics (2023).</a> </p>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.48161/QAJ.V1N2A44">7. Dastan Hussen Maulud, Subhi R. M. Zeebaree et al. “State of Art for Semantic Analysis of Natural Language Processing.” Qubahan Academic Journal (2021).</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/a1730ffaf9701f9bc66962fe3823f4c4404bccdd">8. Neha Yadav. “Applications Associated With Morphological Analysis And Generation In Natural Language Processing.” (2017). 284-286.</a></p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.983Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/MoEs/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>生物老师:<br>我想让你扮演一名生物老师。我将提供一些问题或概念，你的工作是用易于理解的术语来解释它们。这可能包括提供解决问题的分步说明、用视觉演示各种技术或建议在线资源以供进一步研究。</p>
+<p>马屁精：<br>现在请你扮演一位马屁精，不管我说的内容有多么荒谬，你都能恰如其分的拍我的马屁</p>
+<p>文学老师:<br>我想让你扮演一名大学文学老师。我将提供一些问题或概念，你的工作是精准回答我的问题，用易于理解的专业术语来解释它们。这可能包括提供解决问题的依据、纠正我的错误以及给出示例的等。</p>
+<p>内容: 使用 GPT-4, 设计 Prompt 优化 <strong>图说数据库系统</strong> 的文本内容.</p>
+<ul>
+<li><p><strong>基本要求:</strong></p>
+<ul>
+<li><p>优化自己负责部分的一个小节, 丰富内容, 优化章节结构, 语言风格等.</p>
+</li>
+<li><p>采用将大问题分解为多个小问题的方式进行优化, 使用多个 Prompt 对比生成的结果. 最后, 对比丰富后与丰富前的文本. (保留优化前的文本)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>提升文章的独特性：<br>Rewrite the existing document tomake it more imaginative, engaging, and unique.</p>
+<p>将文档转为引|人入胜的故事：<br>Transform the existingdocument into a compelling story that highlights thechallenges faced and the solutions provided.</p>
+<p>提升文档说服力：<br>Refine the existing document byincorporating persuasive language and techniques tomake it more convincing and impactful.</p>
+<p>提升文档的吸引力：<br>Add emotional language and sensorydetails to the existing document to make it morerelatable and engaging.</p>
+<p>使内容更加简洁：<br>Refine the existing document byremoving unnecessaryinformation and making it moreconcise and to-the-point.</p>
+<p>强调急迫感：<br>Refine the existing document by adding asense of urgency and emphasizing the need forimmediate action.</p>
+<p>突出重点：<br>Emphasize important information using boldor italic text.</p>
+<p>让模型使用类比或比喻的方法解释复杂问题：<br>Explain complexideas using analogies or comparisons.</p>
+<p>添加现实中的例子：<br>Include case studies or real-worldexamples to make concepts more relatable.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ChatGPT，我正在编辑一本名为《图说数据库》的专业书籍。我希望你能帮助我优化这本书中部分文本的内容和结构。以下是一些我需要你考虑的方面：</span><br><span class="line"></span><br><span class="line">1. 内容丰富：我希望你能根据我提供文字，结合文字的中心内容，把握住数据库的深入主题，进一步丰富专业表述，能够为读者提供更深入的理解和实践经验。</span><br><span class="line"></span><br><span class="line">2. 章节结构：我希望你能帮助我设计一个清晰、连贯的章节结构，这个结构应该能够帮助读者更好地理解和学习数据库的各个方面。</span><br><span class="line"></span><br><span class="line">3. 语言风格：我希望你能改进语言风格的建议，使得其中的内容既能够清晰地传达技术信息，又能够吸引和保持读者的兴趣。</span><br><span class="line"></span><br><span class="line">请你根据以上的要求，修改我之后给你发送的章节部分。</span><br></pre></td></tr></table></figure>
+
+<p>我想让你担任心理健康顾问。我将为您提供一个寻求指导和建议的人，以管理他们的情绪、压力、焦虑和其他心理健康问题。您应该利用您的认知行为疗法、冥想技巧、正念练习和其他治疗方法的知识来制定个人可以实施的策略，以改善他们的整体健康状况。我的第一个请求是“我需要一个可以帮助我控制抑郁症状的人。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.983Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/Prompt/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>[[RAG 项目]]</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>检索增强生成（RAG——Retrieval <strong>Augmented</strong> Generation）是指对大型语言模型输出进行优化，使其能够在生成响应之前引用训练数据来源之外的权威知识库。大型语言模型（LLM）用海量数据进行训练，使用数十亿个参数为回答问题、翻译语言和完成句子等任务生成原始输出。在 LLM 本就强大的功能基础上，RAG 将其扩展为能访问特定领域或组织的内部知识库，所有这些都无需重新训练模型。这是一种经济高效地改进 LLM 输出的方法，让它在各种情境下都能保持相关性、准确性和实用性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">会拿这个权威知识库进行训练嘛？</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>![[Pasted image 20240303130455.png]]<br>数据提取——embedding（向量化）——创建索引——检索——自动排序（Rerank）——LLM归纳生成</p>
+<p>LLM 面临的已知挑战包括：</p>
+<ul>
+<li>在没有答案的情况下提供虚假信息。</li>
+<li>当用户需要特定的当前响应时，提供过时或通用的信息。</li>
+<li>从非权威来源创建响应。</li>
+<li>由于术语混淆，不同的培训来源使用相同的术语来谈论不同的事情，因此会产生不准确的响应。</li>
+</ul>
+<h2 id="Lang-Chain-起源"><a href="#Lang-Chain-起源" class="headerlink" title="Lang Chain 起源"></a>Lang Chain 起源</h2><p>像 ChatGPT 这样的 大语言模型 或者 LLM 可以回答许多话题的问题，但是，一个孤立的 LLM 只知道它的训练内容，这并不包括某些个人信息数据，如果您可以和这些数据与 LLM 进行对话，就会非常有用</p>
+<h2 id="Lang-Chain-介绍"><a href="#Lang-Chain-介绍" class="headerlink" title="Lang Chain 介绍"></a>Lang Chain 介绍</h2><p>用于构建 LLM 应用的开源开发框架</p>
+<h2 id="Lang-Chain-组件"><a href="#Lang-Chain-组件" class="headerlink" title="Lang Chain 组件"></a>Lang Chain 组件</h2><ol>
+<li>prompts 提示</li>
+<li>models 模型</li>
+<li>indexes 索引</li>
+<li>chains 链</li>
+<li>agents 代理</li>
+</ol>
+<h2 id="Lang-Chain-使用——如何与数据对话"><a href="#Lang-Chain-使用——如何与数据对话" class="headerlink" title="Lang Chain 使用——如何与数据对话"></a>Lang Chain 使用——如何与数据对话</h2><p>![[Pasted image 20240303174734.png]]<br>核心：</p>
+<ol>
+<li>向量存储<ol>
+<li>加载数据</li>
+<li>拆分为有意义的块</li>
+</ol>
+</li>
+<li>索引–检索文档<ol>
+<li>语义搜索：最简单的方式</li>
+</ol>
+</li>
+<li>使得 LLM 能回答 文档相关内容</li>
+<li>记忆功能</li>
+</ol>
+<h3 id="文档加载器"><a href="#文档加载器" class="headerlink" title="文档加载器"></a>文档加载器</h3><p>从不同格式和来源的数据中访问和转换数据的具体细节，转换为标准化格式，即加载到一个标准的文档对象中，该对象由内容和相关元数据组成。</p>
+<blockquote>
+<p>Lang Chain 中有 80 种 数据加载器</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例</span></span><br><span class="line"><span class="keyword">from</span> langchain.document_loaders <span class="keyword">import</span> PyPDFLoader</span><br><span class="line">loader = PyPDFLoader(<span class="string">&quot;docs/cs229_lectures/MachineLearning-Lecture01.pdf&quot;</span>)</span><br><span class="line">pages = loader.load()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例</span></span><br><span class="line"><span class="keyword">from</span> langchain.document_loaders <span class="keyword">import</span> WebBaseLoader</span><br><span class="line"></span><br><span class="line">loader = WebBaseLoader(<span class="string">&quot;https://github.com/basecamp/handbook/blob/master/37signals-is-you.md&quot;</span>)</span><br><span class="line">docs = loader.load()</span><br></pre></td></tr></table></figure>
+
+<p>文档加载器之间可以组合为一个通用加载器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain.document_loaders.generic <span class="keyword">import</span> GenericLoader</span><br><span class="line"><span class="keyword">from</span> langchain.document_loaders.parsers <span class="keyword">import</span> OpenAIWhisperParser</span><br><span class="line"><span class="keyword">from</span> langchain.document_loaders.blob_loaders.youtube_audio <span class="keyword">import</span> YoutubeAudioLoader</span><br><span class="line"><span class="comment"># ! pip install yt_dlp</span></span><br><span class="line"><span class="comment"># ! pip install pydub</span></span><br><span class="line">url=<span class="string">&quot;https://www.youtube.com/watch?v=jGwO_UgTS7I&quot;</span></span><br><span class="line">save_dir=<span class="string">&quot;docs/youtube/&quot;</span></span><br><span class="line">loader = GenericLoader(</span><br><span class="line">    YoutubeAudioLoader([url],save_dir),</span><br><span class="line">    OpenAIWhisperParser()</span><br><span class="line">)</span><br><span class="line">docs = loader.load()</span><br><span class="line">docs[<span class="number">0</span>].page_content[<span class="number">0</span>:<span class="number">500</span>]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以同时加载多个文件</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain.document_loaders <span class="keyword">import</span> PyPDFLoader</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load PDF</span></span><br><span class="line">loaders = [</span><br><span class="line">    <span class="comment"># Duplicate documents on purpose - messy data</span></span><br><span class="line">    PyPDFLoader(<span class="string">&quot;docs/cs229_lectures/MachineLearning-Lecture01.pdf&quot;</span>),</span><br><span class="line">    PyPDFLoader(<span class="string">&quot;docs/cs229_lectures/MachineLearning-Lecture01.pdf&quot;</span>),</span><br><span class="line">    PyPDFLoader(<span class="string">&quot;docs/cs229_lectures/MachineLearning-Lecture02.pdf&quot;</span>),</span><br><span class="line">    PyPDFLoader(<span class="string">&quot;docs/cs229_lectures/MachineLearning-Lecture03.pdf&quot;</span>)</span><br><span class="line">]</span><br><span class="line">docs = []</span><br><span class="line"><span class="keyword">for</span> loader <span class="keyword">in</span> loaders:</span><br><span class="line">    docs.extend(loader.load())</span><br></pre></td></tr></table></figure>
+<h3 id="字符切割"><a href="#字符切割" class="headerlink" title="字符切割"></a>字符切割</h3><blockquote>
+<p>为什么需要字符切割</p>
+</blockquote>
+<p>RAG是一种基于检索的生成模型，它结合了检索和生成的能力。在RAG中，检索阶段用于从大型文本语料库中检索相关的上下文，然后再通过生成阶段生成响应或答案。</p>
+<p>切割文本可以帮助RAG模型更好地处理长文本，并提高生成的效率和质量。长文本可能包含大量冗余信息或无关信息，这可能会对模型的性能产生负面影响。通过将文本切割成较小的片段，RAG模型可以在生成阶段更好地处理和理解这些部分，并减少不必要的计算。</p>
+<p>另外，文本切割还可以帮助限制输入的长度，以满足模型的输入限制或资源限制。通过将文本切割成块，可以更好地管理模型的内存和计算需求。</p>
+<p>总的来说，在转换为向量存储之前，还要对原始数据分为有意义的块，作为后续索引的单位？？。</p>
+<p>![[Pasted image 20240303183026.png]]</p>
+<h4 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h4><h5 id="第一类"><a href="#第一类" class="headerlink" title="第一类"></a>第一类</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例，还有其他分割器，基于文本</span></span><br><span class="line"><span class="keyword">from</span> langchain.text_splitter <span class="keyword">import</span> RecursiveCharacterTextSplitter, CharacterTextSplitter</span><br></pre></td></tr></table></figure>
+
+<p>RecursiveCharacterTextSplitter”和”CharacterTextSplitter”都是用于文本分割的类，但它们有不同的实现方式和适用场景。</p>
+<ol>
+<li><p>RecursiveCharacterTextSplitter（递归字符文本分割器）：</p>
+<ul>
+<li>递归字符文本分割器是基于递归的分割方法，它将文本逐层地切割成更小的片段。</li>
+<li>它使用递归算法，将文本分割成单个字符或字符的子序列。例如，将”Hello”分割为[“H”, “e”, “l”, “l”, “o”]。</li>
+<li>递归字符文本分割器适用于一些需要对文本进行字符级别处理的任务，例如生成文本的字符级别表示或字符级别的语言建模。</li>
+</ul>
+</li>
+<li><p>CharacterTextSplitter（字符文本分割器）：</p>
+<ul>
+<li>字符文本分割器是将文本按照固定长度切割成块的方法。</li>
+<li>它将文本按照指定的块大小分割成连续的字符序列。例如，将”Hello, world!”以块大小为5分割为[“Hello”, “, wor”, “ld!”]。</li>
+<li>字符文本分割器适用于一些需要对文本进行块级别处理的任务，例如将文本输入模型进行批处理或限制输入长度。</li>
+<li>默认的分隔符是‘\n’，如果没有这个分隔符，即使到达 长度也不会分隔。</li>
+<li>带有回溯的正则表示</li>
+</ul>
+</li>
+</ol>
+<h5 id="第二类"><a href="#第二类" class="headerlink" title="第二类"></a>第二类</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于 token</span></span><br><span class="line"><span class="keyword">from</span> langchain.text_splitter <span class="keyword">import</span> TokenTextSplitter</span><br><span class="line">text_splitter = TokenTextSplitter(chunk_size=<span class="number">1</span>, chunk_overlap=<span class="number">0</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>因为有许多基于 token 计数设计的 LLM 上下文窗口</p>
+<h5 id="第三类"><a href="#第三类" class="headerlink" title="第三类"></a>第三类</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 会为块，添加元数据信息</span></span><br><span class="line"><span class="comment"># 例 </span></span><br><span class="line"><span class="keyword">from</span> langchain.document_loaders <span class="keyword">import</span> NotionDirectoryLoader</span><br><span class="line"><span class="keyword">from</span> langchain.text_splitter <span class="keyword">import</span> MarkdownHeaderTextSplitter</span><br><span class="line">markdown_document = <span class="string">&quot;&quot;&quot;# Title\n\n \</span></span><br><span class="line"><span class="string">## Chapter 1\n\n \</span></span><br><span class="line"><span class="string">Hi this is Jim\n\n Hi this is Joe\n\n \</span></span><br><span class="line"><span class="string">### Section \n\n \</span></span><br><span class="line"><span class="string">Hi this is Lance \n\n </span></span><br><span class="line"><span class="string">## Chapter 2\n\n \</span></span><br><span class="line"><span class="string">Hi this is Molly&quot;&quot;&quot;</span></span><br><span class="line">headers_to_split_on = [</span><br><span class="line">    (<span class="string">&quot;#&quot;</span>, <span class="string">&quot;Header 1&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;##&quot;</span>, <span class="string">&quot;Header 2&quot;</span>),</span><br><span class="line">    (<span class="string">&quot;###&quot;</span>, <span class="string">&quot;Header 3&quot;</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">markdown_splitter = MarkdownHeaderTextSplitter(</span><br><span class="line">    headers_to_split_on=headers_to_split_on</span><br><span class="line">)</span><br><span class="line">md_header_splits = markdown_splitter.split_text(markdown_document)</span><br><span class="line"></span><br><span class="line">md_header_splits[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切割的  Hi this is Jim\n\n Hi this is Joe\n\n \ 的元数据中会有 head1 和 head2 </span></span><br></pre></td></tr></table></figure>
+<h4 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a>包的使用</h4><p>只有两个成员函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create_documents()</span><br><span class="line">split_documents()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 回溯</span></span><br><span class="line">r_splitter = RecursiveCharacterTextSplitter(</span><br><span class="line">    chunk_size=<span class="number">150</span>,</span><br><span class="line">    chunk_overlap=<span class="number">0</span>,</span><br><span class="line">    separators=[<span class="string">&quot;\n\n&quot;</span>, <span class="string">&quot;\n&quot;</span>, <span class="string">&quot;(?&lt;=\. )&quot;</span>, <span class="string">&quot; &quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line">)</span><br><span class="line">r_splitter.split_text(some_text)</span><br></pre></td></tr></table></figure>
+<h3 id="嵌入"><a href="#嵌入" class="headerlink" title="嵌入"></a>嵌入</h3><p>将文本转为数字格式<br>将块放入索引之中 </p>
+<h4 id="转换为向量"><a href="#转换为向量" class="headerlink" title="转换为向量"></a>转换为向量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain.embeddings.openai <span class="keyword">import</span> OpenAIEmbeddings</span><br><span class="line">embedding = OpenAIEmbeddings()</span><br><span class="line"></span><br><span class="line">sentence1 = <span class="string">&quot;i like dogs&quot;</span></span><br><span class="line">sentence2 = <span class="string">&quot;i like canines&quot;</span></span><br><span class="line">sentence3 = <span class="string">&quot;the weather is ugly outside&quot;</span></span><br><span class="line"></span><br><span class="line">embedding1 = embedding.embed_query(sentence1)</span><br><span class="line">embedding2 = embedding.embed_query(sentence2)</span><br><span class="line">embedding3 = embedding.embed_query(sentence3)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.dot(embedding1, embedding2)</span><br><span class="line">np.dot(embedding1, embedding3)</span><br><span class="line">np.dot(embedding2, embedding3)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="向量存储与使用"><a href="#向量存储与使用" class="headerlink" title="向量存储与使用"></a>向量存储与使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ! pip install chromadb</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> langchain.vectorstores <span class="keyword">import</span> Chroma</span><br><span class="line">persist_directory = <span class="string">&#x27;docs/chroma/&#x27;</span></span><br><span class="line">!rm -rf ./docs/chroma  <span class="comment"># remove old database files if any</span></span><br><span class="line">vectordb = Chroma.from_documents(</span><br><span class="line">    documents=splits,</span><br><span class="line">    embedding=embedding,</span><br><span class="line">    persist_directory=persist_directory</span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(vectordb._collection.count())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 持久化存储</span></span><br><span class="line">vectordb.persist()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用，基本查询，寓意相似性查询</span></span><br><span class="line">question = <span class="string">&quot;is there an email i can ask for help&quot;</span></span><br><span class="line">docs = vectordb.similarity_search(question,k=<span class="number">3</span>) <span class="comment"># 3个最佳结果</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">len</span>(docs)</span><br><span class="line">  </span><br><span class="line">docs[<span class="number">0</span>].page_content</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="边缘情况检索的失效问题"><a href="#边缘情况检索的失效问题" class="headerlink" title="边缘情况检索的失效问题"></a>边缘情况检索的失效问题</h4><p>原因：基于语义进行查找。</p>
+<ol>
+<li>重复的查询结果</li>
+<li>查询不能准确把握语义</li>
+</ol>
+<h3 id="高级检索"><a href="#高级检索" class="headerlink" title="高级检索"></a>高级检索</h3><h4 id="MMR-最大边际相关性"><a href="#MMR-最大边际相关性" class="headerlink" title="MMR 最大边际相关性"></a>MMR 最大边际相关性</h4><p>如果选择与嵌入空间中查询最相似的文档，实际上可能会错过一些多样化的信息<br>指定搜索源<br>这样做的代价是需要对语言模型进行更多的调用，但密非常适合将最终答案集中在最重要的内容上</p>
+<h4 id="对话检索链"><a href="#对话检索链" class="headerlink" title="对话检索链"></a>对话检索链</h4><p>在检索问答链的基础上添加了一个新的部分，不仅有记忆，它将历史记录和新问题压缩成一个独立的问题以便传递给向量存储以查找相关文档</p>
+<h3 id="记忆功能"><a href="#记忆功能" class="headerlink" title="记忆功能"></a>记忆功能</h3><p>保持一个聊天记录的列表，作为历史记录的缓冲区，并且每次都将这些消息与问题一起传递给聊天机器人。</p>
+<p>Feel free to copy this code and modify it to add your own features. You can try alternate memory and retriever models by changing the configuration in <code>load_db</code> function and the <code>convchain</code> method. <a target="_blank" rel="noopener" href="https://panel.holoviz.org/">Panel</a> and <a target="_blank" rel="noopener" href="https://param.holoviz.org/">Param</a> have many useful features and widgets you can use to extend the GUI.<br>请随意复制此代码并对其进行修改以添加您自己的功能。 您可以通过更改“load_db”函数和“convchain”方法中的配置来尝试替代内存和检索器模型。 <a target="_blank" rel="noopener" href="https://panel.holoviz.org/">Panel</a> 和 <a target="_blank" rel="noopener" href="https://param.holoviz.org/">Param</a> 有许多有用的功能和小部件，可用于扩展 GUI。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3  install -U docarray</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pip3  install pydantic==<span class="number">1.10</span><span class="number">.9</span></span><br></pre></td></tr></table></figure>
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.983Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/RAG%20%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>![[Pasted image 20240303155734.png]]</p>
+<p>ChatGPT基于循环神经网络（RNN）和注意力机制的模型架构。它是一个生成式模型，可以根据之前的聊天信息生成响应。</p>
+<p>模型的原理如下：</p>
+<ol>
+<li><p>输入编码：在每个对话轮次中，聊天历史被编码为一个输入向量序列。这些向量可以是词向量、字符向量或其他表示形式，根据具体的实现方式而定。</p>
+</li>
+<li><p>上下文理解：模型使用编码后的输入向量序列，通过循环神经网络（如长短期记忆网络，LSTM）或变种（如GPT-3中的Transformer网络）来理解上下文。这些模型会捕捉到前面对话中的语义和语法结构，并对其进行建模。</p>
+</li>
+<li><p>注意力机制：模型使用注意力机制来关注历史上下文中与当前生成响应相关的部分。通过对不同部分的注意力分配权重，模型可以更好地理解和应答对话。</p>
+</li>
+<li><p>响应生成：模型将上下文理解与当前对话的目标进行合并，然后通过解码器生成响应。解码器会根据上下文和已生成内容预测下一个最有可能的词或子序列。</p>
+</li>
+<li><p>迭代训练：模型通过最大似然估计（MLE）或其他适当的训练目标进行训练，以使生成的响应与训练数据中的目标响应尽可能一致。</p>
+</li>
+<li><p>上下文维护：模型会维护一个有限的上下文窗口，以限制对话历史的长度。这有助于控制模型的记忆和计算需求，并防止信息过载。</p>
+</li>
+</ol>
+<p>在每个对话轮次中，聊天历史被编码为一个输入向量序列。这些向量可以是词向量、字符向量或其他表示形式，根据具体的实现方式而定。模型使用编码后的输入向量序列，通过循环神经网络（如长短期记忆网络，LSTM）或变种（如GPT-3中的Transformer网络）来理解上下文，这些模型会捕捉到前面对话中的语义和语法结构，并对其进行建模。模型将上下文理解与当前对话的目标进行合并，然后通过解码器生成响应。模型会维护一个有限的上下文窗口，以限制对话历史的长度。这有助于控制模型的记忆和计算需求，并防止信息过载。</p>
+<p>这里 memory 模块 保持一个聊天记录的列表，作为历史记录的缓冲区，并且每次都将这些消息与问题一起传递给聊天机器人。</p>
+<p>在每个对话轮次中，ChatGPT通过将聊天历史编码为一个输入向量序列来处理上下文信息。这些向量可以采用词向量、字符向量或其他形式的表示，具体取决于实现的方式。</p>
+<p>然后，通过使用神经网络（如GPT-3中的Transformer网络），模型能够全面理解上下文，并捕捉前面对话中的语义和语法结构。这样，模型可以建立起对对话历史的深入理解。</p>
+<p>模型将上下文理解与当前对话目标相结合，然后通过解码器生成响应。解码器利用上下文信息和已经生成的内容来预测下一个最可能的词或子序列，从而生成连贯的回复。</p>
+<p>为了控制模型的记忆和计算需求，并避免信息过载，ChatGPT维护一个有限的上下文窗口，限制对话历史的长度。这种方式确保模型在适应多轮对话时能够保持高效性，并生成准确、有逻辑的回应。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.983Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/RAG%20%E9%A1%B9%E7%9B%AE/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><p>书籍：<a target="_blank" rel="noopener" href="https://zh.d2l.ai/index.html">动手学深度学习</a></p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>[[机器学习基本概念]]<br>[[深度学习基本概念]]</p>
+<h1 id="常见模型"><a href="#常见模型" class="headerlink" title="常见模型"></a>常见模型</h1><p>[[GAN]]<br>[[变分编码器]]<br>[[扩散模型]]<br>[[大模型入门]]</p>
+<p>自注意力机制<br>是一种用于处理序列数据的机制，它允许模型在编码一个特定位置的单词时，可以关注到其他位置的单词。在这种机制下，每个单词都会与序列中的其他单词进行交互，以便更好地理解上下文。</p>
+<p>在自注意力机制中，输入序列被表示为一个矩阵，其中每一行代表一个输入位置，每列代表该位置对应的特征。</p>
+<p>在自注意力机制中，每个输入位置都与其他位置进行交互，并通过计算注意力权重来获取其他位置的信息。这个注意力权重决定了每个位置对其他位置的关注程度，从而可以捕捉到全局的上下文信息。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.974Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/AI%20%E5%AD%A6%E4%B9%A0/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/675441597">2023年值得关注的十篇人工智能研究论文 - 知乎 (zhihu.com)</a></p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.974Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/AI%20%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p><a target="_blank" rel="noopener" href="https://github.com/ninehills/blog/issues/92">https://github.com/ninehills/blog/issues/92</a></p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.974Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/Finetuning/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11G411X7nZ/?p=2&vd_source=31f1c950b5b95af0c48f188f0bc047c7">https://www.bilibili.com/video/BV11G411X7nZ/?p=2&amp;vd_source=31f1c950b5b95af0c48f188f0bc047c7</a></p>
+<h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><h2 id="NLP"><a href="#NLP" class="headerlink" title="NLP"></a>NLP</h2><p>分类：</p>
+<ol>
+<li>中间任务（序列标注）：中文分词，词性标注，NER，句法分析，指代消解，语义 Parser 等，</li>
+<li>最终任务：文本分类，文本相似性计算，机器翻译，文本摘要。<ol>
+<li>自然语言理解类任务：本质上是分类任务：分类任务、句子关系判断</li>
+<li>自然语言生成类任务</li>
+</ol>
+</li>
+</ol>
+<h2 id="NLP-三大特征提取器（CNN-RNN-TF）"><a href="#NLP-三大特征提取器（CNN-RNN-TF）" class="headerlink" title="NLP 三大特征提取器（CNN|RNN|TF）"></a>NLP 三大特征提取器（CNN|RNN|TF）</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54743941">https://zhuanlan.zhihu.com/p/54743941</a></p>
+<ol>
+<li><strong>一个特征抽取器是否适配问题领域的特点，有时候决定了它的成败，而很多模型改进的方向，其实就是改造得使得它更匹配领域问题的特性</strong></li>
+<li><strong>解决 NLP 任务 最重要的就是 模型的特征提取能力</strong></li>
+</ol>
+<h3 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h3><ol>
+<li>RNN 基本完成它的历史使命。</li>
+<li>CNN 如果改造得当，有希望有自己在NLP领域的一席之地。</li>
+<li>Transformer 最主流的特征提取器</li>
+</ol>
+<h3 id="RNN-现状"><a href="#RNN-现状" class="headerlink" title="RNN 现状"></a>RNN 现状</h3><h4 id="RNN-在-NLP-中的演进"><a href="#RNN-在-NLP-中的演进" class="headerlink" title="RNN 在 NLP 中的演进"></a>RNN 在 NLP 中的演进</h4><ol>
+<li>RNN 采取线性序列结构不断从前往后输入信息，这种线性结构在反向传播时存在优化困难问题，因为反向传播路径太长，容易导致严重的梯度消失或者梯度爆炸问题。</li>
+<li>引入 LSTM 和 GRU 模型，通过增加中间状态信息直接向后转播，以此缓解梯度消失问题，获得很好的效果。</li>
+<li>不断优化，从图像领域引入 Attention 机制，叠加网络使得层更深。</li>
+<li>引入 Encoder-Decoder 框架。</li>
+</ol>
+<h4 id="RNN-的优势"><a href="#RNN-的优势" class="headerlink" title="RNN 的优势"></a>RNN 的优势</h4><ol>
+<li>RNN 的结构天然适配解决 NLP 问题，NLP 问题的输入往往是一个不定长的线性序列句子。</li>
+<li>而 RNN 本身结构 就是一个可以接纳不定长输入的由前向后进行信息线性传导的网络结构</li>
+<li>LSTM 引入三个门， 对于捕获长距离特征也是非常有效的</li>
+</ol>
+<h4 id="RNN-的问题"><a href="#RNN-的问题" class="headerlink" title="RNN 的问题"></a>RNN 的问题</h4><ol>
+<li>老模型先天不如新来的 CNN Transformer 。</li>
+<li>RNN 本身的序列依赖结构对于大规模并行计算来说相当不友好。而 CNN 和 Transformer 不存在这种问题。<br>本质：<br> 时间步有前后依赖</li>
+</ol>
+<h4 id="RNN-并行改造"><a href="#RNN-并行改造" class="headerlink" title="RNN 并行改造"></a>RNN 并行改造</h4><ol>
+<li>保留连续时间步的隐层连接<ol>
+<li>在隐层单元之间并行计算，</li>
+</ol>
+</li>
+<li>部分打断连续时间步<ol>
+<li>（这样改进之后有点像简化的 CNN）失去原本样貌</li>
+</ol>
+</li>
+</ol>
+<h3 id="CNN-现状"><a href="#CNN-现状" class="headerlink" title="CNN 现状"></a>CNN 现状</h3><h4 id="怀旧版-CNN"><a href="#怀旧版-CNN" class="headerlink" title="怀旧版 CNN"></a>怀旧版 CNN</h4><ol>
+<li>输入层</li>
+<li>卷积层：特征提取层，卷积核（filter）</li>
+<li>pooling 层：对 Filter 的特征进行降维操作（从一个卷积核获得的特征向量里只选中并保留最强的那一个特征）</li>
+<li>输出层</li>
+</ol>
+<h4 id="怀旧版-CNN-的问题"><a href="#怀旧版-CNN-的问题" class="headerlink" title="怀旧版 CNN 的问题"></a>怀旧版 CNN 的问题</h4><ol>
+<li>卷积层如何捕获远距离特征<blockquote>
+<p>CNN 卷积层捕获的实际上是单词 的 k-gram 片段信息，k 的大小决定了能捕获多远距离的特征</p>
+</blockquote>
+<ol>
+<li>不是覆盖连续区域，在同样的滑动窗口大小的前提下，覆盖不连续区域</li>
+<li>增加卷积层层数。</li>
+</ol>
+</li>
+<li>Pooling 层<blockquote>
+<p>Pooling的操作逻辑是：从一个卷积核获得的特征向量里只选中并保留最强的那一个特征，所以到了Pooling层，位置信息就被扔掉了，这在NLP里其实是有信息损失的。</p>
+</blockquote>
+ 所以在 NLP 领域里，目前 CNN 的一个发展趋势是抛弃 Pooling 层，靠全卷积层来叠加网络深度</li>
+</ol>
+<h4 id="怀旧版-CNN-的优势"><a href="#怀旧版-CNN-的优势" class="headerlink" title="怀旧版 CNN 的优势"></a>怀旧版 CNN 的优势</h4><p>并行计算能力：单层卷积层，首先对于某个卷积核来说，每个滑动窗口位置之间没有依赖关系，所以完全可以并行计算；另外，不同的卷积核之间也没什么相互影响，所以也可以并行计算。</p>
+<h3 id="Transformer-登场"><a href="#Transformer-登场" class="headerlink" title="Transformer 登场"></a>Transformer 登场</h3><p>[[Transformer]]<br>![[Pasted image 20240302135631.png]]<br>Transformer 模型由编码器（Encoder）和解码器（Decoder）两部分组成，这两部分都采用了多层的自注意力（Self-Attention）和前馈神经网络（Feed-Forward Neural Network）。</p>
+<p><strong>编码器（Encoder）</strong>：编码器的主要任务是理解输入的信息，并将其转化为一种内部表示形式。在 Transformer 中，编码器接收一系列输入（比如一个句子中的每个词），并通过自注意力机制和前馈神经网络，将每个输入转化为一个向量。这个向量包含了输入的信息，以及它与其他输入的关系。编码器由多个这样的层堆叠在一起，每一层都会进一步提炼这些向量。</p>
+<p><strong>解码器（Decoder）</strong>：解码器的主要任务是根据编码器的输出生成最终的输出。在 Transformer 中，解码器也是由多个自注意力机制和前馈神经网络的层组成。但解码器有两个自注意力层，一个是对自身的输入进行自注意力计算，另一个是对编码器的输出进行自注意力计算。这使得解码器在生成每个输出时，都能考虑到所有的输入和已经生成的输出。</p>
+<p><strong>区别和联系</strong>：编码器和解码器的主要区别在于，编码器只需要理解输入，而解码器需要理解输入并生成输出。因此，解码器比编码器多了一个自注意力层，用于理解已经生成的输出。编码器和解码器的联系在于，它们都使用了自注意力机制和前馈神经网络，而且解码器在生成输出时，会使用编码器的输出。</p>
+<p>在 GPT 中，只使用了 Transformer 的解码器部分，因为 GPT 的任务是生成文本，不需要理解输入。而在 BERT 中，只使用了 Transformer 的编码器部分，因为 BERT 的任务是理解文本，不需要生成输出。</p>
+<blockquote>
+<p>目前 Transformer 不仅统一了 NLP 诸多领域，也逐步替换图像处理各种任务被广泛使用的 CNN 等其他模型的进程之中；<br>类似的，多模态模型也目前 基本都采用了 Transformer 模型</p>
+</blockquote>
+<h4 id="Transformer-问题"><a href="#Transformer-问题" class="headerlink" title="Transformer 问题"></a>Transformer 问题</h4><p>因为输入的第一层网络是Muli-head self attention层，我们知道，Self attention会让当前输入单词和句子中任意单词发生关系，然后集成到一个embedding向量里，但是当所有信息到了embedding后，位置信息并没有被编码进去。</p>
+<h4 id="Transformer-如何解决问题"><a href="#Transformer-如何解决问题" class="headerlink" title="Transformer 如何解决问题"></a>Transformer 如何解决问题</h4><ol>
+<li>如何解决不定长问题：<br> 类似 CNN 假定输入的最大长度，不够用 padding 补充，</li>
+<li>如何解决位置编码问题：<br> 必须要有一个位置编码。<ol>
+<li>Transformer 用位置函数来进行编码；</li>
+<li>Bert 模型则给每一个单词一个 Position embedding，和 单词 embedding 加起来形成单词的输入；</li>
+</ol>
+</li>
+<li>如何解决长距离依赖问题。<br> elf attention天然就能解决这个问题，因为在集成信息的时候，当前单词和句子中任意单词都发生了联系，所以一步到位就把这个事情做掉了。不像RNN需要通过隐层节点序列往后传，也不像CNN需要通过增加网络深度来捕获远距离特征，Transformer在这点上明显方案是相对简单直观的。</li>
+</ol>
+<h3 id="三者比较"><a href="#三者比较" class="headerlink" title="三者比较"></a>三者比较</h3><ol>
+<li>从语义特征提取能力来说，目前实验支持如下结论：Transformer在这方面的能力非常显著地超过RNN和CNN（在考察语义类能力的任务WSD中，Transformer超过RNN和CNN大约4-8个绝对百分点），RNN和CNN两者能力差不太多。</li>
+<li>在长距离特征捕获能力方面，目前在特定的长距离特征捕获能力测试任务中（主语-谓语一致性检测，比如we……..are…），实验支持如下结论：原生CNN特征抽取器在这方面极为显著地弱于RNN和Transformer，Transformer微弱优于RNN模型(尤其在主语谓语距离小于13时)，能力由强到弱排序为Transformer&gt;RNN&gt;&gt;CNN; 但在比较远的距离上（主语谓语距离大于13），RNN微弱优于Transformer，所以综合看，可以认为Transformer和RNN在这方面能力差不太多，而CNN则显著弱于前两者。</li>
+<li>从综合特征抽取能力角度衡量，Transformer显著强于RNN和CNN，而RNN和CNN的表现差不太</li>
+<li>RNN在并行计算方面有严重缺陷，这是它本身的序列依赖特性导致的，所谓成也萧何败也萧何，它的这个线形序列依赖性非常符合解决NLP任务，这也是为何RNN一引入到NLP就很快流行起来的原因，但是也正是这个线形序列依赖特性，导致它在并行计算方面要想获得质的飞跃，看起来困难重重，近乎是不太可能完成的任务。而对于CNN和Transformer来说，因为它们不存在网络中间状态不同时间步输入的依赖关系，所以可以非常方便及自由地做并行计算改造，这个也好理解。并行计算能力由高到低排序如下：Transformer和CNN差不多，都远远远远强于RNN。</li>
+</ol>
+<h1 id="待完成！！！！https-zhuanlan-zhihu-com-p-54743941"><a href="#待完成！！！！https-zhuanlan-zhihu-com-p-54743941" class="headerlink" title="待完成！！！！https://zhuanlan.zhihu.com/p/54743941"></a>待完成！！！！<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54743941">https://zhuanlan.zhihu.com/p/54743941</a></h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/597586623">https://zhuanlan.zhihu.com/p/597586623</a></p>
+<h2 id="Bert-GPT-Transformer-区分"><a href="#Bert-GPT-Transformer-区分" class="headerlink" title="Bert|GPT|Transformer 区分"></a>Bert|GPT|Transformer 区分</h2><p>BERT（Bidirectional Encoder Representations from Transformers）、GPT（Generative Pretrained Transformer）和Transformer 是三种在自然语言处理（NLP）领域广泛使用的模型或模型架构。它们之间的关系可以从以下几个方面来理解：</p>
+<ol>
+<li><p><strong>Transformer</strong>：Transformer 是一种模型架构，它在 “Attention is All You Need” 这篇论文中首次被提出。Transformer 模型的主要特点是它完全放弃了传统的 RNN（循环神经网络）或 CNN（卷积神经网络）结构，而是完全依赖于 self-attention 机制来处理序列数据。这种结构使得 Transformer 模型在处理长距离依赖和并行计算方面具有优势。</p>
+</li>
+<li><p><strong>GPT</strong>：GPT 是 OpenAI 开发的一种基于 Transformer 的模型。GPT 使用了 Transformer 的解码器部分，并且采用了单向（从左到右）的自注意力机制。这使得 GPT 在生成文本（如写作、翻译等任务）方面表现出色。</p>
+</li>
+<li><p><strong>BERT</strong>：BERT 是 Google 开发的一种基于 Transformer 的模型。与 GPT 不同，BERT 使用了 Transformer 的编码器部分，并且采用了双向的自注意力机制。这使得 BERT 能够理解文本中的上下文信息，因此在理解、分类、问答等任务中表现优秀。</p>
+</li>
+</ol>
+<p>总的来说，Transformer 是一种模型架构，而 GPT 和 BERT 都是基于这种架构的模型，但它们在具体实现和应用上有所不同。</p>
+<h1 id="时间线前"><a href="#时间线前" class="headerlink" title="时间线前"></a>时间线前</h1><h2 id="范式转换1-0"><a href="#范式转换1-0" class="headerlink" title="范式转换1.0"></a>范式转换1.0</h2><ol>
+<li>bert 和 gpt 模型出现以前，NLP 领域流行的技术是深度学习模型</li>
+<li>NLP 领域的深度学习<ol>
+<li>大量改进的 LSTM 模型 | 少量的改进 CNN 模型作为特征抽取器</li>
+<li>以 sequence to sequence（encode-decoder）+ Attention 作为各种具体任务典型。</li>
+<li>目标：如何有效增加模型深层或模型的参数容量。<br> 即：怎么才能往encoder 和decoder 里不断叠加更深的 LSTM 或 CNN 层，来达成增加层数和模型容量的目标。</li>
+<li>分类：<ol>
+<li>中间任务：中文分词，词性标注，NER，句法分析，指代消解，语义 Parser 等，</li>
+<li>最终任务：文本分类，文本相似性计算，机器翻译，文本摘要。<ol>
+<li>自然语言理解类任务：本质上是分类任务</li>
+<li>自然语言生成类任务</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>评价：总体而言不是很成功，或者说和非深度学习方法相比，带来的优势i不算很大。</li>
+<li></li>
+</ol>
+</li>
+<li>NLP 深度学习不算成功的原因：<ol>
+<li>训练数据总量的限制。</li>
+<li>LSTM | CNN 特征提取器表达能力不强。</li>
+</ol>
+</li>
+<li>Ber|GPT 这两个预训练模型的出现，代表 NLP 领域的飞跃<ol>
+<li>NLP 研究子领域日渐消亡<ol>
+<li>中间任务不应该出现，这是 NLP 技术发展水平不够高的一种体现。很难一步做好有难度的最终任务。</li>
+<li>Bert|GPT 出现后没有必要做这些中间任务了，因为 Bert|GPT 已经把这些中间任务作为语言学特征，吸收到了 Transformer 的参数里，</li>
+</ol>
+</li>
+<li>NLP 不同子领域技术方法和技术日渐统一。<ol>
+<li>NLP 领域特征提取器都逐渐从 LSTM|CNN 统一到 Transformer 上。</li>
+<li>大多数 NLP 子领域的研发模式切换到了两阶段模式，：<ol>
+<li>模型预训练阶段</li>
+<li>应用微调<br> 或者：</li>
+<li>Zero Shot</li>
+<li>Few Shot</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.974Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/GAI%20%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <h1 id="个人环境搭建"><a href="#个人环境搭建" class="headerlink" title="个人环境搭建"></a>个人环境搭建</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="openai"><a href="#openai" class="headerlink" title="openai"></a>openai</h3><p><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/api-reference/chat-completions/create">api 使用文档</a></p>
+<h2 id="wenxin"><a href="#wenxin" class="headerlink" title="wenxin"></a>wenxin</h2><p>[[微信项目]]<br>教程：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30299877/article/details/131917097">如何申请文心一言&amp;文心千帆大模型API调用资格、获取access_token，并使用SpringBoot接入文心一言API_文心一言api申请-CSDN博客</a></p>
+<p>在线调试工具<br><a target="_blank" rel="noopener" href="https://console.bce.baidu.com/tools/#/api?product=AI&project=%E6%96%87%E5%BF%83%E5%8D%83%E5%B8%86%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B9%B3%E5%8F%B0&parent=%E9%89%B4%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6&api=oauth%2F2.0%2Ftoken&method=post">https://console.bce.baidu.com/tools/#/api?product=AI&amp;project=%E6%96%87%E5%BF%83%E5%8D%83%E5%B8%86%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%B9%B3%E5%8F%B0&amp;parent=%E9%89%B4%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6&amp;api=oauth%2F2.0%2Ftoken&amp;method=post</a></p>
+<p>token<br>24.0339bde53ae4eed0ed979b9f9959b20e.2592000.1711684739.282335-53912329<br>申请：<a target="_blank" rel="noopener" href="https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/create">https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/create</a><br>[api 文档](<a target="_blank" rel="noopener" href="https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Rlkkt6kd7">使用网页调试工具获取access_token - 千帆大模型平台 | 百度智能云文档 (baidu.com)</a>)</p>
+<h2 id="github-Copilot-免费使用-gpt-4"><a href="#github-Copilot-免费使用-gpt-4" class="headerlink" title="github Copilot 免费使用 gpt-4"></a>github Copilot 免费使用 gpt-4</h2><p><a target="_blank" rel="noopener" href="https://blog.geniucker.top/2024/01/26/%E9%80%9A%E8%BF%87-GitHub-Copilot-%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8-gpt-4/">https://blog.geniucker.top/2024/01/26/%E9%80%9A%E8%BF%87-GitHub-Copilot-%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A8-gpt-4/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Geniucker/CoGPT?tab=readme-ov-file">https://github.com/Geniucker/CoGPT?tab=readme-ov-file</a></p>
+<p>我希望你充当激励教练。我将为您提供一些关于某人的目标和挑战的信息，而您的工作就是想出可以帮助此人实现目标的策略。这可能涉及提供积极的肯定、提供有用的建议或建议他们可以采取哪些行动来实现最终目标。我的第一个请求是“我需要帮助来激励自己在为即将到来的考试学习时保持纪律”。</p>
+<h1 id="常用的大模型应用技术"><a href="#常用的大模型应用技术" class="headerlink" title="常用的大模型应用技术"></a>常用的大模型应用技术</h1><h2 id="Prompt"><a href="#Prompt" class="headerlink" title="Prompt"></a>Prompt</h2><p>[[Prompt]]</p>
+<h3 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt 指南</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/courses/chatgpt-prompt-eng/lesson/1/introduction">ChatGPT Prompt Engineering for Developers</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1e8411o7NP?p=1&vd_source=31f1c950b5b95af0c48f188f0bc047c7">ChatGPT Prompt Engineering for Developers - 中文字幕版</a></strong></p>
+</li>
+</ul>
+<h3 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h3><ul>
+<li><p>内容: 使用 GPT-4, 设计 Prompt 优化 <strong>图说数据库系统</strong> 的文本内容.</p>
+</li>
+<li><p><strong>基本要求:</strong></p>
+<ul>
+<li><p>优化自己负责部分的一个小节, 丰富内容, 优化章节结构, 语言风格等.</p>
+</li>
+<li><p>采用将大问题分解为多个小问题的方式进行优化, 使用多个 Prompt 对比生成的结果. 最后, 对比丰富后与丰富前的文本. (保留优化前的文本)</p>
+</li>
+</ul>
+</li>
+<li><p>进阶:</p>
+<ul>
+<li><p>其他任意 Prompt 工作都可.</p>
+</li>
+<li><p>例如: 优化翻译结果, 优化特定领域结果(数据库专家, 文档编写专家等)</p>
+</li>
+</ul>
+</li>
+<li><p>实验室提供的 GPT-4 Web <a target="_blank" rel="noopener" href="https://chatgpt-next-web-mauve-five.vercel.app/#/chat">https://chatgpt-next-web-mauve-five.vercel.app/#/chat</a></p>
+</li>
+</ul>
+<h3 id="其他资料"><a href="#其他资料" class="headerlink" title="其他资料"></a>其他资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/linexjlin/GPTs">GPTs 的 Prompt, 可用于参考</a></li>
+</ul>
+<h2 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h2><p>[[RAG 检索增强]]</p>
+<h3 id="Course-1"><a href="#Course-1" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11G411X7nZ?p=15&vd_source=31f1c950b5b95af0c48f188f0bc047c7">Retrieval Augmented Generation (RAG) 简介 - 中文字幕版</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/langchain-chat-with-your-data/lesson/2/document-loading">LangChain Chat with Your Data</a></strong></p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV148411D7d2/?spm_id_from=333.337.search-card.all.click&vd_source=31f1c950b5b95af0c48f188f0bc047c7">LangChain Chat with Your Data - 中文字幕版</a></strong></p>
+</li>
+</ul>
+<h3 id="Project-1"><a href="#Project-1" class="headerlink" title="Project"></a>Project</h3><ul>
+<li><p>利用指定的书籍文档, 构建 RAG 系统.</p>
+</li>
+<li><p>利用 RAG 系统优化 <strong>图说数据库系统</strong> 的文本内容.</p>
+</li>
+<li><p><strong>基本要求:</strong></p>
+<ul>
+<li>优化自己部分的一个小节, 丰富内容, 修正错误. 与原文本, Prompt 生成的文本进行对比.</li>
+</ul>
+</li>
+<li><p>进阶:</p>
+<ul>
+<li>构建其他任意 RAG 系统.</li>
+<li>例如: 分布式课程 RAG 系统, 实验室文档 RAG 系统, 医疗 RAG 系统等.</li>
+</ul>
+</li>
+<li><p>实验室提供的 API-Key</p>
+</li>
+<li><p>可以用于 机器人的 聊天记录进行保存</p>
+</li>
+</ul>
+<h3 id="其他资料-1"><a href="#其他资料-1" class="headerlink" title="其他资料"></a>其他资料</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/building-evaluating-advanced-rag/lesson/1/introduction">Building and Evaluating Advanced RAG</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/functions-tools-agents-langchain/lesson/1/introduction">Functions, Tools and Agents with LangChain</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://twitter.com/tisoga/status/1731478506465636749?s=61&t=TVU99VOXdlAywAcBa_iuSg">devv.ai 是如何构建高效的 RAG 系统的</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://twitter.com/i/web/status/1737037970367283474">复杂 RAG 的技术考虑</a></p>
+</li>
+</ul>
+<h2 id="MoE"><a href="#MoE" class="headerlink" title="MoE"></a>MoE</h2><p>[[MoEs]]</p>
+<h3 id="Course-2"><a href="#Course-2" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://baoyu.io/translations/llm/mixture-of-experts-explained">深入理解混合专家模型</a></li>
+</ul>
+<h2 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h2><p>[[Finetuning]]</p>
+<h3 id="Course-3"><a href="#Course-3" class="headerlink" title="Course"></a>Course</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://learn.deeplearning.ai/finetuning-large-language-models/lesson/1/introduction">Finetuning Large Language Models</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rz4y1T7wz/?spm_id_from=333.337.search-card.all.click&vd_source=59461060c1867e9bf731e467ae6f00b5">吴恩达《微调大型语言模型》| Finetuning Large Language Models（中英字幕）_哔哩哔哩_bilibili</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.974Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/GAI%20%E7%9A%84%E5%BA%94%E7%94%A8/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>密码模型是数据驱动的结构，它捕获密码样本中的规律性，并有助于分析密码创建模式，这经常被用于密码猜测攻击。语义PCFG[21]是一种捕获句法和语义信息的概率上下文无关文法(PCFG)。它假设，除了随机序列外，人们还会选择有意义的单词组合，这些组合在进行大规模分析时会形成规则模式。这些模式与自然语言中发现的模式相似，但并不严格遵守自然语言语法规则。<br>当主要在英语数据集上训练时，语义PCFG被证明优于Weir等人的PCFG。[23]在以LinkedIn、MySpace、RockYou和Gamigo列表为目标的猜测会话中[11，21]。语义密码模型是语言密码模型家族中的一员，它依赖于语言资源和过程，如分析、分割和分类。语言模型仍然很有价值，因为它们为密码列表的构成提供了可解释的描述，使研究人员能够详细研究用户群体之间的差异和密码策略的影响。然而，关于这种语言建模行为的重要问题仍然没有得到回答。不同级别的信息(例如，句法、语义)对概括的个体贡献以及因此的猜测性能是未知的。从小样本中学习模式的能力还没有被很好地理解，控制过度匹配的参数的有效性也没有被很好地理解，例如语义专一性–语义语法训练的一个免费参数–和概率平滑方法，这是所有语言学方法共同的。此外，在引入语义模型后，蒙特卡罗强度评估使在非常长的会话中估计猜测成功成为可能[7]。这使得对语义模型的原始评估过时了，因为它仅限于破解多达30亿次猜测的尝试。较新的模型通常使用蒙特卡罗评估，这使得与较旧的模型进行比较变得困难。特别是，Melicher等人的神经密码模型。[16]取得了优异的性能，超过了其他高分自动裂解方法，包括Weir等人的PCFG的改进版本。</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2024-04-22T13:14:48.922Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2024-04-22</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2024/04/22/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E8%AF%AD%E6%B3%95%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+
+
+    <div class='text-center pagination'>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    </div>
+
+
+
+    <div class="hidden">
+        <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+    </div>
+
+
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+        <div class="sticky-area">
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                97
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                
+
+            
+                
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/TEMP%EF%BC%9A%E4%B8%AD%E9%93%81/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 Hexo 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by John Doe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>查看动态 | Hexo</title>
+  
+  <meta name="author" content="John Doe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="常见库Flag 包flag包基本使用官方文档]参考文档 导入flag包1import flag  flag参数类型flag包支持的命令行参数类型有bool、int、int64、uint、uint64、float float64、string、duration。    flag参数 有效值    字符串flag 合法字符串   整数flag 1234、0664、0x1234等类型，也可以是负数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="http://example.com/2024/04/22/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/GO_lang/go%20%E9%AB%98%E7%BA%A7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="常见库Flag 包flag包基本使用官方文档]参考文档 导入flag包1import flag  flag参数类型flag包支持的命令行参数类型有bool、int、int64、uint、uint64、float float64、string、duration。    flag参数 有效值    字符串flag 合法字符串   整数flag 1234、0664、0x1234等类型，也可以是负数。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-22T13:14:48.678Z">
+<meta property="article:modified_time" content="2024-04-22T04:39:53.107Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Hexo</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Hexo</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/22/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/GO_lang/go%20%E9%AB%98%E7%BA%A7/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-04-22T13:14:48.678Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-22</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">John Doe</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~29.18K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="常见库"><a href="#常见库" class="headerlink" title="常见库"></a>常见库</h1><h2 id="Flag-包"><a href="#Flag-包" class="headerlink" title="Flag 包"></a>Flag 包</h2><h3 id="flag包基本使用"><a href="#flag包基本使用" class="headerlink" title="flag包基本使用"></a>flag包基本使用</h3><p><a target="_blank" rel="noopener" href="https://studygolang.com/pkgdoc">官方文档</a>]<br><a target="_blank" rel="noopener" href="https://www.liwenzhou.com/posts/Go/flag/">参考文档</a></p>
+<h4 id="导入flag包"><a href="#导入flag包" class="headerlink" title="导入flag包"></a>导入flag包</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> flag</span><br></pre></td></tr></table></figure>
+
+<h4 id="flag参数类型"><a href="#flag参数类型" class="headerlink" title="flag参数类型"></a>flag参数类型</h4><p>flag包支持的命令行参数类型有<code>bool</code>、<code>int</code>、<code>int64</code>、<code>uint</code>、<code>uint64</code>、<code>float</code> <code>float64</code>、<code>string</code>、<code>duration</code>。</p>
+<table>
+<thead>
+<tr>
+<th>flag参数</th>
+<th>有效值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符串flag</td>
+<td>合法字符串</td>
+</tr>
+<tr>
+<td>整数flag</td>
+<td>1234、0664、0x1234等类型，也可以是负数。</td>
+</tr>
+<tr>
+<td>浮点数flag</td>
+<td>合法浮点数</td>
+</tr>
+<tr>
+<td>bool类型flag</td>
+<td>1, 0, t, f, T, F, true, false, TRUE, FALSE, True, False。</td>
+</tr>
+<tr>
+<td>时间段flag</td>
+<td>任何合法的时间段字符串。如”300ms”、”-1.5h”、“2h45m”。合法的单位有”ns”、“us” &#x2F;“µs”、“ms”、“s”、“m”、“h”。</td>
+</tr>
+</tbody></table>
+<h4 id="定义命令行flag参数"><a href="#定义命令行flag参数" class="headerlink" title="定义命令行flag参数"></a>定义命令行flag参数</h4><p>有以下两种常用的定义命令行<code>flag</code>参数的方法。</p>
+<h3 id="flag-Type"><a href="#flag-Type" class="headerlink" title="flag.Type()"></a>flag.Type()</h3><p>基本格式如下：</p>
+<p><code>flag.Type(flag名, 默认值, 帮助信息)*Type</code> 例如我们要定义姓名、年龄、婚否三个命令行参数，我们可以按如下方式定义：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name := flag.String(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;张三&quot;</span>, <span class="string">&quot;姓名&quot;</span>)</span><br><span class="line">age := flag.Int(<span class="string">&quot;age&quot;</span>, <span class="number">18</span>, <span class="string">&quot;年龄&quot;</span>)</span><br><span class="line">married := flag.Bool(<span class="string">&quot;married&quot;</span>, <span class="literal">false</span>, <span class="string">&quot;婚否&quot;</span>)</span><br><span class="line">delay := flag.Duration(<span class="string">&quot;d&quot;</span>, <span class="number">0</span>, <span class="string">&quot;时间间隔&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，此时<code>name</code>、<code>age</code>、<code>married</code>、<code>delay</code>均为对应类型的指针。</p>
+<h4 id="flag-TypeVar"><a href="#flag-TypeVar" class="headerlink" title="flag.TypeVar()"></a>flag.TypeVar()</h4><p>基本格式如下： <code>flag.TypeVar(Type指针, flag名, 默认值, 帮助信息)</code> 例如我们要定义姓名、年龄、婚否三个命令行参数，我们可以按如下方式定义：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name <span class="type">string</span></span><br><span class="line"><span class="keyword">var</span> age <span class="type">int</span></span><br><span class="line"><span class="keyword">var</span> married <span class="type">bool</span></span><br><span class="line"><span class="keyword">var</span> delay time.Duration</span><br><span class="line">flag.StringVar(&amp;name, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;张三&quot;</span>, <span class="string">&quot;姓名&quot;</span>)</span><br><span class="line">flag.IntVar(&amp;age, <span class="string">&quot;age&quot;</span>, <span class="number">18</span>, <span class="string">&quot;年龄&quot;</span>)</span><br><span class="line">flag.BoolVar(&amp;married, <span class="string">&quot;married&quot;</span>, <span class="literal">false</span>, <span class="string">&quot;婚否&quot;</span>)</span><br><span class="line">flag.DurationVar(&amp;delay, <span class="string">&quot;d&quot;</span>, <span class="number">0</span>, <span class="string">&quot;时间间隔&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="flag-Parse"><a href="#flag-Parse" class="headerlink" title="flag.Parse()"></a>flag.Parse()</h4><p>通过以上两种方法定义好命令行flag参数后，需要通过调用<code>flag.Parse()</code>来对命令行参数进行解析。</p>
+<p>支持的命令行参数格式有以下几种：</p>
+<ul>
+<li><code>-flag xxx</code> （使用空格，一个<code>-</code>符号）</li>
+<li><code>--flag xxx</code> （使用空格，两个<code>-</code>符号）</li>
+<li><code>-flag=xxx</code> （使用等号，一个<code>-</code>符号）</li>
+<li><code>--flag=xxx</code> （使用等号，两个<code>-</code>符号）</li>
+</ul>
+<p>其中，布尔类型的参数必须使用等号的方式指定。</p>
+<p>Flag解析在第一个非flag参数（单个”-“不是flag参数）之前停止，或者在终止符”–“之后停止。</p>
+<h4 id="flag其他函数"><a href="#flag其他函数" class="headerlink" title="flag其他函数"></a>flag其他函数</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flag.Args()  <span class="comment">////返回命令行参数后的其他参数，以[]string类型</span></span><br><span class="line">flag.NArg()  <span class="comment">//返回命令行参数后的其他参数个数</span></span><br><span class="line">flag.NFlag() <span class="comment">//返回使用的命令行参数个数</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="完整示例"><a href="#完整示例" class="headerlink" title="完整示例"></a>完整示例</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//定义命令行参数方式1</span></span><br><span class="line">	<span class="keyword">var</span> name <span class="type">string</span></span><br><span class="line">	<span class="keyword">var</span> age <span class="type">int</span></span><br><span class="line">	<span class="keyword">var</span> married <span class="type">bool</span></span><br><span class="line">	<span class="keyword">var</span> delay time.Duration</span><br><span class="line">	flag.StringVar(&amp;name, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;张三&quot;</span>, <span class="string">&quot;姓名&quot;</span>)</span><br><span class="line">	flag.IntVar(&amp;age, <span class="string">&quot;age&quot;</span>, <span class="number">18</span>, <span class="string">&quot;年龄&quot;</span>)</span><br><span class="line">	flag.BoolVar(&amp;married, <span class="string">&quot;married&quot;</span>, <span class="literal">false</span>, <span class="string">&quot;婚否&quot;</span>)</span><br><span class="line">	flag.DurationVar(&amp;delay, <span class="string">&quot;d&quot;</span>, <span class="number">0</span>, <span class="string">&quot;延迟的时间间隔&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//解析命令行参数</span></span><br><span class="line">	flag.Parse()</span><br><span class="line">	fmt.Println(name, age, married, delay)</span><br><span class="line">	<span class="comment">//返回命令行参数后的其他参数</span></span><br><span class="line">	fmt.Println(flag.Args())</span><br><span class="line">	<span class="comment">//返回命令行参数后的其他参数个数</span></span><br><span class="line">	fmt.Println(flag.NArg())</span><br><span class="line">	<span class="comment">//返回使用的命令行参数个数</span></span><br><span class="line">	fmt.Println(flag.NFlag())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p>命令行参数使用提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ ./flag_demo -<span class="built_in">help</span></span><br><span class="line">Usage of ./flag_demo:</span><br><span class="line">  -age int</span><br><span class="line">        年龄 (default 18)</span><br><span class="line">  -d duration</span><br><span class="line">        时间间隔</span><br><span class="line">  -married</span><br><span class="line">        婚否</span><br><span class="line">  -name string</span><br><span class="line">        姓名 (default <span class="string">&quot;张三&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>正常使用命令行flag参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ./flag_demo -name 沙河娜扎 --age 28 -married=<span class="literal">false</span> -d=1h30m</span><br><span class="line">沙河娜扎 28 <span class="literal">false</span> 1h30m0s</span><br><span class="line">[]</span><br><span class="line">0</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<p>使用非flag命令行参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ./flag_demo a b c</span><br><span class="line">张三 18 <span class="literal">false</span> 0s</span><br><span class="line">[a b c]</span><br><span class="line">3</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="Log-包"><a href="#Log-包" class="headerlink" title="Log 包"></a>Log 包</h2><p>日志相关，<a href="ttps://blog.csdn.net/cold___play/article/details/130744302">参考</a></p>
+<h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><p>常量列表：</p>
+<ul>
+<li>Ldate         日期 年&#x2F;月&#x2F;日</li>
+<li>Ltime         时间 时:分:秒</li>
+<li>Lmicroseconds 时间 .毫秒于Ltime之后</li>
+<li>Llongfile     完整文件名:行号</li>
+<li>Lshortfile    文件名，此标志位优先于 Llongfile</li>
+<li>LstdFlags     &#x3D; Ldate 并且 Ltime</li>
+</ul>
+<p>功能说明：标志位常量控制日志格式。</p>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	log.SetFlags(log.Lshortfile | log.LstdFlags)</span><br><span class="line">	log.Println(<span class="string">&quot;log:&quot;</span>) <span class="comment">//2023/05/18 12:09:57 constantsDemo.go:15: log:</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函数列表:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fatal</span><span class="params">(v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fatalf</span><span class="params">(format <span class="type">string</span>, v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fatalln</span><span class="params">(v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Flags</span><span class="params">()</span></span> <span class="type">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Panic</span><span class="params">(v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Panicf</span><span class="params">(format <span class="type">string</span>, v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Panicln</span><span class="params">(v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Prefix</span><span class="params">()</span></span> <span class="type">string</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Print</span><span class="params">(v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Printf</span><span class="params">(format <span class="type">string</span>, v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Println</span><span class="params">(v ...<span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetFlags</span><span class="params">(flag <span class="type">int</span>)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetOutput</span><span class="params">(w io.Writer)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SetPrefix</span><span class="params">(prefix <span class="type">string</span>)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">(out io.Writer, prefix <span class="type">string</span>, flag <span class="type">int</span>)</span></span> *Logger</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Fatal(v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Fatalf(format <span class="type">string</span>, v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Fatalln(v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Flags() <span class="type">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Output(calldepth <span class="type">int</span>, s <span class="type">string</span>) <span class="type">error</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Panic(v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Panicf(format <span class="type">string</span>, v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Panicln(v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Prefix() <span class="type">string</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Print(v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Printf(format <span class="type">string</span>, v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> Println(v ...<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> SetFlags(flag <span class="type">int</span>)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *Logger)</span></span> SetPrefix(prefix <span class="type">string</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="自定义-logger"><a href="#自定义-logger" class="headerlink" title="自定义 logger:"></a>自定义 logger:</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">(out io.Writer, prefix <span class="type">string</span>, flag <span class="type">int</span>)</span></span> *Logger</span><br></pre></td></tr></table></figure>
+<p>参数列表：<br>    out 输出目标<br>    prefix 输出前缀<br>    flag 格式配置标识值<br>返回值：<br>    自定义的logger<br>功能说明：<br>    这个方法用来自定义logger，指定输出目标、格式等<br>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	l := log.New(os.Stderr, <span class="string">&quot;logger&quot;</span>, log.Ldate)</span><br><span class="line">	l.Println(<span class="string">&quot;log to stderr sample&quot;</span>)<span class="comment">//logger2023/05/18 log to stderr sample</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Fatal系列函数"><a href="#Fatal系列函数" class="headerlink" title="Fatal系列函数"></a>Fatal系列函数</h3><h4 id="1-1-func-Fatal-v-…interface"><a href="#1-1-func-Fatal-v-…interface" class="headerlink" title="1.1 func Fatal(v …interface{})"></a>1.1 func Fatal(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    打印日志并退出。相当于调用Print()并os.Exit(1)</p>
+<h4 id="1-2-func-Fatalf-format-string-v-…interface"><a href="#1-2-func-Fatalf-format-string-v-…interface" class="headerlink" title="1.2 func Fatalf(format string, v …interface{})"></a>1.2 func Fatalf(format string, v …interface{})</h4><p>参数列表：<br>    format 输出格式<br>    v 带输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    按格式输出日志，并退出。相当于调用Printf()并调用os.Exit(1)</p>
+<h4 id="1-3-func-Fatalln-v-…interface"><a href="#1-3-func-Fatalln-v-…interface" class="headerlink" title="1.3 func Fatalln(v …interface{})"></a>1.3 func Fatalln(v …interface{})</h4><p>参数列表：<br>    v<br>返回值：<br>    无<br>功能说明：<br>    打印一行日志并退出。相当于调用Println()并os.Exit(1)</p>
+<h4 id="1-4-func-l-Logger-Fatal-v-…interface"><a href="#1-4-func-l-Logger-Fatal-v-…interface" class="headerlink" title="1.4 func (l *Logger) Fatal(v …interface{})"></a>1.4 func (l *Logger) Fatal(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    打印日志并退出。相当于调用l.Print()并os.Exit(1)</p>
+<h4 id="1-5-func-Fatalf-format-string-v-…interface"><a href="#1-5-func-Fatalf-format-string-v-…interface" class="headerlink" title="1.5 func Fatalf(format string, v …interface{})"></a>1.5 func Fatalf(format string, v …interface{})</h4><p>参数列表：<br>    format 输出格式<br>    v 带输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    按格式输出日志，并退出。相当于调用l.Printf()并调用os.Exit(1)</p>
+<h4 id="1-6-func-l-Logger-Fatalln-v-…interface"><a href="#1-6-func-l-Logger-Fatalln-v-…interface" class="headerlink" title="1.6 func (l *Logger) Fatalln(v …interface{})"></a>1.6 func (l *Logger) Fatalln(v …interface{})</h4><p>参数列表：<br>    v<br>返回值：<br>    无<br>功能说明：<br>    打印一行日志并退出。相当于调用l.Println()并os.Exit(1)</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	age := <span class="number">25</span></span><br><span class="line">	log.Fatal(<span class="string">&quot;Hi &amp; Bye ! Age = &quot;</span>, age) <span class="comment">// this will print &quot;Hi &amp; Bye ! Age = 25&quot;</span></span><br><span class="line">	log.Println(<span class="string">&quot;This will not be called.&quot;</span>)</span><br><span class="line"></span><br><span class="line">	name := <span class="string">&quot;golang&quot;</span></span><br><span class="line">	log.Fatalf(<span class="string">&quot;%8d,%8s&quot;</span>, <span class="number">23</span>, name) <span class="comment">//2013/03/10 16:08:49       23,  golang</span></span><br><span class="line"></span><br><span class="line">	log.Fatalln(<span class="string">&quot;bye!&quot;</span>) <span class="comment">//2013/03/10 16:14:54 bye!\n</span></span><br><span class="line"></span><br><span class="line">	l := log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	age = <span class="number">25</span></span><br><span class="line">	l.Fatal(<span class="string">&quot;Hi &amp; Bye ! Age = &quot;</span>, age) <span class="comment">// this will print &quot;Hi &amp; Bye ! Age = 25&quot;</span></span><br><span class="line">	l.Println(<span class="string">&quot;This will not be called.&quot;</span>)</span><br><span class="line"></span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	<span class="comment">//l.Fatalf(&quot;%s&quot;, &quot;hello&quot;)</span></span><br><span class="line">	name = <span class="string">&quot;golang&quot;</span></span><br><span class="line">	l.Fatalf(<span class="string">&quot;%8d,%8s&quot;</span>, <span class="number">23</span>, name) <span class="comment">//2013/03/10 16:08:49       23,  golang</span></span><br><span class="line"></span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	l.Fatalln(<span class="string">&quot;bye!&quot;</span>) <span class="comment">//2013/03/10 16:14:54 bye!\n</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Flags系列函数"><a href="#Flags系列函数" class="headerlink" title="Flags系列函数"></a>Flags系列函数</h3><h4 id="2-1-func-Flags-int"><a href="#2-1-func-Flags-int" class="headerlink" title="2.1 func Flags() int"></a>2.1 func Flags() int</h4><p>参数列表：<br>    无<br>返回值：<br>    默认logger的配置值<br>功能说明：<br>    返回默认logger配置值。</p>
+<h4 id="2-2-func-l-Logger-Flags-int"><a href="#2-2-func-l-Logger-Flags-int" class="headerlink" title="2.2 func (l *Logger) Flags() int"></a>2.2 func (l *Logger) Flags() int</h4><p>参数列表：<br>    无<br>返回值：<br>    当前logger的配置值<br>功能说明：<br>    返回当前logger配置值。</p>
+<h4 id="2-3-func-SetFlags-flag-int"><a href="#2-3-func-SetFlags-flag-int" class="headerlink" title="2.3 func SetFlags(flag int)"></a>2.3 func SetFlags(flag int)</h4><p>参数列表：<br>    flag logger配置值<br>返回值：<br>    无<br>功能说明：<br>    这个方法用来设置标准logger的配置，默认为3（logger.LstdFlags）</p>
+<h4 id="2-4-func-l-Logger-SetFlags-flag-int"><a href="#2-4-func-l-Logger-SetFlags-flag-int" class="headerlink" title="2.4 func (l *Logger) SetFlags(flag int)"></a>2.4 func (l *Logger) SetFlags(flag int)</h4><p>参数列表：<br>    flag logger配置值<br>返回值：<br>    无<br>功能说明：<br>    这个方法用来设置标准logger的配置，默认为3（logger.LstdFlags）</p>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;standard flags :&quot;</span>, log.Flags()) <span class="comment">//standard flags : 3</span></span><br><span class="line">	<span class="comment">//the flags constants</span></span><br><span class="line">	fmt.Println(log.Ldate)         <span class="comment">//1</span></span><br><span class="line">	fmt.Println(log.Ltime)         <span class="comment">//2</span></span><br><span class="line">	fmt.Println(log.Lmicroseconds) <span class="comment">//4</span></span><br><span class="line">	fmt.Println(log.Llongfile)     <span class="comment">//8</span></span><br><span class="line">	fmt.Println(log.Lshortfile)    <span class="comment">//16</span></span><br><span class="line">	fmt.Println(log.LstdFlags)     <span class="comment">//LstdFlags     = Ldate | Ltime   3</span></span><br><span class="line"></span><br><span class="line">	l := log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	fmt.Println(<span class="string">&quot;logger l&#x27;s flags :&quot;</span>, l.Flags()) <span class="comment">//logger l&#x27;s flags : 3</span></span><br><span class="line"></span><br><span class="line">	log.Println(log.Flags()) <span class="comment">//2013/03/10 17:46:53 3</span></span><br><span class="line">	log.SetFlags(log.Ldate)</span><br><span class="line">	log.Println(log.Flags()) <span class="comment">//2013/03/10 1</span></span><br><span class="line">	log.SetFlags(log.LstdFlags | log.Lshortfile)</span><br><span class="line">	log.Println(log.Flags()) <span class="comment">//2013/03/10 17:46:53 setflags.go:17: 19</span></span><br><span class="line"></span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	l.Println(l.Flags()) <span class="comment">//2013/03/10 17:46:53 3</span></span><br><span class="line">	l.SetFlags(log.Ldate)</span><br><span class="line">	l.Println(l.Flags()) <span class="comment">//2013/03/10 1</span></span><br><span class="line">	l.SetFlags(log.LstdFlags | log.Lshortfile)</span><br><span class="line">	l.Println(l.Flags()) <span class="comment">//2013/03/10 17:46:53 setflags.go:17: 19</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Panic系列函数"><a href="#Panic系列函数" class="headerlink" title="Panic系列函数"></a>Panic系列函数</h3><h4 id="3-1-func-l-Logger-Panic-v-…interface"><a href="#3-1-func-l-Logger-Panic-v-…interface" class="headerlink" title="3.1 func (l *Logger) Panic(v …interface{})"></a>3.1 func (l *Logger) Panic(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    这个方法相当于调用l.Print()及panic()</p>
+<h4 id="3-2-func-l-Logger-Panicf-format-string-v-…interface"><a href="#3-2-func-l-Logger-Panicf-format-string-v-…interface" class="headerlink" title="3.2 func (l *Logger) Panicf(format string, v …interface{})"></a>3.2 func (l *Logger) Panicf(format string, v …interface{})</h4><p>参数列表：<br>    format 输出格式<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    相当于调用l.Printf()，之后调用panic()</p>
+<h4 id="3-3-func-l-Logger-Panicln-v-…interface"><a href="#3-3-func-l-Logger-Panicln-v-…interface" class="headerlink" title="3.3 func (l *Logger) Panicln(v …interface{})"></a>3.3 func (l *Logger) Panicln(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    相当于调用l.Println()并调用panic()</p>
+<h4 id="3-4-func-Panic-v-…interface"><a href="#3-4-func-Panic-v-…interface" class="headerlink" title="3.4 func Panic(v …interface{})"></a>3.4 func Panic(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    这个方法相当于调用Print()及panic()</p>
+<h4 id="3-5-func-Panicf-format-string-v-…interface"><a href="#3-5-func-Panicf-format-string-v-…interface" class="headerlink" title="3.5 func Panicf(format string, v …interface{})"></a>3.5 func Panicf(format string, v …interface{})</h4><p>参数列表：<br>    format 输出格式<br>    v 待输出参数列表<br>返回值：<br>    - 无<br>功能说明：<br>    相当于调用Printf()，之后调用panic()</p>
+<h4 id="3-6-func-Panicln-v-…interface"><a href="#3-6-func-Panicln-v-…interface" class="headerlink" title="3.6 func Panicln(v …interface{})"></a>3.6 func Panicln(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    相当于调用Println()并调用panic()</p>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	l := log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> err := <span class="built_in">recover</span>(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(err) <span class="comment">//output : &quot;call panic and stop&quot;</span></span><br><span class="line">			handleException()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">	l.Panic(<span class="string">&quot;call panic and stop&quot;</span>)</span><br><span class="line">	log.Println(<span class="string">&quot;this will not be called.&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> err := <span class="built_in">recover</span>(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> err == <span class="string">&quot;3q&quot;</span> &#123;</span><br><span class="line">				log.Println(<span class="string">&quot;you are welcome&quot;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	l.Panicf(<span class="string">&quot;%d%s&quot;</span>, <span class="number">3</span>, <span class="string">&quot;q&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> err := <span class="built_in">recover</span>(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> err == <span class="string">&quot;3q\n&quot;</span> &#123;</span><br><span class="line">				log.Println(<span class="string">&quot;you are welcome&quot;</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	l.Panicln(<span class="string">&quot;3q&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">handleException</span><span class="params">()</span></span> &#123;</span><br><span class="line">	log.Println(<span class="string">&quot;recovering...&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Print系列函数"><a href="#Print系列函数" class="headerlink" title="Print系列函数"></a>Print系列函数</h3><h4 id="4-1-func-l-Logger-Print-v-…interface"><a href="#4-1-func-l-Logger-Print-v-…interface" class="headerlink" title="4.1 func (l *Logger) Print(v …interface{})"></a>4.1 func (l *Logger) Print(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    输出日志到logger。参数处理方式同fmt.Print</p>
+<h4 id="4-2-func-l-Logger-Printf-format-string-v-…interface"><a href="#4-2-func-l-Logger-Printf-format-string-v-…interface" class="headerlink" title="4.2 func (l *Logger) Printf(format string, v …interface{})"></a>4.2 func (l *Logger) Printf(format string, v …interface{})</h4><p>参数列表：<br>    format 输出格式<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    调用l.Output输出日志到logger l。参数处理方式同fmt.Printf</p>
+<h4 id="4-3-func-l-Logger-Println-v-…interface"><a href="#4-3-func-l-Logger-Println-v-…interface" class="headerlink" title="4.3 func (l *Logger) Println(v …interface{})"></a>4.3 func (l *Logger) Println(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    调用Output打印日志到当前logger，参数处理方式同fmt.Println</p>
+<h4 id="4-4-func-Print-v-…interface"><a href="#4-4-func-Print-v-…interface" class="headerlink" title="4.4 func Print(v …interface{})"></a>4.4 func Print(v …interface{})</h4><p>参数列表：<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    输出日志到标准logger。参数处理方式同fmt.Print</p>
+<h4 id="4-5-func-Printf-format-string-v-…interface"><a href="#4-5-func-Printf-format-string-v-…interface" class="headerlink" title="4.5 func Printf(format string, v …interface{})"></a>4.5 func Printf(format string, v …interface{})</h4><p>参数列表：<br>    format 输出格式<br>    v 待输出参数列表<br>返回值：<br>    无<br>功能说明：<br>    调用Output输出日志到标准logger。参数处理方式同fmt.Printf</p>
+<h4 id="4-6-func-Println-v-…interface"><a href="#4-6-func-Println-v-…interface" class="headerlink" title="4.6 func Println(v …interface{})"></a>4.6 func Println(v …interface{})</h4><p>参数列表：<br>    v<br>返回值：<br>    无<br>功能说明：<br>    调用Output打印日志到标准logger，参数处理方式同fmt.Println</p>
+<h4 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	l := log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	l.Print(<span class="string">&quot;string&quot;</span>, <span class="number">1</span>, <span class="number">2.3</span>) <span class="comment">//2013/03/10 17:26:06 string1 2.3</span></span><br><span class="line"></span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	l.Printf(<span class="string">&quot;%s&quot;</span>, <span class="string">&quot;hello&quot;</span>) <span class="comment">//hello</span></span><br><span class="line">	name := <span class="string">&quot;golang&quot;</span></span><br><span class="line">	l.Printf(<span class="string">&quot;%8d,%8s&quot;</span>, <span class="number">23</span>, name) <span class="comment">//2013/03/10 16:08:49       23,  golang</span></span><br><span class="line"></span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	l.Println(<span class="string">&quot;hello&quot;</span>) <span class="comment">//2013/03/10 17:35:28 hello\n</span></span><br><span class="line"></span><br><span class="line">	log.Print(<span class="string">&quot;string&quot;</span>, <span class="number">1</span>, <span class="number">2.3</span>) <span class="comment">//2013/03/10 17:26:06 string1 2.3</span></span><br><span class="line"></span><br><span class="line">	log.Printf(<span class="string">&quot;%s&quot;</span>, <span class="string">&quot;hello&quot;</span>) <span class="comment">//hello</span></span><br><span class="line">	name = <span class="string">&quot;golang&quot;</span></span><br><span class="line">	log.Printf(<span class="string">&quot;%8d,%8s&quot;</span>, <span class="number">23</span>, name) <span class="comment">//2013/03/10 16:08:49       23,  golang</span></span><br><span class="line"></span><br><span class="line">	log.Println(<span class="string">&quot;hello&quot;</span>) <span class="comment">//2013/03/10 17:35:28 hello\n</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="其它函数"><a href="#其它函数" class="headerlink" title="其它函数"></a>其它函数</h3><h4 id="5-1-func-l-Logger-Prefix-string"><a href="#5-1-func-l-Logger-Prefix-string" class="headerlink" title="5.1 func (l *Logger) Prefix() string"></a>5.1 func (l *Logger) Prefix() string</h4><p>参数列表：<br>    无<br>返回值：<br>    logger前缀，字符串类型<br>功能说明：<br>    返回当前logger的输出前缀</p>
+<h4 id="5-2-func-Prefix-string"><a href="#5-2-func-Prefix-string" class="headerlink" title="5.2 func Prefix() string"></a>5.2 func Prefix() string</h4><p>参数列表：<br>    无<br>返回值：<br>    标准logger前缀，字符串类型<br>功能说明：<br>    返回标准logger的输出前缀</p>
+<h4 id="5-3-func-SetPrefix-prefix-string"><a href="#5-3-func-SetPrefix-prefix-string" class="headerlink" title="5.3 func SetPrefix(prefix string)"></a>5.3 func SetPrefix(prefix string)</h4><p>参数列表：<br>    prefix 前缀<br>返回值：<br>    无<br>功能说明：<br>    设置logger的输出前缀</p>
+<h4 id="5-4-func-SetPrefix-prefix-string"><a href="#5-4-func-SetPrefix-prefix-string" class="headerlink" title="5.4 func SetPrefix(prefix string)"></a>5.4 func SetPrefix(prefix string)</h4><p>参数列表：<br>    prefix 前缀<br>返回值：<br>    无<br>功能说明：<br>    设置logger的输出前缀</p>
+<h4 id="5-5-func-l-Logger-Output-calldepth-int-s-string-error"><a href="#5-5-func-l-Logger-Output-calldepth-int-s-string-error" class="headerlink" title="5.5 func (l *Logger) Output(calldepth int, s string) error"></a>5.5 func (l *Logger) Output(calldepth int, s string) error</h4><p>参数列表：<br>    calldepth 深度<br>    s 字符串<br>返回值：<br>    error 错误<br>功能说明：<br>    输出日志事件。字符串s包含待打印内容，跟在预定义的prefix后面，并且根据flags设置会有区分。如果s末尾没有换行符，这个方法会默认加上一个。calldepth目前预定义均为2,以后会用来支持通用场景，支持其他值配置。（本人注：日志输出不建议直接使用该方法）</p>
+<h4 id="5-6-func-SetOutput-w-io-Writer"><a href="#5-6-func-SetOutput-w-io-Writer" class="headerlink" title="5.6 func SetOutput(w io.Writer)"></a>5.6 func SetOutput(w io.Writer)</h4><p>参数列表：<br>    w 目标流，io.Writer类型<br>返回值：<br>    无<br>功能说明：<br>    设置标准logger的输出目标</p>
+<h4 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	l := log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	fmt.Print(l.Prefix()) <span class="comment">//this will print nothing</span></span><br><span class="line">	l.Println(<span class="number">1</span>)          <span class="comment">//2013/03/10 17:02:05 1</span></span><br><span class="line">	l.SetPrefix(<span class="string">&quot;log:&quot;</span>)</span><br><span class="line">	fmt.Println(l.Prefix()) <span class="comment">//log:</span></span><br><span class="line">	l.Println(<span class="number">2</span>)            <span class="comment">//log:2013/03/10 17:02:05 2</span></span><br><span class="line"></span><br><span class="line">	fmt.Print(log.Prefix()) <span class="comment">//this will print nothing</span></span><br><span class="line">	log.Println(<span class="number">1</span>)          <span class="comment">//2013/03/10 17:02:05 1</span></span><br><span class="line">	log.SetPrefix(<span class="string">&quot;log:&quot;</span>)</span><br><span class="line">	fmt.Println(log.Prefix()) <span class="comment">//log:</span></span><br><span class="line">	log.Println(<span class="number">2</span>)            <span class="comment">//log:2013/03/10 17:02:05 2</span></span><br><span class="line"></span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;&quot;</span>, log.LstdFlags)</span><br><span class="line">	fmt.Print(l.Prefix()) <span class="comment">//this will print nothing</span></span><br><span class="line">	l.Println(<span class="number">1</span>)          <span class="comment">//2013/03/10 17:02:05 1</span></span><br><span class="line">	l.SetPrefix(<span class="string">&quot;log:&quot;</span>)</span><br><span class="line">	fmt.Println(l.Prefix()) <span class="comment">//log:</span></span><br><span class="line"></span><br><span class="line">	l.Println(<span class="number">2</span>) <span class="comment">//log:2013/03/10 17:02:05 2</span></span><br><span class="line"></span><br><span class="line">	fmt.Print(log.Prefix()) <span class="comment">//this will print nothing</span></span><br><span class="line">	log.Println(<span class="number">1</span>)          <span class="comment">//2013/03/10 17:02:05 1</span></span><br><span class="line">	log.SetPrefix(<span class="string">&quot;log:&quot;</span>)</span><br><span class="line">	fmt.Println(log.Prefix()) <span class="comment">//log:</span></span><br><span class="line">	log.Println(<span class="number">2</span>)            <span class="comment">//log:2013/03/10 17:02:05 2</span></span><br><span class="line"></span><br><span class="line">	l = log.New(os.Stdout, <span class="string">&quot;log-&gt;&quot;</span>, log.Ldate)</span><br><span class="line">	l.Output(<span class="number">2</span>, <span class="string">&quot;log output&quot;</span>)</span><br><span class="line"></span><br><span class="line">	file, err := os.OpenFile(<span class="string">&quot;sample.txt&quot;</span>, os.O_WRONLY, <span class="number">0666</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> file.Close()</span><br><span class="line">	log.SetOutput(file)</span><br><span class="line">	log.Println(<span class="string">&quot;log to file&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Badger-包"><a href="#Badger-包" class="headerlink" title="Badger 包"></a>Badger 包</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903814571491335">参考</a><br><a target="_blank" rel="noopener" href="https://pkg.go.dev/github.com/dgraph-io/badger#Txn">官方文档</a><br>badger是一个纯Go实现的快速的嵌入式K&#x2F;V数据库，针对LSM tree做了优化。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>$ go get github.com/dgraph-io/badger/...</code></p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p>打开一个数据库</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">opts := badger.DefaultOptions</span><br><span class="line">opts.Dir = <span class="string">&quot;/tmp/badger&quot;</span> </span><br><span class="line">opts.ValueDir = <span class="string">&quot;/tmp/badger&quot;</span> </span><br><span class="line">db, err := badger.Open(opts) </span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	log.Fatal(err) </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">defer</span> db.Close()</span><br></pre></td></tr></table></figure>
+<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><h4 id="存储kv"><a href="#存储kv" class="headerlink" title="存储kv"></a>存储kv</h4><p>使用 Txn.Set()方法</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">err := db.Update(<span class="function"><span class="keyword">func</span><span class="params">(txn *badger.Txn)</span></span> <span class="type">error</span> &#123;   </span><br><span class="line">	err := txn.Set([]<span class="type">byte</span>(<span class="string">&quot;answer&quot;</span>), []<span class="type">byte</span>(<span class="string">&quot;42&quot;</span>))   </span><br><span class="line">	<span class="keyword">return</span> err </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="批量设置"><a href="#批量设置" class="headerlink" title="批量设置"></a>批量设置</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wb := db.NewWriteBatch() </span><br><span class="line"><span class="keyword">defer</span> wb.Cancel() </span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; N; i++ &#123;</span><br><span class="line">	err := wb.Set(key(i), value(i), <span class="number">0</span>) <span class="comment">// Will create txns as needed. </span></span><br><span class="line">	handle(err) </span><br><span class="line">&#125; </span><br><span class="line">handle(wb.Flush()) <span class="comment">// Wait for all txns to finish.</span></span><br></pre></td></tr></table></figure>
+<p>WriteBatch不允许任何读取。对于读-修改-写，应该使用事务API。</p>
+<h5 id="设置生存时间-TTL"><a href="#设置生存时间-TTL" class="headerlink" title="设置生存时间 TTL"></a>设置生存时间 TTL</h5><p>Badger 允许在键上设置一个可选的生存时间 (TTL) 值。一旦 TTL 结束，KEY 将不再是可检索的，并且将进行垃圾收集。TTL 可以使用 Txn.SetWithTTL() 设置为一个<code>time.Duration</code>的值</p>
+<h5 id="设置元数据"><a href="#设置元数据" class="headerlink" title="设置元数据"></a>设置元数据</h5><p><code>Txn.SetWithMeta()</code> 设置用户元数据</p>
+<p>使用 <code>Txn.SetEntry()</code> 可以一次性设置 key, value, user metatadata 和 TTL</p>
+<h5 id="遍历-keys"><a href="#遍历-keys" class="headerlink" title="遍历 keys"></a>遍历 keys</h5><p>要遍历键，我们可以使用迭代器，可以使用 <code>Txn.NewIterator()</code>方法获得迭代器。迭代按字节字典排序顺序进行。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">err := db.View(<span class="function"><span class="keyword">func</span><span class="params">(txn *badger.Txn)</span></span> <span class="type">error</span> &#123; <span class="comment">// badger 的 view 方法创建一个只读事务</span></span><br><span class="line">	opts := badger.DefaultIteratorOptions   </span><br><span class="line">	opts.PrefetchSize = <span class="number">10</span>   </span><br><span class="line">	it := txn.NewIterator(opts)   </span><br><span class="line">	<span class="keyword">defer</span> it.Close()   </span><br><span class="line">	<span class="keyword">for</span> it.Rewind(); it.Valid(); it.Next() &#123;</span><br><span class="line">	    item := it.Item() </span><br><span class="line">	    k := item.Key()     </span><br><span class="line">	    err := item.Value(<span class="function"><span class="keyword">func</span><span class="params">(v []<span class="type">byte</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	        fmt.Printf(<span class="string">&quot;key=%s, value=%s\n&quot;</span>, k, v)       </span><br><span class="line">	        <span class="keyword">return</span> <span class="literal">nil</span>     </span><br><span class="line">	        &#125;)     </span><br><span class="line">	    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;       </span><br><span class="line">		    <span class="keyword">return</span> err</span><br><span class="line">		&#125;   </span><br><span class="line">	&#125;   </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h6 id="前缀扫描"><a href="#前缀扫描" class="headerlink" title="前缀扫描"></a>前缀扫描</h6><p>要遍历键前缀，可以将 Seek() 和 ValidForPrefix() 组合使用：（这里的前缀是键值的）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">db.View(<span class="function"><span class="keyword">func</span><span class="params">(txn *badger.Txn)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">	it := txn.NewIterator(badger.DefaultIteratorOptions)</span><br><span class="line">	<span class="keyword">defer</span> it.Close()   </span><br><span class="line">	prefix := []<span class="type">byte</span>(<span class="string">&quot;1234&quot;</span>)   </span><br><span class="line">	<span class="keyword">for</span> it.Seek(prefix); it.ValidForPrefix(prefix); it.Next() &#123;</span><br><span class="line">		item := it.Item()    </span><br><span class="line">		k := item.Key()     </span><br><span class="line">		err := item.Value(<span class="function"><span class="keyword">func</span><span class="params">(v []<span class="type">byte</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">&quot;key=%s, value=%s\n&quot;</span>, k, v)       </span><br><span class="line">			<span class="keyword">return</span> <span class="literal">nil</span>     </span><br><span class="line">		&#125;)     </span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;       </span><br><span class="line">			<span class="keyword">return</span> err     </span><br><span class="line">		&#125;   </span><br><span class="line">	&#125;   </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h6 id="键的遍历"><a href="#键的遍历" class="headerlink" title="键的遍历"></a>键的遍历</h6><p>Badger支持一种独特的迭代模式，称为只有键的迭代。它比常规迭代快几个数量级，因为它只涉及对 lsm 树的访问，而 lsm 树通常完全驻留在 RAM 中。要启用只有键的迭代，您需要设置 IteratorOptions 。PrefetchValues 字段为 false 。这还可以用于在迭代期间对选定的键执行稀疏读取，只在需要时调用 item.Value() 。(获取键，而不获取对应的值)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">err := db.View(<span class="function"><span class="keyword">func</span><span class="params">(txn *badger.Txn)</span></span> <span class="type">error</span> &#123;   </span><br><span class="line">	opts := badger.DefaultIteratorOptions   </span><br><span class="line">	opts.PrefetchValues = <span class="literal">false</span>   </span><br><span class="line">	it := txn.NewIterator(opts)   </span><br><span class="line">	<span class="keyword">defer</span> it.Close()   </span><br><span class="line">	<span class="keyword">for</span> it.Rewind(); it.Valid(); it.Next() &#123;</span><br><span class="line">		item := it.Item()     </span><br><span class="line">		k := item.Key()     </span><br><span class="line">		fmt.Printf(<span class="string">&quot;key=%s\n&quot;</span>, k)   </span><br><span class="line">	&#125;   </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><p>Badger 提供了一个流框架，它可以并发地遍历数据库的全部或部分，将数据转换为自定义键值，并连续地将数据流输出，以便通过网络发送、写入磁盘，甚至写入 Badger。这是比使用单个迭代器更快的遍历 Badger 的方法。Stream 在管理模式和正常模式下都支持Badger 。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">stream := db.NewStream() </span><br><span class="line"><span class="comment">// db.NewStreamAt(readTs) for managed mode. </span></span><br><span class="line"><span class="comment">// -- Optional settings </span></span><br><span class="line">stream.NumGo = <span class="number">16</span>          <span class="comment">// Set number of goroutines to use for iteration.</span></span><br><span class="line">stream.Prefix = []<span class="type">byte</span>(<span class="string">&quot;some-prefix&quot;</span>) <span class="comment">// Leave nil for iteration over the whole DB. </span></span><br><span class="line">stream.LogPrefix = <span class="string">&quot;Badger.Streaming&quot;</span> <span class="comment">// For identifying stream logs. Outputs to Logger. </span></span><br><span class="line"><span class="comment">// ChooseKey is called concurrently for every key. If left nil, assumes true by default. </span></span><br><span class="line">stream.ChooseKey = <span class="function"><span class="keyword">func</span><span class="params">(item *badger.Item)</span></span> <span class="type">bool</span> &#123;   </span><br><span class="line">	<span class="keyword">return</span> bytes.HasSuffix(item.Key(), []<span class="type">byte</span>(<span class="string">&quot;er&quot;</span>)) </span><br><span class="line">	<span class="comment">// 这个例子中判断后缀 “er” </span></span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// KeyToList is called concurrently for chosen keys. This can be used to convert </span></span><br><span class="line"><span class="comment">// Badger data into custom key-values. If nil, uses stream.ToList, a default </span></span><br><span class="line"><span class="comment">// implementation, which picks all valid key-values. </span></span><br><span class="line">stream.KeyToList = <span class="literal">nil</span> </span><br><span class="line"><span class="comment">// -- End of optional settings. </span></span><br><span class="line"><span class="comment">// Send is called serially, while Stream.Orchestrate is running. 用于序列化并处理流操作的结果</span></span><br><span class="line">stream.Send = <span class="function"><span class="keyword">func</span><span class="params">(list *pb.KVList)</span></span> <span class="type">error</span> &#123;   </span><br><span class="line">	<span class="keyword">return</span> proto.MarshalText(w, list) <span class="comment">// Write to w. </span></span><br><span class="line">	&#125; </span><br><span class="line"><span class="comment">// Run the stream </span></span><br><span class="line"><span class="keyword">if</span> err := stream.Orchestrate(context.Background()); err != <span class="literal">nil</span> &#123;   </span><br><span class="line">	<span class="keyword">return</span> err </span><br><span class="line">&#125; <span class="comment">// Done.</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="删除一个key"><a href="#删除一个key" class="headerlink" title="删除一个key"></a>删除一个key</h3><p>使用<code>Txn.Delete()</code> 方法删除一个key</p>
+<h3 id="获取-key-value"><a href="#获取-key-value" class="headerlink" title="获取 key value"></a>获取 key value</h3><p>通过 txn.Get 获取 value</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">err := db.View(<span class="function"><span class="keyword">func</span><span class="params">(txn *badger.Txn)</span></span> <span class="type">error</span> &#123;   </span><br><span class="line">	item, err := txn.Get([]<span class="type">byte</span>(<span class="string">&quot;answer&quot;</span>))   </span><br><span class="line">	handle(err)   </span><br><span class="line">	<span class="keyword">var</span> valNot, valCopy []<span class="type">byte</span>   </span><br><span class="line">	err := item.Value(<span class="function"><span class="keyword">func</span><span class="params">(val []<span class="type">byte</span>)</span></span> <span class="type">error</span> &#123;     </span><br><span class="line">	<span class="comment">// This func with val would only be called if item.Value encounters no error.     </span></span><br><span class="line">	<span class="comment">// Accessing val here is valid.     </span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;The answer is: %s\n&quot;</span>, val)     </span><br><span class="line">	<span class="comment">// Copying or parsing val is valid.     </span></span><br><span class="line">	valCopy = <span class="built_in">append</span>([]<span class="type">byte</span>&#123;&#125;, val...)     <span class="comment">// 三个点（`...`）的语法，表示将切片 `val` 展开，将其中的元素逐个添加到新的切片 `valCopy` 中。</span></span><br><span class="line">	<span class="comment">// Assigning val slice to another variable is NOT OK.     </span></span><br><span class="line">	valNot = val <span class="comment">// Do not do this.     </span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span>   </span><br><span class="line">&#125;)   </span><br><span class="line">handle(err)   <span class="comment">// DO NOT access val here. It is the most common cause of bugs.</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;NEVER do this. %s\n&quot;</span>, valNot)   </span><br><span class="line"><span class="comment">// You must copy it to use it outside item.Value(...).   </span></span><br><span class="line">fmt.Printf(<span class="string">&quot;The answer is: %s\n&quot;</span>, valCopy)   </span><br><span class="line"><span class="comment">// Alternatively, you could also use item.ValueCopy().   </span></span><br><span class="line">valCopy, err = item.ValueCopy(<span class="literal">nil</span>)   </span><br><span class="line">handle(err)   </span><br><span class="line">fmt.Printf(<span class="string">&quot;The answer is: %s\n&quot;</span>, valCopy)   </span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>如果不存在 <code>Txn.Get()</code> 将会返回一个 <code>ErrKeyNotFound</code> 错误</p>
+<p>请注意，Get()返回的值只在事务打开时有效。如果需要在事务外部使用值，则必须使用copy() 将其复制到另一个字节片。</p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h5 id="只读事务"><a href="#只读事务" class="headerlink" title="只读事务"></a>只读事务</h5><p>只读事务使用 DB.View()方法</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">err := db.View(<span class="function"><span class="keyword">func</span><span class="params">(txn *badger.Txn)</span></span> <span class="type">error</span> &#123;  </span><br><span class="line">	<span class="comment">// Your code here…   </span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="读写事务锁"><a href="#读写事务锁" class="headerlink" title="读写事务锁"></a>读写事务锁</h5><p>读写事务可以使用 DB.Update()方法</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">err := db.Update(<span class="function"><span class="keyword">func</span><span class="params">(txn *badger.Txn)</span></span> <span class="type">error</span> &#123;   </span><br><span class="line">	<span class="comment">// Your code here…   </span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="手动管理事务"><a href="#手动管理事务" class="headerlink" title="手动管理事务"></a>手动管理事务</h5><p>直接使用<code>DB.NewTransaction()</code>函数，手动创建和提交事务。它接受一个布尔参数来指定是否需要读写事务。对于读写事务，需要调用<code>Txn.Commit()</code>来确保事务已提交。对于只读事务，调用 <code>txn.reject()</code>就可以了。<code>commit()</code>也在内部调用 <code>txn .reject()</code>来清除事务，因此只需调用Txn.Commit()就足以执行读写事务。</p>
+<p>但是，如果您的代码由于某种原因(出错)没有调用<code>Txn.Commit()</code>。就需要在defer中调用 <code>txn . reject()</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Start a writable transaction. </span></span><br><span class="line">txn := db.NewTransaction(<span class="literal">true</span>) </span><br><span class="line"><span class="keyword">defer</span> txn.Discard() </span><br><span class="line"><span class="comment">// Use the transaction... </span></span><br><span class="line">err := txn.Set([]<span class="type">byte</span>(<span class="string">&quot;answer&quot;</span>), []<span class="type">byte</span>(<span class="string">&quot;42&quot;</span>)) </span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;     <span class="keyword">return</span> err &#125; </span><br><span class="line"><span class="comment">// Commit the transaction and check for error. </span></span><br><span class="line"><span class="keyword">if</span> err := txn.Commit(); err != <span class="literal">nil</span> &#123;     </span><br><span class="line">	<span class="keyword">return</span> err </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Error-包"><a href="#Error-包" class="headerlink" title="Error 包"></a>Error 包</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个新 的 error 类型 数据</span></span><br><span class="line">errors.New(<span class="string">&quot;dest id is not cur id&quot;</span>) </span><br></pre></td></tr></table></figure>
+
+<h2 id="Server-常用"><a href="#Server-常用" class="headerlink" title="Server 常用"></a>Server 常用</h2><ol>
+<li><p>获取 URL 的路径参数</p>
+<p>   比如： 前端访问：<a target="_blank" rel="noopener" href="http://127.0.0.1:8080/haha">http://127.0.0.1:8080/haha</a> ， 如何获取 haha 这个字符串？ 看代码：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">        <span class="string">&quot;fmt&quot;</span></span><br><span class="line">        <span class="string">&quot;net/http&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func handler(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">        // 从请求URL中获取路径参数</span><br><span class="line">        param := r.URL.Path[len(<span class="string">&quot;/&quot;</span>):]</span><br><span class="line"></span><br><span class="line">        // 输出获取到的字符串</span><br><span class="line">        fmt.Println(param)</span><br><span class="line"></span><br><span class="line">        // 在响应中返回获取到的字符串</span><br><span class="line">        fmt.Fprintf(w, <span class="string">&quot;Received: %s&quot;</span>, param)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">        http.HandleFunc(<span class="string">&quot;/&quot;</span>, handler)</span><br><span class="line">        http.ListenAndServe(<span class="string">&quot;:80&quot;</span>, nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>http 状态码返回</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">        <span class="string">&quot;fmt&quot;</span></span><br><span class="line">        <span class="string">&quot;net/http&quot;</span></span><br><span class="line">)</span><br><span class="line">func handleRequest(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">        // 模拟根据请求处理的逻辑</span><br><span class="line">        <span class="keyword">if</span> r.URL.Path == <span class="string">&quot;/&quot;</span> &#123;</span><br><span class="line">                // 处理成功，返回HTTP 200</span><br><span class="line">                w.WriteHeader(http.StatusOK)</span><br><span class="line">                fmt.Fprintf(w, <span class="string">&quot;Success&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                // 处理失败，返回HTTP 404</span><br><span class="line">                w.WriteHeader(http.StatusNotFound)</span><br><span class="line">                fmt.Fprintf(w, <span class="string">&quot;Not Found&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">func <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">        http.HandleFunc(<span class="string">&quot;/&quot;</span>, handleRequest)</span><br><span class="line">        http.ListenAndServe(<span class="string">&quot;:80&quot;</span>, nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>闭包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">在Go语言中，http.HandleFunc()函数的第二个参数是一个函数类型，它必须是满足http.HandlerFunc函数签名的函数。该函数接收两个参数：http.ResponseWriter和*http.Request。</span><br><span class="line">如果你想在handleRequest函数中传入其他参数，可以使用闭包（Closure）的方式。</span><br><span class="line">以下是一个示例代码，展示如何在handleRequest函数中传入其他参数：</span><br><span class="line">go</span><br><span class="line">复制</span><br><span class="line">package main</span><br><span class="line">import (</span><br><span class="line">        <span class="string">&quot;fmt&quot;</span></span><br><span class="line">        <span class="string">&quot;net/http&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func handleRequest(customParam string) http.HandlerFunc &#123;</span><br><span class="line">        <span class="built_in">return</span> func(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">                // 在这里可以使用 customParam 和 w、r 来处理请求</span><br><span class="line">                fmt.Println(<span class="string">&quot;Custom parameter:&quot;</span>, customParam)</span><br><span class="line">                fmt.Fprintf(w, <span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">        param := <span class="string">&quot;custom value&quot;</span></span><br><span class="line">        http.HandleFunc(<span class="string">&quot;/&quot;</span>, handleRequest(param))</span><br><span class="line">        http.ListenAndServe(<span class="string">&quot;:8080&quot;</span>, nil)</span><br><span class="line">&#125;</span><br><span class="line">在上述代码中，我们定义了一个handleRequest函数，它接收一个类型为string的参数customParam。handleRequest函数返回一个函数，该函数满足http.HandlerFunc函数签名。</span><br><span class="line">在返回的函数中，我们可以使用闭包的方式访问customParam以及http.ResponseWriter和*http.Request参数，并进行相应的处理。</span><br><span class="line">在main函数中，我们定义了一个param变量作为自定义参数的值。然后，我们通过handleRequest(param)将param传递给handleRequest函数，并返回一个满足http.HandlerFunc函数签名的函数。</span><br><span class="line">最后，我们使用http.HandleFunc()来将路径<span class="string">&quot;/&quot;</span>与返回的处理函数进行绑定，并通过http.ListenAndServe()监听HTTP请求</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>net 和 http同时使用</p>
+<p>   Go 语言中，可以同时使用 <code>net</code> 和 <code>http</code> 包来监听同一个接口，但是需要小心处理并避免冲突。</p>
+<p>   <code>net</code> 包提供了底层的网络功能，可以通过 <code>net.Listen</code> 函数来监听指定的网络地址和端口。而 <code>http</code> 包是建立在 <code>net</code> 包之上的，提供了更高级的 HTTP 服务器和客户端功能。</p>
+<p>   以下是一个示例代码，同时使用 <code>net</code> 和 <code>http</code> 监听同一个接口：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import (</span><br><span class="line">        &quot;fmt&quot;</span><br><span class="line">        &quot;net&quot;</span><br><span class="line">        &quot;net/http&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">        // 使用 net 包监听指定的网络地址和端口</span><br><span class="line">        listener, err := net.Listen(&quot;tcp&quot;, &quot;localhost:8080&quot;)</span><br><span class="line">        if err != nil &#123;</span><br><span class="line">                fmt.Println(&quot;Error listening:&quot;, err)</span><br><span class="line">                return</span><br><span class="line">        &#125;</span><br><span class="line">        defer listener.Close()</span><br><span class="line">        // 启动 HTTP 服务器</span><br><span class="line">        go func() &#123;</span><br><span class="line">                http.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">                        fmt.Fprintf(w, &quot;Hello, HTTP!&quot;)</span><br><span class="line">                &#125;)</span><br><span class="line">                err := http.Serve(listener, nil)</span><br><span class="line">                if err != nil &#123;</span><br><span class="line">                        fmt.Println(&quot;Error serving HTTP:&quot;, err)</span><br><span class="line">                        return</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;()</span><br><span class="line"></span><br><span class="line">        // 其他的网络处理逻辑...</span><br><span class="line">        // ...</span><br><span class="line">        // 等待程序退出</span><br><span class="line">        select &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   在上述示例中，我们使用 <code>net.Listen</code> 函数监听 <code>localhost:8080</code>，然后使用 <code>http</code> 包启动了一个 HTTP 服务器。通过 <code>http.HandleFunc</code> 函数，我们定义了一个简单的处理函数来响应 HTTP 请求。最后，通过 <code>http.Serve</code> 函数将监听器与 HTTP 服务器关联起来。</p>
+<p>   你可以在 <code>// 其他的网络处理逻辑...</code> 的部分添加其他网络处理逻辑，如基于 <code>net</code> 包的 TCP 或 UDP 服务器。只需确保网络处理逻辑不会与 HTTP 服务器冲突，比如使用不同的端口或处理不同的网络协议。</p>
+<p>   需要注意的是，当使用 <code>http.Serve</code> 函数时，它将阻塞当前的 goroutine，因此我们在示例中使用了 <code>select &#123;&#125;</code> 来阻止 <code>main</code> 函数退出。这样可以保持服务器的运行，直到显式地退出程序。</p>
+</li>
+<li><p>mymux</p>
+<p>   <code>myMux := http.NewServeMux()</code> 这条语句用于创建一个新的 <code>ServeMux</code> 对象。</p>
+<p>   在 Go 的 <code>http</code> 包中，<code>ServeMux</code> 是一个 HTTP 请求多路复用器（multiplexer），用于将收到的 HTTP 请求分发到相应的处理器。<code>ServeMux</code> 类型实现了 <code>http.Handler</code> 接口，因此它本身可以作为一个处理器来处理请求。</p>
+<p>   通过调用 <code>http.NewServeMux()</code> 函数，我们可以创建一个新的 <code>ServeMux</code> 对象，它将用于注册和管理不同路径的处理器。</p>
+<p>   例如，下面是一个简单示例，使用 <code>ServeMux</code> 对象来管理不同路径的处理器：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import (</span><br><span class="line">        &quot;fmt&quot;</span><br><span class="line">        &quot;net/http&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">        myMux := http.NewServeMux()</span><br><span class="line"></span><br><span class="line">        myMux.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">                fmt.Fprintf(w, &quot;Hello, World!&quot;)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        myMux.HandleFunc(&quot;/about&quot;, func(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">                fmt.Fprintf(w, &quot;About page&quot;)</span><br><span class="line">        &#125;)</span><br><span class="line">        server := &amp;http.Server&#123;</span><br><span class="line">                Addr:    &quot;:8080&quot;,</span><br><span class="line">                Handler: myMux,</span><br><span class="line">        &#125;</span><br><span class="line">        server.ListenAndServe()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   在上述示例中，我们首先使用 <code>http.NewServeMux()</code> 创建了一个新的 <code>ServeMux</code> 对象 <code>myMux</code>。然后，我们使用 <code>myMux.HandleFunc</code> 方法来注册处理器函数，每个函数对应一个特定的路径。</p>
+<p>   最后，我们创建了一个 <code>http.Server</code> 对象，并将 <code>myMux</code> 对象作为处理器指定给该服务器。这样，当服务器收到请求时，就会使用 <code>myMux</code> 对象来根据请求的路径选择相应的处理器函数进行处理。</p>
+<p>   总结起来，<code>myMux := http.NewServeMux()</code> 用于创建一个 <code>ServeMux</code> 对象，以便注册和管理不同路径的处理器，并根据路径选择相应的处理函数来处理请求。</p>
+</li>
+<li><p>go routine 实现并发执行</p>
+<p>   Go 的 goroutine 来实现并发执行。以下是一个示例代码，演示了如何同时运行 HTTP 服务、gRPC 服务和连接其他 gRPC 服务器：</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">        <span class="string">&quot;log&quot;</span></span><br><span class="line">        <span class="string">&quot;net&quot;</span></span><br><span class="line">        <span class="string">&quot;net/http&quot;</span></span><br><span class="line">        <span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">        <span class="string">&quot;google.golang.org/grpc/credentials&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 创建监听器</span></span><br><span class="line">        lis, err := net.Listen(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">                log.Fatalf(<span class="string">&quot;Failed to listen: %v&quot;</span>, err)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 启动 HTTP 服务器</span></span><br><span class="line">        <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">                http.HandleFunc(<span class="string">&quot;/&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">                        w.Write([]<span class="type">byte</span>(<span class="string">&quot;Hello, HTTP!&quot;</span>))</span><br><span class="line">                &#125;)</span><br><span class="line">                <span class="keyword">if</span> err := http.Serve(lis, <span class="literal">nil</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">                        log.Fatalf(<span class="string">&quot;HTTP failed to serve: %v&quot;</span>, err)</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;()</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 启动 gRPC 服务器</span></span><br><span class="line">        <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">                s := grpc.NewServer()</span><br><span class="line">                <span class="comment">// 注册 gRPC 服务</span></span><br><span class="line">                <span class="comment">// ...</span></span><br><span class="line">                <span class="keyword">if</span> err := s.Serve(lis); err != <span class="literal">nil</span> &#123;</span><br><span class="line">                        log.Fatalf(<span class="string">&quot;gRPC failed to serve: %v&quot;</span>, err)</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;()</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 连接其他 gRPC 服务器</span></span><br><span class="line">        conn, err := grpc.Dial(<span class="string">&quot;other_server_address&quot;</span>, grpc.WithTransportCredentials(credentials.NewInsecure()))</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">                log.Fatalf(<span class="string">&quot;Failed to connect to other server: %v&quot;</span>, err)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">defer</span> conn.Close()</span><br><span class="line">        <span class="comment">// 进行其他操作，使用 conn 进行 gRPC 通信</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="comment">// 等待程序退出</span></span><br><span class="line">        <span class="keyword">select</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   在这个示例中，我们使用 goroutine 启动了 HTTP 服务器和 gRPC 服务器，并在主函数中创建了一个与其他 gRPC 服务器的连接。</p>
+<p>   注意在连接其他 gRPC 服务器时，我们使用了 <code>grpc.Dial</code> 函数，并传递了 <code>grpc.WithTransportCredentials(credentials.NewInsecure())</code> 选项来创建一个不安全的连接。你应该根据实际情况选择正确的连接配置，例如使用安全的连接和认证。</p>
+<p>   最后，使用 <code>select &#123;&#125;</code> 阻塞主函数，使程序保持运行状态，直到显式退出。</p>
+<p>   请根据你的实际需求，将代码中的注释部分替换为适当的 gRPC 服务注册和其他操作代码。</p>
+</li>
+<li><p>连接阻塞</p>
+ <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主要就是 grpc.WithBlock()</span></span><br><span class="line"></span><br><span class="line">conn2, err2 := grpc.Dial(*addr2, grpc.WithTransportCredentials(insecure.NewCredentials()),grpc.WithBlock())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>循环变量副本</p>
+<p>   for i :&#x3D; 1; i &lt;&#x3D; *rpc_num; i++ {</p>
+<p>   if i &#x3D;&#x3D; *rpc_id {</p>
+<p>   continue &#x2F;&#x2F; 跳过与 当前相同的 端口号 ，不能和自己连接</p>
+<p>   }</p>
+<p>   go func(){</p>
+<p>   conn[i], err &#x3D; grpc.Dial(rpc_addr[i], grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithBlock())</p>
+<p>   if err !&#x3D; nil {</p>
+<p>   log.Fatalf(“Failed to connect to server %s: %v”, rpc_addr[i], err)</p>
+<p>   return</p>
+<p>   }</p>
+<p>   log.Printf(“Connect to %s OK”, rpc_addr[i])</p>
+<p>   }()</p>
+<p>   }</p>
+<p>   这里有个提示信息但是没有报错，提示为：loop variable i captured by func litera</p>
+<p>    “loop variable i captured by func literal” 意味着在你的代码中，匿名函数字面量（func literal）捕获了循环变量 i。</p>
+<p>   在 Go 语言中，当你在循环体内使用匿名函数时，该匿名函数会形成一个闭包，它可以访问和引用外部作用域中的变量。在这种情况下，匿名函数引用了循环变量 i。然而，循环变量在每次迭代中的值会发生变化，这可能会导致一些意外的行为。</p>
+<p>   为了避免这种问题，Go 语言引入了循环变量副本的概念。在每次迭代中，会为循环体内的匿名函数创建一个新的副本变量，以确保在闭包内部引用的是正确的值。这样可以避免循环变量值的竞争条件。</p>
+<p>   解决这个问题的常见方法是在循环体内部创建一个局部变量，将循环变量的值复制给局部变量，然后在匿名函数中使用局部变量。例如：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">for i := 1; i &lt;= *rpc_num; i++ &#123;</span><br><span class="line">    if i == *rpc_id &#123;</span><br><span class="line">        continue</span><br><span class="line">    &#125;</span><br><span class="line">    // 创建局部变量 iCopy 并将循环变量的值赋给它</span><br><span class="line">    iCopy := i</span><br><span class="line">    go func() &#123;</span><br><span class="line">        conn[iCopy], err = grpc.Dial(rpc_addr[iCopy], grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithBlock())</span><br><span class="line">        if err != nil &#123;</span><br><span class="line">            log.Fatalf(&quot;Failed to connect to server %s: %v&quot;, rpc_addr[iCopy], err)</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        log.Printf(&quot;Connect to %s OK&quot;, rpc_addr[iCopy])</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   通过创建局部变量 iCopy 并使用它，你可以确保每个匿名函数引用的是该迭代的正确值，而不会受到循环变量的更改影响。</p>
+</li>
+</ol>
+<h1 id="Atomic-包"><a href="#Atomic-包" class="headerlink" title="Atomic 包"></a>Atomic 包</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;log&quot;</span></span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line">    <span class="string">&quot;runtime&quot;</span></span><br><span class="line">    <span class="string">&quot;sync/atomic&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count <span class="type">int32</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    currentCount := atomic.LoadInt32(&amp;count)</span><br><span class="line">    atomic.AddInt32(&amp;count, <span class="number">1</span>)</span><br><span class="line">    log.Println(<span class="string">&quot;count:&quot;</span>, currentCount)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runtime.GOMAXPROCS(runtime.NumCPU() - <span class="number">1</span>)</span><br><span class="line">    http.HandleFunc(<span class="string">&quot;/&quot;</span>, test)</span><br><span class="line">    http.ListenAndServe(<span class="string">&quot;:8080&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Done-Wait-同步"><a href="#Done-Wait-同步" class="headerlink" title="Done Wait 同步"></a>Done Wait 同步</h1><p> Go 内存模型中的术语。它说明了在调用 <code>Done</code> 方法之前，它会与任何由它解除阻塞的 <code>Wait</code> 调用之后的返回之前进行”同步在”（synchronizes before）的关系。</p>
+<p>具体解释如下：</p>
+<ol>
+<li><code>Done</code> 方法是用于通知等待组（WaitGroup）中某个操作的完成。</li>
+<li><code>Wait</code> 方法是等待等待组中所有操作完成的调用。</li>
+<li>“同步在”（synchronizes before）是 Go 内存模型中的同步关系，指示在同一个 goroutine 中，一个操作的执行在另一个操作之前进行了同步。</li>
+</ol>
+<p>根据这句话的解释，当一个 goroutine 调用 <code>Done</code> 方法时，它会在解除等待组中的某个操作的阻塞之前与该操作的返回之前进行同步。</p>
+<p>具体来说，如果一个 goroutine 在调用 <code>Wait</code> 方法等待等待组中的操作时被阻塞，那么当另一个 goroutine 调用 <code>Done</code> 方法通知该操作的完成时，调用 <code>Done</code> 的 goroutine 会在被阻塞的 goroutine 返回之前进行同步。这确保了在 <code>Done</code> 方法解除阻塞之后，等待的 goroutine 可以安全地继续执行。</p>
+<p>总之，这句话的含义是在 Go 内存模型中，<code>Done</code> 方法的调用会在解除阻塞的 <code>Wait</code> 调用的返回之前进行同步。这个同步关系确保了等待组的协同操作的正确性和可靠性。</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2024/04/22/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/GO_lang/go%20%E9%AB%98%E7%BA%A7/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2024/04/22/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/GO_lang/go%20%E9%AB%98%E7%BA%A7/";
+            const title         = "「」";
+            const excerpt       = `常见库Flag 包flag包基本使用官方文档]参考文档
+导入flag包1import flag
+
+flag参数类型flag包支持的命令行参数类型有bool、int、int64、uint、uint64、float float64、str...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-22T04:39:53.107Z" itemprop="dateModified">最后编辑：2024-04-22</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" (无标题)" href="/2024/04/22/编程语言/GO_lang/go 基础/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" (无标题)" href="/2024/04/22/编程语言/GO_lang/go语言学习记录/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                97
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+
+            
+                
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/TEMP%EF%BC%9A%E4%B8%AD%E9%93%81/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/22/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 Hexo 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by John Doe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
