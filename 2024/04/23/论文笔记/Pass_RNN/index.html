@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>查看动态 | 心咖</title>
+  
+  <meta name="author" content="dreamin" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="摘要 密码攻击频繁 利用密码的相似性和可预测性之间的相关性。使用基于规则的方法，但将规则推导、分类和预测委托给循环神经网络 (RNN)。 试验结果：尝试的猜测次数限定为10次，结果 5 次就达到了 83% 准确率。其他模型的两倍 模型能有效进行有针对性的在线密码猜测，而不会恢复或者锁定。  引言 密码使用频繁，密码有规律性。 密码攻击频繁，使用之前网站泄漏的密码攻击同一用户的新密码。 密码攻击方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Pass_RNN/index.html">
+<meta property="og:site_name" content="心咖">
+<meta property="og:description" content="摘要 密码攻击频繁 利用密码的相似性和可预测性之间的相关性。使用基于规则的方法，但将规则推导、分类和预测委托给循环神经网络 (RNN)。 试验结果：尝试的猜测次数限定为10次，结果 5 次就达到了 83% 准确率。其他模型的两倍 模型能有效进行有针对性的在线密码猜测，而不会恢复或者锁定。  引言 密码使用频繁，密码有规律性。 密码攻击频繁，使用之前网站泄漏的密码攻击同一用户的新密码。 密码攻击方式">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-23T03:05:06.612Z">
+<meta property="article:modified_time" content="2024-04-10T08:17:31.231Z">
+<meta property="article:author" content="dreamin">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">心咖</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>心咖</h2> <br />
+                        <span>人生如此，方趁我心</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Pass_RNN/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-04-23T03:05:06.612Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-23</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">dreamin</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~5.38K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><ol>
+<li>密码攻击频繁</li>
+<li>利用密码的相似性和可预测性之间的相关性。使用基于规则的方法，但将规则推导、分类和预测委托给循环神经网络 (RNN)。</li>
+<li>试验结果：尝试的猜测次数限定为10次，结果 5 次就达到了 83% 准确率。其他模型的两倍</li>
+<li>模型能有效进行有针对性的<strong>在线密码</strong>猜测，而不会恢复或者锁定。</li>
+</ol>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ol>
+<li>密码使用频繁，密码有规律性。</li>
+<li>密码攻击频繁，使用之前网站泄漏的密码攻击同一用户的新密码。</li>
+<li>密码攻击方式多样，字典，规则，模型。</li>
+<li>基于旧的密码，规则能在很少的次数下，对新的网站达到很高的破解率。</li>
+<li>本文使用基于规则的方法，使用神经网络自动执行猜测过程。<ol>
+<li>导出修改模式，</li>
+<li>建立分类，神经网络方法</li>
+<li>生成密码猜测，BiLSTM模型</li>
+</ol>
+</li>
+<li>本文建立了一个实验模型，可以在不知道猜测模式的情况下，进行预测。<ol>
+<li>使用基于字符 LSTM 编码器解码器模型</li>
+</ol>
+</li>
+<li>本文将 RNN 和 预训练Transformer 用于（研究较少的）密码短语猜测领域，<ol>
+<li>构建了一个具有注意力机制的双向 LSTM 模型，预测短语的模式（用少量短语生成完整的密码），</li>
+<li>比传统方法所需要的猜测次数明显减少。</li>
+</ol>
+</li>
+</ol>
+<h1 id="密码猜测——针对性在线猜测"><a href="#密码猜测——针对性在线猜测" class="headerlink" title="密码猜测——针对性在线猜测"></a>密码猜测——针对性在线猜测</h1><h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><ol>
+<li>来源：2018 ，6000，0000 个密码</li>
+<li>处理：<ol>
+<li>数据集中每个用户至少两个密码，只选择两个构成密码对。</li>
+<li>消除重复密码对，和多次出现的密码，剩余 1700，0000 唯一密码对。</li>
+</ol>
+</li>
+<li>两个指标来评价数据分布：<ol>
+<li>编辑距离是将一个字符串转换为另一个字符串所需的编辑（例如，替换、插入或删除）次数。数据集中，密码之间的编辑距离范围为 0 到 17，如图 1 所示。大多数密码对的编辑距离范围为 1 到 11。编辑距离可以帮助设置密码重用规则易于用户理解（例如，确保后续密码与原始密码相差三个字符）。</li>
+<li>表现出最高相似度的密码将具有最小的 Levenshtein 距离和最高的 JaroWinkler 距离，并且将是跨站点猜测攻击的最佳候选者。</li>
+</ol>
+</li>
+<li>处理：<ol>
+<li>已知规则：在之前的研究中，确定了几种最常见的修改模式，包括子字符串、公共子字符串、大写、Leet 和顺序键（Wang 等人，2018 年；Walia 等人，2020 年）。我们根据这五种模式标记每个密码对，以创建一个标记数据集。最后，不符合任何这些规则的对将被丢弃。带标签的数据集包含 3,006,871 个唯一密码对。</li>
+<li>工作集：唯一密码对中 长度在 5 - 17 的字符。</li>
+</ol>
+</li>
+</ol>
+<h2 id="模型预测过程"><a href="#模型预测过程" class="headerlink" title="模型预测过程"></a>模型预测过程</h2><ol>
+<li>目标：预测流程：对上面处理好的每一个数据：识别标签，分类，生成预测。<ol>
+<li>第一步，定义常见的修改模式，分析每个密码对并标记相应的类别。</li>
+<li>在第二步中，我们使用神经网络模型将每个原始密码分配到单个修改类别中。这个过程称为单标签预测问题。</li>
+<li>在第三步中，我们构建第二个模型来了解每个类别中可能的修改。该模型对测试数据的准确率达到 90%（），可以理解并生成每个类别的所有可能的修改。</li>
+<li>然后组合两个模型，并在最后一步组装生成的管道。我们的方法可以仅将一个原始密码作为输入，将其分类为修改类别，并生成密码。</li>
+</ol>
+</li>
+<li>标记：同上面的处理过程。</li>
+<li>分类：使用 Keras Python 库构建了一个 4 层分类器，用于自动密码修改类别预测。<ol>
+<li>输入层采用与数据集中最长密码相同长度的单个字符序列，即 17 个字符长。 </li>
+<li>One-Hot 编码器将每个密码处理为字符序列，并将这些序列转换为 One-Hot 数值数组。</li>
+<li>编码被传递到 LSTM 单元。我们使用字符级双向 LSTM (BiLSTM) 层，它是传统 LSTM 的扩展，可以提高模型在序列分类问题上的性能。 BiLSTM 层在两个方向上运行输入，一个从过去到未来，另一个从未来到过去。与单向 LSTM 不同，BiLSTM 使用两个隐藏状态，可以保留过去和未来任意时间点的信息。由于这些特性，BiLSTM 可以更好地理解序列中每个字符周围的上下文（Xu 等人，2019）。 BiLSTM 单元的输出被馈送到密集的激活层。</li>
+<li>激活层包含一个激活函数，它定义如何将输入的加权和转换为输出。为了确保模型学习特征并且不会过早收敛，我们使用具有较小学习率的 Adam 优化器（Kingma &amp; Ba，2014）。该优化器用于在每次训练迭代期间更新网络权重。</li>
+</ol>
+</li>
+<li>生成：训练字符级 BiLSTM 模型来生成每个修改类别内的密码。<br> 输入层 1 将先前使用的字符序列形式的密码作为输入，而输入层 2 将密码修改类别作为输入。第一个流包括输入层 1、One-Hot 编码器和 BiLSTM 层。这三层的作用与第 3.2.2 节中描述的类似。第二个输入流包括输入层 #2 和重复向量层，这两个层都用于在单个类别内生成每个预测时向模型添加修改模式列表。最后，串联层组合两个流的输出，并将组合的输出馈送到激活层。激活层的作用与第 3.2.2 节中描述的相同。生成的模型可以为每个修改类别生成高度准确的密码猜测。<br>我们最终采用了这种架构，因为它在超参数调整过程中产生了最佳性能。然而，添加更多 LSTM 层可能会导致模型过度拟合。</li>
+</ol>
+<p>此外，单独实现了一个直接密码预测，在我们的模型中，它将确定输出修改后的密码。由于模型可以生成具有不同置信度的多个预测，因此我们需要一种算法来选择前十个最可能的输出。我们使用 Beam 搜索算法，这是序列到序列机器翻译问题中最广泛使用的算法之一（Yoo 等人，2020），来帮助我们识别最可能的预测。直接密码预测是最有前途的方法，因为它消除了不断的规则推导和分布分析的需要，并简化了数据集预处理。由此产生的模型，即直接预测机制 (DPM)，是独立于规则的，并提供高预测率。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>在 Google Colab Pro（一个基于云的 Jupyter 笔记本环境）上运行了该项目的大部分内容。</p>
+<p>托管运行时环境使用 Tesla P100-PCIE-16GB GPU、Intel(R) Xeon(R) CPU @ 2.20GHz 处理器、25GB RAM 和 109GB 磁盘空间。实验中对硬件要求最高的部分是数据集预处理、模型训练和直接密码预测。直接密码预测的计算成本最高。根据 Google Colab 的测量，在 40 万条记录上训练模型需要 13GB RAM，在 50 万条记录上训练模型需要 20GB。</p>
+<h1 id="短语猜测——针对性离线攻击"><a href="#短语猜测——针对性离线攻击" class="headerlink" title="短语猜测——针对性离线攻击"></a>短语猜测——针对性离线攻击</h1><p>第一种方法采用基于单词级注意力的 LSTM 模型，这与我们在第 3 节中开发的没有注意力机制的字符级 LSTM 模型不同。<br>第二种方法利用 OpenAI 提供的生成式预训练 Transformer (GPT-2)，并且可供公众使用 Radfordetal。 （2019）。</p>
+<h2 id="数据集-1"><a href="#数据集-1" class="headerlink" title="数据集"></a>数据集</h2><p>单词集语料库中的短语集（单词数量2 3 4）+ 频率<br>生成的数据集包含 574,531 个短语，其中 99,953 个是不同的。</p>
+<h2 id="攻击向量"><a href="#攻击向量" class="headerlink" title="攻击向量"></a>攻击向量</h2><ol>
+<li>输入是一个短语，用于预测后续短语;</li>
+<li>通过使用马尔可夫链模型建立基线来开始我们的实验。该模型将二元语法或三元语法的第一个单词作为输入，并使用马尔可夫算法生成短语的其余部分。</li>
+<li>然后，该模型根据两个单词同时出现的统计概率构建一个转移矩阵。</li>
+<li>结果，模型生成预测，我们将其与目标短语进行比较，看看它们是否匹配。</li>
+</ol>
+<h2 id="第一种——LSTM"><a href="#第一种——LSTM" class="headerlink" title="第一种——LSTM"></a>第一种——LSTM</h2><p>![[Pasted image 20240409191656.png]]</p>
+<ol>
+<li>由编码器和解码器组成<ol>
+<li>编码器：获取输入序列并且将信息汇总为上下文向量。<ol>
+<li>输入层：第一个单词作为预测的起点。</li>
+<li>嵌入层：使用 GloVe 模型（2014）进行词嵌入；</li>
+<li>BiLSTM层：压缩输入，降低向量维度。</li>
+</ol>
+</li>
+<li>上下文向量：所有编码器单元的输出作为输入来计算每个单字解码器想要生成的概率分布。它帮助解码器捕获有关输入的整体信息。</li>
+<li>解码器：生成预测<ol>
+<li>输入层：上一步的向量；</li>
+<li>注意力机制：多个注意力层<ol>
+<li>使用函数而不是使用单个隐藏状态来编码和解码</li>
+<li>上下文向量将所有编码器单元的输出作为输入来计算每个单字解码器想要生成的概率分布</li>
+</ol>
+</li>
+<li>基于LSTM层。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>使用 Adam 优化器和稀疏分类交叉熵作为损失函数。使用稀疏分类交叉熵的一个优点是更好的内存和计算资源利用率，因为它为每个类使用单个整数而不是整个向量。</li>
+</ol>
+<h2 id="第二种——GPT-2"><a href="#第二种——GPT-2" class="headerlink" title="第二种——GPT-2"></a>第二种——GPT-2</h2><p>Transformer 长期以来一直用于短语自动完成（Vaswani 等人，2017）。我们使用 GPT-2，一种开源语言模型（Radford 等人，2019）。<br>该模型的架构与纯解码器变压器非常相似。</p>
+<ol>
+<li>由堆叠在一起的多个解码器块组成。</li>
+<li>每个解码器块都有一个前馈神经网络和一个屏蔽自注意力层。</li>
+<li>屏蔽自注意力层基于模型对相关和关联单词的理解以及处理该单词之前所需的上下文。该层分配定义片段中每个单词的相关性的分数，并将它们的向量表示相加（Vaswani 等人，2017）。</li>
+<li>矢量表示被传递到完全连接的神经网络层进行处理。<br>实验过程：</li>
+<li>使用具有 124M 参数的 GPT-2 Small 模型版本。</li>
+<li>使用的 4 元数据集样本中提取的单词列表上重新训练它。</li>
+<li>还利用模型作者提供的一些超参数<ol>
+<li>前缀参数用于为模型提供短语的开头。</li>
+<li>温度参数是控制随机性的浮点数。较低的温度使预测更加重复。</li>
+<li>长度控制生成的短语将包含多少个单词。</li>
+<li>参数 top_p 有助于缩小预测范围以选择最佳候选者。</li>
+<li>我们生成的短语数量由 N_samples 参数控制，设置为 50。</li>
+</ol>
+</li>
+</ol>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>不幸的是，大多数模型需要进行大量尝试才能正确猜测密码。请注意，现有工作的大多数作者没有透露他们实验的每个细节和参数。此外，在现有模型和我们的模型之间进行公平的一对一比较非常困难，因为它们经常使用并不总是提供的不同数据集。</p>
+<p>LSTM 模型随时间变化的预测率。该模型在大约 1000 次尝试中破解了 24% 的密码。经过大约 5000 次尝试，它最终达到了 40% 的最大预测率。然后预测率开始趋于平缓。</p>
+<p>除了我们开发的 LSTM 和 GPT-2 模型之外，我们还实现了基于马尔可夫的模型作为基线 和  我们开发和配置的模型之间的详细比较。我们对基于马尔可夫的模型的实现并未针对有效的 GPU 和资源利用进行优化，并且在大约 20 次尝试后停止收敛。那时，我们无法记录预测率。如果我们将尝试次数设置为高于 20，模型就会开始超时。</p>
+<ol>
+<li>对于 LSTM，我们发现尝试次数越多，资源就会成比例增加；然而，总体利用率仍然较低。 </li>
+<li>GPT-2 模型在预测较长短语方面表现最佳，但需要更多输入才能更快地提供准确的猜测。</li>
+<li>即使对于不太频繁出现的短语（通常更难破解），LSTM 也表现出了出色的预测率。</li>
+</ol>
+<p>该实验断言，对于基于马尔可夫的模型和 LSTM，较长的短语和具有三个或更多单词的短语更难预测。我们所有的模型都显着增加了正确预测的数量，同时减少了尝试的次数。它表明我们的模型在破解密码方面非常有效。</p>
+<h1 id="未来展望"><a href="#未来展望" class="headerlink" title="未来展望"></a>未来展望</h1><h2 id="密码的见解"><a href="#密码的见解" class="headerlink" title="密码的见解"></a>密码的见解</h2><p>原始密码进行轻微修改在跨站点攻击中几乎没有提供额外的安全性。姐妹密码之间的相似度越低，用户数据就越安全。<br>    因此构建一个主动密码检查器<br>    防止用户选择易于猜测的后续密码，特别是当它与使用的密码相似时。<br>服务提供商应考虑单独使用密码，转而使用双因素身份验证、生物识别、行为身份验证和其他替代手段</p>
+<h2 id="密码短语的见解"><a href="#密码短语的见解" class="headerlink" title="密码短语的见解"></a>密码短语的见解</h2><ol>
+<li>易于在企业级别进行实施和维护，对用户程序友好。</li>
+<li>更长，更容易记住。</li>
+<li>本质上是不安全的。构成密码的短语通常来自于主流文化和</li>
+<li>容易被人工智能方式攻击。</li>
+</ol>
+<h1 id="未来展望-1"><a href="#未来展望-1" class="headerlink" title="未来展望"></a>未来展望</h1><ol>
+<li>更多密码泄漏</li>
+<li>原始密码生成后续密码，可以用新数据训练旧模型。</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在本研究中，我们首先研究了有针对性的在线密码猜测问题。,我们使用 RNN 构建了一个密码预测管道来自动进行密码分类和生成。,预测结果优于传统的分类和猜测算法。,当我们将猜测尝试限制为五次时，性能提升尤其显着。,我们结合了对基于规则的预测算法的理解和 LSTM 神经网络的强大功能，解决了同一用户创建的密码的跨站点预测问题。,这是一种相对较新的方法，也许是使用 RNN 来完成此特定任务的首次尝试之一。,我们可以量化后续密码的相似性、修改模式和可预测性之间的相关性。,此外，我们还展示了最常见的修改策略的易于预测性和高精度，例如在原始密码或大写中添加头或尾符号。,我们展示了由于 RNN 模型的低复杂性和浅层性质，可以通过负担得起的硬件或在线计算资源（例如 Google Colab）来促进这种预测过程。,此外，预测效率使其可以在帐户被锁定之前允许尝试五次或更少的平台上运行。,我们还讨论了在线服务应采取的具体步骤，以提高身份验证过程的安全性。,然后我们探讨了使用 RNN 进行有针对性的离线密码猜测的问题。,我们构建了一个基于注意力的 LSTM 模型和一个微调的 GPT-2 模型来预测常用密码。,我们分析了结果，并将其与最常用的方法进行了比较，例如基于字典、基于规则和基于马尔可夫链的预测算法。,我们实现了明显更好的预测率，特别是考虑到使用的尝试次数、部署时间、资源利用率和操作简便性。,尽管这些方法并不是全新的，但它们在密码短语预测领域是新颖的，并且产生有竞争力的预测率。,资金 没有收到任何资金来协助准备本手稿。</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Pass_RNN/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Pass_RNN/";
+            const title         = "「」";
+            const excerpt       = `摘要
+密码攻击频繁
+利用密码的相似性和可预测性之间的相关性。使用基于规则的方法，但将规则推导、分类和预测委托给循环神经网络 (RNN)。
+试验结果：尝试的猜测次数限定为10次，结果 5 次就达到了 83% 准确率。其他模型的两倍
+模型...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-10T08:17:31.231Z" itemprop="dateModified">最后编辑：2024-04-10</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" (无标题)" href="/2024/04/23/论文笔记/PassGPT/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" (无标题)" href="/2024/04/23/论文笔记/基于深度学习的口令安全关键技术研究/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">生于尘埃，溺于人海，死于理想的高台</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                98
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                1
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/excalidraw/" style="font-size: 0.6em;">excalidraw</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/23/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/23/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 心咖 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by dreamin.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

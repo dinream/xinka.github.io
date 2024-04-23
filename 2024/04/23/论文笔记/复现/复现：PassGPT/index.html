@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>查看动态 | 心咖</title>
+  
+  <meta name="author" content="dreamin" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="基本流程数据集：RockYou password leak 使用论文预训练模型：  最多 10 个字符密码训练的 PassGPT 此处。  最多 16 个字符的密码训练的版本需要我们团队的研究批准，可以在此处找到。  自己训练模型：  密码 tokenizer ：字符级（防止像 NLP 那样将 字符 串为分词），在模型下保留有意义的概率分布。12345python src&#x2F;create_token">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E5%A4%8D%E7%8E%B0/%E5%A4%8D%E7%8E%B0%EF%BC%9APassGPT/index.html">
+<meta property="og:site_name" content="心咖">
+<meta property="og:description" content="基本流程数据集：RockYou password leak 使用论文预训练模型：  最多 10 个字符密码训练的 PassGPT 此处。  最多 16 个字符的密码训练的版本需要我们团队的研究批准，可以在此处找到。  自己训练模型：  密码 tokenizer ：字符级（防止像 NLP 那样将 字符 串为分词），在模型下保留有意义的概率分布。12345python src&#x2F;create_token">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-23T03:05:06.642Z">
+<meta property="article:modified_time" content="2024-04-02T11:41:15.622Z">
+<meta property="article:author" content="dreamin">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">心咖</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>心咖</h2> <br />
+                        <span>人生如此，方趁我心</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E5%A4%8D%E7%8E%B0/%E5%A4%8D%E7%8E%B0%EF%BC%9APassGPT/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-04-23T03:05:06.642Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-23</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">dreamin</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~5.72K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h1><p>数据集：<br><a target="_blank" rel="noopener" href="https://wiki.skullsecurity.org/index.php/Passwords">RockYou password leak</a></p>
+<p>使用论文预训练模型：</p>
+<ol>
+<li>最多 10 个字符密码训练的 PassGPT <a target="_blank" rel="noopener" href="https://huggingface.co/javirandor/passgpt-10characters/">此处</a>。 </li>
+<li>最多 16 个字符的密码训练的版本需要我们团队的研究批准，可以在<a target="_blank" rel="noopener" href="https://huggingface.co/javirandor/passgpt-16characters/">此处</a>找到。</li>
+</ol>
+<p>自己训练模型：</p>
+<ol>
+<li>密码 tokenizer ：字符级（防止像 NLP 那样将 字符 串为分词），在模型下保留有意义的概率分布。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">python src/create_tokenizer.py --train_path &#123;PATH_TO_TRAINING_DATA&#125; --output_path &#123;PATH_TO_TOKENIZERS_FOLDER&#125;</span><br><span class="line"><span class="comment"># Customization</span></span><br><span class="line">python src/create_tokenizer.py --train_path data/rockyou.txt --output_path output</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>自定义一个配置文件： <code>CONFIG_PATH</code> ，可以使用默认的文件 <a target="_blank" rel="noopener" href="https://github.com/javirandor/passbert/blob/main/configs/passgpt-16chars.yaml">yaml 文件</a>.</li>
+<li>训练模型：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python src/train_passgpt.py --config_path &#123;CONFIG_PATH&#125;</span><br><span class="line"><span class="comment"># Customization</span></span><br><span class="line">python src/train_passgpt.py --config_path configs/passgpt-16chars.yaml</span><br></pre></td></tr></table></figure></li>
+<li>模型使用<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python src/generate_passwords.py --model_path &#123;MODEL_PATH&#125; --out_path &#123;PASSWORD_OUTPUT_FOLDER&#125; --num_generate &#123;NUM_PASSWORDS&#125; --train_data_path &#123;PATH_TO_TRAINING_DATA&#125; --eval_data_path &#123;PATH_TO_EVAL_DATA&#125;</span><br><span class="line"><span class="comment"># Customizeation</span></span><br><span class="line"> python src/generate_passwords.py --model_path train_output/last/ --out_path ./train_output/last/ --num_generate <span class="number">100000000</span> --train_data_path data/rockyou.txt --eval_data_path data/rockyou.txt --tokenizer_path output/byte_bpe_tokenizer_99/</span><br></pre></td></tr></table></figure>
+ 进一步的生成参数，例如“–temper”、“–top_p”或“–top_k”</li>
+</ol>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>conda + python3.11<br>requirements.txt</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">accelerate==0.28.0</span><br><span class="line">aiohttp==3.9.3</span><br><span class="line">aiosignal==1.3.1</span><br><span class="line">appdirs==1.4.4</span><br><span class="line">asttokens==2.4.1</span><br><span class="line">attrs==23.2.0</span><br><span class="line">azure-core==1.30.1</span><br><span class="line">azure-storage-blob==12.19.1</span><br><span class="line">certifi==2024.2.2</span><br><span class="line">cffi==1.16.0</span><br><span class="line">charset-normalizer==3.3.2</span><br><span class="line">click==8.1.7</span><br><span class="line">comm==0.2.1</span><br><span class="line">cryptography==42.0.5</span><br><span class="line">datasets==2.18.0</span><br><span class="line">debugpy==1.6.7</span><br><span class="line">decorator==5.1.1</span><br><span class="line">dill==0.3.8</span><br><span class="line">docker-pycreds==0.4.0</span><br><span class="line">exceptiongroup==1.2.0</span><br><span class="line">executing==2.0.1</span><br><span class="line">filelock==3.13.1</span><br><span class="line">frozenlist==1.4.1</span><br><span class="line">fsspec==2024.2.0</span><br><span class="line">gitdb==4.0.11</span><br><span class="line">GitPython==3.1.42</span><br><span class="line">huggingface-hub==0.21.4</span><br><span class="line">idna==3.6</span><br><span class="line">importlib_metadata==7.0.2</span><br><span class="line">ipykernel==6.29.3</span><br><span class="line">ipython==8.22.2</span><br><span class="line">isodate==0.6.1</span><br><span class="line">jedi==0.19.1</span><br><span class="line">Jinja2==3.1.3</span><br><span class="line">joblib==1.3.2</span><br><span class="line">jsonlines==4.0.0</span><br><span class="line">jupyter_client==8.6.0</span><br><span class="line">jupyter_core==5.7.1</span><br><span class="line">lamini==2.1.2</span><br><span class="line">lamini-configuration==0.8.3</span><br><span class="line">MarkupSafe==2.1.5</span><br><span class="line">matplotlib-inline==0.1.6</span><br><span class="line">mpmath==1.3.0</span><br><span class="line">multidict==6.0.5</span><br><span class="line">multiprocess==0.70.16</span><br><span class="line">nest_asyncio==1.6.0</span><br><span class="line">networkx==3.2.1</span><br><span class="line">numpy==1.26.4</span><br><span class="line">packaging==24.0</span><br><span class="line">pandas==2.2.1</span><br><span class="line">parso==0.8.3</span><br><span class="line">pexpect==4.9.0</span><br><span class="line">pickleshare==0.7.5</span><br><span class="line">pip==23.3.1</span><br><span class="line">platformdirs==4.2.0</span><br><span class="line">prompt-toolkit==3.0.42</span><br><span class="line">protobuf==4.25.3</span><br><span class="line">psutil==5.9.0</span><br><span class="line">ptyprocess==0.7.0</span><br><span class="line">pure-eval==0.2.2</span><br><span class="line">pyarrow==15.0.1</span><br><span class="line">pyarrow-hotfix==0.6</span><br><span class="line">pycparser==2.21</span><br><span class="line">Pygments==2.17.2</span><br><span class="line">python-dateutil==2.9.0</span><br><span class="line">pytz==2024.1</span><br><span class="line">PyYAML==6.0.1</span><br><span class="line">pyzmq==25.1.2</span><br><span class="line">regex==2023.12.25</span><br><span class="line">requests==2.31.0</span><br><span class="line">safetensors==0.4.2</span><br><span class="line">scikit-learn==1.4.1.post1</span><br><span class="line">scipy==1.12.0</span><br><span class="line">sentry-sdk==1.43.0</span><br><span class="line">setproctitle==1.3.3</span><br><span class="line">setuptools==68.2.2</span><br><span class="line">six==1.16.0</span><br><span class="line">smmap==5.0.1</span><br><span class="line">stack-data==0.6.2</span><br><span class="line">sympy==1.12</span><br><span class="line">threadpoolctl==3.3.0</span><br><span class="line">tokenizers==0.15.2</span><br><span class="line">torch==2.2.1</span><br><span class="line">tornado==6.3.3</span><br><span class="line">tqdm==4.66.2</span><br><span class="line">traitlets==5.14.1</span><br><span class="line">transformers==4.38.2</span><br><span class="line">triton==2.2.0</span><br><span class="line">typing_extensions==4.10.0</span><br><span class="line">tzdata==2024.1</span><br><span class="line">urllib3==2.2.1</span><br><span class="line">wandb==0.16.4</span><br><span class="line">wcwidth==0.2.13</span><br><span class="line">wheel==0.41.2</span><br><span class="line">xxhash==3.4.1</span><br><span class="line">yarl==1.9.4</span><br><span class="line">zipp==3.17.0</span><br></pre></td></tr></table></figure>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="问题：-‘utf-8’-解析出错"><a href="#问题：-‘utf-8’-解析出错" class="headerlink" title="问题： ‘utf-8’ 解析出错"></a>问题： ‘utf-8’ 解析出错</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(args.train_path, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># with open(args.train_path, &quot;r&quot;, encoding=&quot;utf-8&quot;, errors=&#x27;replace&#x27;) as f:</span></span><br><span class="line"></span><br><span class="line">        lines = f.read().splitlines()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xf1 in position 5079963: invalid continuation byte</p>
+</blockquote>
+<p>解决1：使用默认字符替换，默认是 “?”。<br><code>with open(args.train_path, &quot;r&quot;, encoding=&quot;utf-8&quot;, errors=&#39;replace&#39;) as f</code></p>
+<p>解决2：定位到没有解析的字符行，重新输入</p>
+<h2 id="问题：-包缺失"><a href="#问题：-包缺失" class="headerlink" title="问题： 包缺失"></a>问题： 包缺失</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  File &quot;/opt/conda/envs/py3_11/lib/python3.11/site-packages/transformers/training_args.py&quot;, line 1905, in _setup_devices</span><br><span class="line">    raise ImportError(</span><br><span class="line">ImportError: Using the `Trainer` with `PyTorch` requires `accelerate&gt;=0.21.0`: Please run `pip install transformers[torch]` or `pip install accelerate -U`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/root/PSG/passgpt-main/src/train_passgpt.py&quot;, line 120, in &lt;module&gt;</span><br><span class="line">    trainer = Trainer(</span><br><span class="line">              ^^^^^^^^</span><br><span class="line">  File &quot;/opt/conda/envs/py3_11/lib/python3.11/site-packages/transformers/trainer.py&quot;, line 533, in __init__</span><br><span class="line">    self.callback_handler = CallbackHandler(</span><br><span class="line">                            ^^^^^^^^^^^^^^^^</span><br><span class="line">  File &quot;/opt/conda/envs/py3_11/lib/python3.11/site-packages/transformers/trainer_callback.py&quot;, line 313, in __init__</span><br><span class="line">    self.add_callback(cb)</span><br><span class="line">  File &quot;/opt/conda/envs/py3_11/lib/python3.11/site-packages/transformers/trainer_callback.py&quot;, line 330, in add_callback</span><br><span class="line">    cb = callback() if isinstance(callback, type) else callback</span><br><span class="line">         ^^^^^^^^^^</span><br><span class="line">  File &quot;/opt/conda/envs/py3_11/lib/python3.11/site-packages/transformers/integrations/integration_utils.py&quot;, line 673, in __init__</span><br><span class="line">    raise RuntimeError(&quot;WandbCallback requires wandb to be installed. Run `pip install wandb`.&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题：显存不够"><a href="#问题：显存不够" class="headerlink" title="问题：显存不够"></a>问题：显存不够</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 288.00 MiB. GPU 0 has a total capacity of 10.75 GiB of which 44.62 MiB is free. Process 1338858 has 10.69 GiB memory in use.</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>换服务器，当前服务器显卡资源不足：<br>![[Pasted image 20240322093550.png]]</p>
+</li>
+<li><p>新服务器<br>![[Pasted image 20240322093300.png]]</p>
+</li>
+</ol>
+<h2 id="问题：-显示-Driver-Version-过低"><a href="#问题：-显示-Driver-Version-过低" class="headerlink" title="问题： 显示 Driver Version 过低"></a>问题： 显示 Driver Version 过低</h2><p>（导致训练时不能使用 GPU）<br>    此时不一定是 Driver Version 版本的问题，在实际中只要 显卡 显卡驱动兼容，那么就可以使用显卡跑程序。<br>    通过 降低 pytorch 的版本到 2.0.0 ，成功运行。</p>
+<p>![[Pasted image 20240322011742.png]]</p>
+<p>![[Pasted image 20240322091910.png]]</p>
+<h1 id="当前的进度"><a href="#当前的进度" class="headerlink" title="当前的进度"></a>当前的进度</h1><p>目前的进度： PassGPT 训练过程结束（最大字符 长度 设置为 10）</p>
+<p>![[Pasted image 20240322102651.png]]</p>
+<p>当前实验存在的问题：<br>运行模型 需要 的配置较高。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/673125345">模型显存需求估计</a></p>
+<h1 id="下一步计划"><a href="#下一步计划" class="headerlink" title="下一步计划"></a>下一步计划</h1><p>之前是跑了模型的训练部分，下一步就是使用模型生成密码，并且分析数据。</p>
+<p>计划的实验目标是：<br>    1. 论文中没有提到只是说生成一定的数量的密码之后对测试数据集的覆盖率达到了多少，但是并没有提到那些 类型数据 是模型难以拟合的，我主要想看一下哪些没有匹配到的密码长什么样子。<br>    2. 对比以下 开源的预训练 10 字符 模型 和 此次训练的模型的效果，验证一下论文的效果。</p>
+<p>目前的一个小 idea，参考 [[MoEs]] ，但了解还比较粗浅。</p>
+<p>最后感觉论文读的还是太少了，需要接着调研论文 </p>
+<p>模型运行结果：<a target="_blank" rel="noopener" href="https://wandb.ai/xinka/huggingface/runs/f4ta95w4?nw=nwuserfengdreamin">https://wandb.ai/xinka/huggingface/runs/f4ta95w4?nw=nwuserfengdreamin</a></p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E5%A4%8D%E7%8E%B0/%E5%A4%8D%E7%8E%B0%EF%BC%9APassGPT/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://xinka.vercel.app/2024/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/%E5%A4%8D%E7%8E%B0/%E5%A4%8D%E7%8E%B0%EF%BC%9APassGPT/";
+            const title         = "「」";
+            const excerpt       = `基本流程数据集：RockYou password leak
+使用论文预训练模型：
+
+最多 10 个字符密码训练的 PassGPT 此处。 
+最多 16 个字符的密码训练的版本需要我们团队的研究批准，可以在此处找到。
+
+自己训练模型：
+...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-02T11:41:15.622Z" itemprop="dateModified">最后编辑：2024-04-02</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" (无标题)" href="/2024/04/23/论文笔记/语法密码分析/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" (无标题)" href="/2024/04/23/课程作业/6G技术发展报告/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">生于尘埃，溺于人海，死于理想的高台</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                98
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                1
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/excalidraw/" style="font-size: 0.6em;">excalidraw</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/23/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/23/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 心咖 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by dreamin.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

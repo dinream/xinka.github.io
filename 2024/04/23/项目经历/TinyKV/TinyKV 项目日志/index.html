@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>查看动态 | 心咖</title>
+  
+  <meta name="author" content="dreamin" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="Project 1Project 2Project 2 整体架构Project 2AProject 2A 整体架构本部分实现基础的 Raft 算法，且不需要考虑快照操作。我们共需要实现三个模块，分别为 RawNode、Raft 和 RaftLog，分别对应文件 rawnode.go、raft.go 和 log.go ，这三个模块，共同构成一层，我将其称为 raft 层。结构图如下![[image2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查看动态">
+<meta property="og:url" content="https://xinka.vercel.app/2024/04/23/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/TinyKV/TinyKV%20%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/index.html">
+<meta property="og:site_name" content="心咖">
+<meta property="og:description" content="Project 1Project 2Project 2 整体架构Project 2AProject 2A 整体架构本部分实现基础的 Raft 算法，且不需要考虑快照操作。我们共需要实现三个模块，分别为 RawNode、Raft 和 RaftLog，分别对应文件 rawnode.go、raft.go 和 log.go ，这三个模块，共同构成一层，我将其称为 raft 层。结构图如下![[image2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-23T03:05:06.670Z">
+<meta property="article:modified_time" content="2024-04-22T02:39:45.960Z">
+<meta property="article:author" content="dreamin">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">心咖</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>心咖</h2> <br />
+                        <span>人生如此，方趁我心</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://xinka.vercel.app/2024/04/23/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/TinyKV/TinyKV%20%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-04-23T03:05:06.670Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-23</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">dreamin</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~13.74K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="Project-1"><a href="#Project-1" class="headerlink" title="Project 1"></a>Project 1</h1><h1 id="Project-2"><a href="#Project-2" class="headerlink" title="Project 2"></a>Project 2</h1><h2 id="Project-2-整体架构"><a href="#Project-2-整体架构" class="headerlink" title="Project 2 整体架构"></a>Project 2 整体架构</h2><h2 id="Project-2A"><a href="#Project-2A" class="headerlink" title="Project 2A"></a>Project 2A</h2><h3 id="Project-2A-整体架构"><a href="#Project-2A-整体架构" class="headerlink" title="Project 2A 整体架构"></a>Project 2A 整体架构</h3><p>本部分实现基础的 Raft 算法，且不需要考虑快照操作。我们共需要实现三个模块，分别为 RawNode、Raft 和 RaftLog，分别对应文件 <code>rawnode.go</code>、<code>raft.go</code> 和 <code>log.go</code> ，这三个模块，共同构成一层，我将其称为 <code>raft 层</code>。结构图如下<br>![[image2.png]]</p>
+<ul>
+<li><strong>RawNode</strong>：该模块用来接收上层传来的信息，将信息下传给 Raft 模块。比如，上层传递一个 Msg 给 RawNode，这个 Msg 可能是 心跳请求、日志提交请求、日志追加请求等等。然后 RawNode 收到这个 Msg 之后，将其交给 Raft 模块去处理。比如，上层交给 RawNode 一个日志提交请求，然后 RawNode 将其交给 Raft ，如果该节点是领导人，那么其就会追加这条日志，然后发送给其他节点进行同步。另外，RawNode 不仅用来接受请求然后传递给 Raft，还要用来收到 Raft 的同步结果然后传递给上层。RawNode 要负责检查 Raft 模块是否已有同步好的日志需要应用、是否有 Msg 需要发送、是否有日志需要持久化等等，然后把这些信息（Ready）交给上层，上层会据此进行处理。总的来说，RawNode 是 raft 层暴露给上层的一个模块，用来进行信息的传递。</li>
+<li><strong>Raft</strong>：整个 raft 层最关键的就是它，它就是实现 Raft 算法的核心模块。其中，领导人选举、日志追加、角色转换等等均是在这里实现。Raft 模块会接受 RawNode 发来的信息，然后在进群中进行相关的同步操作，同步结果不需要主动返回给 RawNode，因为 RawNode 自己会进行检查。</li>
+<li><strong>RaftLog</strong>：该模块用来暂存节点的日志条目，同时还要维护一些日志指针，如 committed、applied 等等。</li>
+</ul>
+<p>总结一下，RawNode 是 raft 层中暴露在外面的模块，用于该层与上层的信息交互，Raft 模块是 raft 层中的核心模块，算法的核心逻辑均在该模块实现，RaftLog 用来暂存日志信息，并维护相关指针。</p>
+<h3 id="Project-2-AA｜Project-2-AB"><a href="#Project-2-AA｜Project-2-AB" class="headerlink" title="Project 2 AA｜Project 2 AB"></a>Project 2 AA｜Project 2 AB</h3><h4 id="消息类型以及基本逻辑"><a href="#消息类型以及基本逻辑" class="headerlink" title="消息类型以及基本逻辑"></a>消息类型以及基本逻辑</h4><ol>
+<li><p>case pb.MessageType_MsgHup:</p>
+<ol>
+<li>选举的本地消息，由 Tick() 触发。</li>
+<li>如果发生选举超时，节点应将“MessageType_MsgHup”传递给其 Step 方法并开始新的选举，向其他所有节点发送 MsgRequestVote；</li>
+<li>一旦收到了这个消息，说明就是要重新开始一次选举。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgBeat:</p>
+<ol>
+<li>本地心跳信息。表示当前节点的时钟前进，判断心跳超时和选举超时并进行相应的处理。</li>
+<li>注意只有 Leader 需要处理这个消息。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgPropose:</p>
+<ol>
+<li>注意只有 Leader 会处理这个消息。 </li>
+<li>Leader 收到此消息需要将日志广播给其他节点。<ol>
+<li>发送时，如果要发送的 Index 已经被压缩了，转为发送快照。</li>
+<li>否则发送 MsgAppend。</li>
+<li>如果 MsgAppend 被接收者拒绝，Leader 会调整 next，重新进行前置判断，如果无需发快照，则按照新的 next 重新发送 MsgAppend。</li>
+</ol>
+</li>
+<li>发送方：由 Raft 层的上层构造此 msg 表示一次追加日志。此外，becomeLeader 时也会发送一个空 Entry 的 propose（也会被 广播）。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgAppend:</p>
+<ol>
+<li>发送方：如上，一般 propose 之后触发，由 Leader 发送给其他节点来同步日志条目。</li>
+<li>接收方：<ol>
+<li>判断 Msg 的 Term 是否大于等于自己的 Term，是则更新，否则拒绝；</li>
+<li>拒绝，如果 prevLogIndex &gt; r.RaftLog.LastIndex() 说明中间有日志缺失。否则往下；</li>
+<li>拒绝，如果接收者日志中没有包含这样一个条目：即该条目的 Term 在 prevLogIndex 上不能和 prevLogTerm 匹配上。否则往下；</li>
+<li>追加新条目，同时删除冲突条目，冲突条目的判别方式和论文中的一致；</li>
+<li>当前节点更新 committedIndex 时，要比较 Leader 已知已经提交的最高的日志条目的索引 m.Commit 或者是上一个新条目的索引，然后取两者的最小值。为</li>
+<li>接受；</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgAppendResponse:</p>
+<ol>
+<li>只有 Leader 会处理该 Msg，其余角色直接忽略；</li>
+<li>如果被 reject 了，那么重置 next。重置规则为将旧的 next –，然后比较 m.Index + 1，最后取小的那个赋值给 next，然后重新进行日志 &#x2F; 快照追加；</li>
+<li>如果没有 reject，则更新 match 和 next。next 赋值为 m.Index + 1，match 赋值为 next - 1 ；</li>
+<li>按照论文的思路更新 commit。假设存在 N 满足N &gt; commitIndex，使得大多数的 matchIndex[i] ≥ N以及log[N].term &#x3D;&#x3D; currentTerm 成立，则令 commitIndex &#x3D; N。为了快速更新，这里先将节点按照 match 进行了递增排序，这样就可以快速确定 N 的位置。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgRequestVote:</p>
+<ol>
+<li>判断 Msg 的 Term 是否大于等于自己的 Term，是则更新，否则拒绝；</li>
+<li>如果 votedFor 不为空或者不等于 candidateID，则说明该节点以及投过票了，直接拒绝。否则往下；</li>
+<li>Candidate 的日志至少和自己一样新，那么就给其投票，否者拒绝。新旧判断逻辑如下：<ul>
+<li>如果两份日志最后的条目的任期号不同，那么任期号大的日志更加新</li>
+<li>如果两份日志最后的条目任期号相同，那么日志比较长的那个就更加新；<br> Candidate 会通过 r.votes 记录下都有哪些节点同意哪些节点拒绝，当同意的票数过半时，即可成为 Leader，当拒绝的票数过半时，则转变为 Follower。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgRequestVoteResponse:</p>
+<ol>
+<li>只有 Candidate 会处理该 Msg，其余节点收到后直接忽略；</li>
+<li>根据 m.Reject 更新 r.votes[m.From]，即记录投票结果；</li>
+<li>算出同意的票数 agrNum 和拒绝的票数 denNum；</li>
+<li>如果同意的票数过半，那么直接成为 Leader；</li>
+<li>如果拒绝的票数过半，那么直接成为 Follower</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgSnapshot:</p>
+<ol>
+<li>Project2C 中才会实现，所以该 Msg 在 Project2C 处</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgHeartbeat:</p>
+<ol>
+<li>发送：<ol>
+<li>每当 Leader 的 heartbeatTimeout 达到时，就会给其余所有节点发送 MsgHeartbeat；</li>
+</ol>
+</li>
+<li>接收与处理：<ol>
+<li>判断 Msg 的 Term 是否大于等于自己的 Term，是则更新，否则拒绝；</li>
+<li>重置选举计时 r.electionElapsed</li>
+<li>发送 MsgHeartbeatResponse</li>
+<li>Commit:  min(r.RaftLog.committed, r.Prs[to].Match), 确保了心跳消息中的 Commit 字段不会超过已经在目标节点上提交的日志索引，使得心跳消息不需要推进 Commit。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgHeartbeatResponse:</p>
+<ol>
+<li>发送：<ol>
+<li>当节点收到 MsgHeartbeat 时，会相应的回复 MsgHeartbeatResponse；</li>
+</ol>
+</li>
+<li>接收与处理：<ol>
+<li>只有 Leader 会处理 MsgHeartbeatResponse，其余角色直接忽略；</li>
+<li>通过 m.Commit 判断节点是否落后了，如果是，则进行日志追加；</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgTransferLeader:</p>
+<ol>
+<li>用于上层请求转移 Leader，Project3 使用。</li>
+</ol>
+</li>
+<li><p>case pb.MessageType_MsgTimeoutNow:</p>
+<ol>
+<li>节点收到后清空 r.electionElapsed，并即刻发起选举</li>
+</ol>
+</li>
+</ol>
+<h4 id="消息使用的字段"><a href="#消息使用的字段" class="headerlink" title="消息使用的字段"></a>消息使用的字段</h4><table>
+<thead>
+<tr>
+<th>MessageType\msg_nr</th>
+<th>MsgType</th>
+<th>To</th>
+<th>From</th>
+<th>Term</th>
+<th>LogTerm</th>
+<th>Index</th>
+<th>Entries</th>
+<th>Commit</th>
+<th>Snapshot</th>
+<th>Reject</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hup</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Beat</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Propose</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RequestVote</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>requestVoteResponse</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>。</td>
+<td>。</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Heartbeat</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HeartbeatResponse</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Append</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppendResponse</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Snapshot</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>TransferLeader</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TimeoutNow</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>注意点：</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ol>
+<li>Hup 和 Beat 一定是本地消息，而 Propose 不一定是本地消息，可能是外部构造的不再 Raft 内部调用 Step 处理，所以：From 不使用但是 To 需要使用。</li>
+<li>TimeoutNow 也是 本地消息，即刻发起选举。</li>
+<li>对于 MessageType_MsgAppend：<ol>
+<li>LogTerm 为要发送的条目的前一个条目的 Term，即论文中的 prevLogTerm</li>
+<li>Index 为要发送的条目的前一个条目的 Index，即论文中的 prevLogIndex</li>
+<li>当前节点 (Leader) 的 committedIndex</li>
+</ol>
+</li>
+<li>对于 MessageType_MsgAppendResponse：<ol>
+<li>Index：r.RaftLog.LastIndex()；该字段用于 Leader 更快地去更新 next</li>
+</ol>
+</li>
+<li>Reject 两个功能，一个 投票一个 在 append<br> 不同的是，propose 的 entry 无论是不是一个空的，都会被当成一个新的 entry 进行添加，而 Appen 的 entry，则可能被拒绝或者截取部分。</li>
+</ol>
+<h4 id="推进器-Step"><a href="#推进器-Step" class="headerlink" title="推进器 Step()"></a>推进器 Step()</h4><p>Step() 作为驱动器，用来接收上层发来的 Msg，然后根据不同的角色和不同的 MsgType 进行不同的处理。</p>
+<h4 id="计时器-tick"><a href="#计时器-tick" class="headerlink" title="计时器 tick()"></a>计时器 tick()</h4><p>该函数起到计时器的作用，即逻辑时钟。每调用一次，就要增加节点的心跳计时（ r.electionElapsed），如果是 Leader，就要增加自己的选举计时（ r.heartbeatElapsed），然后，应按照角色进行对应的操作。</p>
+<h4 id="log-go"><a href="#log-go" class="headerlink" title="log.go"></a>log.go</h4><h4 id="关键点｜易错点"><a href="#关键点｜易错点" class="headerlink" title="关键点｜易错点"></a>关键点｜易错点</h4><ol>
+<li>raft 的 id 是从 0 开始的，但是 0 是无效 id ：const RaftInvalidIndex uint64 &#x3D; 0</li>
+<li>entry 的 index 指的是 在 storage 中的 索引，而不是在数组中的下标。<br> 下标计算： index - entries[0].Index</li>
+<li>注意每一个 entry 都有一个自己的 <strong>term</strong></li>
+<li>Leader 不会自己发起一个新的选举。</li>
+<li>注意变成 Candidate 后发现，只有一个节点，再直接变成 Leader。</li>
+<li>注意某一个消息处理时如果遍历 Prs 且跳过了当前节点的 id ，需要额外考虑一下集群只有一个节点的情况。</li>
+<li>becomeCandidate 和 发送 请求 投票要分开进行</li>
+<li>allEntries() 描述中需要排除 排除虚拟条目，但是实际上，<br> &#x2F;&#x2F; if ent.Data !&#x3D; nil { &#x2F;&#x2F; 如果 这里的 ent 的 Data 是空的,说明 entry 无效<br> &#x2F;&#x2F; }<br> 不需要排除，这个是在 测试中确定的。</li>
+<li>handleRequestVoteResponse  除了统计同意的个数，还需要统计 拒绝的个数。</li>
+</ol>
+<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><p><strong>随机选举时间问题</strong></p>
+<ul>
+<li>如果 et 太小，会过早开始选举，导致 term 比测试预期大。如果太大，会很晚发生选举，导致 term 比测试预期小。而且如果按照etcd那样一直递增，最后时间会非常长，直接卡住。我最后把它限制在 10~20 之间，通过测试。</li>
+</ul>
+<p><strong>leader 更新 committed 之后要告知 follower</strong></p>
+<ul>
+<li>eader 收到 appendResp 后，会相应的更新自己的 committed，但是更新之后一定要把更新结果告知<code>全部</code> follower，即另外发送一个 appendResp 。如果不这样的话，最后一轮完成后，集群的 committed 会不同步。并且为了防止死循环，leader 只能在 committed 发生变化的时候去通知 follower。</li>
+</ul>
+<p><strong>测试要求 msg 是nil，而不是空切片</strong></p>
+<ul>
+<li>TestRawNodeRestartFromSnapshot2C 中，want 里的 msg 为 nil，即测试点预期 newRaft 处的 msg 应该为 nil，而不是 make 一个空切片。</li>
+</ul>
+<h3 id="Project-2-AB"><a href="#Project-2-AB" class="headerlink" title="Project 2 AB"></a>Project 2 AB</h3><p>空空如也</p>
+<h3 id="Project-2-AC"><a href="#Project-2-AC" class="headerlink" title="Project 2 AC"></a>Project 2 AC</h3><h4 id="RawNode-部分整体工作流程"><a href="#RawNode-部分整体工作流程" class="headerlink" title="RawNode 部分整体工作流程"></a>RawNode 部分整体工作流程</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">  <span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> &lt;-s.Ticker:</span><br><span class="line">    Node.Tick()</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">if</span> Node.HasReady() &#123;</span><br><span class="line">      rd := Node.Ready()</span><br><span class="line">      saveToStorage(rd.State, rd.Entries, rd.Snapshot)</span><br><span class="line">      send(rd.Messages)</span><br><span class="line">      <span class="keyword">for</span> _, entry := <span class="keyword">range</span> rd.CommittedEntries &#123;</span><br><span class="line">        process(entry)</span><br><span class="line">      &#125;</span><br><span class="line">      s.Node.Advance(rd)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<ol>
+<li>RawNode 是 Raft 的包装器，上层 ( peer 层) 会不停的调用 RawNode 的 tick() 函数，进一步触发 Raft 的 tick() 函数。 </li>
+<li>上层会定时从 RawNode 获取 Ready，首先上层通过 HasReady() 进行判断，如果有新的 Ready，上层会调用RawNode 的Ready()方法进行获取，RawNode 从 Raft 中 获取信息生成相应的 Ready 返回给上层应用，Raft 的信息则是存储在 RaftLog 之中。上层应用处理完 Ready 后，会调用 RawNode 的Advance() 方法进行推进，告诉 RawNode 之前的 Ready 已经被处理完成，然后你可以执行一些操作，比如修改 applied，stabled 等信息。 </li>
+<li>上层应用可以直接调用 RawNode 提供的 Propose(data []byte) ，Step(m pb.Message) 等方法，RawNode 会将这些请求统一包装成 Message，通过 Raft 提供的 Step(m pb.Message) 输入信息。</li>
+</ol>
+<h4 id="HasReady"><a href="#HasReady" class="headerlink" title="HasReady()"></a>HasReady()</h4><p>RawNode 通过 HasReady() 来判断 Raft 模块是否已经有同步完成并且需要上层处理的信息，包括：</p>
+<ul>
+<li>是否有需要持久化的状态；</li>
+<li>是否有需要持久化的条目；</li>
+<li>是否有需要应用的快照；</li>
+<li>是否有需要应用的条目；</li>
+<li>是否有需要发送的 Msg</li>
+</ul>
+<p>其中，最后一点的 Msg，就是 Raft 模块中节点间相互发送的 Msg。也就是说，节点间发送的 Msg 是通过 RawNode 先发送给上层，然后上层在将其发送给对应节点的。</p>
+<p>如果 HasReady() 返回 true，那么上层就会调用 Ready() 来获取具体要做的事情，和上述 HasReady() 的判断一一对应。该方法直接调用 rn.newReady() 生成一个 Ready() 结构体然后返回即可。</p>
+<h4 id="Advance"><a href="#Advance" class="headerlink" title="Advance()"></a>Advance()</h4><p>当上层处理完 Ready 后，调用 Advance() 来推进整个状态机。Advance() 的实现就按照 Ready 结构体一点点更改 RawNode 的状态即可，包括：</p>
+<ul>
+<li>prevHardSt 变更；</li>
+<li>stabled 指针变更；</li>
+<li>applied 指针变更；</li>
+<li>清空 rn.Raft.msgs；</li>
+<li>丢弃被压缩的暂存日志；</li>
+<li>清空 pendingSnapshot；</li>
+</ul>
+<h4 id="思考-总结"><a href="#思考-总结" class="headerlink" title="思考&amp;总结"></a>思考&amp;总结</h4><ol>
+<li>RawNode 是 Raft 的封装，保存 Raft 的一部分状态</li>
+</ol>
+<h3 id="Project-2A-总结-思考"><a href="#Project-2A-总结-思考" class="headerlink" title="Project 2A  总结&amp;思考"></a>Project 2A  总结&amp;思考</h3><h4 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h4><blockquote>
+<p>对于某个 Raft 变为 Candidate 提出选举，是当场给自己投一票 还是 同样构造一个 msg 发给自己处理？从 term 的角度思考。<br>    1. 假设发消息。可能导致当前 Raft 先收到其他 Raft 的投票请求，从而自己没有给自己投票。<br>    2. 因此当场给自己投一票。这样也减少了自己和自己的发消息多余操作。</p>
+</blockquote>
+<blockquote>
+<p>如果当前的 Raft 就是自己本身，开始一个新的选举之后  term 要增加吗？<br>    增加。</p>
+</blockquote>
+<blockquote>
+<p>如果超时，是先增加  term 还是先发送 MsgHup 消息？<br>    先增加 term。如果先发送消息，那么在消息队列中，这个消息前面的消息会认为这个 Raft 还是没有超时（实际上已经超时了）</p>
+</blockquote>
+<blockquote>
+<p>先发心跳包等到响应再增加 Elapsed 还是 先增加？<br>    先增加。万一响应收不到了，Elapsed 还是要增加的。</p>
+</blockquote>
+<blockquote>
+<p>Message 中 Commit 字段的作用？<br>    表示提交索引（commit index）。在 Raft 一致性算法中，每个节点都会维护一个提交索引。提交索引表示在该索引之前的所有日志条目都已经被安全地复制到了大多数节点，并且可以被应用到状态机中。换句话说，提交索引是已经达成共识并可以执行的日志条目的最高索引。</p>
+</blockquote>
+<blockquote>
+<p>RaftLog 中 committed | applied | stabled 三个字段？<br>    committed：已知在多数节点上的稳定存储中的最高日志位置。<br>    applied：已经应用到状态机的最大 log 位置<br>    stabled： 已经被持久化存储的最大 log 位置。</p>
+</blockquote>
+<blockquote>
+<p>持久化存储中到底要存储什么？<br>    1. “Save log entries to stable storage”（将日志条目保存到稳定存储）：在 Raft 中，每个节点会维护一个日志（log），其中包含按顺序记录的操作或状态变化。当节点接收到来自客户端的命令或其他节点的日志复制请求时，它将这些日志条目追加到自己的日志中。为了确保数据的持久性和可靠性，节点需要将这些日志条目保存到稳定存储介质（如磁盘）上，以便在节点重启或发生故障时能够恢复日志的状态。<br>    2. “Save hard state like the term, commit index, and vote to stable storage”（将任期、提交索引和投票信息等硬状态保存到稳定存储）：除了日志条目之外，Raft 还维护了一些重要的状态信息，称为硬状态。这些硬状态包括当前任期（term）、已提交的索引（commit index）和投票信息（如上一次投票的候选人ID等）。这些硬状态的变化需要被持久化保存，以确保在节点重启或发生故障时能够恢复到正确的状态。</p>
+</blockquote>
+<blockquote>
+<p>MemoryStorage  中 ents[i] has raft log position i+snapshot.Metadata.Index 的含义？<br>    <code>ents[i]</code> 表示 Raft 日志中的第 <code>i</code> 个条目。该条目的 Raft 日志位置是通过 <code>i + snapshot.Metadata.Index</code> 来确定的。<br>    在 Raft 算法中，为了支持快照（snapshot）功能，可以将当前节点的状态和日志压缩成一个快照。快照包含了快照的元数据信息以及存储在快照中的状态和日志条目。<br>    在代码中的 <code>ents</code> 切片中，存储了一系列的日志条目。为了与快照中的日志条目对应起来，<code>ents[i]</code> 的 Raft 日志位置是通过 <code>i + snapshot.Metadata.Index</code> 计算得出的。<br>    具体来说，<code>snapshot.Metadata.Index</code> 表示快照元数据中的索引值，它指示了快照中第一个条目的索引。然后，对于 <code>ents</code> 切片中的第 <code>i</code> 个条目，其在 Raft 日志中的位置就是 <code>i + snapshot.Metadata.Index</code>。<br>    这样的计算方式可以确保在应用快照之后，<code>ents</code> 切片中的日志条目仍然与 Raft 日志中的对应位置保持一致。<br>    需要注意的是，<code>snapshot.Metadata.Index</code> 是快照元数据中的一个字段，用于表示快照中第一个条目的索引。在给出的代码中，<code>snapshot</code> 是一个 <code>Metadata</code> 类型的字段，可能是一个结构体或变量，用于存储快照的元数据信息。<br>    也就是说  0 号位置的 Index 就是 <code>snapshot.Metadata.Index</code></p>
+</blockquote>
+<blockquote>
+<p>RaftLog 中的 entries  和 Storage 中的 ents 有什么区别？<br>    1. entries 是 从下标 1 开始作为有效记录；ents 是从下表 0 开始作为有效记录。<br>    2. .ents[0].Index 始终是有效的，用来作为基础索引</p>
+</blockquote>
+<blockquote>
+<p>RaftLog.storage.Snapshot() 和 RaftLog.pendingSnapshot 中的区别<br>    一个永久快照，一个临时快照。</p>
+</blockquote>
+<blockquote>
+<p>心跳 heatbeat 时间和选举 election 时间的关系<br>    1. heatbeat 只有 Leader 发送；election 时间是非 leader  需要维护的信息，以便即使开始一个选举。</p>
+</blockquote>
+<blockquote>
+<p>收到陌生 Raft 的信息，该怎么处理？<br>    1. 可能是一个新的节点，需要添加到已有结构中。<br>    2. 什么情况下添加？<br>        1. 首先只有这个新的 Raft 发送消息时才能被旧 Raft 知道，但是陌生 Raft 的工作消息直接处理可能会出问题，所以应该使用 heatbeat 作为新 Raft 的识别消息（谁收到了这个消息谁添加节点）。那么：<br>        2. 选举过程：<br>            1. Candidate 收到 heatbeat：多一个投票人，不会导致选举失败 。<br>            2. 其他角色 收到 heatbeat：更不会影响选举。<br>        3. 工作过程：<br>            1. Leader 收到 heatbeat：多一个工作者，不会导致工作错误 。<br>            2. 其他角色 收到 heatbeat：更不会影响工作（因为不会给 这个 Raft 发送工作消息）。<br>    3. 总结：任何情况下，收到 新 Raft 的 heatbeat 时，可将其添加到当前 Raft 的记录中（最好同时向这个新 Raft 同步一下当前系统的情况）。</p>
+</blockquote>
+<p>sendAppendResponse 不需要 回复 —-嘛嘛嘛？？？？？？？</p>
+<h4 id="总结一下-commmit-applied-stable-的修改时机"><a href="#总结一下-commmit-applied-stable-的修改时机" class="headerlink" title="总结一下 commmit|applied|stable 的修改时机"></a>总结一下 commmit|applied|stable 的修改时机</h4><p>&#x2F;&#x2F;	snapshot&#x2F;first…..applied….committed….stabled…..last<br>&#x2F;&#x2F;	——–|————————————————|<br>&#x2F;&#x2F;	                          log entries</p>
+<h4 id="RaftLog-committed-修改时机总结"><a href="#RaftLog-committed-修改时机总结" class="headerlink" title="RaftLog.committed 修改时机总结"></a>RaftLog.committed 修改时机总结</h4><ol>
+<li>在  newRaft() 中调用 newLog() 时被初始化为 storage 中 hardState 的 Commit</li>
+<li>Leader 在 发送 MessageType_MsgAppend 时发送当前 commited</li>
+<li>Raft 在收到 MessageType_MsgAppend 并更新 RaftLog.entries 之后，将 commited 置为以下两者的最小值<ol>
+<li>Leader 的 committed： m.Commit</li>
+<li>Leader 以为的 此 Raft 的 Committed：m.Index+uint64(len(m.Entries))</li>
+</ol>
+</li>
+<li>Leader 在收到 AppendEntriesResponse 之后 将自己的 commited 置为 当前 Term 的Entry 被大多数 Peers 中 都 Match 的最小 Index。</li>
+<li>Leader 在 发送 MessageType_MsgHeartbeat 时发送 min(r.RaftLog.committed, r.Prs[to].Match) （确保心跳消息中的 Commit 字段不会超过已经和目标j节点同步的日志索引，从而使得心跳消息不会推进 committed ）</li>
+<li>Raft 收到 Lead 的  MessageType_MsgHeartbeat 之后，如果发现 m.Commit（Leader 认为的提交） &gt;&#x3D; r.RaftLog.committed （Raft 自认为的提交），说明当前 Raft 的 RaftLog.entries 中有一部分 Leader 认为还未提交（需要被覆盖）。修改 committed 值为<br> min(m.Commit, r.RaftLog.LastIndex())</li>
+</ol>
+<h4 id="RaftLog-applied-修改时机总结"><a href="#RaftLog-applied-修改时机总结" class="headerlink" title="RaftLog.applied 修改时机总结"></a>RaftLog.applied 修改时机总结</h4><ol>
+<li>在  newRaft() 中调用 newLog() 时被初始化为 storage 中 的 ent[0].Index 或者 初始化为 0，表示初始没有被 applied 的 entry。</li>
+<li>在 Advance() 中第一次修改。</li>
+</ol>
+<h4 id="RaftLog-stabled-修改时机总结"><a href="#RaftLog-stabled-修改时机总结" class="headerlink" title="RaftLog.stabled 修改时机总结"></a>RaftLog.stabled 修改时机总结</h4><ol>
+<li>在  newRaft() 中调用 newLog() 时被初始化为 storage 中 ent 最后一个 entry 的 Index。</li>
+<li>r.RaftLog.stabled &#x3D; m.Index</li>
+<li>rn.Raft.RaftLog.stabled &#x3D; rd.Entries[len(rd.Entries)-1].Index</li>
+</ol>
+<h4 id="r-Prs-的-Match-Next"><a href="#r-Prs-的-Match-Next" class="headerlink" title="r.Prs 的 Match &amp; Next"></a>r.Prs 的 Match &amp; Next</h4><ol>
+<li>收到 Propose 时 if lastIndex &#x3D;&#x3D; 0 Propose</li>
+</ol>
+<h2 id="Project-2B"><a href="#Project-2B" class="headerlink" title="Project 2B"></a>Project 2B</h2><h3 id="Project-2B-整体流程"><a href="#Project-2B-整体流程" class="headerlink" title="Project 2B 整体流程"></a>Project 2B 整体流程</h3><p>Project2B 实现了 rawNode 之上的上层应用，即真正开始多线程集群操作，引入了 peer 和 region 的概念。同时，除了实现上层的调用，Project2B 还需要通过调用 RaftStorage 中的接口真正实现写落盘。 store、peer、region 三者的关系如下：<br>![[Pasted image 20240420190155.png]]</p>
+<ol>
+<li>Store：每一个节点叫做一个 store，也就是一个节点上面只有一个 Store。代码里面叫 RaftStore，后面统一使用 RaftStore 代称。 </li>
+<li>Peer：一个 RaftStore 里面会包含多个 peer，一个 RaftStore 里面的所有 peer 公用同一个底层存储，也就是多个 peer 公用同一个 badger 实例。 </li>
+<li>Region：一个 Region 叫做一个 Raft group，即同属一个 raft 集群，一个 region 包含多个 peer，这些 peer 散落在不同的 RaftStore 上。</li>
+</ol>
+<p>这里将 Rawnode-Raft-RaftLog 统称为 raft 层，把要实现的部分称为 peer 层。peer 层首先接收来自 client 的 RaftCmdRequest，其中包含着不同的<code>命令请求</code>，接着它会把这些请求逐一以 entry 的形式传递给 raft 层，当然，这个 peer 应该是 Leader，不然 client 会找下一个 peer 继续试。raft 层收到条目后，会在集群内部进行同步，这就是 project2a 的内容。同步的过程中，peer 层会不时询问 raft 层有哪些已经同步好的 entry 可以拿来应用（执行）？哪些 entry 需要持久化？有没有快照需要应用？等等。三层的交互如下图所示：<br>![[Pasted image 20240421125735.png]]<br>此模块要完善两个文件，分别为 <code>peer_msg_handler.go</code> 和 <code>peer_storage.go</code></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sakura-ysy/TinyKV-2022-doc/blob/main/doc/project2.md?spm=a2c6h.13046898.publish-article.80.37936ffauECnFr&file=project2.md">https://github.com/sakura-ysy/TinyKV-2022-doc/blob/main/doc/project2.md?spm=a2c6h.13046898.publish-article.80.37936ffauECnFr&amp;file=project2.md</a></p>
+<h3 id="TODO-1"><a href="#TODO-1" class="headerlink" title="TODO"></a>TODO</h3><p>type peer struct 中为什么&#x2F;&#x2F; Instance of the Raft module<br>    是 RaftGroup *raft.RawNode<br>一个 region 包含多个 peer 怎么理解</p>
+<h2 id="Project-2C"><a href="#Project-2C" class="headerlink" title="Project 2C"></a>Project 2C</h2><p>Project 2C 整体流程</p>
+<h3 id="RawNode-中-hardState-和"><a href="#RawNode-中-hardState-和" class="headerlink" title="RawNode 中 hardState  和"></a>RawNode 中 hardState  和</h3><h1 id="Project-3"><a href="#Project-3" class="headerlink" title="Project 3"></a>Project 3</h1><p><a target="_blank" rel="noopener" href="https://www.inlighting.org/archives/tinykv-project3">https://www.inlighting.org/archives/tinykv-project3</a></p>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><h2 id="日志输出"><a href="#日志输出" class="headerlink" title="日志输出"></a>日志输出</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">log.Infof(<span class="string">&quot;Raft init with config=&#123;len(peers)=%d&#125;, &quot;</span>+</span><br><span class="line">        <span class="string">&quot;peerid=%d, log commitid=%d, applied=%d, stabled=%d&quot;</span>,</span><br><span class="line">        <span class="built_in">len</span>(c.peers),</span><br><span class="line">        rsp.id, rsp.RaftLog.committed, rsp.RaftLog.applied, rsp.RaftLog.stabled)</span><br><span class="line">        </span><br><span class="line">log.Fatal(err)</span><br><span class="line"></span><br><span class="line">log.Infof(<span class="string">&quot;peerid = %d becomes leader&quot;</span>, r.id)</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="TODO-2"><a href="#TODO-2" class="headerlink" title="TODO"></a>TODO</h2><p>&#x2F;&#x2F; TODO 这里的 stabled 在 newlog 的时候赋值过一次，应该不会是 0 ，为什么会判断一次stabled<br>    if l.stabled &#x3D;&#x3D; 0 {<br>        return l.entries<br>        &#x2F;&#x2F; log.Infof(“stabled &#x3D; %d”, l.stabled)<br>    }<br> <br>&#x2F;&#x2F; TODO 什么时候 修改 committed </p>
+<blockquote>
+<p>sendAppend 时没有修改<br>handle AppendEntriesRespinse 时修改了。<br><a target="_blank" rel="noopener" href="https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/log.go">https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/log.go</a></p>
+</blockquote>
+<p>&#x2F;&#x2F; TODO 怎么处理 新 leader 中未 commit 的部分<br>？从当前的逻辑来看，只有 当前 term 也产生 log 时 才会顺便更新前面的log</p>
+<p>&#x2F;&#x2F; TODO 第一次收到 Lead 的消息时，需要进怎么样的处理</p>
+<p>&#x2F;&#x2F; TODO noop Entry 会发送吗，</p>
+<p>&#x2F;&#x2F; TODO r.Prs[r.id].Match 是  handlePropose 时修改。</p>
+<p>TODO  搞清楚  Next 和 Match 之间的关系。<br>TODO 快照的同步逻辑</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/raft.go#L967">https://github.com/LX-676655103/Tinykv-2021/blob/course/raft/raft.go#L967</a><br><a target="_blank" rel="noopener" href="https://github.com/sakura-ysy/TinyKV-2022-doc/">https://github.com/sakura-ysy/TinyKV-2022-doc/</a></p>
+<p><a target="_blank" rel="noopener" href="https://chenyunong.com/2021/08/04/TinyKV-Project2/">https://chenyunong.com/2021/08/04/TinyKV-Project2/</a><br><a target="_blank" rel="noopener" href="https://www.inlighting.org/archives/tinykv-project2">https://www.inlighting.org/archives/tinykv-project2</a></p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://xinka.vercel.app/2024/04/23/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/TinyKV/TinyKV%20%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://xinka.vercel.app/2024/04/23/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/TinyKV/TinyKV%20%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/";
+            const title         = "「」";
+            const excerpt       = `Project 1Project 2Project 2 整体架构Project 2AProject 2A 整体架构本部分实现基础的 Raft 算法，且不需要考虑快照操作。我们共需要实现三个模块，分别为 RawNode、Raft 和 R...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-22T02:39:45.960Z" itemprop="dateModified">最后编辑：2024-04-22</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" (无标题)" href="/2024/04/23/项目经历/MimaPJ/MMPJ 日志/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" (无标题)" href="/2024/04/23/项目经历/TinyKV/Raft 协议/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">生于尘埃，溺于人海，死于理想的高台</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                98
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                1
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/excalidraw/" style="font-size: 0.6em;">excalidraw</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/23/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/"><i class="fa  fa-book"></i> Englislearning</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/23/hello-world/"><i class="fa  fa-book"></i> Hello Worldaaaaaaa</a>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 心咖 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by dreamin.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
